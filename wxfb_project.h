@@ -23,12 +23,10 @@
 #include <wx/frame.h>
 #include <wx/menu.h>
 #include <wx/toolbar.h>
-<<<<<<< HEAD
 #include <wx/listbox.h>
-=======
 #include <wx/spinctrl.h>
 #include <wx/textctrl.h>
->>>>>>> a6663785eedf04ec3707cca82d4cf5e818cd47e6
+#include <wx/checklst.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -69,7 +67,6 @@ class Ventana_partida : public wxFrame
 		wxToolBar* m_toolBar4;
 		wxToolBarToolBase* m_tool1;
 		wxToolBarToolBase* m_tool2;
-<<<<<<< HEAD
 		wxStaticText* m_staticText7;
 		wxStaticText* m_staticText5;
 		wxListBox* m_listBox1;
@@ -79,8 +76,6 @@ class Ventana_partida : public wxFrame
 		wxButton* m_button8;
 		wxButton* m_button71;
 		wxButton* m_button72;
-=======
->>>>>>> a6663785eedf04ec3707cca82d4cf5e818cd47e6
 
 	public:
 
@@ -134,11 +129,15 @@ class Ventana_personaje : public wxFrame
 		wxStaticText* m_staticText872;
 		wxStaticText* m_staticText972;
 		wxTextCtrl* m_textCtrl2;
+		wxButton* m_button7;
 		wxButton* m_button4;
+		wxStaticText* m_staticText32;
+		wxCheckListBox* m_checkList1;
+		wxButton* m_button6;
 
 	public:
 
-		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 590,739 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 555,688 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_personaje();
 
