@@ -122,10 +122,6 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer23;
 	bSizer23 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText7 = new wxStaticText( this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText7->Wrap( -1 );
-	bSizer23->Add( m_staticText7, 1, wxALL|wxEXPAND, 5 );
-
 	wxBoxSizer* bSizer22;
 	bSizer22 = new wxBoxSizer( wxHORIZONTAL );
 
@@ -172,6 +168,18 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	m_listBox1->Append( wxT("Personaje 12") );
 	bSizer14->Add( m_listBox1, 1, wxEXPAND|wxALL, 5 );
 
+	wxBoxSizer* bSizer48;
+	bSizer48 = new wxBoxSizer( wxVERTICAL );
+
+	m_button7 = new wxButton( this, wxID_ANY, wxT("Crear nuevo personaje"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer48->Add( m_button7, 0, wxALL|wxEXPAND, 5 );
+
+	m_button8 = new wxButton( this, wxID_ANY, wxT("Importar personaje existente"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer48->Add( m_button8, 0, wxALL|wxEXPAND, 5 );
+
+
+	bSizer14->Add( bSizer48, 1, 0, 5 );
+
 
 	bSizer11->Add( bSizer14, 1, wxEXPAND, 5 );
 
@@ -207,35 +215,29 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	m_listBox2->Append( wxT("Item 8") );
 	bSizer16->Add( m_listBox2, 1, wxALL|wxEXPAND, 5 );
 
+	wxBoxSizer* bSizer49;
+	bSizer49 = new wxBoxSizer( wxVERTICAL );
+
+	m_button71 = new wxButton( this, wxID_ANY, wxT("Crear nuevo item"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer49->Add( m_button71, 0, wxALL|wxEXPAND, 5 );
+
+	m_button72 = new wxButton( this, wxID_ANY, wxT("Importar item existente"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer49->Add( m_button72, 0, wxALL|wxEXPAND, 5 );
+
+
+	bSizer16->Add( bSizer49, 1, wxEXPAND, 5 );
+
 
 	bSizer11->Add( bSizer16, 1, wxEXPAND, 5 );
 
 
 	bSizer22->Add( bSizer11, 1, wxEXPAND, 5 );
 
-	wxBoxSizer* bSizer12;
-	bSizer12 = new wxBoxSizer( wxVERTICAL );
-
-	m_button7 = new wxButton( this, wxID_ANY, wxT("Crear nuevo personaje"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer12->Add( m_button7, 0, wxALL, 5 );
-
-	m_button8 = new wxButton( this, wxID_ANY, wxT("Importar personaje existente"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer12->Add( m_button8, 0, wxALL, 5 );
-
-	m_button71 = new wxButton( this, wxID_ANY, wxT("Crear nuevo item"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer12->Add( m_button71, 0, wxALL, 5 );
-
-	m_button72 = new wxButton( this, wxID_ANY, wxT("Importar item existente"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer12->Add( m_button72, 0, wxALL, 5 );
-
-
-	bSizer22->Add( bSizer12, 1, wxEXPAND, 5 );
-
 
 	bSizer23->Add( bSizer22, 1, wxEXPAND, 5 );
 
 
-	bSizer10->Add( bSizer23, 0, 0, 5 );
+	bSizer10->Add( bSizer23, 1, wxEXPAND, 5 );
 
 
 	this->SetSizer( bSizer10 );
