@@ -107,6 +107,139 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 
 	this->SetMenuBar( m_menubar1 );
 
+	m_toolBar4 = this->CreateToolBar( wxTB_HORIZONTAL, wxID_ANY );
+	m_toolBar4->SetBackgroundColour( wxColour( 224, 224, 224 ) );
+
+	m_tool1 = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxNullBitmap, wxNullBitmap, wxITEM_NORMAL, wxT("Simulación de ataque"), wxEmptyString, NULL );
+
+	m_tool2 = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxNullBitmap, wxNullBitmap, wxITEM_NORMAL, wxT("Dado virtual"), wxEmptyString, NULL );
+
+	m_toolBar4->Realize();
+
+	wxBoxSizer* bSizer10;
+	bSizer10 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer23;
+	bSizer23 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText7 = new wxStaticText( this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText7->Wrap( -1 );
+	bSizer23->Add( m_staticText7, 1, wxALL|wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer22;
+	bSizer22 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer11;
+	bSizer11 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer13;
+	bSizer13 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText5 = new wxStaticText( this, wxID_ANY, wxT("Lista de Personajes"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText5->Wrap( -1 );
+	bSizer13->Add( m_staticText5, 0, wxTOP|wxRIGHT|wxLEFT, 5 );
+
+
+	bSizer11->Add( bSizer13, 0, 0, 5 );
+
+	wxBoxSizer* bSizer14;
+	bSizer14 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_listBox1 = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
+	m_listBox1->Append( wxT("Personaje 1") );
+	m_listBox1->Append( wxT("Personaje 2") );
+	m_listBox1->Append( wxT("Personaje 3") );
+	m_listBox1->Append( wxT("Personaje 4") );
+	m_listBox1->Append( wxT("Personaje 5") );
+	m_listBox1->Append( wxT("Personaje 6") );
+	m_listBox1->Append( wxT("Personaje 7") );
+	m_listBox1->Append( wxT("Personaje 8") );
+	m_listBox1->Append( wxT("Personaje 9") );
+	m_listBox1->Append( wxT("Personaje 10") );
+	m_listBox1->Append( wxT("Personaje 11") );
+	m_listBox1->Append( wxT("Personaje 12") );
+	m_listBox1->Append( wxT("Personaje 1") );
+	m_listBox1->Append( wxT("Personaje 2") );
+	m_listBox1->Append( wxT("Personaje 3") );
+	m_listBox1->Append( wxT("Personaje 4") );
+	m_listBox1->Append( wxT("Personaje 5") );
+	m_listBox1->Append( wxT("Personaje 6") );
+	m_listBox1->Append( wxT("Personaje 7") );
+	m_listBox1->Append( wxT("Personaje 8") );
+	m_listBox1->Append( wxT("Personaje 9") );
+	m_listBox1->Append( wxT("Personaje 10") );
+	m_listBox1->Append( wxT("Personaje 11") );
+	m_listBox1->Append( wxT("Personaje 12") );
+	bSizer14->Add( m_listBox1, 1, wxEXPAND|wxALL, 5 );
+
+
+	bSizer11->Add( bSizer14, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer15;
+	bSizer15 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText6 = new wxStaticText( this, wxID_ANY, wxT("Lista de Items"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText6->Wrap( -1 );
+	bSizer15->Add( m_staticText6, 0, wxTOP|wxRIGHT|wxLEFT, 5 );
+
+
+	bSizer11->Add( bSizer15, 0, 0, 5 );
+
+	wxBoxSizer* bSizer16;
+	bSizer16 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_listBox2 = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
+	m_listBox2->Append( wxT("Item 1") );
+	m_listBox2->Append( wxT("Item 2") );
+	m_listBox2->Append( wxT("Item 3") );
+	m_listBox2->Append( wxT("Item 4") );
+	m_listBox2->Append( wxT("Item 5") );
+	m_listBox2->Append( wxT("Item 6") );
+	m_listBox2->Append( wxT("Item 7") );
+	m_listBox2->Append( wxT("Item 8") );
+	m_listBox2->Append( wxT("Item 1") );
+	m_listBox2->Append( wxT("Item 2") );
+	m_listBox2->Append( wxT("Item 3") );
+	m_listBox2->Append( wxT("Item 4") );
+	m_listBox2->Append( wxT("Item 5") );
+	m_listBox2->Append( wxT("Item 6") );
+	m_listBox2->Append( wxT("Item 7") );
+	m_listBox2->Append( wxT("Item 8") );
+	bSizer16->Add( m_listBox2, 1, wxALL|wxEXPAND, 5 );
+
+
+	bSizer11->Add( bSizer16, 1, wxEXPAND, 5 );
+
+
+	bSizer22->Add( bSizer11, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer12;
+	bSizer12 = new wxBoxSizer( wxVERTICAL );
+
+	m_button7 = new wxButton( this, wxID_ANY, wxT("Crear nuevo personaje"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer12->Add( m_button7, 0, wxALL, 5 );
+
+	m_button8 = new wxButton( this, wxID_ANY, wxT("Importar personaje existente"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer12->Add( m_button8, 0, wxALL, 5 );
+
+	m_button71 = new wxButton( this, wxID_ANY, wxT("Crear nuevo item"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer12->Add( m_button71, 0, wxALL, 5 );
+
+	m_button72 = new wxButton( this, wxID_ANY, wxT("Importar item existente"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer12->Add( m_button72, 0, wxALL, 5 );
+
+
+	bSizer22->Add( bSizer12, 1, wxEXPAND, 5 );
+
+
+	bSizer23->Add( bSizer22, 1, wxEXPAND, 5 );
+
+
+	bSizer10->Add( bSizer23, 0, 0, 5 );
+
+
+	this->SetSizer( bSizer10 );
+	this->Layout();
 
 	this->Centre( wxBOTH );
 }
