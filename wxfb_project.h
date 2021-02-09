@@ -22,6 +22,9 @@
 #include <wx/button.h>
 #include <wx/frame.h>
 #include <wx/menu.h>
+#include <wx/toolbar.h>
+#include <wx/spinctrl.h>
+#include <wx/textctrl.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -59,6 +62,9 @@ class Ventana_partida : public wxFrame
 		wxMenuBar* m_menubar1;
 		wxMenu* m_menu1;
 		wxMenu* m_menu2;
+		wxToolBar* m_toolBar4;
+		wxToolBarToolBase* m_tool1;
+		wxToolBarToolBase* m_tool2;
 
 	public:
 
@@ -76,13 +82,47 @@ class Ventana_personaje : public wxFrame
 	private:
 
 	protected:
+		wxStaticText* m_Personajename;
 		wxStaticText* m_staticText3;
-		wxStaticText* m_staticText4;
+		wxStaticText* m_Nivel;
+		wxSpinCtrl* m_spinCtrl1;
+		wxStaticText* m_staticText6;
+		wxStaticText* m_staticText7;
+		wxStaticText* m_staticText8;
+		wxSpinCtrlDouble* m_spinCtrlDouble1;
+		wxStaticText* m_staticText9;
+		wxStaticText* m_staticText81;
+		wxSpinCtrlDouble* m_spinCtrlDouble11;
+		wxStaticText* m_staticText91;
+		wxStaticText* m_staticText82;
+		wxSpinCtrlDouble* m_spinCtrlDouble12;
+		wxStaticText* m_staticText92;
+		wxStaticText* m_staticText83;
+		wxSpinCtrlDouble* m_spinCtrlDouble13;
+		wxStaticText* m_staticText93;
+		wxStaticText* m_staticText84;
+		wxSpinCtrlDouble* m_spinCtrlDouble14;
+		wxStaticText* m_staticText94;
+		wxStaticText* m_staticText85;
+		wxSpinCtrlDouble* m_spinCtrlDouble15;
+		wxStaticText* m_staticText95;
+		wxStaticText* m_staticText86;
+		wxSpinCtrlDouble* m_spinCtrlDouble16;
+		wxStaticText* m_staticText96;
+		wxStaticText* m_staticText87;
+		wxStaticText* m_staticText97;
+		wxStaticText* m_staticText871;
+		wxStaticText* m_staticText971;
+		wxStaticText* m_staticText8721;
+		wxStaticText* m_staticText9721;
+		wxStaticText* m_staticText872;
+		wxStaticText* m_staticText972;
+		wxTextCtrl* m_textCtrl2;
 		wxButton* m_button4;
 
 	public:
 
-		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 590,634 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 590,739 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_personaje();
 
