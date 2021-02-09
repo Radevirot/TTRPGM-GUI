@@ -2,7 +2,7 @@
 #define VPARTIDA_H
 #include "wxfb_project.h"
 
-class vPartida : public MyFrame3 {
+class vPartida : public Ventana_partida {
 	
 private:
 	

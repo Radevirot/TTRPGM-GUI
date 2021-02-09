@@ -76,15 +76,65 @@ Ventana_principal::~Ventana_principal()
 {
 }
 
-MyFrame3::MyFrame3( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+
+	m_menubar1 = new wxMenuBar( 0 );
+	m_menu1 = new wxMenu();
+	m_menu2 = new wxMenu();
+	wxMenuItem* m_menu2Item = new wxMenuItem( m_menu1, wxID_ANY, wxT("Partida"), wxEmptyString, wxITEM_NORMAL, m_menu2 );
+	wxMenuItem* m_menuItem1;
+	m_menuItem1 = new wxMenuItem( m_menu2, wxID_ANY, wxString( wxT("Guardar") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu2->Append( m_menuItem1 );
+
+	wxMenuItem* m_menuItem2;
+	m_menuItem2 = new wxMenuItem( m_menu2, wxID_ANY, wxString( wxT("Nueva") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu2->Append( m_menuItem2 );
+
+	wxMenuItem* m_menuItem3;
+	m_menuItem3 = new wxMenuItem( m_menu2, wxID_ANY, wxString( wxT("Cargar") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu2->Append( m_menuItem3 );
+
+	m_menu1->Append( m_menu2Item );
+
+	wxMenuItem* m_menuItem7;
+	m_menuItem7 = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Ayuda") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu1->Append( m_menuItem7 );
+
+	m_menubar1->Append( m_menu1, wxT("Opciones") );
+
+	this->SetMenuBar( m_menubar1 );
 
 
 	this->Centre( wxBOTH );
 }
 
-MyFrame3::~MyFrame3()
+Ventana_partida::~Ventana_partida()
+{
+}
+
+Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+
+	this->Centre( wxBOTH );
+}
+
+Ventana_personaje::~Ventana_personaje()
+{
+}
+
+Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+
+	this->Centre( wxBOTH );
+}
+
+Ventana_item::~Ventana_item()
 {
 }

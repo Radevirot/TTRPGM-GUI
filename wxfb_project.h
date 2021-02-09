@@ -21,6 +21,7 @@
 #include <wx/icon.h>
 #include <wx/button.h>
 #include <wx/frame.h>
+#include <wx/menu.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -48,9 +49,29 @@ class Ventana_principal : public wxFrame
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class MyFrame3
+/// Class Ventana_partida
 ///////////////////////////////////////////////////////////////////////////////
-class MyFrame3 : public wxFrame
+class Ventana_partida : public wxFrame
+{
+	private:
+
+	protected:
+		wxMenuBar* m_menubar1;
+		wxMenu* m_menu1;
+		wxMenu* m_menu2;
+
+	public:
+
+		Ventana_partida( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~Ventana_partida();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class Ventana_personaje
+///////////////////////////////////////////////////////////////////////////////
+class Ventana_personaje : public wxFrame
 {
 	private:
 
@@ -58,9 +79,26 @@ class MyFrame3 : public wxFrame
 
 	public:
 
-		MyFrame3( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
-		~MyFrame3();
+		~Ventana_personaje();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class Ventana_item
+///////////////////////////////////////////////////////////////////////////////
+class Ventana_item : public wxFrame
+{
+	private:
+
+	protected:
+
+	public:
+
+		Ventana_item( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~Ventana_item();
 
 };
 
