@@ -163,11 +163,14 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer13;
 	bSizer13 = new wxBoxSizer( wxHORIZONTAL );
 
+
+	bSizer13->Add( 50, 0, 0, 0, 5 );
+
 	m_staticText6 = new wxStaticText( this, wxID_ANY, wxT("Stats base"), wxDefaultPosition, wxSize( -1,-1 ), 0 );
 	m_staticText6->Wrap( -1 );
 	bSizer13->Add( m_staticText6, 1, wxALL, 5 );
 
-	m_staticText7 = new wxStaticText( this, wxID_ANY, wxT("  Total"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText7 = new wxStaticText( this, wxID_ANY, wxT("Total"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText7->Wrap( -1 );
 	bSizer13->Add( m_staticText7, 1, wxALL, 5 );
 
@@ -180,7 +183,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer36;
 	bSizer36 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText8 = new wxStaticText( this, wxID_ANY, wxT("HP  "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText8 = new wxStaticText( this, wxID_ANY, wxT("PV  "), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText8->Wrap( -1 );
 	bSizer36->Add( m_staticText8, 0, wxALL, 5 );
 
@@ -348,7 +351,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer31;
 	bSizer31 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText87 = new wxStaticText( this, wxID_ANY, wxT("DMG  "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText87 = new wxStaticText( this, wxID_ANY, wxT("DÑ     "), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText87->Wrap( -1 );
 	bSizer31->Add( m_staticText87, 0, wxALL, 5 );
 
@@ -388,7 +391,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer331;
 	bSizer331 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText8721 = new wxStaticText( this, wxID_ANY, wxT("ACC    "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText8721 = new wxStaticText( this, wxID_ANY, wxT("PNT    "), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText8721->Wrap( -1 );
 	bSizer331->Add( m_staticText8721, 0, wxALL, 5 );
 
@@ -440,14 +443,41 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer11;
 	bSizer11 = new wxBoxSizer( wxHORIZONTAL );
 
-
-	bSizer11->Add( 200, 0, 0, wxEXPAND, 5 );
+	m_button7 = new wxButton( this, wxID_ANY, wxT("Aplicar cambios"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer11->Add( m_button7, 0, wxALL, 5 );
 
 	m_button4 = new wxButton( this, wxID_ANY, wxT("Exportar"), wxDefaultPosition, wxSize( -1,-1 ), 0 );
-	bSizer11->Add( m_button4, 0, wxALL, 5 );
+	bSizer11->Add( m_button4, 0, wxALL|wxEXPAND, 5 );
 
 
-	bSizer9->Add( bSizer11, 0, wxEXPAND, 5 );
+	bSizer9->Add( bSizer11, 0, wxALIGN_RIGHT, 5 );
+
+
+	bSizer9->Add( 0, 200, 0, 0, 5 );
+
+	m_staticText32 = new wxStaticText( this, wxID_ANY, wxT("Inventario"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText32->Wrap( -1 );
+	bSizer9->Add( m_staticText32, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer41;
+	bSizer41 = new wxBoxSizer( wxVERTICAL );
+
+	wxString m_checkList1Choices[] = { wxT("Pala"), wxT("Pico"), wxT("Espada del rey demonio") };
+	int m_checkList1NChoices = sizeof( m_checkList1Choices ) / sizeof( wxString );
+	m_checkList1 = new wxCheckListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_checkList1NChoices, m_checkList1Choices, 0 );
+	bSizer41->Add( m_checkList1, 1, wxALL|wxEXPAND, 5 );
+
+
+	bSizer9->Add( bSizer41, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer40;
+	bSizer40 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_button6 = new wxButton( this, wxID_ANY, wxT("Agregar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer40->Add( m_button6, 0, wxALL, 5 );
+
+
+	bSizer9->Add( bSizer40, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	bSizer7->Add( bSizer9, 1, wxEXPAND, 5 );

@@ -25,6 +25,7 @@
 #include <wx/toolbar.h>
 #include <wx/spinctrl.h>
 #include <wx/textctrl.h>
+#include <wx/checklst.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -118,11 +119,15 @@ class Ventana_personaje : public wxFrame
 		wxStaticText* m_staticText872;
 		wxStaticText* m_staticText972;
 		wxTextCtrl* m_textCtrl2;
+		wxButton* m_button7;
 		wxButton* m_button4;
+		wxStaticText* m_staticText32;
+		wxCheckListBox* m_checkList1;
+		wxButton* m_button6;
 
 	public:
 
-		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 590,739 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 555,688 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_personaje();
 
