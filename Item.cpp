@@ -3,7 +3,7 @@
 
 Item::Item(){
 	/*
-	Constructor que crea un item vacio, redimensiona su vector de stats a 11.
+	Constructor que crea un item vacio,  redimensiona su vector de stats a 11.
 	*/
 	IStats.resize(11);
 }
