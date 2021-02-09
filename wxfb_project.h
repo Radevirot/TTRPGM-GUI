@@ -76,10 +76,13 @@ class Ventana_personaje : public wxFrame
 	private:
 
 	protected:
+		wxStaticText* m_staticText3;
+		wxStaticText* m_staticText4;
+		wxButton* m_button4;
 
 	public:
 
-		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 590,634 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_personaje();
 
