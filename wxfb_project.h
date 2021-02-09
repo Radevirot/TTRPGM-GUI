@@ -78,7 +78,7 @@ class Ventana_partida : public wxFrame
 
 	public:
 
-		Ventana_partida( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: -Nombre de partida-"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 545,654 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_partida( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: -Nombre de partida-"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 586,604 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_partida();
 
