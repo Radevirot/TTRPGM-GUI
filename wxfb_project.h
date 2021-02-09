@@ -67,19 +67,18 @@ class Ventana_partida : public wxFrame
 		wxToolBar* m_toolBar4;
 		wxToolBarToolBase* m_tool1;
 		wxToolBarToolBase* m_tool2;
-		wxStaticText* m_staticText7;
 		wxStaticText* m_staticText5;
 		wxListBox* m_listBox1;
-		wxStaticText* m_staticText6;
-		wxListBox* m_listBox2;
 		wxButton* m_button7;
 		wxButton* m_button8;
+		wxStaticText* m_staticText6;
+		wxListBox* m_listBox2;
 		wxButton* m_button71;
 		wxButton* m_button72;
 
 	public:
 
-		Ventana_partida( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: -Nombre de partida-"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 586,604 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_partida( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: -Nombre de partida-"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 545,654 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_partida();
 
