@@ -454,7 +454,7 @@
                 </object>
             </object>
         </object>
-        <object class="Frame" expanded="1">
+        <object class="Frame" expanded="0">
             <property name="aui_managed">0</property>
             <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
             <property name="bg">wxSYS_COLOUR_BTNFACE</property>
@@ -481,7 +481,7 @@
             <property name="window_name"></property>
             <property name="window_style">wxTAB_TRAVERSAL</property>
             <property name="xrc_skip_sizer">1</property>
-            <object class="wxMenuBar" expanded="1">
+            <object class="wxMenuBar" expanded="0">
                 <property name="bg"></property>
                 <property name="context_help"></property>
                 <property name="context_menu">1</property>
@@ -503,16 +503,16 @@
                 <property name="window_extra_style"></property>
                 <property name="window_name"></property>
                 <property name="window_style"></property>
-                <object class="wxMenu" expanded="1">
+                <object class="wxMenu" expanded="0">
                     <property name="label">Opciones</property>
                     <property name="name">m_menu1</property>
                     <property name="permission">protected</property>
-                    <object class="submenu" expanded="1">
+                    <object class="submenu" expanded="0">
                         <property name="bitmap"></property>
                         <property name="label">Partida</property>
                         <property name="name">m_menu2</property>
                         <property name="permission">protected</property>
-                        <object class="wxMenuItem" expanded="1">
+                        <object class="wxMenuItem" expanded="0">
                             <property name="bitmap"></property>
                             <property name="checked">0</property>
                             <property name="enabled">1</property>
@@ -525,7 +525,7 @@
                             <property name="shortcut"></property>
                             <property name="unchecked_bitmap"></property>
                         </object>
-                        <object class="wxMenuItem" expanded="1">
+                        <object class="wxMenuItem" expanded="0">
                             <property name="bitmap"></property>
                             <property name="checked">0</property>
                             <property name="enabled">1</property>
@@ -538,7 +538,7 @@
                             <property name="shortcut"></property>
                             <property name="unchecked_bitmap"></property>
                         </object>
-                        <object class="wxMenuItem" expanded="1">
+                        <object class="wxMenuItem" expanded="0">
                             <property name="bitmap"></property>
                             <property name="checked">0</property>
                             <property name="enabled">1</property>
@@ -552,7 +552,7 @@
                             <property name="unchecked_bitmap"></property>
                         </object>
                     </object>
-                    <object class="wxMenuItem" expanded="1">
+                    <object class="wxMenuItem" expanded="0">
                         <property name="bitmap"></property>
                         <property name="checked">0</property>
                         <property name="enabled">1</property>
@@ -567,7 +567,7 @@
                     </object>
                 </object>
             </object>
-            <object class="wxToolBar" expanded="1">
+            <object class="wxToolBar" expanded="0">
                 <property name="BottomDockable">1</property>
                 <property name="LeftDockable">1</property>
                 <property name="RightDockable">1</property>
@@ -623,7 +623,7 @@
                 <property name="window_extra_style"></property>
                 <property name="window_name"></property>
                 <property name="window_style"></property>
-                <object class="tool" expanded="1">
+                <object class="tool" expanded="0">
                     <property name="bitmap"></property>
                     <property name="context_menu">0</property>
                     <property name="id">wxID_ANY</property>
@@ -634,7 +634,7 @@
                     <property name="statusbar"></property>
                     <property name="tooltip">Simulación de ataque</property>
                 </object>
-                <object class="tool" expanded="1">
+                <object class="tool" expanded="0">
                     <property name="bitmap">Load From Resource; </property>
                     <property name="context_menu">0</property>
                     <property name="id">wxID_ANY</property>
@@ -1317,7 +1317,7 @@
             <property name="minimum_size"></property>
             <property name="name">Ventana_personaje</property>
             <property name="pos"></property>
-            <property name="size">555,688</property>
+            <property name="size">587,673</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
             <property name="title">TTRPGM: Personaje -Nombre de personaje-</property>
@@ -1729,7 +1729,7 @@
                                                 <property name="gripper">0</property>
                                                 <property name="hidden">0</property>
                                                 <property name="id">wxID_ANY</property>
-                                                <property name="label">    Total</property>
+                                                <property name="label"> Total</property>
                                                 <property name="markup">0</property>
                                                 <property name="max_size"></property>
                                                 <property name="maximize_button">0</property>

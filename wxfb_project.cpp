@@ -310,7 +310,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer487;
 	bSizer487 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText93 = new wxStaticText( this, wxID_ANY, wxT("    Total"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText93 = new wxStaticText( this, wxID_ANY, wxT(" Total"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText93->Wrap( -1 );
 	bSizer487->Add( m_staticText93, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
