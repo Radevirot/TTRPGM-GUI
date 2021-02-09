@@ -1,12 +1,11 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version May 26 2017)
+// C++ code generated with wxFormBuilder (version Oct 26 2018)
 // http://www.wxformbuilder.org/
 //
-// PLEASE DO "NOT" EDIT THIS FILE!
+// PLEASE DO *NOT* EDIT THIS FILE!
 ///////////////////////////////////////////////////////////////////////////
 
-#ifndef __WXFB_PROJECT_H__
-#define __WXFB_PROJECT_H__
+#pragma once
 
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
@@ -16,6 +15,9 @@
 #include <wx/font.h>
 #include <wx/colour.h>
 #include <wx/settings.h>
+#include <wx/bitmap.h>
+#include <wx/image.h>
+#include <wx/icon.h>
 #include <wx/button.h>
 #include <wx/sizer.h>
 #include <wx/frame.h>
@@ -26,24 +28,23 @@
 ///////////////////////////////////////////////////////////////////////////////
 /// Class wxfbExample
 ///////////////////////////////////////////////////////////////////////////////
-class wxfbExample : public wxFrame 
+class wxfbExample : public wxFrame
 {
 	private:
-	
+
 	protected:
 		wxStaticText* m_staticText1;
 		wxButton* m_button1;
-		
+
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnButtonClose( wxCommandEvent& event ) { event.Skip(); }
-		
-	
+
+
 	public:
-		
+
 		wxfbExample( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
-		
+
 		~wxfbExample();
-	
+
 };
 
-#endif //__WXFB_PROJECT_H__
