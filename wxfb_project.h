@@ -97,29 +97,29 @@ class Ventana_personaje : public wxFrame
 		wxStaticText* m_staticText3;
 		wxStaticText* m_Nivel;
 		wxSpinCtrl* m_spinCtrl1;
-		wxStaticText* m_staticText6;
-		wxStaticText* m_staticText7;
+		wxStaticText* m_staticText94;
+		wxStaticText* m_staticText93;
 		wxStaticText* m_staticText8;
 		wxSpinCtrlDouble* m_spinCtrlDouble1;
 		wxStaticText* m_staticText9;
 		wxStaticText* m_staticText81;
 		wxSpinCtrlDouble* m_spinCtrlDouble11;
-		wxStaticText* m_staticText91;
+		wxStaticText* m_staticText98;
 		wxStaticText* m_staticText82;
 		wxSpinCtrlDouble* m_spinCtrlDouble12;
-		wxStaticText* m_staticText92;
+		wxStaticText* m_staticText91;
 		wxStaticText* m_staticText83;
 		wxSpinCtrlDouble* m_spinCtrlDouble13;
-		wxStaticText* m_staticText93;
+		wxStaticText* m_staticText92;
 		wxStaticText* m_staticText84;
 		wxSpinCtrlDouble* m_spinCtrlDouble14;
-		wxStaticText* m_staticText94;
+		wxStaticText* m_staticText99;
 		wxStaticText* m_staticText85;
 		wxSpinCtrlDouble* m_spinCtrlDouble15;
-		wxStaticText* m_staticText95;
+		wxStaticText* m_staticText910;
 		wxStaticText* m_staticText86;
 		wxSpinCtrlDouble* m_spinCtrlDouble16;
-		wxStaticText* m_staticText96;
+		wxStaticText* m_staticText911;
 		wxStaticText* m_staticText87;
 		wxStaticText* m_staticText97;
 		wxStaticText* m_staticText871;
@@ -128,6 +128,7 @@ class Ventana_personaje : public wxFrame
 		wxStaticText* m_staticText9721;
 		wxStaticText* m_staticText872;
 		wxStaticText* m_staticText972;
+		wxStaticText* m_staticText43;
 		wxTextCtrl* m_textCtrl2;
 		wxButton* m_button7;
 		wxButton* m_button4;
@@ -137,7 +138,7 @@ class Ventana_personaje : public wxFrame
 
 	public:
 
-		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 555,688 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Personaje -Nombre de personaje-"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 555,688 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_personaje();
 
