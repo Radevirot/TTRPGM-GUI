@@ -96,6 +96,8 @@ class Ventana_personaje : public wxFrame
 		wxTextCtrl* m_textCtrl4;
 		wxStaticText* m_Nivel;
 		wxSpinCtrl* m_spinCtrl1;
+		wxStaticText* m_Nivel1;
+		wxSpinCtrlDouble* m_spinCtrlDouble17;
 		wxStaticText* m_staticText94;
 		wxStaticText* m_staticText93;
 		wxStaticText* m_staticText8;
@@ -137,7 +139,7 @@ class Ventana_personaje : public wxFrame
 
 	public:
 
-		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Personaje -Nombre de personaje-"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 587,673 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Personaje -Nombre de personaje-"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 589,734 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_personaje();
 
