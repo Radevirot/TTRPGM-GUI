@@ -1235,10 +1235,135 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	wxBoxSizer* bSizer162;
 	bSizer162 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticline2 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
-	m_staticline2->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+	wxBoxSizer* bSizer197;
+	bSizer197 = new wxBoxSizer( wxHORIZONTAL );
 
-	bSizer162->Add( m_staticline2, 0, wxEXPAND | wxALL, 5 );
+	wxBoxSizer* bSizer187;
+	bSizer187 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText96 = new wxStaticText( this, wxID_ANY, wxT("Lista de dados creados"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText96->Wrap( -1 );
+	m_staticText96->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+
+	bSizer187->Add( m_staticText96, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
+
+	m_listBox3 = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
+	m_listBox3->Append( wxT("D20") );
+	bSizer187->Add( m_listBox3, 1, wxALL|wxEXPAND, 5 );
+
+
+	bSizer197->Add( bSizer187, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer188;
+	bSizer188 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText97 = new wxStaticText( this, wxID_ANY, wxT("Creación de dados"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText97->Wrap( -1 );
+	m_staticText97->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+
+	bSizer188->Add( m_staticText97, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer189;
+	bSizer189 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText98 = new wxStaticText( this, wxID_ANY, wxT("Nombre:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText98->Wrap( -1 );
+	bSizer189->Add( m_staticText98, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_textCtrl8 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	#ifdef __WXGTK__
+	if ( !m_textCtrl8->HasFlag( wxTE_MULTILINE ) )
+	{
+	m_textCtrl8->SetMaxLength( 16 );
+	}
+	#else
+	m_textCtrl8->SetMaxLength( 16 );
+	#endif
+	bSizer189->Add( m_textCtrl8, 1, wxALL, 5 );
+
+
+	bSizer188->Add( bSizer189, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer1891;
+	bSizer1891 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText981 = new wxStaticText( this, wxID_ANY, wxT("Valor mínimo "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText981->Wrap( -1 );
+	bSizer1891->Add( m_staticText981, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_spinCtrl6 = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 0, 0 );
+	bSizer1891->Add( m_spinCtrl6, 0, wxALL, 5 );
+
+
+	bSizer188->Add( bSizer1891, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer1892;
+	bSizer1892 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText982 = new wxStaticText( this, wxID_ANY, wxT("Valor máximo"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText982->Wrap( -1 );
+	bSizer1892->Add( m_staticText982, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_spinCtrl7 = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 10000, 0 );
+	bSizer1892->Add( m_spinCtrl7, 0, wxALL, 5 );
+
+
+	bSizer188->Add( bSizer1892, 0, wxEXPAND, 5 );
+
+	m_button20 = new wxButton( this, wxID_ANY, wxT("Agregar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer188->Add( m_button20, 0, wxALL, 5 );
+
+	m_staticline20 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	bSizer188->Add( m_staticline20, 0, wxEXPAND | wxALL, 5 );
+
+	m_button21 = new wxButton( this, wxID_ANY, wxT("Arrojar seleccionado"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer188->Add( m_button21, 0, wxALL|wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer195;
+	bSizer195 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText102 = new wxStaticText( this, wxID_ANY, wxT("Valor obtenido:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText102->Wrap( -1 );
+	bSizer195->Add( m_staticText102, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_staticText103 = new wxStaticText( this, wxID_ANY, wxT("20"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText103->Wrap( -1 );
+	m_staticText103->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+
+	bSizer195->Add( m_staticText103, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer188->Add( bSizer195, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer197->Add( bSizer188, 1, wxEXPAND, 5 );
+
+
+	bSizer162->Add( bSizer197, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer198;
+	bSizer198 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer199;
+	bSizer199 = new wxBoxSizer( wxVERTICAL );
+
+	m_button19 = new wxButton( this, wxID_ANY, wxT("Borrar seleccionado"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer199->Add( m_button19, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
+
+
+	bSizer198->Add( bSizer199, 1, 0, 5 );
+
+	wxBoxSizer* bSizer196;
+	bSizer196 = new wxBoxSizer( wxVERTICAL );
+
+	m_button22 = new wxButton( this, wxID_ANY, wxT("Cerrar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer196->Add( m_button22, 0, wxALL|wxALIGN_RIGHT, 5 );
+
+
+	bSizer198->Add( bSizer196, 1, 0, 5 );
+
+
+	bSizer162->Add( bSizer198, 0, wxEXPAND, 5 );
 
 
 	this->SetSizer( bSizer162 );

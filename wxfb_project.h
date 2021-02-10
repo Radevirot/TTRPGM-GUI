@@ -212,11 +212,26 @@ class Ventana_dados : public wxFrame
 	private:
 
 	protected:
-		wxStaticLine* m_staticline2;
+		wxStaticText* m_staticText96;
+		wxListBox* m_listBox3;
+		wxStaticText* m_staticText97;
+		wxStaticText* m_staticText98;
+		wxTextCtrl* m_textCtrl8;
+		wxStaticText* m_staticText981;
+		wxSpinCtrl* m_spinCtrl6;
+		wxStaticText* m_staticText982;
+		wxSpinCtrl* m_spinCtrl7;
+		wxButton* m_button20;
+		wxStaticLine* m_staticline20;
+		wxButton* m_button21;
+		wxStaticText* m_staticText102;
+		wxStaticText* m_staticText103;
+		wxButton* m_button19;
+		wxButton* m_button22;
 
 	public:
 
-		Ventana_dados( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Dados virtuales"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_dados( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Dados virtuales"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 503,456 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_dados();
 
