@@ -24,8 +24,8 @@
 #include <wx/menu.h>
 #include <wx/toolbar.h>
 #include <wx/listbox.h>
-#include <wx/spinctrl.h>
 #include <wx/textctrl.h>
+#include <wx/spinctrl.h>
 #include <wx/checklst.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -93,7 +93,7 @@ class Ventana_personaje : public wxFrame
 
 	protected:
 		wxStaticText* m_Personajename;
-		wxStaticText* m_staticText3;
+		wxTextCtrl* m_textCtrl4;
 		wxStaticText* m_Nivel;
 		wxSpinCtrl* m_spinCtrl1;
 		wxStaticText* m_staticText94;
@@ -151,10 +151,43 @@ class Ventana_item : public wxFrame
 	private:
 
 	protected:
+		wxStaticText* m_Personajename;
+		wxTextCtrl* m_textCtrl7;
+		wxButton* m_button7;
+		wxButton* m_button4;
+		wxStaticText* m_Nivel;
+		wxSpinCtrl* m_spinCtrl1;
+		wxStaticText* m_staticText94;
+		wxStaticText* m_staticText87;
+		wxSpinCtrlDouble* m_spinCtrlDouble161;
+		wxStaticText* m_staticText871;
+		wxSpinCtrlDouble* m_spinCtrlDouble162;
+		wxStaticText* m_staticText8721;
+		wxSpinCtrlDouble* m_spinCtrlDouble163;
+		wxStaticText* m_staticText872;
+		wxSpinCtrlDouble* m_spinCtrlDouble164;
+		wxStaticText* m_staticText81;
+		wxSpinCtrlDouble* m_spinCtrlDouble11;
+		wxStaticText* m_staticText84;
+		wxSpinCtrlDouble* m_spinCtrlDouble14;
+		wxStaticText* m_staticText8;
+		wxSpinCtrlDouble* m_spinCtrlDouble1;
+		wxStaticText* m_staticText82;
+		wxSpinCtrlDouble* m_spinCtrlDouble12;
+		wxStaticText* m_staticText83;
+		wxSpinCtrlDouble* m_spinCtrlDouble13;
+		wxStaticText* m_staticText85;
+		wxSpinCtrlDouble* m_spinCtrlDouble15;
+		wxStaticText* m_staticText86;
+		wxSpinCtrlDouble* m_spinCtrlDouble16;
+		wxStaticText* m_staticText43;
+		wxTextCtrl* m_textCtrl2;
+		wxStaticText* m_staticText431;
+		wxTextCtrl* m_textCtrl21;
 
 	public:
 
-		Ventana_item( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_item( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 575,575 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_item();
 
