@@ -1,12 +1,12 @@
 #include <wx/image.h>
 #include "Application.h"
-#include "vPersonaje.h"
+#include "vDados.h"
 
 IMPLEMENT_APP(Application)
 
 bool Application::OnInit() {
 	wxInitAllImageHandlers();
-	vPersonaje *win = new vPersonaje(NULL);
+	vDados *win = new vDados(NULL);
 	win->Show();
 	return true;
 }

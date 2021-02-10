@@ -1230,6 +1230,8 @@ Ventana_item::~Ventana_item()
 Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("@Arial Unicode MS") ) );
+	this->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
 	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
 
 	wxBoxSizer* bSizer162;
@@ -1257,11 +1259,11 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	wxBoxSizer* bSizer188;
 	bSizer188 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText97 = new wxStaticText( this, wxID_ANY, wxT("Creación de dados"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText97->Wrap( -1 );
-	m_staticText97->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+	m_staticText105 = new wxStaticText( this, wxID_ANY, wxT("Creación de dados"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText105->Wrap( -1 );
+	m_staticText105->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
-	bSizer188->Add( m_staticText97, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer188->Add( m_staticText105, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 	wxBoxSizer* bSizer189;
 	bSizer189 = new wxBoxSizer( wxHORIZONTAL );
@@ -1373,5 +1375,141 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 }
 
 Ventana_dados::~Ventana_dados()
+{
+}
+
+Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+
+	wxBoxSizer* bSizer200;
+	bSizer200 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer201;
+	bSizer201 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText106 = new wxStaticText( this, wxID_ANY, wxT("Utilizar la fórmula:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText106->Wrap( -1 );
+	bSizer201->Add( m_staticText106, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	wxArrayString m_choice1Choices;
+	m_choice1 = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), m_choice1Choices, 0 );
+	m_choice1->SetSelection( 0 );
+	bSizer201->Add( m_choice1, 0, wxALL, 5 );
+
+
+	bSizer200->Add( bSizer201, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer202;
+	bSizer202 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText107 = new wxStaticText( this, wxID_ANY, wxT("Con MULT="), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText107->Wrap( -1 );
+	bSizer202->Add( m_staticText107, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_spinCtrlDouble34 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 100, 0, 1 );
+	m_spinCtrlDouble34->SetDigits( 0 );
+	bSizer202->Add( m_spinCtrlDouble34, 0, wxALL, 5 );
+
+
+	bSizer200->Add( bSizer202, 0, wxEXPAND, 5 );
+
+	m_staticline22 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	bSizer200->Add( m_staticline22, 0, wxEXPAND | wxALL, 5 );
+
+	wxBoxSizer* bSizer204;
+	bSizer204 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer203;
+	bSizer203 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText108 = new wxStaticText( this, wxID_ANY, wxT("Personaje atacante"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText108->Wrap( -1 );
+	bSizer203->Add( m_staticText108, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer204->Add( bSizer203, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer205;
+	bSizer205 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText109 = new wxStaticText( this, wxID_ANY, wxT("Receptor de daño"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText109->Wrap( -1 );
+	bSizer205->Add( m_staticText109, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer204->Add( bSizer205, 1, 0, 5 );
+
+
+	bSizer200->Add( bSizer204, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer2031;
+	bSizer2031 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxArrayString m_choice3Choices;
+	m_choice3 = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), m_choice3Choices, 0 );
+	m_choice3->SetSelection( 0 );
+	bSizer2031->Add( m_choice3, 0, wxALL, 5 );
+
+	m_bpButton2 = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 35,35 ), wxBU_AUTODRAW|0 );
+	bSizer2031->Add( m_bpButton2, 0, wxALL, 5 );
+
+	wxArrayString m_choice4Choices;
+	m_choice4 = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), m_choice4Choices, 0 );
+	m_choice4->SetSelection( 0 );
+	bSizer2031->Add( m_choice4, 0, wxALL, 5 );
+
+
+	bSizer200->Add( bSizer2031, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer209;
+	bSizer209 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText112 = new wxStaticText( this, wxID_ANY, wxT("Puntos de daño provocados:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText112->Wrap( -1 );
+	bSizer209->Add( m_staticText112, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
+
+	m_staticText113 = new wxStaticText( this, wxID_ANY, wxT("432"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText113->Wrap( -1 );
+	m_staticText113->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+
+	bSizer209->Add( m_staticText113, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer200->Add( bSizer209, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer210;
+	bSizer210 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer211;
+	bSizer211 = new wxBoxSizer( wxVERTICAL );
+
+	m_checkBox1 = new wxCheckBox( this, wxID_ANY, wxT("Modificar PV del receptor"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer211->Add( m_checkBox1, 0, wxALL, 5 );
+
+
+	bSizer210->Add( bSizer211, 1, wxALIGN_BOTTOM, 5 );
+
+	wxBoxSizer* bSizer212;
+	bSizer212 = new wxBoxSizer( wxVERTICAL );
+
+	m_button23 = new wxButton( this, wxID_ANY, wxT("Cerrar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer212->Add( m_button23, 0, wxALL|wxALIGN_RIGHT, 5 );
+
+
+	bSizer210->Add( bSizer212, 1, wxALIGN_BOTTOM, 5 );
+
+
+	bSizer200->Add( bSizer210, 1, wxEXPAND, 5 );
+
+
+	this->SetSizer( bSizer200 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+}
+
+Ventana_combate::~Ventana_combate()
 {
 }

@@ -28,6 +28,9 @@
 #include <wx/textctrl.h>
 #include <wx/spinctrl.h>
 #include <wx/checklst.h>
+#include <wx/choice.h>
+#include <wx/bmpbuttn.h>
+#include <wx/checkbox.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -214,7 +217,7 @@ class Ventana_dados : public wxFrame
 	protected:
 		wxStaticText* m_staticText96;
 		wxListBox* m_listBox3;
-		wxStaticText* m_staticText97;
+		wxStaticText* m_staticText105;
 		wxStaticText* m_staticText98;
 		wxTextCtrl* m_textCtrl8;
 		wxStaticText* m_staticText981;
@@ -234,6 +237,37 @@ class Ventana_dados : public wxFrame
 		Ventana_dados( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Dados virtuales"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 503,456 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_dados();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class Ventana_combate
+///////////////////////////////////////////////////////////////////////////////
+class Ventana_combate : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText106;
+		wxChoice* m_choice1;
+		wxStaticText* m_staticText107;
+		wxSpinCtrlDouble* m_spinCtrlDouble34;
+		wxStaticLine* m_staticline22;
+		wxStaticText* m_staticText108;
+		wxStaticText* m_staticText109;
+		wxChoice* m_choice3;
+		wxBitmapButton* m_bpButton2;
+		wxChoice* m_choice4;
+		wxStaticText* m_staticText112;
+		wxStaticText* m_staticText113;
+		wxCheckBox* m_checkBox1;
+		wxButton* m_button23;
+
+	public:
+
+		Ventana_combate( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Simulación de combate"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~Ventana_combate();
 
 };
 
