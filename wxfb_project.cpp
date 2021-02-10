@@ -128,11 +128,25 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer11;
 	bSizer11 = new wxBoxSizer( wxVERTICAL );
 
+	wxBoxSizer* bSizer1641;
+	bSizer1641 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticline41 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	m_staticline41->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+
+	bSizer1641->Add( m_staticline41, 1, wxRIGHT|wxLEFT, 5 );
+
+
+	bSizer11->Add( bSizer1641, 0, wxEXPAND, 5 );
+
 	wxBoxSizer* bSizer13;
 	bSizer13 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText5 = new wxStaticText( this, wxID_ANY, wxT("Lista de Personajes"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText5->Wrap( -1 );
+	m_staticText5->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+	m_staticText5->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+
 	bSizer13->Add( m_staticText5, 0, wxTOP|wxRIGHT|wxLEFT, 5 );
 
 
@@ -183,11 +197,25 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 
 	bSizer11->Add( bSizer14, 1, wxEXPAND, 5 );
 
+	wxBoxSizer* bSizer164;
+	bSizer164 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticline4 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	m_staticline4->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+
+	bSizer164->Add( m_staticline4, 1, wxTOP|wxRIGHT|wxLEFT, 5 );
+
+
+	bSizer11->Add( bSizer164, 0, wxEXPAND, 5 );
+
 	wxBoxSizer* bSizer15;
 	bSizer15 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText6 = new wxStaticText( this, wxID_ANY, wxT("Lista de Items"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText6->Wrap( -1 );
+	m_staticText6->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+	m_staticText6->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+
 	bSizer15->Add( m_staticText6, 0, wxTOP|wxRIGHT|wxLEFT, 5 );
 
 
@@ -233,12 +261,6 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 
 	bSizer22->Add( bSizer11, 1, wxEXPAND, 5 );
 
-	wxBoxSizer* bSizer12;
-	bSizer12 = new wxBoxSizer( wxVERTICAL );
-
-
-	bSizer22->Add( bSizer12, 1, wxEXPAND, 5 );
-
 
 	bSizer23->Add( bSizer22, 1, wxEXPAND, 5 );
 
@@ -263,6 +285,17 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	wxBoxSizer* bSizer7;
 	bSizer7 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer164112;
+	bSizer164112 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticline4112 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
+	m_staticline4112->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+
+	bSizer164112->Add( m_staticline4112, 1, 0, 5 );
+
+
+	bSizer7->Add( bSizer164112, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer8;
 	bSizer8 = new wxBoxSizer( wxVERTICAL );
@@ -315,14 +348,28 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer8->Add( bSizer121, 0, wxEXPAND, 5 );
 
+	wxBoxSizer* bSizer1641;
+	bSizer1641 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticline41 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	m_staticline41->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+
+	bSizer1641->Add( m_staticline41, 1, wxTOP|wxRIGHT|wxLEFT, 5 );
+
+
+	bSizer8->Add( bSizer1641, 0, wxEXPAND, 5 );
+
 	wxBoxSizer* bSizer13;
 	bSizer13 = new wxBoxSizer( wxHORIZONTAL );
 
 	wxBoxSizer* bSizer488;
 	bSizer488 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText94 = new wxStaticText( this, wxID_ANY, wxT("         Estadísticas base"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText94 = new wxStaticText( this, wxID_ANY, wxT("       Estadísticas base"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText94->Wrap( -1 );
+	m_staticText94->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+	m_staticText94->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+
 	bSizer488->Add( m_staticText94, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
@@ -331,8 +378,10 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer487;
 	bSizer487 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText93 = new wxStaticText( this, wxID_ANY, wxT(" Total"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText93 = new wxStaticText( this, wxID_ANY, wxT("Total "), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText93->Wrap( -1 );
+	m_staticText93->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+
 	bSizer487->Add( m_staticText93, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
@@ -631,11 +680,24 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer8->Add( bSizer1472, 0, wxEXPAND, 5 );
 
+	wxBoxSizer* bSizer164;
+	bSizer164 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticline4 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	m_staticline4->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+
+	bSizer164->Add( m_staticline4, 1, wxTOP|wxRIGHT|wxLEFT, 5 );
+
+
+	bSizer8->Add( bSizer164, 0, wxEXPAND, 5 );
+
 	wxBoxSizer* bSizer341;
 	bSizer341 = new wxBoxSizer( wxVERTICAL );
 
 	m_staticText43 = new wxStaticText( this, wxID_ANY, wxT("Detalle"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText43->Wrap( -1 );
+	m_staticText43->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+
 	bSizer341->Add( m_staticText43, 0, wxALL, 5 );
 
 
@@ -661,6 +723,17 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer7->Add( bSizer8, 1, wxEXPAND, 5 );
 
+	wxBoxSizer* bSizer16411;
+	bSizer16411 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticline411 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
+	m_staticline411->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+
+	bSizer16411->Add( m_staticline411, 1, 0, 5 );
+
+
+	bSizer7->Add( bSizer16411, 0, wxEXPAND, 5 );
+
 	wxBoxSizer* bSizer9;
 	bSizer9 = new wxBoxSizer( wxVERTICAL );
 
@@ -681,6 +754,8 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	m_staticText32 = new wxStaticText( this, wxID_ANY, wxT("Inventario"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText32->Wrap( -1 );
+	m_staticText32->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+
 	bSizer9->Add( m_staticText32, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 	wxBoxSizer* bSizer41;
@@ -705,6 +780,17 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 
 	bSizer7->Add( bSizer9, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer164111;
+	bSizer164111 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticline4111 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
+	m_staticline4111->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+
+	bSizer164111->Add( m_staticline4111, 1, 0, 5 );
+
+
+	bSizer7->Add( bSizer164111, 0, wxEXPAND, 5 );
 
 
 	this->SetSizer( bSizer7 );
@@ -794,6 +880,8 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	m_staticText94 = new wxStaticText( this, wxID_ANY, wxT(" Modificadores de estadísticas"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText94->Wrap( -1 );
+	m_staticText94->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+
 	bSizer488->Add( m_staticText94, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
@@ -829,7 +917,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer147->Add( m_spinCtrlDouble161, 0, wxALL, 5 );
 
 
-	bSizer156->Add( bSizer147, 0, wxEXPAND, 5 );
+	bSizer156->Add( bSizer147, 1, wxALIGN_RIGHT, 5 );
 
 	wxBoxSizer* bSizer1471;
 	bSizer1471 = new wxBoxSizer( wxHORIZONTAL );
@@ -849,7 +937,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer1471->Add( m_spinCtrlDouble162, 0, wxALL, 5 );
 
 
-	bSizer156->Add( bSizer1471, 0, wxEXPAND, 5 );
+	bSizer156->Add( bSizer1471, 1, wxALIGN_RIGHT, 5 );
 
 	wxBoxSizer* bSizer14721;
 	bSizer14721 = new wxBoxSizer( wxHORIZONTAL );
@@ -869,7 +957,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer14721->Add( m_spinCtrlDouble163, 0, wxALL, 5 );
 
 
-	bSizer156->Add( bSizer14721, 0, wxEXPAND, 5 );
+	bSizer156->Add( bSizer14721, 1, wxALIGN_RIGHT, 5 );
 
 	wxBoxSizer* bSizer1472;
 	bSizer1472 = new wxBoxSizer( wxHORIZONTAL );
@@ -889,7 +977,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer1472->Add( m_spinCtrlDouble164, 0, wxALL, 5 );
 
 
-	bSizer156->Add( bSizer1472, 0, wxEXPAND, 5 );
+	bSizer156->Add( bSizer1472, 1, wxALIGN_RIGHT, 5 );
 
 	wxBoxSizer* bSizer141;
 	bSizer141 = new wxBoxSizer( wxHORIZONTAL );
@@ -909,7 +997,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer141->Add( m_spinCtrlDouble11, 0, wxALL, 5 );
 
 
-	bSizer156->Add( bSizer141, 0, wxEXPAND, 5 );
+	bSizer156->Add( bSizer141, 1, wxALIGN_RIGHT, 5 );
 
 	wxBoxSizer* bSizer144;
 	bSizer144 = new wxBoxSizer( wxHORIZONTAL );
@@ -929,10 +1017,19 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer144->Add( m_spinCtrlDouble14, 0, wxALL, 5 );
 
 
-	bSizer156->Add( bSizer144, 0, wxEXPAND, 5 );
+	bSizer156->Add( bSizer144, 1, wxALIGN_RIGHT, 5 );
 
 
 	bSizer157->Add( bSizer156, 1, 0, 5 );
+
+	wxBoxSizer* bSizer186;
+	bSizer186 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticline19 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
+	bSizer186->Add( m_staticline19, 1, wxALL, 5 );
+
+
+	bSizer157->Add( bSizer186, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer8;
 	bSizer8 = new wxBoxSizer( wxVERTICAL );
@@ -955,7 +1052,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer14->Add( m_spinCtrlDouble1, 0, wxALL, 5 );
 
 
-	bSizer8->Add( bSizer14, 0, wxEXPAND, 5 );
+	bSizer8->Add( bSizer14, 1, 0, 5 );
 
 	wxBoxSizer* bSizer142;
 	bSizer142 = new wxBoxSizer( wxHORIZONTAL );
@@ -975,7 +1072,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer142->Add( m_spinCtrlDouble12, 0, wxALL, 5 );
 
 
-	bSizer8->Add( bSizer142, 0, wxEXPAND, 5 );
+	bSizer8->Add( bSizer142, 1, 0, 5 );
 
 	wxBoxSizer* bSizer143;
 	bSizer143 = new wxBoxSizer( wxHORIZONTAL );
@@ -995,7 +1092,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer143->Add( m_spinCtrlDouble13, 0, wxALL, 5 );
 
 
-	bSizer8->Add( bSizer143, 0, wxEXPAND, 5 );
+	bSizer8->Add( bSizer143, 1, 0, 5 );
 
 	wxBoxSizer* bSizer145;
 	bSizer145 = new wxBoxSizer( wxHORIZONTAL );
@@ -1015,7 +1112,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer145->Add( m_spinCtrlDouble15, 0, wxALL, 5 );
 
 
-	bSizer8->Add( bSizer145, 0, wxEXPAND, 5 );
+	bSizer8->Add( bSizer145, 1, 0, 5 );
 
 	wxBoxSizer* bSizer146;
 	bSizer146 = new wxBoxSizer( wxHORIZONTAL );
@@ -1035,7 +1132,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer146->Add( m_spinCtrlDouble16, 0, wxALL, 5 );
 
 
-	bSizer8->Add( bSizer146, 0, wxEXPAND, 5 );
+	bSizer8->Add( bSizer146, 1, 0, 5 );
 
 
 	bSizer157->Add( bSizer8, 1, 0, 5 );
@@ -1054,6 +1151,8 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	m_staticText43 = new wxStaticText( this, wxID_ANY, wxT("Detalle"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText43->Wrap( -1 );
+	m_staticText43->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+
 	bSizer341->Add( m_staticText43, 0, wxALL, 5 );
 
 
@@ -1087,6 +1186,8 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	m_staticText431 = new wxStaticText( this, wxID_ANY, wxT("Descripción"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText431->Wrap( -1 );
+	m_staticText431->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+
 	bSizer3411->Add( m_staticText431, 1, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
@@ -1123,5 +1224,29 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 }
 
 Ventana_item::~Ventana_item()
+{
+}
+
+Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+
+	wxBoxSizer* bSizer162;
+	bSizer162 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticline2 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	m_staticline2->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+
+	bSizer162->Add( m_staticline2, 0, wxEXPAND | wxALL, 5 );
+
+
+	this->SetSizer( bSizer162 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+}
+
+Ventana_dados::~Ventana_dados()
 {
 }

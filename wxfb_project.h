@@ -23,6 +23,7 @@
 #include <wx/frame.h>
 #include <wx/menu.h>
 #include <wx/toolbar.h>
+#include <wx/statline.h>
 #include <wx/listbox.h>
 #include <wx/textctrl.h>
 #include <wx/spinctrl.h>
@@ -67,10 +68,12 @@ class Ventana_partida : public wxFrame
 		wxToolBar* m_toolBar4;
 		wxToolBarToolBase* m_tool1;
 		wxToolBarToolBase* m_tool2;
+		wxStaticLine* m_staticline41;
 		wxStaticText* m_staticText5;
 		wxListBox* m_listBox1;
 		wxButton* m_button7;
 		wxButton* m_button8;
+		wxStaticLine* m_staticline4;
 		wxStaticText* m_staticText6;
 		wxListBox* m_listBox2;
 		wxButton* m_button71;
@@ -92,12 +95,14 @@ class Ventana_personaje : public wxFrame
 	private:
 
 	protected:
+		wxStaticLine* m_staticline4112;
 		wxStaticText* m_Personajename;
 		wxTextCtrl* m_textCtrl4;
 		wxStaticText* m_Nivel;
 		wxSpinCtrl* m_spinCtrl1;
 		wxStaticText* m_Nivel1;
 		wxSpinCtrlDouble* m_spinCtrlDouble17;
+		wxStaticLine* m_staticline41;
 		wxStaticText* m_staticText94;
 		wxStaticText* m_staticText93;
 		wxStaticText* m_staticText8;
@@ -129,13 +134,16 @@ class Ventana_personaje : public wxFrame
 		wxStaticText* m_staticText9721;
 		wxStaticText* m_staticText872;
 		wxStaticText* m_staticText972;
+		wxStaticLine* m_staticline4;
 		wxStaticText* m_staticText43;
 		wxTextCtrl* m_textCtrl2;
+		wxStaticLine* m_staticline411;
 		wxButton* m_button7;
 		wxButton* m_button4;
 		wxStaticText* m_staticText32;
 		wxCheckListBox* m_checkList1;
 		wxButton* m_button6;
+		wxStaticLine* m_staticline4111;
 
 	public:
 
@@ -172,6 +180,7 @@ class Ventana_item : public wxFrame
 		wxSpinCtrlDouble* m_spinCtrlDouble11;
 		wxStaticText* m_staticText84;
 		wxSpinCtrlDouble* m_spinCtrlDouble14;
+		wxStaticLine* m_staticline19;
 		wxStaticText* m_staticText8;
 		wxSpinCtrlDouble* m_spinCtrlDouble1;
 		wxStaticText* m_staticText82;
@@ -189,9 +198,27 @@ class Ventana_item : public wxFrame
 
 	public:
 
-		Ventana_item( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 575,575 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_item( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Creación/Modificación de item"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 575,575 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_item();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class Ventana_dados
+///////////////////////////////////////////////////////////////////////////////
+class Ventana_dados : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticLine* m_staticline2;
+
+	public:
+
+		Ventana_dados( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Dados virtuales"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~Ventana_dados();
 
 };
 
