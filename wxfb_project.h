@@ -150,7 +150,7 @@ class Ventana_personaje : public wxFrame
 
 	public:
 
-		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Personaje -Nombre de personaje-"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 589,734 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Creación/Modificación de Personaje"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 589,734 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_personaje();
 
@@ -234,7 +234,7 @@ class Ventana_dados : public wxFrame
 
 	public:
 
-		Ventana_dados( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Dados virtuales"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 503,456 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_dados( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Dados virtuales"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 503,321 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_dados();
 
@@ -265,7 +265,7 @@ class Ventana_combate : public wxFrame
 
 	public:
 
-		Ventana_combate( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Simulación de combate"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_combate( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Simulación de combate"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,248 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_combate();
 

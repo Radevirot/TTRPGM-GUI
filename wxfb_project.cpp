@@ -12,7 +12,7 @@
 Ventana_principal::Ventana_principal( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-	this->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
+	this->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOWTEXT ) );
 	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
 
 	wxBoxSizer* bSizer2;
@@ -1404,7 +1404,7 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer202;
 	bSizer202 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText107 = new wxStaticText( this, wxID_ANY, wxT("Con MULT="), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText107 = new wxStaticText( this, wxID_ANY, wxT("Con MULT ="), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText107->Wrap( -1 );
 	bSizer202->Add( m_staticText107, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
