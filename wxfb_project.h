@@ -44,7 +44,7 @@ class Ventana_principal : public wxFrame
 
 	protected:
 		wxStaticText* m_staticText2;
-		wxStaticText* m_staticText3;
+		wxStaticText* m_staticText63;
 		wxButton* m_button2;
 		wxButton* m_button3;
 		wxButton* m_button4;
