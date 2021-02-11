@@ -24,12 +24,18 @@ public:
 	void EliminarPersonaje(int pos);
 	int ObtenerTamPersonajes();
 	void ModificarStatDePersonaje(int poslistaP, int posStats, float stat);
+	void OrdenarPAlph();
+	
+	void AgregarItem(Item i1);
+	Item ObtenerItem(int pos);
+	void EliminarItem(int pos);
+	void OrdenarIAlph();
 	
 	void AgregarDado(Dado d1);
 	Dado ObtenerDado(int pos);
 	void EliminarDado(int pos);
 	
-	void OrdenarPAlph();
+
 	
 	void Guardar(std::string nombrearchi);
 	void Cargar(std::string nombrearchi);
@@ -41,6 +47,7 @@ private:
 	std::string _nombre;
 	std::vector<Personaje> Plist;
 	std::vector<Dado> Dlist;
+	std::vector<Item> Ilist;
 };
 
 #endif

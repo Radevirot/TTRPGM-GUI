@@ -2,10 +2,17 @@
 
 Dado::Dado() {
 	/*
-	Constructor que crea un dado vacío.
+	Constructor que crea un dado con valores por defecto.
 	*/
+	_nombre="";
 	ValMin=1;
 	ValMax=20;
+}
+
+void Dado::Modificar(std::string nombre, int DadoMin, int DadoMax){
+	_nombre=nombre;
+	DadoMin=ValMin;
+	DadoMax=ValMax;
 }
 
 int Dado::TirarDado(){
@@ -15,12 +22,16 @@ int Dado::TirarDado(){
 	return rand()%(ValMax-ValMin+1)+ValMin;
 }
 
-void Dado::ModificarDado(int DadoMax, int DadoMin){
-	/*
-	Modifica el valor máximo y mínimo del dado, pide dos enteros para la modificación.
-	*/
-	ValMin=DadoMin;
-	ValMax=DadoMax;
+std::string Dado::ObtenerNombre(){
+	return _nombre;
+}
+
+int Dado::ObtenerMax(){
+	return ValMax;
+}
+
+int Dado::ObtenerMin(){
+	return ValMin;
 }
 
 void Dado::Exportar(std::string nombrearchi){

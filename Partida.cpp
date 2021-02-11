@@ -62,6 +62,51 @@ void Partida::ModificarStatDePersonaje(int poslistaP, int posStats, float stat){
 	Plist[poslistaP]=X;
 }
 
+void Partida::OrdenarPAlph(){
+	/*
+	Ordena la lista de personajes.
+	*/
+	auto itinc= Plist.begin();
+	auto itfin= Plist.end();
+	sort(itinc, itfin); 
+}
+
+
+void Partida::AgregarItem(Item i1){
+	/*
+	Pide un Item y lo ingresa en el vector de items.
+	*/
+	Ilist.push_back(i1);
+}
+
+Item Partida::ObtenerItem(int pos){
+	/*
+	Pide una posción y retorna el item del vector.
+	*/
+	return Ilist[pos];
+}
+
+void Partida::EliminarItem(int pos){
+	/*
+	Pide una posición y elimina el item de esa posición, luego redimensiona
+	el vector.
+	*/
+	size_t Aux=Ilist.size();
+	auto it= Ilist.begin()+pos;
+	Ilist.erase(it);
+	Ilist.resize(Aux-1);
+}
+
+void Partida::OrdenarIAlph(){
+	/*
+	Ordena la lista de personajes.
+	*/
+	auto itinc= Ilist.begin();
+	auto itfin= Ilist.end();
+	sort(itinc, itfin); 
+}
+
+
 void Partida::AgregarDado(Dado d1){
 	/*
 	Pide un Dado y lo ingresa en el vector de dados.
@@ -87,15 +132,6 @@ void Partida::EliminarDado(int pos){
 	Dlist.resize(Aux-1);
 }
 
-
-void Partida::OrdenarPAlph(){
-	/*
-	Ordena la lista de personajes.
-	*/
-	auto itinc= Plist.begin();
-	auto itfin= Plist.end();
-	sort(itinc, itfin); 
-}
 
 
 void Partida::Guardar(std::string nombrearchi){

@@ -14,11 +14,15 @@ class Dado {
 	*/
 public:
 	Dado();
-	void ModificarDado(int DadoMax, int DadoMin);
+	void Modificar(std::string nombre, int DadoMin, int DadoMax);
+	std::string ObtenerNombre();
+	int ObtenerMax();
+	int ObtenerMin();
 	int TirarDado();
 	void Exportar(std::string nombrearchi);
 	void Importar(std::string nombrearchi, int posbinaria);
 private:
+	std::string _nombre;
 	int ValMin, ValMax;
 };
 
