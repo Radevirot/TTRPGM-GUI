@@ -45,13 +45,19 @@ class Ventana_principal : public wxFrame
 	protected:
 		wxStaticText* m_staticText2;
 		wxStaticText* m_staticText63;
-		wxButton* m_button2;
-		wxButton* m_button3;
-		wxButton* m_button4;
+		wxButton* m_Empezarpartida;
+		wxButton* m_Cargarpartida;
+		wxButton* m_Salir;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnClickEmpezar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickCargar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickSalir( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 
-		Ventana_principal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 335,234 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_principal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 335,234 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_principal();
 
@@ -150,7 +156,7 @@ class Ventana_personaje : public wxFrame
 
 	public:
 
-		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Creación/Modificación de Personaje"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 589,734 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Creación/Modificación de Personaje"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 589,705 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_personaje();
 
@@ -265,7 +271,7 @@ class Ventana_combate : public wxFrame
 
 	public:
 
-		Ventana_combate( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Simulación de combate"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,248 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_combate( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Simulación de combate"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,273 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_combate();
 

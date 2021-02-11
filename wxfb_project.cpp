@@ -41,8 +41,8 @@ Ventana_principal::Ventana_principal( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer5;
 	bSizer5 = new wxBoxSizer( wxVERTICAL );
 
-	m_button2 = new wxButton( this, wxID_ANY, wxT("Empezar partida"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer5->Add( m_button2, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	m_Empezarpartida = new wxButton( this, wxID_ANY, wxT("Empezar partida"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer5->Add( m_Empezarpartida, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	bSizer2->Add( bSizer5, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
@@ -50,8 +50,8 @@ Ventana_principal::Ventana_principal( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer6;
 	bSizer6 = new wxBoxSizer( wxVERTICAL );
 
-	m_button3 = new wxButton( this, wxID_ANY, wxT("Cargar partida"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer6->Add( m_button3, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	m_Cargarpartida = new wxButton( this, wxID_ANY, wxT("Cargar partida"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer6->Add( m_Cargarpartida, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	bSizer2->Add( bSizer6, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
@@ -59,8 +59,8 @@ Ventana_principal::Ventana_principal( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer7;
 	bSizer7 = new wxBoxSizer( wxVERTICAL );
 
-	m_button4 = new wxButton( this, wxID_ANY, wxT("Salir"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer7->Add( m_button4, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	m_Salir = new wxButton( this, wxID_ANY, wxT("Salir"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer7->Add( m_Salir, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	bSizer2->Add( bSizer7, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
@@ -70,10 +70,20 @@ Ventana_principal::Ventana_principal( wxWindow* parent, wxWindowID id, const wxS
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_Empezarpartida->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_principal::OnClickEmpezar ), NULL, this );
+	m_Cargarpartida->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_principal::OnClickCargar ), NULL, this );
+	m_Salir->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_principal::OnClickSalir ), NULL, this );
 }
 
 Ventana_principal::~Ventana_principal()
 {
+	// Disconnect Events
+	m_Empezarpartida->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_principal::OnClickEmpezar ), NULL, this );
+	m_Cargarpartida->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_principal::OnClickCargar ), NULL, this );
+	m_Salir->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_principal::OnClickSalir ), NULL, this );
+
 }
 
 Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
@@ -750,7 +760,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	bSizer9->Add( bSizer11, 0, wxALIGN_RIGHT, 5 );
 
 
-	bSizer9->Add( 0, 200, 0, 0, 5 );
+	bSizer9->Add( 0, 40, 0, 0, 5 );
 
 	m_staticText32 = new wxStaticText( this, wxID_ANY, wxT("Inventario"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText32->Wrap( -1 );
