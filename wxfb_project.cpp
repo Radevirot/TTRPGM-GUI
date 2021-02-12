@@ -1458,9 +1458,9 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	m_staticText107->Wrap( -1 );
 	bSizer202->Add( m_staticText107, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_spinCtrlDouble34 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 100, 0, 1 );
-	m_spinCtrlDouble34->SetDigits( 0 );
-	bSizer202->Add( m_spinCtrlDouble34, 0, wxALL, 5 );
+	m_Multiplicador = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 100, 0, 1 );
+	m_Multiplicador->SetDigits( 0 );
+	bSizer202->Add( m_Multiplicador, 0, wxALL, 5 );
 
 
 	bSizer200->Add( bSizer202, 0, wxEXPAND, 5 );
@@ -1497,18 +1497,18 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer2031;
 	bSizer2031 = new wxBoxSizer( wxHORIZONTAL );
 
-	wxArrayString m_choice3Choices;
-	m_choice3 = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), m_choice3Choices, 0 );
-	m_choice3->SetSelection( 0 );
-	bSizer2031->Add( m_choice3, 0, wxALL, 5 );
+	wxArrayString m_AtacanteChoices;
+	m_Atacante = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), m_AtacanteChoices, 0 );
+	m_Atacante->SetSelection( 0 );
+	bSizer2031->Add( m_Atacante, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_bpButton2 = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 35,35 ), wxBU_AUTODRAW|0 );
 	bSizer2031->Add( m_bpButton2, 0, wxALL, 5 );
 
-	wxArrayString m_choice4Choices;
-	m_choice4 = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), m_choice4Choices, 0 );
-	m_choice4->SetSelection( 0 );
-	bSizer2031->Add( m_choice4, 0, wxALL, 5 );
+	wxArrayString m_ReceptorChoices;
+	m_Receptor = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), m_ReceptorChoices, 0 );
+	m_Receptor->SetSelection( 0 );
+	bSizer2031->Add( m_Receptor, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
 	bSizer200->Add( bSizer2031, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
@@ -1535,8 +1535,8 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer211;
 	bSizer211 = new wxBoxSizer( wxVERTICAL );
 
-	m_checkBox1 = new wxCheckBox( this, wxID_ANY, wxT("Modificar PV del receptor"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer211->Add( m_checkBox1, 0, wxALL, 5 );
+	m_ModificarPV = new wxCheckBox( this, wxID_ANY, wxT("Modificar PV del receptor"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer211->Add( m_ModificarPV, 0, wxALL, 5 );
 
 
 	bSizer210->Add( bSizer211, 1, wxALIGN_BOTTOM, 5 );
@@ -1560,12 +1560,14 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	this->Centre( wxBOTH );
 
 	// Connect Events
+	m_bpButton2->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickAtacar ), NULL, this );
 	m_Cerrar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickCerrar ), NULL, this );
 }
 
 Ventana_combate::~Ventana_combate()
 {
 	// Disconnect Events
+	m_bpButton2->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickAtacar ), NULL, this );
 	m_Cerrar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickCerrar ), NULL, this );
 
 }

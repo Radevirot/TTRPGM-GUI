@@ -12,3 +12,7 @@ void vCombate::OnClickCerrar( wxCommandEvent& event )  {
 	Close(true);
 }
 
+void vCombate::OnClickAtacar( wxCommandEvent& event )  {
+	event.Skip();
+}
+

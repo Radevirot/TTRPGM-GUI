@@ -276,19 +276,20 @@ class Ventana_combate : public wxFrame
 		wxStaticText* m_staticText106;
 		wxChoice* m_choice1;
 		wxStaticText* m_staticText107;
-		wxSpinCtrlDouble* m_spinCtrlDouble34;
+		wxSpinCtrlDouble* m_Multiplicador;
 		wxStaticLine* m_staticline22;
 		wxStaticText* m_staticText108;
 		wxStaticText* m_staticText109;
-		wxChoice* m_choice3;
+		wxChoice* m_Atacante;
 		wxBitmapButton* m_bpButton2;
-		wxChoice* m_choice4;
+		wxChoice* m_Receptor;
 		wxStaticText* m_staticText112;
 		wxStaticText* m_staticText113;
-		wxCheckBox* m_checkBox1;
+		wxCheckBox* m_ModificarPV;
 		wxButton* m_Cerrar;
 
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnClickAtacar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCerrar( wxCommandEvent& event ) { event.Skip(); }
 
 
