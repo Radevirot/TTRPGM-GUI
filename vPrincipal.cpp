@@ -1,5 +1,5 @@
 #include "vPrincipal.h"
-#include "vPartida.h"
+#include "dNombrePartida.h"
 
 vPrincipal::vPrincipal(wxWindow *parent) : Ventana_principal(parent) {
 	Show();
@@ -10,9 +10,9 @@ vPrincipal::~vPrincipal() {
 }
 
 void vPrincipal::OnClickEmpezar( wxCommandEvent& event )  {
-	Close(true);
-	vPartida *Part = new vPartida(NULL);
-	Part->Show();
+	dNombrePartida *NomPart = new dNombrePartida(NULL);
+	NomPart->Show();
+	if (NomPart->IsBeingDeleted()) Close(true);
 }
 
 void vPrincipal::OnClickCargar( wxCommandEvent& event )  {

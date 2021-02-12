@@ -3,11 +3,11 @@
 #include "vItem.h"
 #include "vDados.h"
 #include "vCombate.h"
-#include "Partida.h"
+#include "dNombrePartida.h"
 
-vPartida::vPartida(wxWindow *parent) : Ventana_partida(parent) {
+
+vPartida::vPartida(wxWindow *parent, Partida p) : Ventana_partida(parent) {
 	Show();
-	Partida p;
 }
 
 vPartida::~vPartida() {
@@ -15,8 +15,7 @@ vPartida::~vPartida() {
 }
 
 void vPartida::OnMenuNueva( wxCommandEvent& event )  {
-	Close(true);
-	vPartida *Part1 = new vPartida(NULL);
+	dNombrePartida *NomPart1 = new dNombrePartida(NULL);
 }
 
 void vPartida::OnClickCrearP( wxCommandEvent& event )  {

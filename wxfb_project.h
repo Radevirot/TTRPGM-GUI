@@ -313,10 +313,16 @@ class Dialogo_NombrePartida : public wxDialog
 		wxStaticText* m_TextoNombrePartida;
 		wxTextCtrl* m_textCtrlNombrePart;
 		wxButton* m_AceptarNombrePart;
+		wxButton* m_CancelarNombrePart;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnClickAceptar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickCancelar( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 
-		Dialogo_NombrePartida( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Nombre de Partida"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 249,157 ), long style = wxDEFAULT_DIALOG_STYLE );
+		Dialogo_NombrePartida( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Nombre de partida"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 249,157 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~Dialogo_NombrePartida();
 
 };

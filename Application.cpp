@@ -8,6 +8,7 @@ bool Application::OnInit() {
 	wxInitAllImageHandlers();
 	vPrincipal *Princ = new vPrincipal(NULL);
 	
+	
 	return true;
 }
 

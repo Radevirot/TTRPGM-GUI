@@ -1609,8 +1609,23 @@ Dialogo_NombrePartida::Dialogo_NombrePartida( wxWindow* parent, wxWindowID id, c
 	wxBoxSizer* bSizer134;
 	bSizer134 = new wxBoxSizer( wxHORIZONTAL );
 
+	wxBoxSizer* bSizer135;
+	bSizer135 = new wxBoxSizer( wxVERTICAL );
+
 	m_AceptarNombrePart = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer134->Add( m_AceptarNombrePart, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer135->Add( m_AceptarNombrePart, 1, wxALL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
+
+
+	bSizer134->Add( bSizer135, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer136;
+	bSizer136 = new wxBoxSizer( wxVERTICAL );
+
+	m_CancelarNombrePart = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer136->Add( m_CancelarNombrePart, 1, wxALL|wxEXPAND, 5 );
+
+
+	bSizer134->Add( bSizer136, 1, wxEXPAND, 5 );
 
 
 	bSizer131->Add( bSizer134, 1, wxEXPAND, 5 );
@@ -1620,8 +1635,16 @@ Dialogo_NombrePartida::Dialogo_NombrePartida( wxWindow* parent, wxWindowID id, c
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_AceptarNombrePart->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickAceptar ), NULL, this );
+	m_CancelarNombrePart->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickCancelar ), NULL, this );
 }
 
 Dialogo_NombrePartida::~Dialogo_NombrePartida()
 {
+	// Disconnect Events
+	m_AceptarNombrePart->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickAceptar ), NULL, this );
+	m_CancelarNombrePart->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickCancelar ), NULL, this );
+
 }

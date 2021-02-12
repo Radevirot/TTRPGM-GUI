@@ -1,6 +1,7 @@
 #ifndef VPARTIDA_H
 #define VPARTIDA_H
 #include "wxfb_project.h"
+#include "Partida.h"
 
 class vPartida : public Ventana_partida {
 	
@@ -14,7 +15,7 @@ protected:
 	void OnClickCrearI( wxCommandEvent& event )  override;
 	
 public:
-	vPartida(wxWindow *parent=NULL);
+	vPartida(wxWindow *parent, Partida p);
 	~vPartida();
 };
 
