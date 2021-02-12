@@ -75,18 +75,26 @@ class Ventana_partida : public wxFrame
 		wxMenu* m_menu1;
 		wxMenu* m_menu2;
 		wxToolBar* m_toolBar4;
-		wxToolBarToolBase* m_tool1;
-		wxToolBarToolBase* m_tool2;
+		wxToolBarToolBase* m_Combate;
+		wxToolBarToolBase* m_Dado;
 		wxStaticLine* m_staticline41;
 		wxStaticText* m_staticText5;
 		wxListBox* m_listBox1;
-		wxButton* m_button7;
+		wxButton* m_CrearP;
 		wxButton* m_button8;
 		wxStaticLine* m_staticline4;
 		wxStaticText* m_staticText6;
 		wxListBox* m_listBox2;
-		wxButton* m_button71;
+		wxButton* m_CrearI;
 		wxButton* m_button72;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnMenuNueva( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickCombate( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickDado( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickCrearP( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickCrearI( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 
@@ -222,21 +230,29 @@ class Ventana_dados : public wxFrame
 
 	protected:
 		wxStaticText* m_staticText96;
-		wxListBox* m_listBox3;
+		wxListBox* m_Seleccionado;
 		wxStaticText* m_staticText105;
 		wxStaticText* m_staticText98;
-		wxTextCtrl* m_textCtrl8;
+		wxTextCtrl* m_Nombre;
 		wxStaticText* m_staticText981;
-		wxSpinCtrl* m_spinCtrl6;
+		wxSpinCtrl* m_ValMin;
 		wxStaticText* m_staticText982;
-		wxSpinCtrl* m_spinCtrl7;
-		wxButton* m_button20;
+		wxSpinCtrl* m_ValMax;
+		wxButton* m_Agregar;
 		wxStaticLine* m_staticline20;
 		wxButton* m_button21;
 		wxStaticText* m_staticText102;
-		wxStaticText* m_staticText103;
-		wxButton* m_button19;
-		wxButton* m_button22;
+		wxStaticText* m_Numero;
+		wxButton* m_Borrar;
+		wxButton* m_Cerrar;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnClickSeleccionado( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickAgregar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickArrojar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickBorrar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickCerrar( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 
@@ -267,7 +283,11 @@ class Ventana_combate : public wxFrame
 		wxStaticText* m_staticText112;
 		wxStaticText* m_staticText113;
 		wxCheckBox* m_checkBox1;
-		wxButton* m_button23;
+		wxButton* m_Cerrar;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnClickCerrar( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 

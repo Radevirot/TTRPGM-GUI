@@ -99,9 +99,9 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	m_menuItem1 = new wxMenuItem( m_menu2, wxID_ANY, wxString( wxT("Guardar") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu2->Append( m_menuItem1 );
 
-	wxMenuItem* m_menuItem2;
-	m_menuItem2 = new wxMenuItem( m_menu2, wxID_ANY, wxString( wxT("Nueva") ) , wxEmptyString, wxITEM_NORMAL );
-	m_menu2->Append( m_menuItem2 );
+	wxMenuItem* m_Nueva;
+	m_Nueva = new wxMenuItem( m_menu2, wxID_ANY, wxString( wxT("Nueva") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu2->Append( m_Nueva );
 
 	wxMenuItem* m_menuItem3;
 	m_menuItem3 = new wxMenuItem( m_menu2, wxID_ANY, wxString( wxT("Cargar") ) , wxEmptyString, wxITEM_NORMAL );
@@ -120,9 +120,9 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	m_toolBar4 = this->CreateToolBar( wxTB_HORIZONTAL, wxID_ANY );
 	m_toolBar4->SetBackgroundColour( wxColour( 224, 224, 224 ) );
 
-	m_tool1 = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxNullBitmap, wxNullBitmap, wxITEM_NORMAL, wxT("Simulación de ataque"), wxEmptyString, NULL );
+	m_Combate = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxNullBitmap, wxNullBitmap, wxITEM_NORMAL, wxT("Simulación de ataque"), wxEmptyString, NULL );
 
-	m_tool2 = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxNullBitmap, wxNullBitmap, wxITEM_NORMAL, wxT("Dado virtual"), wxEmptyString, NULL );
+	m_Dado = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxNullBitmap, wxNullBitmap, wxITEM_NORMAL, wxT("Dado virtual"), wxEmptyString, NULL );
 
 	m_toolBar4->Realize();
 
@@ -195,8 +195,10 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer58;
 	bSizer58 = new wxBoxSizer( wxVERTICAL );
 
-	m_button7 = new wxButton( this, wxID_ANY, wxT("Crear nuevo personaje"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer58->Add( m_button7, 0, wxALL|wxEXPAND, 5 );
+	m_CrearP = new wxButton( this, wxID_ANY, wxT("Crear nuevo personaje"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_CrearP->SetToolTip( wxT("Abre una ventana nueva de personaje") );
+
+	bSizer58->Add( m_CrearP, 0, wxALL|wxEXPAND, 5 );
 
 	m_button8 = new wxButton( this, wxID_ANY, wxT("Importar personaje existente"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer58->Add( m_button8, 0, wxALL|wxEXPAND, 5 );
@@ -256,8 +258,10 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer59;
 	bSizer59 = new wxBoxSizer( wxVERTICAL );
 
-	m_button71 = new wxButton( this, wxID_ANY, wxT("Crear nuevo item"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer59->Add( m_button71, 0, wxALL|wxEXPAND, 5 );
+	m_CrearI = new wxButton( this, wxID_ANY, wxT("Crear nuevo item"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_CrearI->SetToolTip( wxT("Abre una ventana nueva de item") );
+
+	bSizer59->Add( m_CrearI, 0, wxALL|wxEXPAND, 5 );
 
 	m_button72 = new wxButton( this, wxID_ANY, wxT("Importar item existente"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer59->Add( m_button72, 0, wxALL|wxEXPAND, 5 );
@@ -282,10 +286,23 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_menu2->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuNueva ), this, m_Nueva->GetId());
+	this->Connect( m_Combate->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCombate ) );
+	this->Connect( m_Dado->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickDado ) );
+	m_CrearP->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearP ), NULL, this );
+	m_CrearI->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearI ), NULL, this );
 }
 
 Ventana_partida::~Ventana_partida()
 {
+	// Disconnect Events
+	this->Disconnect( m_Combate->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCombate ) );
+	this->Disconnect( m_Dado->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickDado ) );
+	m_CrearP->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearP ), NULL, this );
+	m_CrearI->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearI ), NULL, this );
+
 }
 
 Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
@@ -1259,9 +1276,9 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 
 	bSizer187->Add( m_staticText96, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
 
-	m_listBox3 = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
-	m_listBox3->Append( wxT("D20") );
-	bSizer187->Add( m_listBox3, 1, wxALL|wxEXPAND, 5 );
+	m_Seleccionado = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
+	m_Seleccionado->Append( wxT("D20") );
+	bSizer187->Add( m_Seleccionado, 1, wxALL|wxEXPAND, 5 );
 
 
 	bSizer197->Add( bSizer187, 1, wxEXPAND, 5 );
@@ -1282,16 +1299,16 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	m_staticText98->Wrap( -1 );
 	bSizer189->Add( m_staticText98, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl8 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_Nombre = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	#ifdef __WXGTK__
-	if ( !m_textCtrl8->HasFlag( wxTE_MULTILINE ) )
+	if ( !m_Nombre->HasFlag( wxTE_MULTILINE ) )
 	{
-	m_textCtrl8->SetMaxLength( 16 );
+	m_Nombre->SetMaxLength( 16 );
 	}
 	#else
-	m_textCtrl8->SetMaxLength( 16 );
+	m_Nombre->SetMaxLength( 16 );
 	#endif
-	bSizer189->Add( m_textCtrl8, 1, wxALL, 5 );
+	bSizer189->Add( m_Nombre, 1, wxALL, 5 );
 
 
 	bSizer188->Add( bSizer189, 0, wxEXPAND, 5 );
@@ -1303,8 +1320,8 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	m_staticText981->Wrap( -1 );
 	bSizer1891->Add( m_staticText981, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_spinCtrl6 = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 0, 0 );
-	bSizer1891->Add( m_spinCtrl6, 0, wxALL, 5 );
+	m_ValMin = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 0, 0 );
+	bSizer1891->Add( m_ValMin, 0, wxALL, 5 );
 
 
 	bSizer188->Add( bSizer1891, 0, wxEXPAND, 5 );
@@ -1316,14 +1333,14 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	m_staticText982->Wrap( -1 );
 	bSizer1892->Add( m_staticText982, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_spinCtrl7 = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 10000, 0 );
-	bSizer1892->Add( m_spinCtrl7, 0, wxALL, 5 );
+	m_ValMax = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 10000, 0 );
+	bSizer1892->Add( m_ValMax, 0, wxALL, 5 );
 
 
 	bSizer188->Add( bSizer1892, 0, wxEXPAND, 5 );
 
-	m_button20 = new wxButton( this, wxID_ANY, wxT("Agregar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer188->Add( m_button20, 0, wxALL, 5 );
+	m_Agregar = new wxButton( this, wxID_ANY, wxT("Agregar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer188->Add( m_Agregar, 0, wxALL, 5 );
 
 	m_staticline20 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	bSizer188->Add( m_staticline20, 0, wxEXPAND | wxALL, 5 );
@@ -1338,11 +1355,11 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	m_staticText102->Wrap( -1 );
 	bSizer195->Add( m_staticText102, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_staticText103 = new wxStaticText( this, wxID_ANY, wxT("20"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText103->Wrap( -1 );
-	m_staticText103->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+	m_Numero = new wxStaticText( this, wxID_ANY, wxT("20"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_Numero->Wrap( -1 );
+	m_Numero->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
-	bSizer195->Add( m_staticText103, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer195->Add( m_Numero, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
 	bSizer188->Add( bSizer195, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
@@ -1359,8 +1376,8 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	wxBoxSizer* bSizer199;
 	bSizer199 = new wxBoxSizer( wxVERTICAL );
 
-	m_button19 = new wxButton( this, wxID_ANY, wxT("Borrar seleccionado"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer199->Add( m_button19, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
+	m_Borrar = new wxButton( this, wxID_ANY, wxT("Borrar seleccionado"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer199->Add( m_Borrar, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
 
 
 	bSizer198->Add( bSizer199, 1, 0, 5 );
@@ -1368,8 +1385,8 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	wxBoxSizer* bSizer196;
 	bSizer196 = new wxBoxSizer( wxVERTICAL );
 
-	m_button22 = new wxButton( this, wxID_ANY, wxT("Cerrar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer196->Add( m_button22, 0, wxALL|wxALIGN_RIGHT, 5 );
+	m_Cerrar = new wxButton( this, wxID_ANY, wxT("Cerrar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer196->Add( m_Cerrar, 0, wxALL|wxALIGN_RIGHT, 5 );
 
 
 	bSizer198->Add( bSizer196, 1, 0, 5 );
@@ -1382,10 +1399,24 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_Seleccionado->Connect( wxEVT_COMMAND_LISTBOX_SELECTED, wxCommandEventHandler( Ventana_dados::OnClickSeleccionado ), NULL, this );
+	m_Agregar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickAgregar ), NULL, this );
+	m_button21->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickArrojar ), NULL, this );
+	m_Borrar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickBorrar ), NULL, this );
+	m_Cerrar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickCerrar ), NULL, this );
 }
 
 Ventana_dados::~Ventana_dados()
 {
+	// Disconnect Events
+	m_Seleccionado->Disconnect( wxEVT_COMMAND_LISTBOX_SELECTED, wxCommandEventHandler( Ventana_dados::OnClickSeleccionado ), NULL, this );
+	m_Agregar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickAgregar ), NULL, this );
+	m_button21->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickArrojar ), NULL, this );
+	m_Borrar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickBorrar ), NULL, this );
+	m_Cerrar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickCerrar ), NULL, this );
+
 }
 
 Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
@@ -1504,8 +1535,8 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer212;
 	bSizer212 = new wxBoxSizer( wxVERTICAL );
 
-	m_button23 = new wxButton( this, wxID_ANY, wxT("Cerrar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer212->Add( m_button23, 0, wxALL|wxALIGN_RIGHT, 5 );
+	m_Cerrar = new wxButton( this, wxID_ANY, wxT("Cerrar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer212->Add( m_Cerrar, 0, wxALL|wxALIGN_RIGHT, 5 );
 
 
 	bSizer210->Add( bSizer212, 1, wxALIGN_BOTTOM, 5 );
@@ -1518,8 +1549,14 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_Cerrar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickCerrar ), NULL, this );
 }
 
 Ventana_combate::~Ventana_combate()
 {
+	// Disconnect Events
+	m_Cerrar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickCerrar ), NULL, this );
+
 }

@@ -11,8 +11,8 @@ vPrincipal::~vPrincipal() {
 
 void vPrincipal::OnClickEmpezar( wxCommandEvent& event )  {
 	Close(true);
-	vPartida *win1 = new vPartida(NULL);
-	win1->Show();
+	vPartida *Part = new vPartida(NULL);
+	Part->Show();
 }
 
 void vPrincipal::OnClickCargar( wxCommandEvent& event )  {
