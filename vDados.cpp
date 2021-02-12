@@ -16,8 +16,8 @@ void vDados::OnClickSeleccionado( wxCommandEvent& event )  {
 }
 
 void vDados::OnClickAgregar( wxCommandEvent& event )  {
-	Dado D();
-	D.ObtenerMax();
+	Dado D;
+	D.Modificar(to_string(m_Nombre->GetValue()),m_ValMin->GetValue(),m_ValMax->GetValue());
 }
 
 void vDados::OnClickArrojar( wxCommandEvent& event )  {
