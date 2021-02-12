@@ -17,6 +17,7 @@ void vDados::OnClickSeleccionado( wxCommandEvent& event )  {
 
 void vDados::OnClickAgregar( wxCommandEvent& event )  {
 	Dado D();
+	D.TirarDado();
 }
 
 void vDados::OnClickArrojar( wxCommandEvent& event )  {
