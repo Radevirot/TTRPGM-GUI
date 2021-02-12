@@ -17,7 +17,7 @@ void vDados::OnClickSeleccionado( wxCommandEvent& event )  {
 
 void vDados::OnClickAgregar( wxCommandEvent& event )  {
 	Dado D();
-	D.Dado::ObtenerMax();
+	D.ObtenerMax();
 }
 
 void vDados::OnClickArrojar( wxCommandEvent& event )  {

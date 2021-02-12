@@ -203,6 +203,12 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	m_button8 = new wxButton( this, wxID_ANY, wxT("Importar personaje existente"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer58->Add( m_button8, 0, wxALL|wxEXPAND, 5 );
 
+	m_button18 = new wxButton( this, wxID_ANY, wxT("Borrar personaje"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer58->Add( m_button18, 0, wxALL|wxEXPAND, 5 );
+
+	m_button19 = new wxButton( this, wxID_ANY, wxT("Ver inventario"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer58->Add( m_button19, 0, wxALL|wxEXPAND, 5 );
+
 
 	bSizer14->Add( bSizer58, 1, 0, 5 );
 
@@ -265,6 +271,9 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 
 	m_button72 = new wxButton( this, wxID_ANY, wxT("Importar item existente"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer59->Add( m_button72, 0, wxALL|wxEXPAND, 5 );
+
+	m_button20 = new wxButton( this, wxID_ANY, wxT("Borrar item"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer59->Add( m_button20, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer16->Add( bSizer59, 1, wxEXPAND, 5 );
@@ -1257,8 +1266,8 @@ Ventana_item::~Ventana_item()
 Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-	this->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("@Arial Unicode MS") ) );
-	this->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
+	this->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("@Arial Unicode MS") ) );
+	this->SetForegroundColour( wxColour( 0, 0, 0 ) );
 	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
 
 	wxBoxSizer* bSizer162;
