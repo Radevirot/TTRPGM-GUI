@@ -16,3 +16,4 @@ void vCombate::OnClickAtacar( wxCommandEvent& event )  {
 	event.Skip();
 }
 
+

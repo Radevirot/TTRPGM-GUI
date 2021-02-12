@@ -1571,3 +1571,57 @@ Ventana_combate::~Ventana_combate()
 	m_Cerrar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickCerrar ), NULL, this );
 
 }
+
+Dialogo_NombrePartida::Dialogo_NombrePartida( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+	wxBoxSizer* bSizer131;
+	bSizer131 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer132;
+	bSizer132 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_TextoNombrePartida = new wxStaticText( this, wxID_ANY, wxT("Ingrese el nombre de la partida"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_TextoNombrePartida->Wrap( -1 );
+	bSizer132->Add( m_TextoNombrePartida, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer131->Add( bSizer132, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer133;
+	bSizer133 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_textCtrlNombrePart = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	#ifdef __WXGTK__
+	if ( !m_textCtrlNombrePart->HasFlag( wxTE_MULTILINE ) )
+	{
+	m_textCtrlNombrePart->SetMaxLength( 256 );
+	}
+	#else
+	m_textCtrlNombrePart->SetMaxLength( 256 );
+	#endif
+	bSizer133->Add( m_textCtrlNombrePart, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer131->Add( bSizer133, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer134;
+	bSizer134 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_AceptarNombrePart = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer134->Add( m_AceptarNombrePart, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer131->Add( bSizer134, 1, wxEXPAND, 5 );
+
+
+	this->SetSizer( bSizer131 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+}
+
+Dialogo_NombrePartida::~Dialogo_NombrePartida()
+{
+}

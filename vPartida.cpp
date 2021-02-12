@@ -7,6 +7,7 @@
 
 vPartida::vPartida(wxWindow *parent) : Ventana_partida(parent) {
 	Show();
+	Partida p;
 }
 
 vPartida::~vPartida() {
