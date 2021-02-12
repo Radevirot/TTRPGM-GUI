@@ -7,6 +7,7 @@ class vCombate : public Ventana_combate {
 private:
 	
 protected:
+	void OnClickAtacar( wxCommandEvent& event )  override;
 	void OnClickCerrar( wxCommandEvent& event )  override;
 	
 public:
