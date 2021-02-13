@@ -9,61 +9,49 @@
 
 ///////////////////////////////////////////////////////////////////////////
 
-Ventana_principal::Ventana_principal( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+Ventana_principal::Ventana_principal( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-	this->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOWTEXT ) );
-	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
 
 	wxBoxSizer* bSizer2;
 	bSizer2 = new wxBoxSizer( wxVERTICAL );
 
-	wxBoxSizer* bSizer3;
-	bSizer3 = new wxBoxSizer( wxVERTICAL );
-
-	m_staticText2 = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText2->Wrap( -1 );
-	bSizer3->Add( m_staticText2, 1, wxALL|wxEXPAND, 5 );
-
-
-	bSizer2->Add( bSizer3, 0, wxEXPAND, 5 );
-
 	wxBoxSizer* bSizer4;
-	bSizer4 = new wxBoxSizer( wxVERTICAL );
+	bSizer4 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText63 = new wxStaticText( this, wxID_ANY, wxT("Bienvenido al administrador de RPG de mesa"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText63->Wrap( -1 );
-	bSizer4->Add( m_staticText63, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer4->Add( m_staticText63, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
-	bSizer2->Add( bSizer4, 0, wxEXPAND, 5 );
+	bSizer2->Add( bSizer4, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 	wxBoxSizer* bSizer5;
-	bSizer5 = new wxBoxSizer( wxVERTICAL );
+	bSizer5 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_Empezarpartida = new wxButton( this, wxID_ANY, wxT("Empezar partida"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer5->Add( m_Empezarpartida, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer5->Add( m_Empezarpartida, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
 
 
-	bSizer2->Add( bSizer5, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer2->Add( bSizer5, 1, wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer6;
-	bSizer6 = new wxBoxSizer( wxVERTICAL );
+	bSizer6 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_Cargarpartida = new wxButton( this, wxID_ANY, wxT("Cargar partida"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer6->Add( m_Cargarpartida, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer6->Add( m_Cargarpartida, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
 
 
-	bSizer2->Add( bSizer6, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer2->Add( bSizer6, 1, wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer7;
-	bSizer7 = new wxBoxSizer( wxVERTICAL );
+	bSizer7 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_Salir = new wxButton( this, wxID_ANY, wxT("Salir"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer7->Add( m_Salir, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer7->Add( m_Salir, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
 
 
-	bSizer2->Add( bSizer7, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer2->Add( bSizer7, 1, wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
 
 
 	this->SetSizer( bSizer2 );
@@ -83,6 +71,83 @@ Ventana_principal::~Ventana_principal()
 	m_Empezarpartida->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_principal::OnClickEmpezar ), NULL, this );
 	m_Cargarpartida->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_principal::OnClickCargar ), NULL, this );
 	m_Salir->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_principal::OnClickSalir ), NULL, this );
+
+}
+
+Dialogo_NombrePartida::Dialogo_NombrePartida( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+	wxBoxSizer* bSizer131;
+	bSizer131 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer132;
+	bSizer132 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_TextoNombrePartida = new wxStaticText( this, wxID_ANY, wxT("Ingrese el nombre de la partida"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_TextoNombrePartida->Wrap( -1 );
+	bSizer132->Add( m_TextoNombrePartida, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer131->Add( bSizer132, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer133;
+	bSizer133 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_textCtrlNombrePart = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	#ifdef __WXGTK__
+	if ( !m_textCtrlNombrePart->HasFlag( wxTE_MULTILINE ) )
+	{
+	m_textCtrlNombrePart->SetMaxLength( 256 );
+	}
+	#else
+	m_textCtrlNombrePart->SetMaxLength( 256 );
+	#endif
+	bSizer133->Add( m_textCtrlNombrePart, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer131->Add( bSizer133, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer134;
+	bSizer134 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer135;
+	bSizer135 = new wxBoxSizer( wxVERTICAL );
+
+	m_AceptarNombrePart = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer135->Add( m_AceptarNombrePart, 1, wxALL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
+
+
+	bSizer134->Add( bSizer135, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer136;
+	bSizer136 = new wxBoxSizer( wxVERTICAL );
+
+	m_CancelarNombrePart = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer136->Add( m_CancelarNombrePart, 1, wxALL|wxEXPAND, 5 );
+
+
+	bSizer134->Add( bSizer136, 1, wxEXPAND, 5 );
+
+
+	bSizer131->Add( bSizer134, 1, wxEXPAND, 5 );
+
+
+	this->SetSizer( bSizer131 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_AceptarNombrePart->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickAceptar ), NULL, this );
+	m_CancelarNombrePart->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickCancelar ), NULL, this );
+}
+
+Dialogo_NombrePartida::~Dialogo_NombrePartida()
+{
+	// Disconnect Events
+	m_AceptarNombrePart->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickAceptar ), NULL, this );
+	m_CancelarNombrePart->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickCancelar ), NULL, this );
 
 }
 
@@ -1569,82 +1634,5 @@ Ventana_combate::~Ventana_combate()
 	// Disconnect Events
 	m_bpButton2->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickAtacar ), NULL, this );
 	m_Cerrar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickCerrar ), NULL, this );
-
-}
-
-Dialogo_NombrePartida::Dialogo_NombrePartida( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
-{
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-
-	wxBoxSizer* bSizer131;
-	bSizer131 = new wxBoxSizer( wxVERTICAL );
-
-	wxBoxSizer* bSizer132;
-	bSizer132 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_TextoNombrePartida = new wxStaticText( this, wxID_ANY, wxT("Ingrese el nombre de la partida"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_TextoNombrePartida->Wrap( -1 );
-	bSizer132->Add( m_TextoNombrePartida, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer131->Add( bSizer132, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
-
-	wxBoxSizer* bSizer133;
-	bSizer133 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_textCtrlNombrePart = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	#ifdef __WXGTK__
-	if ( !m_textCtrlNombrePart->HasFlag( wxTE_MULTILINE ) )
-	{
-	m_textCtrlNombrePart->SetMaxLength( 256 );
-	}
-	#else
-	m_textCtrlNombrePart->SetMaxLength( 256 );
-	#endif
-	bSizer133->Add( m_textCtrlNombrePart, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer131->Add( bSizer133, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer134;
-	bSizer134 = new wxBoxSizer( wxHORIZONTAL );
-
-	wxBoxSizer* bSizer135;
-	bSizer135 = new wxBoxSizer( wxVERTICAL );
-
-	m_AceptarNombrePart = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer135->Add( m_AceptarNombrePart, 1, wxALL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
-
-
-	bSizer134->Add( bSizer135, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer136;
-	bSizer136 = new wxBoxSizer( wxVERTICAL );
-
-	m_CancelarNombrePart = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer136->Add( m_CancelarNombrePart, 1, wxALL|wxEXPAND, 5 );
-
-
-	bSizer134->Add( bSizer136, 1, wxEXPAND, 5 );
-
-
-	bSizer131->Add( bSizer134, 1, wxEXPAND, 5 );
-
-
-	this->SetSizer( bSizer131 );
-	this->Layout();
-
-	this->Centre( wxBOTH );
-
-	// Connect Events
-	m_AceptarNombrePart->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickAceptar ), NULL, this );
-	m_CancelarNombrePart->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickCancelar ), NULL, this );
-}
-
-Dialogo_NombrePartida::~Dialogo_NombrePartida()
-{
-	// Disconnect Events
-	m_AceptarNombrePart->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickAceptar ), NULL, this );
-	m_CancelarNombrePart->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickCancelar ), NULL, this );
 
 }

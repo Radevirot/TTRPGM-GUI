@@ -6,7 +6,7 @@
 class vPartida : public Ventana_partida {
 	
 private:
-	
+	Partida *m_partida;
 protected:
 	void OnClickCombate( wxCommandEvent& event )  override;
 	void OnClickDado( wxCommandEvent& event )  override;
@@ -15,7 +15,7 @@ protected:
 	void OnClickCrearI( wxCommandEvent& event )  override;
 	
 public:
-	vPartida(wxWindow *parent, Partida p);
+	vPartida(wxWindow *parent, Partida *p);
 	~vPartida();
 };
 

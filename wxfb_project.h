@@ -20,18 +20,18 @@
 #include <wx/image.h>
 #include <wx/icon.h>
 #include <wx/button.h>
-#include <wx/frame.h>
+#include <wx/dialog.h>
+#include <wx/textctrl.h>
 #include <wx/menu.h>
 #include <wx/toolbar.h>
 #include <wx/statline.h>
 #include <wx/listbox.h>
-#include <wx/textctrl.h>
+#include <wx/frame.h>
 #include <wx/spinctrl.h>
 #include <wx/checklst.h>
 #include <wx/choice.h>
 #include <wx/bmpbuttn.h>
 #include <wx/checkbox.h>
-#include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -39,12 +39,11 @@
 ///////////////////////////////////////////////////////////////////////////////
 /// Class Ventana_principal
 ///////////////////////////////////////////////////////////////////////////////
-class Ventana_principal : public wxFrame
+class Ventana_principal : public wxDialog
 {
 	private:
 
 	protected:
-		wxStaticText* m_staticText2;
 		wxStaticText* m_staticText63;
 		wxButton* m_Empezarpartida;
 		wxButton* m_Cargarpartida;
@@ -58,9 +57,33 @@ class Ventana_principal : public wxFrame
 
 	public:
 
-		Ventana_principal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 335,234 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
-
+		Ventana_principal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 293,246 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~Ventana_principal();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class Dialogo_NombrePartida
+///////////////////////////////////////////////////////////////////////////////
+class Dialogo_NombrePartida : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_TextoNombrePartida;
+		wxTextCtrl* m_textCtrlNombrePart;
+		wxButton* m_AceptarNombrePart;
+		wxButton* m_CancelarNombrePart;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnClickAceptar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickCancelar( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		Dialogo_NombrePartida( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Nombre de partida"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 249,157 ), long style = wxDEFAULT_DIALOG_STYLE );
+		~Dialogo_NombrePartida();
 
 };
 
@@ -102,7 +125,7 @@ class Ventana_partida : public wxFrame
 
 	public:
 
-		Ventana_partida( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: -Nombre de partida-"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 586,604 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_partida( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 586,604 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_partida();
 
@@ -299,31 +322,6 @@ class Ventana_combate : public wxFrame
 		Ventana_combate( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Simulación de combate"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,273 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_combate();
-
-};
-
-///////////////////////////////////////////////////////////////////////////////
-/// Class Dialogo_NombrePartida
-///////////////////////////////////////////////////////////////////////////////
-class Dialogo_NombrePartida : public wxDialog
-{
-	private:
-
-	protected:
-		wxStaticText* m_TextoNombrePartida;
-		wxTextCtrl* m_textCtrlNombrePart;
-		wxButton* m_AceptarNombrePart;
-		wxButton* m_CancelarNombrePart;
-
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnClickAceptar( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnClickCancelar( wxCommandEvent& event ) { event.Skip(); }
-
-
-	public:
-
-		Dialogo_NombrePartida( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Nombre de partida"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 249,157 ), long style = wxDEFAULT_DIALOG_STYLE );
-		~Dialogo_NombrePartida();
 
 };
 

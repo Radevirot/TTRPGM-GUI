@@ -1,10 +1,10 @@
 #include "dNombrePartida.h"
 #include "Partida.h"
 #include "string_conv.h"
-#include "Application.h"
+#include "vPartida.h"
 
-dNombrePartida::dNombrePartida(wxWindow *parent) : Dialogo_NombrePartida(parent) {
-	
+dNombrePartida::dNombrePartida(wxWindow *parent, Partida *p) : Dialogo_NombrePartida(parent) {
+	m_partida=p;
 }
 
 dNombrePartida::~dNombrePartida() {
@@ -12,11 +12,11 @@ dNombrePartida::~dNombrePartida() {
 }
 
 void dNombrePartida::OnClickAceptar( wxCommandEvent& event )  {
-	Destroy();
-	Partida p(wx_to_std(m_textCtrlNombrePart->GetValue()));
+	m_partida->ModificarNombre(wx_to_std(m_textCtrlNombrePart->GetValue()));
+	EndModal(1);
 }
 
 void dNombrePartida::OnClickCancelar( wxCommandEvent& event )  {
-	Close(true);
+	EndModal(0);
 }
 

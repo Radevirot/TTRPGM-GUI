@@ -1,18 +1,16 @@
 #include "vPrincipal.h"
 #include "dNombrePartida.h"
 
-vPrincipal::vPrincipal(wxWindow *parent) : Ventana_principal(parent) {
-	Show();
-}
-
-vPrincipal::~vPrincipal() {
-	
+vPrincipal::vPrincipal(Partida *p) : Ventana_principal(NULL) {
+	m_partida=p;
 }
 
 void vPrincipal::OnClickEmpezar( wxCommandEvent& event )  {
-	dNombrePartida *NomPart = new dNombrePartida(NULL);
-	NomPart->Show();
-	if (NomPart->IsBeingDeleted()) Close(true);
+	dNombrePartida NomPart(this,m_partida);
+	int valor = NomPart.ShowModal();
+	if(valor==1){
+		EndModal(1);
+	}
 }
 
 void vPrincipal::OnClickCargar( wxCommandEvent& event )  {
@@ -20,6 +18,10 @@ void vPrincipal::OnClickCargar( wxCommandEvent& event )  {
 }
 
 void vPrincipal::OnClickSalir( wxCommandEvent& event )  {
-	Close(true);
+	EndModal(0);
+}
+
+vPrincipal::~vPrincipal() {
+	
 }
 

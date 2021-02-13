@@ -4,9 +4,13 @@
 #include "vDados.h"
 #include "vCombate.h"
 #include "dNombrePartida.h"
+#include "string_conv.h"
 
 
-vPartida::vPartida(wxWindow *parent, Partida p) : Ventana_partida(parent) {
+vPartida::vPartida(wxWindow *parent, Partida *p) : Ventana_partida(parent) {
+	m_partida=p;
+	std::string name = "TTRPGM: " + m_partida->ObtenerNombre();
+	this->SetTitle(std_to_wx(name));
 	Show();
 }
 
@@ -15,7 +19,7 @@ vPartida::~vPartida() {
 }
 
 void vPartida::OnMenuNueva( wxCommandEvent& event )  {
-	dNombrePartida *NomPart1 = new dNombrePartida(NULL);
+
 }
 
 void vPartida::OnClickCrearP( wxCommandEvent& event )  {
