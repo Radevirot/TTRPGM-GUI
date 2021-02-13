@@ -8,8 +8,8 @@ class dNombrePartida : public Dialogo_NombrePartida {
 private:
 	Partida *m_partida;
 protected:
-	void OnClickCancelar( wxCommandEvent& event )  override;
 	void OnClickAceptar( wxCommandEvent& event )  override;
+	void OnClickCancelar( wxCommandEvent& event )  override;
 	
 public:
 	dNombrePartida(wxWindow *parent,Partida *p);
