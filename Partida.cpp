@@ -132,6 +132,10 @@ void Partida::EliminarDado(int pos){
 	Dlist.resize(Aux-1);
 }
 
+int Partida::ObtenerCantidadDeDados(){
+	return Dlist.size();
+}
+
 
 void Partida::Guardar(std::string nombrearchi){
 	/*
@@ -171,8 +175,8 @@ void Partida::Cargar(std::string nombrearchi){
 	if (!archivo.is_open()){
 		std::cout << "No se pudo abrir el archivo." << std::endl;
 	} else {
-		size_t TamDado=sizeof(int)*2;
-		int CantPersonaje, CantDados, posbinaria=TamDado+256;
+		size_t TamDado=(sizeof(int)*2)+16;
+		int CantPersonaje, CantDados, posbinaria=sizeof(int)*2+256;
 		
 		archivo.read(reinterpret_cast<char*>(&CantPersonaje),sizeof(int));
 		archivo.read(reinterpret_cast<char*>(&CantDados),sizeof(int));
