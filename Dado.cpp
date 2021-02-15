@@ -11,8 +11,8 @@ Dado::Dado() {
 
 void Dado::Modificar(std::string nombre, int DadoMin, int DadoMax){
 	_nombre=nombre;
-	DadoMin=ValMin;
-	DadoMax=ValMax;
+	ValMin=DadoMin;
+	ValMax=DadoMax;
 }
 
 int Dado::TirarDado(){

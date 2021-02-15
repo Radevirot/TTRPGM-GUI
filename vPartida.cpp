@@ -9,8 +9,7 @@
 
 vPartida::vPartida(wxWindow *parent, Partida *p) : Ventana_partida(parent) {
 	m_partida=p;
-	std::string name = "TTRPGM: " + m_partida->ObtenerNombre();
-	this->SetTitle(std_to_wx(name));
+	this->ActualizarNombre();
 	Show();
 }
 
@@ -18,8 +17,19 @@ vPartida::~vPartida() {
 	
 }
 
-void vPartida::OnMenuNueva( wxCommandEvent& event )  {
+void vPartida::ActualizarNombre() {
+	std::string name = "TTRPGM: " + m_partida->ObtenerNombre();
+	this->SetTitle(std_to_wx(name));
+}
 
+void vPartida::OnMenuNueva( wxCommandEvent& event )  {
+	dNombrePartida NomPart(this,m_partida);
+	int valor = NomPart.ShowModal();
+	if(valor==1){
+		Partida b(m_partida->ObtenerNombre());
+		*m_partida= b;
+		this->ActualizarNombre();
+	}
 }
 
 void vPartida::OnClickCrearP( wxCommandEvent& event )  {
@@ -35,6 +45,6 @@ void vPartida::OnClickCombate( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickDado( wxCommandEvent& event )  {
-	vDados *Dados = new vDados(NULL);
+	vDados *Dados = new vDados(NULL,m_partida);
 }
 

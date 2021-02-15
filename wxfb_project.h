@@ -274,7 +274,6 @@ class Ventana_dados : public wxFrame
 		wxButton* m_Cerrar;
 
 		// Virtual event handlers, overide them in your derived class
-		virtual void OnClickSeleccionado( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickAgregar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickArrojar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickBorrar( wxCommandEvent& event ) { event.Skip(); }
@@ -283,7 +282,7 @@ class Ventana_dados : public wxFrame
 
 	public:
 
-		Ventana_dados( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Dados virtuales"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 503,321 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_dados( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Dados virtuales"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 503,384 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_dados();
 

@@ -8176,7 +8176,7 @@
             <property name="minimum_size"></property>
             <property name="name">Ventana_dados</property>
             <property name="pos"></property>
-            <property name="size">503,321</property>
+            <property name="size">503,384</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
             <property name="title">TTRPGM: Dados virtuales</property>
@@ -8287,7 +8287,7 @@
                                         <property name="caption"></property>
                                         <property name="caption_visible">1</property>
                                         <property name="center_pane">0</property>
-                                        <property name="choices">&quot;D20&quot;</property>
+                                        <property name="choices"></property>
                                         <property name="close_button">1</property>
                                         <property name="context_help"></property>
                                         <property name="context_menu">1</property>
@@ -8330,7 +8330,6 @@
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
-                                        <event name="OnListBox">OnClickSeleccionado</event>
                                     </object>
                                 </object>
                             </object>
@@ -8644,7 +8643,7 @@
                                                 <property name="hidden">0</property>
                                                 <property name="id">wxID_ANY</property>
                                                 <property name="initial">0</property>
-                                                <property name="max">0</property>
+                                                <property name="max">999</property>
                                                 <property name="max_size"></property>
                                                 <property name="maximize_button">0</property>
                                                 <property name="maximum_size"></property>
@@ -9115,7 +9114,7 @@
                                                 <property name="gripper">0</property>
                                                 <property name="hidden">0</property>
                                                 <property name="id">wxID_ANY</property>
-                                                <property name="label">20</property>
+                                                <property name="label">0</property>
                                                 <property name="markup">0</property>
                                                 <property name="max_size"></property>
                                                 <property name="maximize_button">0</property>

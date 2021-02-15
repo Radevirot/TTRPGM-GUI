@@ -1351,7 +1351,6 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizer187->Add( m_staticText96, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
 
 	m_Seleccionado = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
-	m_Seleccionado->Append( wxT("D20") );
 	bSizer187->Add( m_Seleccionado, 1, wxALL|wxEXPAND, 5 );
 
 
@@ -1394,7 +1393,7 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	m_staticText981->Wrap( -1 );
 	bSizer1891->Add( m_staticText981, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_ValMin = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 0, 0 );
+	m_ValMin = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 999, 0 );
 	bSizer1891->Add( m_ValMin, 0, wxALL, 5 );
 
 
@@ -1429,7 +1428,7 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	m_staticText102->Wrap( -1 );
 	bSizer195->Add( m_staticText102, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_Numero = new wxStaticText( this, wxID_ANY, wxT("20"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_Numero = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_Numero->Wrap( -1 );
 	m_Numero->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
@@ -1475,7 +1474,6 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	m_Seleccionado->Connect( wxEVT_COMMAND_LISTBOX_SELECTED, wxCommandEventHandler( Ventana_dados::OnClickSeleccionado ), NULL, this );
 	m_Agregar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickAgregar ), NULL, this );
 	m_button21->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickArrojar ), NULL, this );
 	m_Borrar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickBorrar ), NULL, this );
@@ -1485,7 +1483,6 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 Ventana_dados::~Ventana_dados()
 {
 	// Disconnect Events
-	m_Seleccionado->Disconnect( wxEVT_COMMAND_LISTBOX_SELECTED, wxCommandEventHandler( Ventana_dados::OnClickSeleccionado ), NULL, this );
 	m_Agregar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickAgregar ), NULL, this );
 	m_button21->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickArrojar ), NULL, this );
 	m_Borrar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickBorrar ), NULL, this );
