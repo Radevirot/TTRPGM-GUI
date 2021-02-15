@@ -412,16 +412,16 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	m_Personajename->Wrap( -1 );
 	bSizer10->Add( m_Personajename, 0, wxALL, 5 );
 
-	m_textCtrl4 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_Nombre = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	#ifdef __WXGTK__
-	if ( !m_textCtrl4->HasFlag( wxTE_MULTILINE ) )
+	if ( !m_Nombre->HasFlag( wxTE_MULTILINE ) )
 	{
-	m_textCtrl4->SetMaxLength( 256 );
+	m_Nombre->SetMaxLength( 256 );
 	}
 	#else
-	m_textCtrl4->SetMaxLength( 256 );
+	m_Nombre->SetMaxLength( 256 );
 	#endif
-	bSizer10->Add( m_textCtrl4, 1, wxALL, 5 );
+	bSizer10->Add( m_Nombre, 1, wxALL, 5 );
 
 
 	bSizer8->Add( bSizer10, 0, wxEXPAND, 5 );
@@ -429,12 +429,12 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer12;
 	bSizer12 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_Nivel = new wxStaticText( this, wxID_ANY, wxT("Nivel"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_Nivel->Wrap( -1 );
-	bSizer12->Add( m_Nivel, 0, wxALL, 5 );
+	m_asda = new wxStaticText( this, wxID_ANY, wxT("Nivel"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_asda->Wrap( -1 );
+	bSizer12->Add( m_asda, 0, wxALL, 5 );
 
-	m_spinCtrl1 = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1000000, 0 );
-	bSizer12->Add( m_spinCtrl1, 0, wxALL, 5 );
+	m_Nivel = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1000000, 0 );
+	bSizer12->Add( m_Nivel, 0, wxALL, 5 );
 
 
 	bSizer8->Add( bSizer12, 0, wxEXPAND, 5 );
@@ -442,13 +442,13 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer121;
 	bSizer121 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_Nivel1 = new wxStaticText( this, wxID_ANY, wxT("EXP  "), wxDefaultPosition, wxDefaultSize, 0 );
-	m_Nivel1->Wrap( -1 );
-	bSizer121->Add( m_Nivel1, 0, wxALL, 5 );
+	m_sdad = new wxStaticText( this, wxID_ANY, wxT("EXP  "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_sdad->Wrap( -1 );
+	bSizer121->Add( m_sdad, 0, wxALL, 5 );
 
-	m_spinCtrlDouble17 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble17->SetDigits( 0 );
-	bSizer121->Add( m_spinCtrlDouble17, 0, wxALL, 5 );
+	m_EXP = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_EXP->SetDigits( 0 );
+	bSizer121->Add( m_EXP, 0, wxALL, 5 );
 
 
 	bSizer8->Add( bSizer121, 0, wxEXPAND, 5 );
@@ -508,16 +508,16 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer14->Add( bSizer36, 0, wxEXPAND|wxRIGHT, 5 );
 
-	m_spinCtrlDouble1 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble1->SetDigits( 0 );
-	bSizer14->Add( m_spinCtrlDouble1, 0, wxALL, 5 );
+	m_PVb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_PVb->SetDigits( 0 );
+	bSizer14->Add( m_PVb, 0, wxALL, 5 );
 
 	wxBoxSizer* bSizer48;
 	bSizer48 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText9 = new wxStaticText( this, wxID_ANY, wxT("38"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText9->Wrap( -1 );
-	bSizer48->Add( m_staticText9, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	m_PVt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_PVt->Wrap( -1 );
+	bSizer48->Add( m_PVt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	bSizer14->Add( bSizer48, 1, 0, 5 );
@@ -538,16 +538,16 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer141->Add( bSizer35, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble11 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble11->SetDigits( 0 );
-	bSizer141->Add( m_spinCtrlDouble11, 0, wxALL, 5 );
+	m_DFNb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_DFNb->SetDigits( 0 );
+	bSizer141->Add( m_DFNb, 0, wxALL, 5 );
 
 	wxBoxSizer* bSizer481;
 	bSizer481 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText98 = new wxStaticText( this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText98->Wrap( -1 );
-	bSizer481->Add( m_staticText98, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	m_DFNt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_DFNt->Wrap( -1 );
+	bSizer481->Add( m_DFNt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	bSizer141->Add( bSizer481, 1, wxEXPAND, 5 );
@@ -568,16 +568,16 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer142->Add( bSizer37, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble12 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble12->SetDigits( 0 );
-	bSizer142->Add( m_spinCtrlDouble12, 0, wxALL, 5 );
+	m_FRZb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_FRZb->SetDigits( 0 );
+	bSizer142->Add( m_FRZb, 0, wxALL, 5 );
 
 	wxBoxSizer* bSizer482;
 	bSizer482 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText91 = new wxStaticText( this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText91->Wrap( -1 );
-	bSizer482->Add( m_staticText91, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	m_FRZt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_FRZt->Wrap( -1 );
+	bSizer482->Add( m_FRZt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	bSizer142->Add( bSizer482, 1, wxEXPAND, 5 );
@@ -598,16 +598,16 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer143->Add( bSizer27, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble13 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble13->SetDigits( 0 );
-	bSizer143->Add( m_spinCtrlDouble13, 0, wxALL, 5 );
+	m_AGLb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_AGLb->SetDigits( 0 );
+	bSizer143->Add( m_AGLb, 0, wxALL, 5 );
 
 	wxBoxSizer* bSizer483;
 	bSizer483 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText92 = new wxStaticText( this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText92->Wrap( -1 );
-	bSizer483->Add( m_staticText92, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	m_AGLt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_AGLt->Wrap( -1 );
+	bSizer483->Add( m_AGLt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	bSizer143->Add( bSizer483, 1, wxEXPAND, 5 );
@@ -628,16 +628,16 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer144->Add( bSizer28, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble14 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble14->SetDigits( 0 );
-	bSizer144->Add( m_spinCtrlDouble14, 0, wxALL, 5 );
+	m_RMb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_RMb->SetDigits( 0 );
+	bSizer144->Add( m_RMb, 0, wxALL, 5 );
 
 	wxBoxSizer* bSizer484;
 	bSizer484 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText99 = new wxStaticText( this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText99->Wrap( -1 );
-	bSizer484->Add( m_staticText99, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	m_RMt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_RMt->Wrap( -1 );
+	bSizer484->Add( m_RMt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	bSizer144->Add( bSizer484, 1, wxEXPAND, 5 );
@@ -658,16 +658,16 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer145->Add( bSizer29, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble15 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble15->SetDigits( 0 );
-	bSizer145->Add( m_spinCtrlDouble15, 0, wxALL, 5 );
+	m_INTb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_INTb->SetDigits( 0 );
+	bSizer145->Add( m_INTb, 0, wxALL, 5 );
 
 	wxBoxSizer* bSizer485;
 	bSizer485 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText910 = new wxStaticText( this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText910->Wrap( -1 );
-	bSizer485->Add( m_staticText910, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	m_INTt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_INTt->Wrap( -1 );
+	bSizer485->Add( m_INTt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	bSizer145->Add( bSizer485, 1, wxEXPAND, 5 );
@@ -688,16 +688,16 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer146->Add( bSizer30, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble16 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble16->SetDigits( 0 );
-	bSizer146->Add( m_spinCtrlDouble16, 0, wxALL, 5 );
+	m_MNb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_MNb->SetDigits( 0 );
+	bSizer146->Add( m_MNb, 0, wxALL, 5 );
 
 	wxBoxSizer* bSizer486;
 	bSizer486 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText911 = new wxStaticText( this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText911->Wrap( -1 );
-	bSizer486->Add( m_staticText911, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	m_MNt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_MNt->Wrap( -1 );
+	bSizer486->Add( m_MNt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	bSizer146->Add( bSizer486, 1, wxEXPAND, 5 );
@@ -718,9 +718,9 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer147->Add( bSizer31, 0, wxEXPAND, 5 );
 
-	m_staticText97 = new wxStaticText( this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText97->Wrap( -1 );
-	bSizer147->Add( m_staticText97, 0, wxALL, 5 );
+	m_DN = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_DN->Wrap( -1 );
+	bSizer147->Add( m_DN, 0, wxALL, 5 );
 
 
 	bSizer8->Add( bSizer147, 0, wxEXPAND, 5 );
@@ -738,9 +738,9 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer1471->Add( bSizer32, 0, wxEXPAND, 5 );
 
-	m_staticText971 = new wxStaticText( this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText971->Wrap( -1 );
-	bSizer1471->Add( m_staticText971, 0, wxALL, 5 );
+	m_RNG = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_RNG->Wrap( -1 );
+	bSizer1471->Add( m_RNG, 0, wxALL, 5 );
 
 
 	bSizer8->Add( bSizer1471, 0, wxEXPAND, 5 );
@@ -758,9 +758,9 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer14721->Add( bSizer331, 0, wxEXPAND, 5 );
 
-	m_staticText9721 = new wxStaticText( this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText9721->Wrap( -1 );
-	bSizer14721->Add( m_staticText9721, 0, wxALL, 5 );
+	m_PNT = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_PNT->Wrap( -1 );
+	bSizer14721->Add( m_PNT, 0, wxALL, 5 );
 
 
 	bSizer8->Add( bSizer14721, 0, wxEXPAND, 5 );
@@ -778,9 +778,9 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer1472->Add( bSizer33, 0, wxEXPAND, 5 );
 
-	m_staticText972 = new wxStaticText( this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText972->Wrap( -1 );
-	bSizer1472->Add( m_staticText972, 0, wxALL, 5 );
+	m_BLQ = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_BLQ->Wrap( -1 );
+	bSizer1472->Add( m_BLQ, 0, wxALL, 5 );
 
 
 	bSizer8->Add( bSizer1472, 0, wxEXPAND, 5 );
@@ -811,16 +811,16 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer34;
 	bSizer34 = new wxBoxSizer( wxVERTICAL );
 
-	m_textCtrl2 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_BESTWRAP|wxTE_MULTILINE );
+	m_Detalle = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_BESTWRAP|wxTE_MULTILINE );
 	#ifdef __WXGTK__
-	if ( !m_textCtrl2->HasFlag( wxTE_MULTILINE ) )
+	if ( !m_Detalle->HasFlag( wxTE_MULTILINE ) )
 	{
-	m_textCtrl2->SetMaxLength( 1000 );
+	m_Detalle->SetMaxLength( 1000 );
 	}
 	#else
-	m_textCtrl2->SetMaxLength( 1000 );
+	m_Detalle->SetMaxLength( 1000 );
 	#endif
-	bSizer34->Add( m_textCtrl2, 1, wxEXPAND|wxBOTTOM|wxRIGHT|wxLEFT, 5 );
+	bSizer34->Add( m_Detalle, 1, wxEXPAND|wxBOTTOM|wxRIGHT|wxLEFT, 5 );
 
 
 	bSizer8->Add( bSizer34, 1, wxEXPAND, 5 );
@@ -845,8 +845,8 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer11;
 	bSizer11 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_button7 = new wxButton( this, wxID_ANY, wxT("Aplicar cambios"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer11->Add( m_button7, 0, wxALL, 5 );
+	m_aplicarcambios = new wxButton( this, wxID_ANY, wxT("Aplicar cambios"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer11->Add( m_aplicarcambios, 0, wxALL, 5 );
 
 	m_button4 = new wxButton( this, wxID_ANY, wxT("Exportar"), wxDefaultPosition, wxSize( -1,-1 ), 0 );
 	bSizer11->Add( m_button4, 0, wxALL|wxEXPAND, 5 );
@@ -866,10 +866,10 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer41;
 	bSizer41 = new wxBoxSizer( wxVERTICAL );
 
-	wxString m_checkList1Choices[] = { wxT("Pala"), wxT("Pico"), wxT("Espada del rey demonio") };
-	int m_checkList1NChoices = sizeof( m_checkList1Choices ) / sizeof( wxString );
-	m_checkList1 = new wxCheckListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_checkList1NChoices, m_checkList1Choices, wxLB_SORT );
-	bSizer41->Add( m_checkList1, 1, wxALL|wxEXPAND, 5 );
+	wxString m_InventarioChoices[] = { wxT("Pala"), wxT("Pico"), wxT("Espada del rey demonio") };
+	int m_InventarioNChoices = sizeof( m_InventarioChoices ) / sizeof( wxString );
+	m_Inventario = new wxCheckListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_InventarioNChoices, m_InventarioChoices, wxLB_SORT );
+	bSizer41->Add( m_Inventario, 1, wxALL|wxEXPAND, 5 );
 
 
 	bSizer9->Add( bSizer41, 1, wxEXPAND, 5 );
@@ -902,10 +902,20 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_aplicarcambios->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickAplicar ), NULL, this );
+	m_button4->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickExportar ), NULL, this );
+	m_button6->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickAgregar ), NULL, this );
 }
 
 Ventana_personaje::~Ventana_personaje()
 {
+	// Disconnect Events
+	m_aplicarcambios->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickAplicar ), NULL, this );
+	m_button4->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickExportar ), NULL, this );
+	m_button6->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickAgregar ), NULL, this );
+
 }
 
 Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )

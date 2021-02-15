@@ -141,53 +141,59 @@ class Ventana_personaje : public wxFrame
 	protected:
 		wxStaticLine* m_staticline4112;
 		wxStaticText* m_Personajename;
-		wxTextCtrl* m_textCtrl4;
-		wxStaticText* m_Nivel;
-		wxSpinCtrl* m_spinCtrl1;
-		wxStaticText* m_Nivel1;
-		wxSpinCtrlDouble* m_spinCtrlDouble17;
+		wxTextCtrl* m_Nombre;
+		wxStaticText* m_asda;
+		wxSpinCtrl* m_Nivel;
+		wxStaticText* m_sdad;
+		wxSpinCtrlDouble* m_EXP;
 		wxStaticLine* m_staticline41;
 		wxStaticText* m_staticText94;
 		wxStaticText* m_staticText93;
 		wxStaticText* m_staticText8;
-		wxSpinCtrlDouble* m_spinCtrlDouble1;
-		wxStaticText* m_staticText9;
+		wxSpinCtrlDouble* m_PVb;
+		wxStaticText* m_PVt;
 		wxStaticText* m_staticText81;
-		wxSpinCtrlDouble* m_spinCtrlDouble11;
-		wxStaticText* m_staticText98;
+		wxSpinCtrlDouble* m_DFNb;
+		wxStaticText* m_DFNt;
 		wxStaticText* m_staticText82;
-		wxSpinCtrlDouble* m_spinCtrlDouble12;
-		wxStaticText* m_staticText91;
+		wxSpinCtrlDouble* m_FRZb;
+		wxStaticText* m_FRZt;
 		wxStaticText* m_staticText83;
-		wxSpinCtrlDouble* m_spinCtrlDouble13;
-		wxStaticText* m_staticText92;
+		wxSpinCtrlDouble* m_AGLb;
+		wxStaticText* m_AGLt;
 		wxStaticText* m_staticText84;
-		wxSpinCtrlDouble* m_spinCtrlDouble14;
-		wxStaticText* m_staticText99;
+		wxSpinCtrlDouble* m_RMb;
+		wxStaticText* m_RMt;
 		wxStaticText* m_staticText85;
-		wxSpinCtrlDouble* m_spinCtrlDouble15;
-		wxStaticText* m_staticText910;
+		wxSpinCtrlDouble* m_INTb;
+		wxStaticText* m_INTt;
 		wxStaticText* m_staticText86;
-		wxSpinCtrlDouble* m_spinCtrlDouble16;
-		wxStaticText* m_staticText911;
+		wxSpinCtrlDouble* m_MNb;
+		wxStaticText* m_MNt;
 		wxStaticText* m_staticText87;
-		wxStaticText* m_staticText97;
+		wxStaticText* m_DN;
 		wxStaticText* m_staticText871;
-		wxStaticText* m_staticText971;
+		wxStaticText* m_RNG;
 		wxStaticText* m_staticText8721;
-		wxStaticText* m_staticText9721;
+		wxStaticText* m_PNT;
 		wxStaticText* m_staticText872;
-		wxStaticText* m_staticText972;
+		wxStaticText* m_BLQ;
 		wxStaticLine* m_staticline4;
 		wxStaticText* m_staticText43;
-		wxTextCtrl* m_textCtrl2;
+		wxTextCtrl* m_Detalle;
 		wxStaticLine* m_staticline411;
-		wxButton* m_button7;
+		wxButton* m_aplicarcambios;
 		wxButton* m_button4;
 		wxStaticText* m_staticText32;
-		wxCheckListBox* m_checkList1;
+		wxCheckListBox* m_Inventario;
 		wxButton* m_button6;
 		wxStaticLine* m_staticline4111;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnClickAplicar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickExportar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickAgregar( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 
