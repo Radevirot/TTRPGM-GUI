@@ -132,10 +132,6 @@ void Partida::EliminarDado(int pos){
 	Dlist.resize(Aux-1);
 }
 
-int Partida::ObtenerCantidadDeDados(){
-	return Dlist.size();
-}
-
 
 void Partida::Guardar(std::string nombrearchi){
 	/*

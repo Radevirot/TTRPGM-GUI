@@ -34,7 +34,6 @@ public:
 	void AgregarDado(Dado d1);
 	Dado ObtenerDado(int pos);
 	void EliminarDado(int pos);
-	int ObtenerCantidadDeDados();
 	
 
 	
