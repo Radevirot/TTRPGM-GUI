@@ -145,10 +145,11 @@ void Partida::Guardar(std::string nombrearchi){
 	nombrearchi+=".dat";													
 	std::ofstream archivo(nombrearchi,std::ios::binary|std::ios::trunc);
 	
-	int CantPersonaje=Plist.size(), CantDados=Dlist.size();
+	int CantPersonaje=Plist.size(), CantDados=Dlist.size(), CantItems=Ilist.size();
 	char straux[256];
 	archivo.write(reinterpret_cast<char*>(&CantPersonaje),sizeof(int));
 	archivo.write(reinterpret_cast<char*>(&CantDados),sizeof(int));
+	archivo.write(reinterpret_cast<char*>(&CantItems),sizeof(int));
 	
 	std::strcpy(straux,_nombre.c_str());											
 	archivo.write(straux,256);	
@@ -160,6 +161,10 @@ void Partida::Guardar(std::string nombrearchi){
 	
 	for(int i=0;i<CantPersonaje;i++) { 
 		Plist[i].Exportar(nombrearchi, false);
+	}
+	
+	for(int i=0;i<CantItems;i++) { 
+		Ilist[i].Exportar(nombrearchi, false);
 	}
 	
 }
@@ -175,11 +180,12 @@ void Partida::Cargar(std::string nombrearchi){
 	if (!archivo.is_open()){
 		std::cout << "No se pudo abrir el archivo." << std::endl;
 	} else {
-		size_t TamDado=(sizeof(int)*2)+16;
-		int CantPersonaje, CantDados, posbinaria=sizeof(int)*2+256;
+		size_t TamDado=(sizeof(int)*2)+16, TamItem=256+1000*2+sizeof(int)+sizeof(float)*11+sizeof(bool);
+		int CantPersonaje, CantDados, CantItems, posbinaria=sizeof(int)*3+256;
 		
 		archivo.read(reinterpret_cast<char*>(&CantPersonaje),sizeof(int));
 		archivo.read(reinterpret_cast<char*>(&CantDados),sizeof(int));
+		archivo.read(reinterpret_cast<char*>(&CantItems),sizeof(int));
 		
 		char straux[256];
 		archivo.read(straux,256);
@@ -197,6 +203,13 @@ void Partida::Cargar(std::string nombrearchi){
 			Personaje p1;
 			p1.Importar(nombrearchi, posbinaria);
 			Plist.push_back(p1);
+		}
+		
+		for(int i=0;i<CantItems;i++) { 
+			Item i1;
+			i1.Importar(nombrearchi, false, posbinaria);
+			Ilist.push_back(i1);
+			posbinaria+=TamItem;
 		}
 		
 	}

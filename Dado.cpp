@@ -58,6 +58,9 @@ void Dado::Importar(std::string nombrearchi, int posbinaria){
 	*/
 	std::ifstream archivo(nombrearchi,std::ios::binary);
 	archivo.seekg(posbinaria);
+	char straux[16];
+	archivo.read(straux,16);
+	_nombre=straux;
 	archivo.read(reinterpret_cast<char*>(&ValMin),sizeof(int));
 	archivo.read(reinterpret_cast<char*>(&ValMax),sizeof(int));
 	archivo.close();
