@@ -40,6 +40,11 @@ void Dado::Exportar(std::string nombrearchi){
 	Exporta el dado de una partida.
 	*/
 	std::ofstream archivo(nombrearchi,std::ios::binary|std::ios::app);
+	
+	char straux[16];
+	std::strcpy(straux,_nombre.c_str());											
+	archivo.write(straux,16);	
+	
 	archivo.write(reinterpret_cast<char*>(&ValMin),sizeof(int));
 	archivo.write(reinterpret_cast<char*>(&ValMax),sizeof(int));
 	archivo.close();
