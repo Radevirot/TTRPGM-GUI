@@ -199,7 +199,7 @@ void Partida::Cargar(std::string nombrearchi){
 	}
 }
 
-void Partida::Combate(int posp1, int posp2,  int formula, float multiplicador){
+float Partida::Combate(int posp1, int posp2,  int formula, float multiplicador, bool modificar){
 	Personaje p1 = Plist[posp1], p2 = Plist[posp2];
 	
 	float DanioProb;
@@ -222,6 +222,9 @@ void Partida::Combate(int posp1, int posp2,  int formula, float multiplicador){
 		DanioProb=0;
 	}
 	float newhp=p2.ObtenerStat(0)-DanioProb;
-	Partida::ModificarStatDePersonaje(posp2,0,newhp);
+	
+	if(modificar) Partida::ModificarStatDePersonaje(posp2,0,newhp);
+	
+	return DanioProb;
 	
 }
