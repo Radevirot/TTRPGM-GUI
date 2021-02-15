@@ -1435,6 +1435,7 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	m_Numero = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_Numero->Wrap( -1 );
 	m_Numero->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+	m_Numero->SetForegroundColour( wxColour( 128, 0, 0 ) );
 
 	bSizer195->Add( m_Numero, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 

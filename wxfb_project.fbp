@@ -9121,7 +9121,7 @@
                                                 <property name="dock_fixed">0</property>
                                                 <property name="docking">Left</property>
                                                 <property name="enabled">1</property>
-                                                <property name="fg"></property>
+                                                <property name="fg">128,0,0</property>
                                                 <property name="floatable">1</property>
                                                 <property name="font">,90,92,-1,70,0</property>
                                                 <property name="gripper">0</property>
