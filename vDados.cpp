@@ -19,8 +19,7 @@ void vDados::OnClickAgregar( wxCommandEvent& event )  {
 	D.Modificar(wx_to_std(m_Nombre->GetValue()),m_ValMin->GetValue(),m_ValMax->GetValue());
 	m_partida->AgregarDado(D);
 	m_Seleccionado->Append(std_to_wx(D.ObtenerNombre()+" - Min: "+ std::to_string(D.ObtenerMin())+" - Max: "+ std::to_string(D.ObtenerMax())));
-	int val=m_Seleccionado->GetCount();
-	m_Seleccionado->SetSelection(val);
+	m_Seleccionado->SetSelection(m_Seleccionado->GetCount()-1);
 } 
 
 void vDados::OnClickArrojar( wxCommandEvent& event )  {
