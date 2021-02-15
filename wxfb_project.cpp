@@ -160,6 +160,10 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	m_menu1 = new wxMenu();
 	m_menu2 = new wxMenu();
 	wxMenuItem* m_menu2Item = new wxMenuItem( m_menu1, wxID_ANY, wxT("Partida"), wxEmptyString, wxITEM_NORMAL, m_menu2 );
+	wxMenuItem* m_EditarNom;
+	m_EditarNom = new wxMenuItem( m_menu2, wxID_ANY, wxString( wxT("Editar nombre") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu2->Append( m_EditarNom );
+
 	wxMenuItem* m_menuItem1;
 	m_menuItem1 = new wxMenuItem( m_menu2, wxID_ANY, wxString( wxT("Guardar") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu2->Append( m_menuItem1 );
