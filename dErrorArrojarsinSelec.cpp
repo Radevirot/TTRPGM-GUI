@@ -9,6 +9,6 @@ dErrorArrojarsinSelec::~dErrorArrojarsinSelec() {
 }
 
 void dErrorArrojarsinSelec::OnClickAceptar( wxCommandEvent& event )  {
-	event.Skip();
+	EndModal(0);
 }
 

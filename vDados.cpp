@@ -1,5 +1,6 @@
 #include "vDados.h"
 #include "Dado.h"
+#include "dErrorArrojarsinSelec.h"
 #include "string_conv.h"
 #include <string>
 
@@ -29,9 +30,15 @@ void vDados::OnClickAgregar( wxCommandEvent& event )  {
 } 
 
 void vDados::OnClickArrojar( wxCommandEvent& event )  {
-	int Pos=m_Seleccionado->GetSelection();
-	D=m_partida->ObtenerDado(Pos);
-	m_Numero->SetLabel(std::to_string(D.TirarDado()));
+	if(m_Seleccionado->GetSelection()==wxNOT_FOUND){
+		dErrorArrojarsinSelec Error(this);
+		Error.ShowModal();
+	} else {
+		int Pos=m_Seleccionado->GetSelection();
+		D=m_partida->ObtenerDado(Pos);
+		m_Numero->SetLabel(std::to_string(D.TirarDado()));
+	}
+
 }
 
 void vDados::OnClickBorrar( wxCommandEvent& event )  {
