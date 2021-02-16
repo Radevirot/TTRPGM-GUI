@@ -11,7 +11,7 @@ vItem::~vItem() {
 
 void vItem::OnClickAplicar( wxCommandEvent& event )  {
 	Item I;
-	I.NombrarItem(wx_to_std(m_Nombre->GetLabel()));
+	I.NombrarItem(wx_to_std(m_NombreItem->GetLabel()));
 }
 
 void vItem::OnClickExportar( wxCommandEvent& event )  {

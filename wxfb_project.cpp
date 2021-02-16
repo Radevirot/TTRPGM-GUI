@@ -901,16 +901,16 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_Personajename->Wrap( -1 );
 	bSizer10->Add( m_Personajename, 0, wxALL, 5 );
 
-	m_textCtrl7 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_NombreItem = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	#ifdef __WXGTK__
-	if ( !m_textCtrl7->HasFlag( wxTE_MULTILINE ) )
+	if ( !m_NombreItem->HasFlag( wxTE_MULTILINE ) )
 	{
-	m_textCtrl7->SetMaxLength( 256 );
+	m_NombreItem->SetMaxLength( 256 );
 	}
 	#else
-	m_textCtrl7->SetMaxLength( 256 );
+	m_NombreItem->SetMaxLength( 256 );
 	#endif
-	bSizer10->Add( m_textCtrl7, 1, wxALL, 5 );
+	bSizer10->Add( m_NombreItem, 1, wxALL, 5 );
 
 
 	bSizer1451->Add( bSizer10, 1, wxEXPAND, 5 );
@@ -943,8 +943,8 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_Nivel->Wrap( -1 );
 	bSizer12->Add( m_Nivel, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_spinCtrl1 = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 10, 0 );
-	bSizer12->Add( m_spinCtrl1, 0, wxALL, 5 );
+	m_Cantidad = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 10, 0 );
+	bSizer12->Add( m_Cantidad, 0, wxALL, 5 );
 
 
 	bSizer158->Add( bSizer12, 0, wxEXPAND, 5 );
@@ -989,9 +989,9 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer147->Add( bSizer31, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble161 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble161->SetDigits( 0 );
-	bSizer147->Add( m_spinCtrlDouble161, 0, wxALL, 5 );
+	m_Danio = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Danio->SetDigits( 0 );
+	bSizer147->Add( m_Danio, 0, wxALL, 5 );
 
 
 	bSizer156->Add( bSizer147, 1, wxALIGN_RIGHT, 5 );
@@ -1009,9 +1009,9 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer1471->Add( bSizer32, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble162 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble162->SetDigits( 0 );
-	bSizer1471->Add( m_spinCtrlDouble162, 0, wxALL, 5 );
+	m_Rango = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Rango->SetDigits( 0 );
+	bSizer1471->Add( m_Rango, 0, wxALL, 5 );
 
 
 	bSizer156->Add( bSizer1471, 1, wxALIGN_RIGHT, 5 );
@@ -1029,9 +1029,9 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer14721->Add( bSizer331, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble163 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble163->SetDigits( 0 );
-	bSizer14721->Add( m_spinCtrlDouble163, 0, wxALL, 5 );
+	m_Punteria = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Punteria->SetDigits( 0 );
+	bSizer14721->Add( m_Punteria, 0, wxALL, 5 );
 
 
 	bSizer156->Add( bSizer14721, 1, wxALIGN_RIGHT, 5 );
@@ -1049,9 +1049,9 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer1472->Add( bSizer33, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble164 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble164->SetDigits( 0 );
-	bSizer1472->Add( m_spinCtrlDouble164, 0, wxALL, 5 );
+	m_Bloqueo = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Bloqueo->SetDigits( 0 );
+	bSizer1472->Add( m_Bloqueo, 0, wxALL, 5 );
 
 
 	bSizer156->Add( bSizer1472, 1, wxALIGN_RIGHT, 5 );
@@ -1069,9 +1069,9 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer141->Add( bSizer35, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble11 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble11->SetDigits( 0 );
-	bSizer141->Add( m_spinCtrlDouble11, 0, wxALL, 5 );
+	m_Defenza = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Defenza->SetDigits( 0 );
+	bSizer141->Add( m_Defenza, 0, wxALL, 5 );
 
 
 	bSizer156->Add( bSizer141, 1, wxALIGN_RIGHT, 5 );
@@ -1089,9 +1089,9 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer144->Add( bSizer28, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble14 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble14->SetDigits( 0 );
-	bSizer144->Add( m_spinCtrlDouble14, 0, wxALL, 5 );
+	m_ResistenciaMagica = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_ResistenciaMagica->SetDigits( 0 );
+	bSizer144->Add( m_ResistenciaMagica, 0, wxALL, 5 );
 
 
 	bSizer156->Add( bSizer144, 1, wxALIGN_RIGHT, 5 );
@@ -1124,9 +1124,9 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer14->Add( bSizer36, 0, wxEXPAND|wxRIGHT, 5 );
 
-	m_spinCtrlDouble1 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble1->SetDigits( 0 );
-	bSizer14->Add( m_spinCtrlDouble1, 0, wxALL, 5 );
+	m_PuntosVida = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_PuntosVida->SetDigits( 0 );
+	bSizer14->Add( m_PuntosVida, 0, wxALL, 5 );
 
 
 	bSizer8->Add( bSizer14, 1, 0, 5 );
@@ -1144,9 +1144,9 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer142->Add( bSizer37, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble12 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble12->SetDigits( 0 );
-	bSizer142->Add( m_spinCtrlDouble12, 0, wxALL, 5 );
+	m_Fuerza = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Fuerza->SetDigits( 0 );
+	bSizer142->Add( m_Fuerza, 0, wxALL, 5 );
 
 
 	bSizer8->Add( bSizer142, 1, 0, 5 );
@@ -1164,9 +1164,9 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer143->Add( bSizer27, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble13 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble13->SetDigits( 0 );
-	bSizer143->Add( m_spinCtrlDouble13, 0, wxALL, 5 );
+	m_Agilidad = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Agilidad->SetDigits( 0 );
+	bSizer143->Add( m_Agilidad, 0, wxALL, 5 );
 
 
 	bSizer8->Add( bSizer143, 1, 0, 5 );
@@ -1184,9 +1184,9 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer145->Add( bSizer29, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble15 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble15->SetDigits( 0 );
-	bSizer145->Add( m_spinCtrlDouble15, 0, wxALL, 5 );
+	m_Inteligencia = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Inteligencia->SetDigits( 0 );
+	bSizer145->Add( m_Inteligencia, 0, wxALL, 5 );
 
 
 	bSizer8->Add( bSizer145, 1, 0, 5 );
@@ -1204,9 +1204,9 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer146->Add( bSizer30, 0, wxEXPAND, 5 );
 
-	m_spinCtrlDouble16 = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
-	m_spinCtrlDouble16->SetDigits( 0 );
-	bSizer146->Add( m_spinCtrlDouble16, 0, wxALL, 5 );
+	m_Mana = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Mana->SetDigits( 0 );
+	bSizer146->Add( m_Mana, 0, wxALL, 5 );
 
 
 	bSizer8->Add( bSizer146, 1, 0, 5 );
@@ -1238,16 +1238,16 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	wxBoxSizer* bSizer34;
 	bSizer34 = new wxBoxSizer( wxVERTICAL );
 
-	m_textCtrl2 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_BESTWRAP|wxTE_MULTILINE );
+	m_Detalle = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_BESTWRAP|wxTE_MULTILINE );
 	#ifdef __WXGTK__
-	if ( !m_textCtrl2->HasFlag( wxTE_MULTILINE ) )
+	if ( !m_Detalle->HasFlag( wxTE_MULTILINE ) )
 	{
-	m_textCtrl2->SetMaxLength( 1000 );
+	m_Detalle->SetMaxLength( 1000 );
 	}
 	#else
-	m_textCtrl2->SetMaxLength( 1000 );
+	m_Detalle->SetMaxLength( 1000 );
 	#endif
-	bSizer34->Add( m_textCtrl2, 1, wxEXPAND|wxBOTTOM|wxRIGHT|wxLEFT, 5 );
+	bSizer34->Add( m_Detalle, 1, wxEXPAND|wxBOTTOM|wxRIGHT|wxLEFT, 5 );
 
 
 	bSizer1473->Add( bSizer34, 1, wxEXPAND, 5 );
@@ -1273,16 +1273,16 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	wxBoxSizer* bSizer342;
 	bSizer342 = new wxBoxSizer( wxVERTICAL );
 
-	m_textCtrl21 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_BESTWRAP|wxTE_MULTILINE );
+	m_Descripcion = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_BESTWRAP|wxTE_MULTILINE );
 	#ifdef __WXGTK__
-	if ( !m_textCtrl21->HasFlag( wxTE_MULTILINE ) )
+	if ( !m_Descripcion->HasFlag( wxTE_MULTILINE ) )
 	{
-	m_textCtrl21->SetMaxLength( 1000 );
+	m_Descripcion->SetMaxLength( 1000 );
 	}
 	#else
-	m_textCtrl21->SetMaxLength( 1000 );
+	m_Descripcion->SetMaxLength( 1000 );
 	#endif
-	bSizer342->Add( m_textCtrl21, 1, wxEXPAND|wxBOTTOM|wxRIGHT|wxLEFT, 5 );
+	bSizer342->Add( m_Descripcion, 1, wxEXPAND|wxBOTTOM|wxRIGHT|wxLEFT, 5 );
 
 
 	bSizer149->Add( bSizer342, 1, wxEXPAND, 5 );
