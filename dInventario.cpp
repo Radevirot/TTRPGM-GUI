@@ -1,12 +1,14 @@
 #include "dInventario.h"
 
-dInventario::dInventario(wxWindow *parent, Partida *p) : Dialogo_Inventario(parent) {
-	m_partida=p;
-	
+dInventario::dInventario(wxWindow *parent, Personaje *p, Partida *pa) : Dialogo_Inventario(parent) {
+	m_Personaje=p;
+	m_partida=pa;
 }
 
 void dInventario::OnClickAgregar( wxCommandEvent& event )  {
-	event.Skip();
+	int pos=m_ListaItems->GetSelection();
+	m_Personaje->AgregarInv(m_partida->ObtenerItem(pos));
+	EndModal(1);
 }
 
 void dInventario::OnClickCancelar( wxCommandEvent& event )  {

@@ -152,7 +152,7 @@ std::string Personaje::ObtenerDetalle(){
 	return Pdetalle;
 }
 
-void Personaje::AgregarInv(Item &I){
+void Personaje::AgregarInv(Item I){
 	/*
 	Inserta un item dentro del invetario, pide un item.
 	*/

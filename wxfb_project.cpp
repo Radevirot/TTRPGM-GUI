@@ -1673,7 +1673,7 @@ Dialogo_Inventario::Dialogo_Inventario( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer139;
 	bSizer139 = new wxBoxSizer( wxVERTICAL );
 
-	m_ListaItems = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, wxLB_EXTENDED );
+	m_ListaItems = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
 	bSizer139->Add( m_ListaItems, 1, wxALL|wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer141;
