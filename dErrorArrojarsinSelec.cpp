@@ -5,7 +5,7 @@ dErrorArrojarsinSelec::dErrorArrojarsinSelec(wxWindow *parent) : Dialogo_ErrorAr
 }
 
 void dErrorArrojarsinSelec::OnClickAceptar( wxCommandEvent& event )  {
-	event.Skip();
+	EndModal(0);
 }
 
 dErrorArrojarsinSelec::~dErrorArrojarsinSelec() {
