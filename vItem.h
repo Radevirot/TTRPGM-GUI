@@ -9,12 +9,13 @@ class vItem : public Ventana_item {
 	
 private:
 	Partida *m_partida;
+	bool m_tipo;
 protected:
 	void OnClickAplicar( wxCommandEvent& event )  override;
 	void OnClickExportar( wxCommandEvent& event )  override;
 	
 public:
-	vItem(wxWindow *parent, Partida *p);
+	vItem(wxWindow *parent, Partida *p, bool tipo);
 	~vItem();
 };
 
