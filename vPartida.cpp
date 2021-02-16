@@ -37,7 +37,8 @@ void vPartida::OnClickCrearP( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickCrearI( wxCommandEvent& event )  {
-	vItem *Item = new vItem(NULL, m_partida);
+	vItem *Item = new vItem(NULL, m_partida, true);
+	
 }
 
 void vPartida::OnClickCombate( wxCommandEvent& event )  {
@@ -51,10 +52,9 @@ void vPartida::OnClickDado( wxCommandEvent& event )  {
 void vPartida::OnFocusPartida( wxFocusEvent& event )  {
 	m_ListaItems->Clear();
 	m_ListaPersonajes->Clear();
-	m_ListaItems->Append(std_to_wx(std::to_string(m_partida->ObtenerCantidadDeItems())));
 	for(int i=0;i<m_partida->ObtenerCantidadDeItems();i++) { 
 		Item I=m_partida->ObtenerItem(i);
-		m_ListaItems->Append(std_to_wx(I.ObtenerNombre()+" - "+I.ObtenerDesc().substr(0,16)+"..."));
+		m_ListaItems->Append(std_to_wx(I.ObtenerNombre().substr(0,20)+"... - "+I.ObtenerDesc().substr(0,20)+"..."));
 	}
 	for(int i=0;i<m_partida->ObtenerTamPersonajes();i++) { 
 		Personaje P=m_partida->ObtenerPersonaje(i);
