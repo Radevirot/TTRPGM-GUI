@@ -15,7 +15,7 @@ vPersonaje::~vPersonaje() {
 
 void vPersonaje::OnClickAplicar( wxCommandEvent& event )  {
 	Personaje P;
-	P.NombrarPersonaje(wx_to_std(m_Nombre->GetLabel()));
+	P.NombrarPersonaje(wx_to_std(m_Nombre->GetValue()));
 	P.ModificarNivel(m_Nivel->GetValue());
 	P.ModificarXP(m_EXP->GetValue());
 	P.ModificarStat(0,(m_PVb->GetValue()));
@@ -25,7 +25,7 @@ void vPersonaje::OnClickAplicar( wxCommandEvent& event )  {
 	P.ModificarStat(4,(m_RMb->GetValue()));
 	P.ModificarStat(5,(m_INTb->GetValue()));
 	P.ModificarStat(6,(m_MNb->GetValue()));
-	P.ModificarDetalle(wx_to_std(m_Detalle->GetLabel()));
+	P.ModificarDetalle(wx_to_std(m_Detalle->GetValue()));
 	//HACER URGENTE CAPO inventario
 	
 }
