@@ -2,6 +2,7 @@
 #include "Personaje.h"
 #include "Partida.h"
 #include "string_conv.h"
+#include "dInventario.h"
 
 vPersonaje::vPersonaje(wxWindow *parent, Partida *p) : Ventana_personaje(parent) {
 	m_partida=p;
@@ -34,6 +35,6 @@ void vPersonaje::OnClickExportar( wxCommandEvent& event )  {
 }
 
 void vPersonaje::OnClickAgregar( wxCommandEvent& event )  {
-	event.Skip();
+	dInventario *Inv = new dInventario(NULL, m_partida);
 }
 
