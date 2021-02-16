@@ -103,7 +103,7 @@ class Ventana_partida : public wxFrame
 		wxToolBarToolBase* m_Dado;
 		wxStaticLine* m_staticline41;
 		wxStaticText* m_staticText5;
-		wxListBox* m_listBox1;
+		wxListBox* m_ListaPersonajes;
 		wxButton* m_CrearP;
 		wxButton* m_button8;
 		wxButton* m_button18;
@@ -213,39 +213,39 @@ class Ventana_item : public wxFrame
 
 	protected:
 		wxStaticText* m_Personajename;
-		wxTextCtrl* m_Nombre;
+		wxTextCtrl* m_textCtrl7;
 		wxButton* m_button7;
 		wxButton* m_button4;
 		wxStaticText* m_Nivel;
-		wxSpinCtrl* m_Cantidad;
+		wxSpinCtrl* m_spinCtrl1;
 		wxStaticText* m_staticText94;
 		wxStaticText* m_staticText87;
-		wxSpinCtrlDouble* m_Danio;
+		wxSpinCtrlDouble* m_spinCtrlDouble161;
 		wxStaticText* m_staticText871;
-		wxSpinCtrlDouble* m_Rango;
+		wxSpinCtrlDouble* m_spinCtrlDouble162;
 		wxStaticText* m_staticText8721;
-		wxSpinCtrlDouble* m_Punteria;
+		wxSpinCtrlDouble* m_spinCtrlDouble163;
 		wxStaticText* m_staticText872;
-		wxSpinCtrlDouble* m_Bloqueo;
+		wxSpinCtrlDouble* m_spinCtrlDouble164;
 		wxStaticText* m_staticText81;
-		wxSpinCtrlDouble* m_Defensa;
+		wxSpinCtrlDouble* m_spinCtrlDouble11;
 		wxStaticText* m_staticText84;
-		wxSpinCtrlDouble* m_ResistenciaMagica;
+		wxSpinCtrlDouble* m_spinCtrlDouble14;
 		wxStaticLine* m_staticline19;
 		wxStaticText* m_staticText8;
-		wxSpinCtrlDouble* m_PuntosVida;
+		wxSpinCtrlDouble* m_spinCtrlDouble1;
 		wxStaticText* m_staticText82;
-		wxSpinCtrlDouble* m_Fuerza;
+		wxSpinCtrlDouble* m_spinCtrlDouble12;
 		wxStaticText* m_staticText83;
-		wxSpinCtrlDouble* m_Agilidad;
+		wxSpinCtrlDouble* m_spinCtrlDouble13;
 		wxStaticText* m_staticText85;
-		wxSpinCtrlDouble* m_Inteligencia;
+		wxSpinCtrlDouble* m_spinCtrlDouble15;
 		wxStaticText* m_staticText86;
-		wxSpinCtrlDouble* m_Mana;
+		wxSpinCtrlDouble* m_spinCtrlDouble16;
 		wxStaticText* m_staticText43;
-		wxTextCtrl* m_Detalle;
+		wxTextCtrl* m_textCtrl2;
 		wxStaticText* m_staticText431;
-		wxTextCtrl* m_Descripcion;
+		wxTextCtrl* m_textCtrl21;
 
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnClickAplicar( wxCommandEvent& event ) { event.Skip(); }
