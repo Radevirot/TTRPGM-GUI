@@ -34,7 +34,7 @@ public:
 	void ModificarDetalle(std::string detalle);										//DETALLE
 	std::string ObtenerDetalle();
 	
-	void AgregarInv(Item &I);																//INVENTARIO
+	void AgregarInv(Item I);																//INVENTARIO
 	Item MostrarItem(int Pos);
 	void BorrarItem(int Pos);
 	void OrdenarAlph();

@@ -7,7 +7,8 @@ class vPersonaje : public Ventana_personaje {
 	
 private:
 	Partida *m_partida;
-	Personaje P;
+	Personaje *m_Personaje;
+	int i=0;
 protected:
 	void OnClickAplicar( wxCommandEvent& event )  override;
 	void OnClickExportar( wxCommandEvent& event )  override;
