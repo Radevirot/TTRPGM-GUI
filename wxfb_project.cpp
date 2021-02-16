@@ -1691,3 +1691,44 @@ Dialogo_ErrorArrojarsinSelec::~Dialogo_ErrorArrojarsinSelec()
 	m_button23->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_ErrorArrojarsinSelec::OnClickAceptar ), NULL, this );
 
 }
+
+Dialogo_Inventario::Dialogo_Inventario( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+	wxBoxSizer* bSizer139;
+	bSizer139 = new wxBoxSizer( wxVERTICAL );
+
+	m_ListaItems = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, wxLB_EXTENDED );
+	bSizer139->Add( m_ListaItems, 1, wxALL|wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer141;
+	bSizer141 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_Agregar = new wxButton( this, wxID_ANY, wxT("Agregar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer141->Add( m_Agregar, 1, wxALL, 5 );
+
+	m_Cancelar = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer141->Add( m_Cancelar, 1, wxALL, 5 );
+
+
+	bSizer139->Add( bSizer141, 0, wxEXPAND, 5 );
+
+
+	this->SetSizer( bSizer139 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_Agregar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Inventario::OnClickAgregar ), NULL, this );
+	m_Cancelar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Inventario::OnClickCancelar ), NULL, this );
+}
+
+Dialogo_Inventario::~Dialogo_Inventario()
+{
+	// Disconnect Events
+	m_Agregar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Inventario::OnClickAgregar ), NULL, this );
+	m_Cancelar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Inventario::OnClickCancelar ), NULL, this );
+
+}

@@ -4,11 +4,11 @@ dErrorArrojarsinSelec::dErrorArrojarsinSelec(wxWindow *parent) : Dialogo_ErrorAr
 	
 }
 
-dErrorArrojarsinSelec::~dErrorArrojarsinSelec() {
-	
-}
-
 void dErrorArrojarsinSelec::OnClickAceptar( wxCommandEvent& event )  {
 	event.Skip();
+}
+
+dErrorArrojarsinSelec::~dErrorArrojarsinSelec() {
+	
 }
 

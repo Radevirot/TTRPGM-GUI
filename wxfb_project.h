@@ -352,3 +352,27 @@ class Dialogo_ErrorArrojarsinSelec : public wxDialog
 
 };
 
+///////////////////////////////////////////////////////////////////////////////
+/// Class Dialogo_Inventario
+///////////////////////////////////////////////////////////////////////////////
+class Dialogo_Inventario : public wxDialog
+{
+	private:
+
+	protected:
+		wxListBox* m_ListaItems;
+		wxButton* m_Agregar;
+		wxButton* m_Cancelar;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnClickAgregar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickCancelar( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		Dialogo_Inventario( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Inventario"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 415,420 ), long style = wxDEFAULT_DIALOG_STYLE );
+		~Dialogo_Inventario();
+
+};
+
