@@ -31,7 +31,7 @@ void vDados::OnClickAgregar( wxCommandEvent& event )  {
 
 void vDados::OnClickArrojar( wxCommandEvent& event )  {
 	if(m_Seleccionado->GetSelection()==wxNOT_FOUND){
-		dErrorArrojarsinSelec Error(this);
+		dErrorArrojarsinSelec Error(this,2);
 		Error.ShowModal();
 	} else {
 		int Pos=m_Seleccionado->GetSelection();
@@ -42,10 +42,16 @@ void vDados::OnClickArrojar( wxCommandEvent& event )  {
 }
 
 void vDados::OnClickBorrar( wxCommandEvent& event )  {
-	int Pos=m_Seleccionado->GetSelection();
-	m_partida->EliminarDado(Pos);
-	m_Seleccionado->Delete(Pos);
-	m_Seleccionado->SetSelection(0);
+	if(m_Seleccionado->GetSelection()==wxNOT_FOUND){
+		dErrorArrojarsinSelec Error(this,3);
+		Error.ShowModal();
+	} else {
+		int Pos=m_Seleccionado->GetSelection();
+		m_partida->EliminarDado(Pos);
+		m_Seleccionado->Delete(Pos);
+		m_Seleccionado->SetSelection(0);
+	}
+
 }
 
 void vDados::OnClickCerrar( wxCommandEvent& event )  {

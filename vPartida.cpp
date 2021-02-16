@@ -3,6 +3,7 @@
 #include "vItem.h"
 #include "vDados.h"
 #include "vCombate.h"
+#include "dErrorArrojarsinSelec.h"
 #include "dNombrePartida.h"
 #include "string_conv.h"
 
@@ -62,13 +63,16 @@ void vPartida::OnFocusPartida( wxFocusEvent& event )  {
 	}
 }
 
-
-
 void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
 	event.Skip();
 }
 
 void vPartida::OnClickBorrar( wxCommandEvent& event )  {
-	event.Skip();
+	if(m_ListaItems->GetSelection()==wxNOT_FOUND){
+		dErrorArrojarsinSelec Error(this,1);
+		Error.ShowModal();
+	}
 }
+
+
 
