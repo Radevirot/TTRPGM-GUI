@@ -53,7 +53,11 @@ void vPartida::OnFocusPartida( wxFocusEvent& event )  {
 	m_ListaPersonajes->Clear();
 	for(int i=0;i<m_partida->ObtenerCantidadDeItems();i++) { 
 		Item I=m_partida->ObtenerItem(i);
-		m_ListaItems->Append(std_to_wx(I.ObtenerNombre()));
+		m_ListaItems->Append(std_to_wx(I.ObtenerNombre()+" - "+I.ObtenerDesc().substr(0,16)+"..."));
+	}
+	for(int i=0;i<m_partida->ObtenerTamPersonajes();i++) { 
+		Personaje P=m_partida->ObtenerPersonaje(i);
+		m_ListaPersonajes->Append(std_to_wx(P.ObtenerNombre()+" - PV: "+std::to_string(P.ObtenerStat(0))));
 	}
 }
 
