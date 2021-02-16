@@ -11,7 +11,7 @@ vItem::~vItem() {
 
 void vItem::OnClickAplicar( wxCommandEvent& event )  {
 	Item I;
-	I.NombrarItem(wx_to_std(m_NombreItem->GetLabel()));
+	I.NombrarItem(wx_to_std(m_NombreItem->GetValue()));
 	I.ModificarCant(m_Cantidad->GetValue());
 	I.ModificarStat(0,(m_PuntosVida->GetValue()));
 	I.ModificarStat(1,(m_Defenza->GetValue()));
@@ -24,8 +24,8 @@ void vItem::OnClickAplicar( wxCommandEvent& event )  {
 	I.ModificarStat(8,(m_Rango->GetValue()));
 	I.ModificarStat(9,(m_Punteria->GetValue()));
 	I.ModificarStat(10,(m_Bloqueo->GetValue()));
-	I.ModificarDetalle(wx_to_std(m_Detalle->GetLabel()));
-	I.ModificarDesc(wx_to_std(m_Descripcion->GetLabel()));
+	I.ModificarDetalle(wx_to_std(m_Detalle->GetValue()));
+	I.ModificarDesc(wx_to_std(m_Descripcion->GetValue()));
 	m_partida->AgregarItem(I);
 }
 
