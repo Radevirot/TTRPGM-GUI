@@ -331,7 +331,9 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	this->Connect( m_Combate->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCombate ) );
 	this->Connect( m_Dado->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickDado ) );
 	m_CrearP->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearP ), NULL, this );
+	m_ListaItems->Connect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaItem ), NULL, this );
 	m_CrearI->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearI ), NULL, this );
+	m_button20->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrar ), NULL, this );
 }
 
 Ventana_partida::~Ventana_partida()
@@ -341,7 +343,9 @@ Ventana_partida::~Ventana_partida()
 	this->Disconnect( m_Combate->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCombate ) );
 	this->Disconnect( m_Dado->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickDado ) );
 	m_CrearP->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearP ), NULL, this );
+	m_ListaItems->Disconnect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaItem ), NULL, this );
 	m_CrearI->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearI ), NULL, this );
+	m_button20->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrar ), NULL, this );
 
 }
 

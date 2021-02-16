@@ -121,7 +121,9 @@ class Ventana_partida : public wxFrame
 		virtual void OnClickCombate( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickDado( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCrearP( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnDobleClickListaItem( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCrearI( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickBorrar( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:

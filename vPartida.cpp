@@ -64,3 +64,11 @@ void vPartida::OnFocusPartida( wxFocusEvent& event )  {
 
 
 
+void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+void vPartida::OnClickBorrar( wxCommandEvent& event )  {
+	event.Skip();
+}
+

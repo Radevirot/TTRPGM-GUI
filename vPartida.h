@@ -9,6 +9,8 @@ private:
 	Partida *m_partida;
 	void ActualizarNombre();
 protected:
+	void OnDobleClickListaItem( wxCommandEvent& event )  override;
+	void OnClickBorrar( wxCommandEvent& event )  override;
 	void OnClickCombate( wxCommandEvent& event )  override;
 	void OnClickDado( wxCommandEvent& event )  override;
 	void OnMenuNueva( wxCommandEvent& event )  override;
