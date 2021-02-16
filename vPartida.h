@@ -9,6 +9,7 @@ private:
 	Partida *m_partida;
 	void ActualizarNombre();
 protected:
+	void OnFocusPartida( wxFocusEvent& event )  override;
 	void OnClickCombate( wxCommandEvent& event )  override;
 	void OnClickDado( wxCommandEvent& event )  override;
 	void OnMenuNueva( wxCommandEvent& event )  override;

@@ -48,3 +48,7 @@ void vPartida::OnClickDado( wxCommandEvent& event )  {
 	vDados *Dados = new vDados(NULL,m_partida);
 }
 
+void vPartida::OnFocusPartida( wxFocusEvent& event )  {
+	event.Skip();
+}
+

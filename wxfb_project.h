@@ -116,6 +116,7 @@ class Ventana_partida : public wxFrame
 		wxButton* m_button20;
 
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnFocusPartida( wxFocusEvent& event ) { event.Skip(); }
 		virtual void OnMenuNueva( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCombate( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickDado( wxCommandEvent& event ) { event.Skip(); }
