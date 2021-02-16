@@ -212,39 +212,44 @@ class Ventana_item : public wxFrame
 
 	protected:
 		wxStaticText* m_Personajename;
-		wxTextCtrl* m_textCtrl7;
+		wxTextCtrl* m_Nombre;
 		wxButton* m_button7;
 		wxButton* m_button4;
 		wxStaticText* m_Nivel;
-		wxSpinCtrl* m_spinCtrl1;
+		wxSpinCtrl* m_Cantidad;
 		wxStaticText* m_staticText94;
 		wxStaticText* m_staticText87;
-		wxSpinCtrlDouble* m_spinCtrlDouble161;
+		wxSpinCtrlDouble* m_Danio;
 		wxStaticText* m_staticText871;
-		wxSpinCtrlDouble* m_spinCtrlDouble162;
+		wxSpinCtrlDouble* m_Rango;
 		wxStaticText* m_staticText8721;
-		wxSpinCtrlDouble* m_spinCtrlDouble163;
+		wxSpinCtrlDouble* m_Punteria;
 		wxStaticText* m_staticText872;
-		wxSpinCtrlDouble* m_spinCtrlDouble164;
+		wxSpinCtrlDouble* m_Bloqueo;
 		wxStaticText* m_staticText81;
-		wxSpinCtrlDouble* m_spinCtrlDouble11;
+		wxSpinCtrlDouble* m_Defensa;
 		wxStaticText* m_staticText84;
-		wxSpinCtrlDouble* m_spinCtrlDouble14;
+		wxSpinCtrlDouble* m_ResistenciaMagica;
 		wxStaticLine* m_staticline19;
 		wxStaticText* m_staticText8;
-		wxSpinCtrlDouble* m_spinCtrlDouble1;
+		wxSpinCtrlDouble* m_PuntosVida;
 		wxStaticText* m_staticText82;
-		wxSpinCtrlDouble* m_spinCtrlDouble12;
+		wxSpinCtrlDouble* m_Fuerza;
 		wxStaticText* m_staticText83;
-		wxSpinCtrlDouble* m_spinCtrlDouble13;
+		wxSpinCtrlDouble* m_Agilidad;
 		wxStaticText* m_staticText85;
-		wxSpinCtrlDouble* m_spinCtrlDouble15;
+		wxSpinCtrlDouble* m_Inteligencia;
 		wxStaticText* m_staticText86;
-		wxSpinCtrlDouble* m_spinCtrlDouble16;
+		wxSpinCtrlDouble* m_Mana;
 		wxStaticText* m_staticText43;
-		wxTextCtrl* m_textCtrl2;
+		wxTextCtrl* m_Detalle;
 		wxStaticText* m_staticText431;
-		wxTextCtrl* m_textCtrl21;
+		wxTextCtrl* m_Descripcion;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnClickAplicar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickExportar( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 

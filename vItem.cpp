@@ -8,3 +8,11 @@ vItem::~vItem() {
 	
 }
 
+void vItem::OnClickAplicar( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+void vItem::OnClickExportar( wxCommandEvent& event )  {
+	event.Skip();
+}
+

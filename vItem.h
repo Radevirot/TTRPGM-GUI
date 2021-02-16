@@ -7,6 +7,8 @@ class vItem : public Ventana_item {
 private:
 	
 protected:
+	void OnClickAplicar( wxCommandEvent& event )  override;
+	void OnClickExportar( wxCommandEvent& event )  override;
 	
 public:
 	vItem(wxWindow *parent=NULL);
