@@ -1,7 +1,15 @@
 #include "vItem.h"
 
-vItem::vItem(wxWindow *parent, Partida *p) : Ventana_item(parent) {
+vItem::vItem(wxWindow *parent, Partida *p, bool tipo) : Ventana_item(parent) {
 	m_partida=p;
+	m_tipo=tipo;
+	if(tipo){
+		m_button7->SetLabel(std_to_wx("Crear"));
+		this->SetTitle(std_to_wx("TTRPGM: Creación de Item"));
+	}else{
+		m_button7->SetLabel(std_to_wx("Aplicar cambios"));
+		this->SetTitle(std_to_wx("TTRPGM: Modificación de Item"));
+	}
 	Show();
 }
 
@@ -27,6 +35,9 @@ void vItem::OnClickAplicar( wxCommandEvent& event )  {
 	I.ModificarDetalle(wx_to_std(m_Detalle->GetValue()));
 	I.ModificarDesc(wx_to_std(m_Descripcion->GetValue()));
 	m_partida->AgregarItem(I);
+	if(m_tipo){
+		Close(true);
+	}
 }
 
 void vItem::OnClickExportar( wxCommandEvent& event )  {
