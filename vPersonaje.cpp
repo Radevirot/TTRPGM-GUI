@@ -35,6 +35,6 @@ void vPersonaje::OnClickExportar( wxCommandEvent& event )  {
 }
 
 void vPersonaje::OnClickAgregar( wxCommandEvent& event )  {
-	dInventario *Inv = new dInventario(NULL, m_partida);
+	
 }
 

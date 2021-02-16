@@ -1,9 +1,7 @@
 #include "dInventario.h"
-#include "Partida.h"
 
-dInventario::dInventario(wxWindow *parent, Partida *p) : Dialogo_Inventario(parent) {
-	m_partida=p;
-	ShowModal();
+dInventario::dInventario(wxWindow *parent) : Dialogo_Inventario(parent) {
+	
 }
 
 void dInventario::OnClickAgregar( wxCommandEvent& event )  {
