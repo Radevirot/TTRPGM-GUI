@@ -97,6 +97,10 @@ void Partida::EliminarItem(int pos){
 	Ilist.resize(Aux-1);
 }
 
+int Partida::ObtenerCantidadDeItems(){
+	return Ilist.size();
+}
+
 void Partida::OrdenarIAlph(){
 	/*
 	Ordena la lista de personajes.

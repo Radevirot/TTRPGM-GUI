@@ -29,6 +29,7 @@ public:
 	void AgregarItem(Item i1);
 	Item ObtenerItem(int pos);
 	void EliminarItem(int pos);
+	int ObtenerCantidadDeItems();
 	void OrdenarIAlph();
 	
 	void AgregarDado(Dado d1);
