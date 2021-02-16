@@ -311,24 +311,8 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer16;
 	bSizer16 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_listBox2 = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
-	m_listBox2->Append( wxT("Item 1") );
-	m_listBox2->Append( wxT("Item 2") );
-	m_listBox2->Append( wxT("Item 3") );
-	m_listBox2->Append( wxT("Item 4") );
-	m_listBox2->Append( wxT("Item 5") );
-	m_listBox2->Append( wxT("Item 6") );
-	m_listBox2->Append( wxT("Item 7") );
-	m_listBox2->Append( wxT("Item 8") );
-	m_listBox2->Append( wxT("Item 1") );
-	m_listBox2->Append( wxT("Item 2") );
-	m_listBox2->Append( wxT("Item 3") );
-	m_listBox2->Append( wxT("Item 4") );
-	m_listBox2->Append( wxT("Item 5") );
-	m_listBox2->Append( wxT("Item 6") );
-	m_listBox2->Append( wxT("Item 7") );
-	m_listBox2->Append( wxT("Item 8") );
-	bSizer16->Add( m_listBox2, 1, wxALL|wxEXPAND, 5 );
+	m_ListaItems = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
+	bSizer16->Add( m_ListaItems, 1, wxALL|wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer59;
 	bSizer59 = new wxBoxSizer( wxVERTICAL );

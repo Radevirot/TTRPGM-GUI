@@ -35,6 +35,7 @@ void vPersonaje::OnClickExportar( wxCommandEvent& event )  {
 }
 
 void vPersonaje::OnClickAgregar( wxCommandEvent& event )  {
-	
+	dInventario Inv(this,m_partida);
+	Inv.ShowModal();
 }
 

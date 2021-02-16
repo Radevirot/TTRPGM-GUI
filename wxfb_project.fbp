@@ -1666,7 +1666,7 @@
                                                         <property name="caption"></property>
                                                         <property name="caption_visible">1</property>
                                                         <property name="center_pane">0</property>
-                                                        <property name="choices">&quot;Item 1&quot; &quot;Item 2&quot; &quot;Item 3&quot; &quot;Item 4&quot; &quot;Item 5&quot; &quot;Item 6&quot; &quot;Item 7&quot; &quot;Item 8&quot; &quot;Item 1&quot; &quot;Item 2&quot; &quot;Item 3&quot; &quot;Item 4&quot; &quot;Item 5&quot; &quot;Item 6&quot; &quot;Item 7&quot; &quot;Item 8&quot;</property>
+                                                        <property name="choices"></property>
                                                         <property name="close_button">1</property>
                                                         <property name="context_help"></property>
                                                         <property name="context_menu">1</property>
@@ -1688,7 +1688,7 @@
                                                         <property name="minimize_button">0</property>
                                                         <property name="minimum_size"></property>
                                                         <property name="moveable">1</property>
-                                                        <property name="name">m_listBox2</property>
+                                                        <property name="name">m_ListaItems</property>
                                                         <property name="pane_border">1</property>
                                                         <property name="pane_position"></property>
                                                         <property name="pane_size"></property>

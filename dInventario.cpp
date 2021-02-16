@@ -1,6 +1,7 @@
 #include "dInventario.h"
 
-dInventario::dInventario(wxWindow *parent) : Dialogo_Inventario(parent) {
+dInventario::dInventario(wxWindow *parent, Partida *p) : Dialogo_Inventario(parent) {
+	m_partida=p;
 	
 }
 
@@ -9,7 +10,7 @@ void dInventario::OnClickAgregar( wxCommandEvent& event )  {
 }
 
 void dInventario::OnClickCancelar( wxCommandEvent& event )  {
-	event.Skip();
+	EndModal(0);
 }
 
 dInventario::~dInventario() {
