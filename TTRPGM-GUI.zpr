@@ -16,7 +16,7 @@ tab_use_spaces=0
 explorer_path=.
 inspection_improving_template=wxString|>printf "%ls",${EXP}.m_impl._M_data()
 inherits_from=
-current_source=vDados.cpp
+current_source=vPartida.cpp
 path_char=\
 [source]
 path=Application.cpp
@@ -58,7 +58,7 @@ path=vCombate.cpp
 cursor=10:0
 [source]
 path=vDados.cpp
-cursor=33:38
+cursor=33:34
 open=true
 [source]
 path=dNombrePartida.cpp

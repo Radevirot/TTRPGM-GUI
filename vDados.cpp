@@ -31,7 +31,7 @@ void vDados::OnClickAgregar( wxCommandEvent& event )  {
 
 void vDados::OnClickArrojar( wxCommandEvent& event )  {
 	if(m_Seleccionado->GetSelection()==wxNOT_FOUND){
-		dErrorArrojarsinSelec Error(NULL,2);
+		dErrorArrojarsinSelec Error(this,2);
 		Error.ShowModal();
 	} else {
 		int Pos=m_Seleccionado->GetSelection();
