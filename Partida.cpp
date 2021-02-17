@@ -226,15 +226,15 @@ float Partida::Combate(int posp1, int posp2,  int formula, float multiplicador, 
 	float daniop1=p1.ObtenerStat(7),fuerzap1=p1.ObtenerStat(2),armorp2=p2.ObtenerStat(1);
 	
 	switch(formula){ 
-	case 1:  DanioProb = (50+(daniop1*4)*multiplicador)-(armorp2*2); 
+	case 0:  DanioProb = (50+(daniop1*4)*multiplicador)-(armorp2*2); 
 	break;
-	case 2:  DanioProb = (((daniop1*0.5)*multiplicador)-(armorp2*0.25)); 
+	case 1:  DanioProb = (((daniop1*0.5)*multiplicador)-(armorp2*0.25)); 
 	break;
-	case 3:  DanioProb = (((fuerzap1)*multiplicador)-(armorp2*0.5)); 
+	case 2:  DanioProb = (((fuerzap1)*multiplicador)-(armorp2*0.5)); 
 	break;
-	case 4:  DanioProb = ((fuerzap1+(daniop1*0.5)*multiplicador)-(armorp2*0.25)); 
+	case 3:  DanioProb = ((fuerzap1+(daniop1*0.5)*multiplicador)-(armorp2*0.25)); 
 	break;
-	case 5:  DanioProb = ((fuerzap1+(daniop1*0.5)*multiplicador)-(armorp2*0.5)); 
+	case 4:  DanioProb = ((fuerzap1+(daniop1*0.5)*multiplicador)-(armorp2*0.5)); 
 	break;
 	}
 	

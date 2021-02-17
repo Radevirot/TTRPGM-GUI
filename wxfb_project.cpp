@@ -1499,10 +1499,10 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	m_staticText106->Wrap( -1 );
 	bSizer201->Add( m_staticText106, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	wxArrayString m_choice1Choices;
-	m_choice1 = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), m_choice1Choices, 0 );
-	m_choice1->SetSelection( 0 );
-	bSizer201->Add( m_choice1, 0, wxALL, 5 );
+	wxArrayString m_FormulaChoices;
+	m_Formula = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), m_FormulaChoices, 0 );
+	m_Formula->SetSelection( 0 );
+	bSizer201->Add( m_Formula, 0, wxALL, 5 );
 
 
 	bSizer200->Add( bSizer201, 0, wxEXPAND, 5 );
@@ -1514,7 +1514,7 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	m_staticText107->Wrap( -1 );
 	bSizer202->Add( m_staticText107, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_Multiplicador = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 100, 0, 1 );
+	m_Multiplicador = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 100, 1, 1 );
 	m_Multiplicador->SetDigits( 0 );
 	bSizer202->Add( m_Multiplicador, 0, wxALL, 5 );
 
@@ -1576,11 +1576,11 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	m_staticText112->Wrap( -1 );
 	bSizer209->Add( m_staticText112, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
 
-	m_staticText113 = new wxStaticText( this, wxID_ANY, wxT("432"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText113->Wrap( -1 );
-	m_staticText113->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+	m_DanioProvo = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_DanioProvo->Wrap( -1 );
+	m_DanioProvo->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
-	bSizer209->Add( m_staticText113, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer209->Add( m_DanioProvo, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
 	bSizer200->Add( bSizer209, 0, wxALIGN_CENTER_HORIZONTAL, 5 );

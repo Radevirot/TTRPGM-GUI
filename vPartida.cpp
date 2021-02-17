@@ -34,7 +34,7 @@ void vPartida::OnMenuNueva( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickCrearP( wxCommandEvent& event )  {
-	vPersonaje *Pers = new vPersonaje(NULL, m_partida);
+	vPersonaje *Pers = new vPersonaje(NULL, m_partida, true);
 }
 
 void vPartida::OnClickCrearI( wxCommandEvent& event )  {
@@ -43,7 +43,7 @@ void vPartida::OnClickCrearI( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickCombate( wxCommandEvent& event )  {
-	vCombate *Combate = new vCombate(NULL);
+	vCombate *Combate = new vCombate(NULL, m_partida);
 }
 
 void vPartida::OnClickDado( wxCommandEvent& event )  {

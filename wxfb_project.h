@@ -314,7 +314,7 @@ class Ventana_combate : public wxFrame
 
 	protected:
 		wxStaticText* m_staticText106;
-		wxChoice* m_choice1;
+		wxChoice* m_Formula;
 		wxStaticText* m_staticText107;
 		wxSpinCtrlDouble* m_Multiplicador;
 		wxStaticLine* m_staticline22;
@@ -324,7 +324,7 @@ class Ventana_combate : public wxFrame
 		wxBitmapButton* m_bpButton2;
 		wxChoice* m_Receptor;
 		wxStaticText* m_staticText112;
-		wxStaticText* m_staticText113;
+		wxStaticText* m_DanioProvo;
 		wxCheckBox* m_ModificarPV;
 		wxButton* m_Cerrar;
 

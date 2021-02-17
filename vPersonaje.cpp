@@ -4,10 +4,18 @@
 #include "string_conv.h"
 #include "dInventario.h"
 
-vPersonaje::vPersonaje(wxWindow *parent, Partida *p) : Ventana_personaje(parent) {
+vPersonaje::vPersonaje(wxWindow *parent, Partida *p, bool tipo) : Ventana_personaje(parent) {
 	m_partida=p;
 	Personaje *per=new Personaje;
 	m_Personaje=per;
+	m_tipo=tipo;
+	if(tipo){
+		m_aplicarcambios->SetLabel(std_to_wx("Crear"));
+		this->SetTitle(std_to_wx("TTRPGM: Creación de Item"));
+	}else{
+		m_aplicarcambios->SetLabel(std_to_wx("Aplicar cambios"));
+		this->SetTitle(std_to_wx("TTRPGM: Modificación de Item"));
+	}
 	Show();
 
 }
@@ -29,6 +37,9 @@ void vPersonaje::OnClickAplicar( wxCommandEvent& event )  {
 	m_Personaje->ModificarStat(6,(m_MNb->GetValue()));
 	m_Personaje->ModificarDetalle(wx_to_std(m_Detalle->GetValue()));
 	m_partida->AgregarPersonaje(*m_Personaje);
+	if(m_tipo){
+		Close(true);
+	}
 }
 
 void vPersonaje::OnClickExportar( wxCommandEvent& event )  {
