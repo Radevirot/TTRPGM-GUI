@@ -19,9 +19,9 @@ Ventana_principal::Ventana_principal( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText6 = new wxStaticText( this, wxID_ANY, wxT("Bienvenido al administrador de RPG de mesa"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText6->Wrap( -1 );
-	bSizer4->Add( m_staticText6, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5 );
+	m_staticText66 = new wxStaticText( this, wxID_ANY, wxT("Bienvenido al administrador de RPG de mesa"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText66->Wrap( -1 );
+	bSizer4->Add( m_staticText66, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
 	bSizer2->Add( bSizer4, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
