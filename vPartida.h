@@ -3,7 +3,6 @@
 #include "wxfb_project.h"
 #include "Partida.h"
 
-
 class vPartida : public Ventana_partida {
 	
 private:

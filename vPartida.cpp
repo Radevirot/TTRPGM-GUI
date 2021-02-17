@@ -55,29 +55,21 @@ void vPartida::OnFocusPartida( wxFocusEvent& event )  {
 	m_ListaPersonajes->Clear();
 	for(int i=0;i<m_partida->ObtenerCantidadDeItems();i++) { 
 		Item I=m_partida->ObtenerItem(i);
-		std::string nombrefinal = I.ObtenerNombre().substr(0,30);
-		if(I.ObtenerNombre().length()>30){
-			nombrefinal += "... - DÑ: ";
+		std::string nombrefinal=I.ObtenerNombre().substr(0,20);
+		if(I.ObtenerNombre().length()>20){
+			nombrefinal+="... - ";
 		} else{
-			nombrefinal += " - DÑ: ";
+			nombrefinal+=" - ";
 		}
-		std::string numerito=std::to_string(I.ObtenerStat(7));
-		numerito.erase(numerito.end()-4,numerito.end());
-		nombrefinal += numerito;
+		nombrefinal+=I.ObtenerDesc().substr(0,20);
+		if(I.ObtenerDesc().length()>20){
+			nombrefinal+="...";
+		}
 		m_ListaItems->Append(std_to_wx(nombrefinal));
 	}
 	for(int i=0;i<m_partida->ObtenerTamPersonajes();i++) { 
 		Personaje P=m_partida->ObtenerPersonaje(i);
-		std::string nombrefinal = P.ObtenerNombre().substr(0,30);
-		if(P.ObtenerNombre().length()>30){
-			nombrefinal += "... - PV: ";
-		} else{
-			nombrefinal += " - PV: ";
-		}
-		std::string numerito=std::to_string(P.ObtenerStat(0));
-		numerito.erase(numerito.end()-4,numerito.end());
-		nombrefinal += numerito;
-		m_ListaPersonajes->Append(std_to_wx(nombrefinal));
+		m_ListaPersonajes->Append(std_to_wx(P.ObtenerNombre()+" - PV: "+std::to_string(P.ObtenerStat(0))));
 	}
 }
 
@@ -92,6 +84,8 @@ void vPartida::OnClickBorrar( wxCommandEvent& event )  {
 	}
 }
 
+
+
 void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
 	event.Skip();
 }
@@ -103,5 +97,4 @@ void vPartida::OnClickBorrarPersonaje( wxCommandEvent& event )  {
 void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
 	event.Skip();
 }
-
 
