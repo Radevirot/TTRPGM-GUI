@@ -28,7 +28,7 @@ void vPersonaje::OnClickAplicar( wxCommandEvent& event )  {
 	m_Personaje->ModificarStat(5,(m_INTb->GetValue()));
 	m_Personaje->ModificarStat(6,(m_MNb->GetValue()));
 	m_Personaje->ModificarDetalle(wx_to_std(m_Detalle->GetValue()));
-	
+	m_partida->AgregarPersonaje(*m_Personaje);
 }
 
 void vPersonaje::OnClickExportar( wxCommandEvent& event )  {

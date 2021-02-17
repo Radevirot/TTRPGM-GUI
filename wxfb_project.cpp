@@ -832,9 +832,8 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer41;
 	bSizer41 = new wxBoxSizer( wxVERTICAL );
 
-	wxString m_InventarioChoices[] = { wxT("Pala"), wxT("Pico"), wxT("Espada del rey demonio") };
-	int m_InventarioNChoices = sizeof( m_InventarioChoices ) / sizeof( wxString );
-	m_Inventario = new wxCheckListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_InventarioNChoices, m_InventarioChoices, wxLB_SORT );
+	wxArrayString m_InventarioChoices;
+	m_Inventario = new wxCheckListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_InventarioChoices, wxLB_SORT );
 	bSizer41->Add( m_Inventario, 1, wxALL|wxEXPAND, 5 );
 
 
