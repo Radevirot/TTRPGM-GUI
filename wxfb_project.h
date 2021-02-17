@@ -44,7 +44,7 @@ class Ventana_principal : public wxDialog
 	private:
 
 	protected:
-		wxStaticText* m_staticText63;
+		wxStaticText* m_staticText6;
 		wxButton* m_Empezarpartida;
 		wxButton* m_Cargarpartida;
 		wxButton* m_Salir;
