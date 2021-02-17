@@ -9,6 +9,9 @@ private:
 	Partida *m_partida;
 	void ActualizarNombre();
 protected:
+	void OnDobleClickListaPersonaje( wxCommandEvent& event )  override;
+	void OnClickBorrarPersonaje( wxCommandEvent& event )  override;
+	void OnClickVerInventario( wxCommandEvent& event )  override;
 	void OnDobleClickListaItem( wxCommandEvent& event )  override;
 	void OnClickBorrar( wxCommandEvent& event )  override;
 	void OnClickCombate( wxCommandEvent& event )  override;

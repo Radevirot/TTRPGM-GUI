@@ -86,3 +86,15 @@ void vPartida::OnClickBorrar( wxCommandEvent& event )  {
 
 
 
+void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+void vPartida::OnClickBorrarPersonaje( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
+	event.Skip();
+}
+

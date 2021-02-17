@@ -120,7 +120,10 @@ class Ventana_partida : public wxFrame
 		virtual void OnMenuNueva( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCombate( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickDado( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnDobleClickListaPersonaje( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCrearP( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickBorrarPersonaje( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickVerInventario( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnDobleClickListaItem( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCrearI( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickBorrar( wxCommandEvent& event ) { event.Skip(); }
