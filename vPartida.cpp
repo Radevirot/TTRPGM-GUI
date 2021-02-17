@@ -34,7 +34,7 @@ void vPartida::OnMenuNueva( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickCrearP( wxCommandEvent& event )  {
-	vPersonaje *Pers = new vPersonaje(NULL, m_partida);
+	vPersonaje *Pers = new vPersonaje(NULL, m_partida, true);
 }
 
 void vPartida::OnClickCrearI( wxCommandEvent& event )  {
