@@ -6,7 +6,10 @@
 
 vPersonaje::vPersonaje(wxWindow *parent, Partida *p) : Ventana_personaje(parent) {
 	m_partida=p;
+	Personaje *per=new Personaje;
+	m_Personaje=per;
 	Show();
+
 }
 
 vPersonaje::~vPersonaje() {
@@ -35,7 +38,7 @@ void vPersonaje::OnClickExportar( wxCommandEvent& event )  {
 void vPersonaje::OnClickAgregar( wxCommandEvent& event )  {
 	dInventario Inv(this, m_Personaje, m_partida);
 	int val=Inv.ShowModal();
-	if(val=1){
+	if(val==1){
 		Item I=m_Personaje->MostrarItem(i);
 		m_Inventario->Append(std_to_wx(I.ObtenerNombre()));
 		i++;

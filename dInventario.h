@@ -3,6 +3,8 @@
 #include "wxfb_project.h"
 #include "Personaje.h"
 #include "Partida.h"
+#include "Item.h"
+#include "string_conv.h"
 
 class dInventario : public Dialogo_Inventario {
 	
