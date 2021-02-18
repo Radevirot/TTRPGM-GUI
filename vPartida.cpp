@@ -89,7 +89,12 @@ void vPartida::OnClickBorrar( wxCommandEvent& event )  {
 	if(m_ListaItems->GetSelection()==wxNOT_FOUND){
 		dErrorArrojarsinSelec Error(this,1);
 		Error.ShowModal();
+	} else {
+		int pos = m_ListaItems->GetSelection();
+		m_partida->EliminarItem(pos);
+		m_ListaItems->Delete(pos);
 	}
+	
 }
 
 void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
@@ -97,7 +102,14 @@ void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickBorrarPersonaje( wxCommandEvent& event )  {
-	event.Skip();
+	if(m_ListaPersonajes->GetSelection()==wxNOT_FOUND){
+		dErrorArrojarsinSelec Error(this,4);
+		Error.ShowModal();
+	} else {
+		int pos = m_ListaPersonajes->GetSelection();
+		m_partida->EliminarPersonaje(pos);
+		m_ListaPersonajes->Delete(pos);
+	}
 }
 
 void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
