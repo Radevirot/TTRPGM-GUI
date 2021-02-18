@@ -56,3 +56,12 @@ void vPersonaje::OnClickAgregar( wxCommandEvent& event )  {
 	}
 }
 
+void vPersonaje::OnCheckListInventario( wxCommandEvent& event )  {
+	Item I=m_Personaje->MostrarItem(i);
+	m_Personaje->SumarStatsDeItem(I);
+	m_DN->Append(std_to_wx(std::to_string(I.ObtenerStat(7))));
+	m_RNG->Append(std_to_wx(std::to_string(I.ObtenerStat(8))));
+	m_PNT->Append(std_to_wx(std::to_string(I.ObtenerStat(9))));
+	m_BLQ->Append(std_to_wx(std::to_string(I.ObtenerStat(10))));
+}
+

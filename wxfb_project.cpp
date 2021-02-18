@@ -877,6 +877,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	// Connect Events
 	m_aplicarcambios->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickAplicar ), NULL, this );
 	m_button4->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickExportar ), NULL, this );
+	m_Inventario->Connect( wxEVT_COMMAND_CHECKLISTBOX_TOGGLED, wxCommandEventHandler( Ventana_personaje::OnCheckListInventario ), NULL, this );
 	m_button6->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickAgregar ), NULL, this );
 }
 
@@ -885,6 +886,7 @@ Ventana_personaje::~Ventana_personaje()
 	// Disconnect Events
 	m_aplicarcambios->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickAplicar ), NULL, this );
 	m_button4->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickExportar ), NULL, this );
+	m_Inventario->Disconnect( wxEVT_COMMAND_CHECKLISTBOX_TOGGLED, wxCommandEventHandler( Ventana_personaje::OnCheckListInventario ), NULL, this );
 	m_button6->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickAgregar ), NULL, this );
 
 }
@@ -1386,7 +1388,7 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	m_staticText981->Wrap( -1 );
 	bSizer1891->Add( m_staticText981, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_ValMin = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 999, 0 );
+	m_ValMin = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 999, 1 );
 	bSizer1891->Add( m_ValMin, 0, wxALL, 5 );
 
 
@@ -1399,7 +1401,7 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	m_staticText982->Wrap( -1 );
 	bSizer1892->Add( m_staticText982, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_ValMax = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 10000, 0 );
+	m_ValMax = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 10000, 20 );
 	bSizer1892->Add( m_ValMax, 0, wxALL, 5 );
 
 
