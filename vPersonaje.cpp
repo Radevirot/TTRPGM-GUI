@@ -57,11 +57,21 @@ void vPersonaje::OnClickAgregar( wxCommandEvent& event )  {
 }
 
 void vPersonaje::OnCheckListInventario( wxCommandEvent& event )  {
-	Item I=m_Personaje->MostrarItem(i);
-	m_Personaje->SumarStatsDeItem(I);
-	m_DN->Append(std_to_wx(std::to_string(I.ObtenerStat(7))));
-	m_RNG->Append(std_to_wx(std::to_string(I.ObtenerStat(8))));
-	m_PNT->Append(std_to_wx(std::to_string(I.ObtenerStat(9))));
-	m_BLQ->Append(std_to_wx(std::to_string(I.ObtenerStat(10))));
+	m_Personaje->ResetStat();
+	m_DN->SetLabel(std_to_wx(std::to_string(0)));
+	m_RNG->SetLabel(std_to_wx(std::to_string(0)));
+	m_PNT->SetLabel(std_to_wx(std::to_string(0)));
+	m_BLQ->SetLabel(std_to_wx(std::to_string(0)));
+	int Tam=m_Inventario->GetCheckedItems(W);
+	for(int i=0;i<Tam;i++) { 
+		int pos = W.Item(i);
+		Item I=m_Personaje->MostrarItem(pos);
+		m_Personaje->SumarStatsDeItem(I);
+		m_DN->SetLabel(std_to_wx(std::to_string(m_Personaje->ObtenerStat(7))));
+		m_RNG->SetLabel(std_to_wx(std::to_string(m_Personaje->ObtenerStat(8))));
+		m_PNT->SetLabel(std_to_wx(std::to_string(m_Personaje->ObtenerStat(9))));
+		m_BLQ->SetLabel(std_to_wx(std::to_string(m_Personaje->ObtenerStat(10))));
+	}
+	W.empty();
 }
 
