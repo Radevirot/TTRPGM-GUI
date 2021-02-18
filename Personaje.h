@@ -21,6 +21,7 @@ public:
 	void SumarStatsDeItem(Item &item);												//EDITAR STATS
 	void RestarStatsDeItem(Item &item);
 	void ModificarStat(int pos,float stat);
+	void ResetStat();
 	
 	void NombrarPersonaje(std::string nombre);										//NOMBRE
 	std::string ObtenerNombre();
@@ -37,6 +38,7 @@ public:
 	void AgregarInv(Item I);																//INVENTARIO
 	Item MostrarItem(int Pos);
 	void BorrarItem(int Pos);
+	int TamInv();
 	void OrdenarAlph();
 	
 	void Exportar(std::string nombrearchi,bool esunico=true);											//EXPORTAR IMPORTAR

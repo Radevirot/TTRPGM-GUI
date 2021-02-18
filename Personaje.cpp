@@ -91,6 +91,13 @@ void Personaje::ModificarStat(int pos,float stat){
 	PStats[pos] = stat;
 }
 
+void Personaje::ResetStat(){
+	PStats[7] = 0;
+	PStats[8] = 0;
+	PStats[9] = 0;
+	PStats[10] = 0;
+}
+
 void Personaje::NombrarPersonaje(std::string nombre){
 	/*
 	Modifica el nombre actual del personaje, pide un string.
@@ -174,6 +181,13 @@ void Personaje::BorrarItem(int Pos){
 	auto it= Inv.begin()+Pos;
 	Inv.erase(it);
 	Inv.resize(Aux-1);
+}
+
+int Personaje::TamInv(){
+	/*
+	Devuelve la cantidad de items en el inventario.
+	*/
+	return Inv.size();
 }
 
 void Personaje::OrdenarAlph(){

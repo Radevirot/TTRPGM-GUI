@@ -1,7 +1,9 @@
 #ifndef VPERSONAJE_H
 #define VPERSONAJE_H
 #include "wxfb_project.h"
+#include "wx/dynarray.h"
 #include "Partida.h"
+
 
 class vPersonaje : public Ventana_personaje {
 	
@@ -10,6 +12,7 @@ private:
 	Personaje *m_Personaje;
 	int i=0;
 	bool m_tipo;
+	wxArrayInt W;
 protected:
 	void OnCheckListInventario( wxCommandEvent& event )  override;
 	void OnClickAplicar( wxCommandEvent& event )  override;
