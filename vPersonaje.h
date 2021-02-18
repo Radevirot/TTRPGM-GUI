@@ -11,6 +11,7 @@ private:
 	int i=0;
 	bool m_tipo;
 protected:
+	void OnCheckListInventario( wxCommandEvent& event )  override;
 	void OnClickAplicar( wxCommandEvent& event )  override;
 	void OnClickExportar( wxCommandEvent& event )  override;
 	void OnClickAgregar( wxCommandEvent& event )  override;

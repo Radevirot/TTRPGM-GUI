@@ -5398,6 +5398,7 @@
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
+                                        <event name="OnCheckListBoxToggled">OnCheckListInventario</event>
                                     </object>
                                 </object>
                             </object>
@@ -8666,7 +8667,7 @@
                                                 <property name="gripper">0</property>
                                                 <property name="hidden">0</property>
                                                 <property name="id">wxID_ANY</property>
-                                                <property name="initial">0</property>
+                                                <property name="initial">1</property>
                                                 <property name="max">999</property>
                                                 <property name="max_size"></property>
                                                 <property name="maximize_button">0</property>
@@ -8800,7 +8801,7 @@
                                                 <property name="gripper">0</property>
                                                 <property name="hidden">0</property>
                                                 <property name="id">wxID_ANY</property>
-                                                <property name="initial">0</property>
+                                                <property name="initial">20</property>
                                                 <property name="max">10000</property>
                                                 <property name="max_size"></property>
                                                 <property name="maximize_button">0</property>
