@@ -1,6 +1,5 @@
 #include "vPartida.h"
 #include "vPersonaje.h"
-#include "vItem.h"
 #include "vDados.h"
 #include "vCombate.h"
 #include "dErrorArrojarsinSelec.h"
@@ -82,7 +81,10 @@ void vPartida::OnFocusPartida( wxFocusEvent& event )  {
 }
 
 void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
-	event.Skip();
+	
+	int pos = m_ListaItems->GetSelection();
+	Item I=m_partida->ObtenerItem(pos);
+
 }
 
 void vPartida::OnClickBorrar( wxCommandEvent& event )  {

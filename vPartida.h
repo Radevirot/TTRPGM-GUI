@@ -2,6 +2,7 @@
 #define VPARTIDA_H
 #include "wxfb_project.h"
 #include "Partida.h"
+#include "vItem.h"
 
 
 class vPartida : public Ventana_partida {
