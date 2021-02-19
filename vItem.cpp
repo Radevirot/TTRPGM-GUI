@@ -1,8 +1,7 @@
 #include "vItem.h"
 
-vItem::vItem(wxWindow *parent, Partida *p, bool tipo) : Ventana_item(parent) {
+vItem::vItem(wxWindow *parent, Partida *p) : Ventana_item(parent) {
 	m_partida=p;
-	m_tipo=tipo;
 	Show();
 }
 
