@@ -250,8 +250,8 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	m_button8 = new wxButton( this, wxID_ANY, wxT("Importar personaje existente"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer58->Add( m_button8, 0, wxALL|wxEXPAND, 5 );
 
-	m_button18 = new wxButton( this, wxID_ANY, wxT("Borrar personaje"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer58->Add( m_button18, 0, wxALL|wxEXPAND, 5 );
+	m_BorrarP = new wxButton( this, wxID_ANY, wxT("Borrar personaje"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer58->Add( m_BorrarP, 0, wxALL|wxEXPAND, 5 );
 
 	m_button19 = new wxButton( this, wxID_ANY, wxT("Ver inventario"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer58->Add( m_button19, 0, wxALL|wxEXPAND, 5 );
@@ -303,8 +303,8 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	m_button72 = new wxButton( this, wxID_ANY, wxT("Importar item existente"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer59->Add( m_button72, 0, wxALL|wxEXPAND, 5 );
 
-	m_button20 = new wxButton( this, wxID_ANY, wxT("Borrar item"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer59->Add( m_button20, 0, wxALL|wxEXPAND, 5 );
+	m_BorrarI = new wxButton( this, wxID_ANY, wxT("Borrar item"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer59->Add( m_BorrarI, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer16->Add( bSizer59, 1, wxEXPAND, 5 );
@@ -338,11 +338,11 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	this->Connect( m_Dado->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickDado ) );
 	m_ListaPersonajes->Connect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaPersonaje ), NULL, this );
 	m_CrearP->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearP ), NULL, this );
-	m_button18->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrarPersonaje ), NULL, this );
+	m_BorrarP->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrarPersonaje ), NULL, this );
 	m_button19->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickVerInventario ), NULL, this );
 	m_ListaItems->Connect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaItem ), NULL, this );
 	m_CrearI->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearI ), NULL, this );
-	m_button20->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrar ), NULL, this );
+	m_BorrarI->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrar ), NULL, this );
 }
 
 Ventana_partida::~Ventana_partida()
@@ -353,11 +353,11 @@ Ventana_partida::~Ventana_partida()
 	this->Disconnect( m_Dado->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickDado ) );
 	m_ListaPersonajes->Disconnect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaPersonaje ), NULL, this );
 	m_CrearP->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearP ), NULL, this );
-	m_button18->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrarPersonaje ), NULL, this );
+	m_BorrarP->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrarPersonaje ), NULL, this );
 	m_button19->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickVerInventario ), NULL, this );
 	m_ListaItems->Disconnect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaItem ), NULL, this );
 	m_CrearI->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearI ), NULL, this );
-	m_button20->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrar ), NULL, this );
+	m_BorrarI->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrar ), NULL, this );
 
 }
 

@@ -107,14 +107,14 @@ class Ventana_partida : public wxFrame
 		wxListBox* m_ListaPersonajes;
 		wxButton* m_CrearP;
 		wxButton* m_button8;
-		wxButton* m_button18;
+		wxButton* m_BorrarP;
 		wxButton* m_button19;
 		wxStaticLine* m_staticline4;
 		wxStaticText* m_staticText6;
 		wxListBox* m_ListaItems;
 		wxButton* m_CrearI;
 		wxButton* m_button72;
-		wxButton* m_button20;
+		wxButton* m_BorrarI;
 
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnFocusPartida( wxFocusEvent& event ) { event.Skip(); }
