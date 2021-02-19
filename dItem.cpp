@@ -1,16 +1,11 @@
-#include "vItem.h"
+#include "dItem.h"
 
-vItem::vItem(wxWindow *parent, Partida *p, bool tipo) : Ventana_item(parent) {
+dItem::dItem(wxWindow *parent, Partida *p) : Dialogo_item(parent) {
 	m_partida=p;
-	m_tipo=tipo;
 	Show();
 }
 
-vItem::~vItem() {
-	
-}
-
-void vItem::OnClickAplicar( wxCommandEvent& event )  {
+void dItem::OnClickAplicar( wxCommandEvent& event )  {
 	Item I;
 	I.NombrarItem(wx_to_std(m_NombreItem->GetValue()));
 	I.ModificarCant(m_Cantidad->GetValue());
@@ -28,12 +23,13 @@ void vItem::OnClickAplicar( wxCommandEvent& event )  {
 	I.ModificarDetalle(wx_to_std(m_Detalle->GetValue()));
 	I.ModificarDesc(wx_to_std(m_Descripcion->GetValue()));
 	m_partida->AgregarItem(I);
-	
-	Close(true);
-
 }
 
-void vItem::OnClickExportar( wxCommandEvent& event )  {
+void dItem::OnClickExportar( wxCommandEvent& event )  {
 	event.Skip();
+}
+
+dItem::~dItem() {
+	
 }
 

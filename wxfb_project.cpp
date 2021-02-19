@@ -94,7 +94,7 @@ Dialogo_NombrePartida::Dialogo_NombrePartida( wxWindow* parent, wxWindowID id, c
 	wxBoxSizer* bSizer133;
 	bSizer133 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_textCtrlNombrePart = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlNombrePart = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
 	#ifdef __WXGTK__
 	if ( !m_textCtrlNombrePart->HasFlag( wxTE_MULTILINE ) )
 	{
@@ -935,7 +935,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	wxBoxSizer* bSizer11;
 	bSizer11 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_button7 = new wxButton( this, wxID_ANY, wxT("Aplicar cambios"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button7 = new wxButton( this, wxID_ANY, wxT("Crear"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer11->Add( m_button7, 0, wxALL, 5 );
 
 	m_button4 = new wxButton( this, wxID_ANY, wxT("Exportar"), wxDefaultPosition, wxSize( -1,-1 ), 0 );
@@ -1717,5 +1717,436 @@ Dialogo_Inventario::~Dialogo_Inventario()
 	// Disconnect Events
 	m_Agregar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Inventario::OnClickAgregar ), NULL, this );
 	m_Cancelar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Inventario::OnClickCancelar ), NULL, this );
+
+}
+
+Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+	wxBoxSizer* bSizer7;
+	bSizer7 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer1461;
+	bSizer1461 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer1451;
+	bSizer1451 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer10;
+	bSizer10 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_Personajename = new wxStaticText( this, wxID_ANY, wxT("Item:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_Personajename->Wrap( -1 );
+	bSizer10->Add( m_Personajename, 0, wxALL, 5 );
+
+	m_NombreItem = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	#ifdef __WXGTK__
+	if ( !m_NombreItem->HasFlag( wxTE_MULTILINE ) )
+	{
+	m_NombreItem->SetMaxLength( 256 );
+	}
+	#else
+	m_NombreItem->SetMaxLength( 256 );
+	#endif
+	bSizer10->Add( m_NombreItem, 1, wxALL, 5 );
+
+
+	bSizer1451->Add( bSizer10, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer11;
+	bSizer11 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_button7 = new wxButton( this, wxID_ANY, wxT("Aplicar cambios"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer11->Add( m_button7, 0, wxALL, 5 );
+
+	m_button4 = new wxButton( this, wxID_ANY, wxT("Exportar"), wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	bSizer11->Add( m_button4, 0, wxALL, 5 );
+
+
+	bSizer1451->Add( bSizer11, 0, 0, 5 );
+
+
+	bSizer1461->Add( bSizer1451, 1, wxEXPAND, 5 );
+
+
+	bSizer7->Add( bSizer1461, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer158;
+	bSizer158 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer12;
+	bSizer12 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_Nivel = new wxStaticText( this, wxID_ANY, wxT("Cantidad"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_Nivel->Wrap( -1 );
+	bSizer12->Add( m_Nivel, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_Cantidad = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 10, 0 );
+	bSizer12->Add( m_Cantidad, 0, wxALL, 5 );
+
+
+	bSizer158->Add( bSizer12, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer13;
+	bSizer13 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer488;
+	bSizer488 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText94 = new wxStaticText( this, wxID_ANY, wxT(" Modificadores de estadísticas"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText94->Wrap( -1 );
+	m_staticText94->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+
+	bSizer488->Add( m_staticText94, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer13->Add( bSizer488, 1, wxEXPAND, 5 );
+
+
+	bSizer158->Add( bSizer13, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer7->Add( bSizer158, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer157;
+	bSizer157 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer156;
+	bSizer156 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer147;
+	bSizer147 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer31;
+	bSizer31 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText87 = new wxStaticText( this, wxID_ANY, wxT("DÑ    "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText87->Wrap( -1 );
+	bSizer31->Add( m_staticText87, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer147->Add( bSizer31, 0, wxEXPAND, 5 );
+
+	m_Danio = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Danio->SetDigits( 0 );
+	bSizer147->Add( m_Danio, 0, wxALL, 5 );
+
+
+	bSizer156->Add( bSizer147, 1, wxALIGN_RIGHT, 5 );
+
+	wxBoxSizer* bSizer1471;
+	bSizer1471 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer32;
+	bSizer32 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText871 = new wxStaticText( this, wxID_ANY, wxT("RNG  "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText871->Wrap( -1 );
+	bSizer32->Add( m_staticText871, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer1471->Add( bSizer32, 0, wxEXPAND, 5 );
+
+	m_Rango = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Rango->SetDigits( 0 );
+	bSizer1471->Add( m_Rango, 0, wxALL, 5 );
+
+
+	bSizer156->Add( bSizer1471, 1, wxALIGN_RIGHT, 5 );
+
+	wxBoxSizer* bSizer14721;
+	bSizer14721 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer331;
+	bSizer331 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText8721 = new wxStaticText( this, wxID_ANY, wxT("PNT   "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText8721->Wrap( -1 );
+	bSizer331->Add( m_staticText8721, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer14721->Add( bSizer331, 0, wxEXPAND, 5 );
+
+	m_Punteria = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Punteria->SetDigits( 0 );
+	bSizer14721->Add( m_Punteria, 0, wxALL, 5 );
+
+
+	bSizer156->Add( bSizer14721, 1, wxALIGN_RIGHT, 5 );
+
+	wxBoxSizer* bSizer1472;
+	bSizer1472 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer33;
+	bSizer33 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText872 = new wxStaticText( this, wxID_ANY, wxT("BLQ   "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText872->Wrap( -1 );
+	bSizer33->Add( m_staticText872, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer1472->Add( bSizer33, 0, wxEXPAND, 5 );
+
+	m_Bloqueo = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Bloqueo->SetDigits( 0 );
+	bSizer1472->Add( m_Bloqueo, 0, wxALL, 5 );
+
+
+	bSizer156->Add( bSizer1472, 1, wxALIGN_RIGHT, 5 );
+
+	wxBoxSizer* bSizer141;
+	bSizer141 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer35;
+	bSizer35 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText81 = new wxStaticText( this, wxID_ANY, wxT("DFN    "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText81->Wrap( -1 );
+	bSizer35->Add( m_staticText81, 1, wxTOP|wxBOTTOM|wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer141->Add( bSizer35, 0, wxEXPAND, 5 );
+
+	m_Defenza = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Defenza->SetDigits( 0 );
+	bSizer141->Add( m_Defenza, 0, wxALL, 5 );
+
+
+	bSizer156->Add( bSizer141, 1, wxALIGN_RIGHT, 5 );
+
+	wxBoxSizer* bSizer144;
+	bSizer144 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer28;
+	bSizer28 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText84 = new wxStaticText( this, wxID_ANY, wxT("RM    "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText84->Wrap( -1 );
+	bSizer28->Add( m_staticText84, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer144->Add( bSizer28, 0, wxEXPAND, 5 );
+
+	m_ResistenciaMagica = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_ResistenciaMagica->SetDigits( 0 );
+	bSizer144->Add( m_ResistenciaMagica, 0, wxALL, 5 );
+
+
+	bSizer156->Add( bSizer144, 1, wxALIGN_RIGHT, 5 );
+
+
+	bSizer157->Add( bSizer156, 1, 0, 5 );
+
+	wxBoxSizer* bSizer186;
+	bSizer186 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticline19 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
+	bSizer186->Add( m_staticline19, 1, wxALL, 5 );
+
+
+	bSizer157->Add( bSizer186, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer8;
+	bSizer8 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer14;
+	bSizer14 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer36;
+	bSizer36 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText8 = new wxStaticText( this, wxID_ANY, wxT("PV   "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText8->Wrap( -1 );
+	bSizer36->Add( m_staticText8, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer14->Add( bSizer36, 0, wxEXPAND|wxRIGHT, 5 );
+
+	m_PuntosVida = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_PuntosVida->SetDigits( 0 );
+	bSizer14->Add( m_PuntosVida, 0, wxALL, 5 );
+
+
+	bSizer8->Add( bSizer14, 1, 0, 5 );
+
+	wxBoxSizer* bSizer142;
+	bSizer142 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer37;
+	bSizer37 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText82 = new wxStaticText( this, wxID_ANY, wxT("FRZ  "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText82->Wrap( -1 );
+	bSizer37->Add( m_staticText82, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer142->Add( bSizer37, 0, wxEXPAND, 5 );
+
+	m_Fuerza = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Fuerza->SetDigits( 0 );
+	bSizer142->Add( m_Fuerza, 0, wxALL, 5 );
+
+
+	bSizer8->Add( bSizer142, 1, 0, 5 );
+
+	wxBoxSizer* bSizer143;
+	bSizer143 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer27;
+	bSizer27 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText83 = new wxStaticText( this, wxID_ANY, wxT("AGL  "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText83->Wrap( -1 );
+	bSizer27->Add( m_staticText83, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer143->Add( bSizer27, 0, wxEXPAND, 5 );
+
+	m_Agilidad = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Agilidad->SetDigits( 0 );
+	bSizer143->Add( m_Agilidad, 0, wxALL, 5 );
+
+
+	bSizer8->Add( bSizer143, 1, 0, 5 );
+
+	wxBoxSizer* bSizer145;
+	bSizer145 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer29;
+	bSizer29 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText85 = new wxStaticText( this, wxID_ANY, wxT("INT   "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText85->Wrap( -1 );
+	bSizer29->Add( m_staticText85, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer145->Add( bSizer29, 0, wxEXPAND, 5 );
+
+	m_Inteligencia = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Inteligencia->SetDigits( 0 );
+	bSizer145->Add( m_Inteligencia, 0, wxALL, 5 );
+
+
+	bSizer8->Add( bSizer145, 1, 0, 5 );
+
+	wxBoxSizer* bSizer146;
+	bSizer146 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer30;
+	bSizer30 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText86 = new wxStaticText( this, wxID_ANY, wxT("MN   "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText86->Wrap( -1 );
+	bSizer30->Add( m_staticText86, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer146->Add( bSizer30, 0, wxEXPAND, 5 );
+
+	m_Mana = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Mana->SetDigits( 0 );
+	bSizer146->Add( m_Mana, 0, wxALL, 5 );
+
+
+	bSizer8->Add( bSizer146, 1, 0, 5 );
+
+
+	bSizer157->Add( bSizer8, 1, 0, 5 );
+
+
+	bSizer7->Add( bSizer157, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer148;
+	bSizer148 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer1473;
+	bSizer1473 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer341;
+	bSizer341 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText43 = new wxStaticText( this, wxID_ANY, wxT("Detalle"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText43->Wrap( -1 );
+	m_staticText43->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+
+	bSizer341->Add( m_staticText43, 0, wxALL, 5 );
+
+
+	bSizer1473->Add( bSizer341, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer34;
+	bSizer34 = new wxBoxSizer( wxVERTICAL );
+
+	m_Detalle = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_BESTWRAP|wxTE_MULTILINE );
+	#ifdef __WXGTK__
+	if ( !m_Detalle->HasFlag( wxTE_MULTILINE ) )
+	{
+	m_Detalle->SetMaxLength( 1000 );
+	}
+	#else
+	m_Detalle->SetMaxLength( 1000 );
+	#endif
+	bSizer34->Add( m_Detalle, 1, wxEXPAND|wxBOTTOM|wxRIGHT|wxLEFT, 5 );
+
+
+	bSizer1473->Add( bSizer34, 1, wxEXPAND, 5 );
+
+
+	bSizer148->Add( bSizer1473, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer149;
+	bSizer149 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer3411;
+	bSizer3411 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText431 = new wxStaticText( this, wxID_ANY, wxT("Descripción"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText431->Wrap( -1 );
+	m_staticText431->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+
+	bSizer3411->Add( m_staticText431, 1, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer149->Add( bSizer3411, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer342;
+	bSizer342 = new wxBoxSizer( wxVERTICAL );
+
+	m_Descripcion = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_BESTWRAP|wxTE_MULTILINE );
+	#ifdef __WXGTK__
+	if ( !m_Descripcion->HasFlag( wxTE_MULTILINE ) )
+	{
+	m_Descripcion->SetMaxLength( 1000 );
+	}
+	#else
+	m_Descripcion->SetMaxLength( 1000 );
+	#endif
+	bSizer342->Add( m_Descripcion, 1, wxEXPAND|wxBOTTOM|wxRIGHT|wxLEFT, 5 );
+
+
+	bSizer149->Add( bSizer342, 1, wxEXPAND, 5 );
+
+
+	bSizer148->Add( bSizer149, 1, wxEXPAND, 5 );
+
+
+	bSizer7->Add( bSizer148, 1, wxEXPAND, 5 );
+
+
+	this->SetSizer( bSizer7 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_button7->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_item::OnClickAplicar ), NULL, this );
+	m_button4->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_item::OnClickExportar ), NULL, this );
+}
+
+Dialogo_item::~Dialogo_item()
+{
+	// Disconnect Events
+	m_button7->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_item::OnClickAplicar ), NULL, this );
+	m_button4->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_item::OnClickExportar ), NULL, this );
 
 }

@@ -84,8 +84,8 @@ void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
 	
 	int pos = m_ListaItems->GetSelection();
 	Item I=m_partida->ObtenerItem(pos);
-	m_borra
-
+	dItem ItemMod(this,m_partida);
+	ItemMod.ShowModal();
 }
 
 void vPartida::OnClickBorrar( wxCommandEvent& event )  {
