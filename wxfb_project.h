@@ -76,6 +76,7 @@ class Dialogo_NombrePartida : public wxDialog
 		wxButton* m_CancelarNombrePart;
 
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnKeyDownEnter( wxKeyEvent& event ) { event.Skip(); }
 		virtual void OnClickAceptar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCancelar( wxCommandEvent& event ) { event.Skip(); }
 
