@@ -50,7 +50,7 @@ void vPartida::OnClickDado( wxCommandEvent& event )  {
 	vDados *Dados = new vDados(NULL,m_partida);
 }
 
-void vPartida::OnFocusPartida( wxFocusEvent& event )  {
+void vPartida::OnEntrarPartida( wxMouseEvent& event )  {
 	m_ListaItems->Clear();
 	m_ListaPersonajes->Clear();
 	for(int i=0;i<m_partida->ObtenerCantidadDeItems();i++) { 
