@@ -2,6 +2,7 @@
 #include "vPersonaje.h"
 #include "vDados.h"
 #include "vCombate.h"
+#include "dItem.h"
 #include "dErrorArrojarsinSelec.h"
 #include "dNombrePartida.h"
 #include "string_conv.h"

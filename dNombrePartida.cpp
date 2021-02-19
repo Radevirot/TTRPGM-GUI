@@ -22,10 +22,7 @@ void dNombrePartida::OnClickCancelar( wxCommandEvent& event )  {
 
 
 void dNombrePartida::OnKeyDownEnter( wxKeyEvent& event )  {
-	if(event.GetKeyCode()==WXK_RETURN){
-		m_partida->ModificarNombre(wx_to_std(m_textCtrlNombrePart->GetValue()));
-		EndModal(1);
-	}
 	event.Skip();
+	
 }
 
