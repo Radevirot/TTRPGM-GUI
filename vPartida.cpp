@@ -50,42 +50,12 @@ void vPartida::OnClickDado( wxCommandEvent& event )  {
 	vDados *Dados = new vDados(NULL,m_partida);
 }
 
-void vPartida::OnFocusPartida( wxFocusEvent& event )  {
-	m_ListaItems->Clear();
-	m_ListaPersonajes->Clear();
-	for(int i=0;i<m_partida->ObtenerCantidadDeItems();i++) { 
-		Item I=m_partida->ObtenerItem(i);
-		std::string nombrefinal = I.ObtenerNombre().substr(0,30);
-		if(I.ObtenerNombre().length()>30){
-			nombrefinal += "... - DÑ: ";
-		} else{
-			nombrefinal += " - DÑ: ";
-		}
-		std::string numerito=std::to_string(I.ObtenerStat(7));
-		numerito.erase(numerito.end()-4,numerito.end());
-		nombrefinal += numerito;
-		m_ListaItems->Append(std_to_wx(nombrefinal));
-	}
-	for(int i=0;i<m_partida->ObtenerTamPersonajes();i++) { 
-		Personaje P=m_partida->ObtenerPersonaje(i);
-		std::string nombrefinal = P.ObtenerNombre().substr(0,30);
-		if(P.ObtenerNombre().length()>30){
-			nombrefinal += "... - PV: ";
-		} else{
-			nombrefinal += " - PV: ";
-		}
-		std::string numerito=std::to_string(P.ObtenerStat(0));
-		numerito.erase(numerito.end()-4,numerito.end());
-		nombrefinal += numerito;
-		m_ListaPersonajes->Append(std_to_wx(nombrefinal));
-	}
-}
 
 void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
 	
 	int pos = m_ListaItems->GetSelection();
 	Item I=m_partida->ObtenerItem(pos);
-	dItem ItemMod(this,m_partida);
+	dItem ItemMod(this,m_partida,I,pos);
 	ItemMod.ShowModal();
 }
 
@@ -135,5 +105,38 @@ void vPartida::OnMenuCargar( wxCommandEvent& event )  {
 
 void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
 	event.Skip();
+}
+
+void vPartida::OnEntrarPartida( wxMouseEvent& event )  {
+	event.Skip();
+	m_ListaItems->Clear();
+	m_ListaPersonajes->Clear();
+	for(int i=0;i<m_partida->ObtenerCantidadDeItems();i++) { 
+		Item I=m_partida->ObtenerItem(i);
+		std::string nombrefinal = I.ObtenerNombre().substr(0,30);
+		if(I.ObtenerNombre().length()>30){
+			nombrefinal += "... - DÑ: ";
+		} else{
+			nombrefinal += " - DÑ: ";
+		}
+		std::string numerito=std::to_string(I.ObtenerStat(7));
+		numerito.erase(numerito.end()-4,numerito.end());
+		nombrefinal += numerito;
+		m_ListaItems->Append(std_to_wx(nombrefinal));
+	}
+	for(int i=0;i<m_partida->ObtenerTamPersonajes();i++) { 
+		Personaje P=m_partida->ObtenerPersonaje(i);
+		std::string nombrefinal = P.ObtenerNombre().substr(0,30);
+		if(P.ObtenerNombre().length()>30){
+			nombrefinal += "... - PV: ";
+		} else{
+			nombrefinal += " - PV: ";
+		}
+		std::string numerito=std::to_string(P.ObtenerStat(0));
+		numerito.erase(numerito.end()-4,numerito.end());
+		nombrefinal += numerito;
+		m_ListaPersonajes->Append(std_to_wx(nombrefinal));
+	}
+	event.Skip(false);
 }
 

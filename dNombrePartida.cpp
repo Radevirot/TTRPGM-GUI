@@ -20,9 +20,8 @@ void dNombrePartida::OnClickCancelar( wxCommandEvent& event )  {
 	EndModal(0);
 }
 
-
-void dNombrePartida::OnKeyDownEnter( wxKeyEvent& event )  {
-	event.Skip();
-	
+void dNombrePartida::OnTextEnter( wxCommandEvent& event )  {
+	m_partida->ModificarNombre(wx_to_std(m_textCtrlNombrePart->GetValue()));
+	EndModal(1);
 }
 

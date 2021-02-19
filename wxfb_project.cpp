@@ -139,7 +139,7 @@ Dialogo_NombrePartida::Dialogo_NombrePartida( wxWindow* parent, wxWindowID id, c
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	m_textCtrlNombrePart->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_NombrePartida::OnKeyDownEnter ), NULL, this );
+	m_textCtrlNombrePart->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( Dialogo_NombrePartida::OnTextEnter ), NULL, this );
 	m_AceptarNombrePart->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickAceptar ), NULL, this );
 	m_CancelarNombrePart->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickCancelar ), NULL, this );
 }
@@ -147,7 +147,7 @@ Dialogo_NombrePartida::Dialogo_NombrePartida( wxWindow* parent, wxWindowID id, c
 Dialogo_NombrePartida::~Dialogo_NombrePartida()
 {
 	// Disconnect Events
-	m_textCtrlNombrePart->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_NombrePartida::OnKeyDownEnter ), NULL, this );
+	m_textCtrlNombrePart->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( Dialogo_NombrePartida::OnTextEnter ), NULL, this );
 	m_AceptarNombrePart->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickAceptar ), NULL, this );
 	m_CancelarNombrePart->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickCancelar ), NULL, this );
 
@@ -328,7 +328,7 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	this->Connect( wxEVT_SET_FOCUS, wxFocusEventHandler( Ventana_partida::OnFocusPartida ) );
+	this->Connect( wxEVT_ENTER_WINDOW, wxMouseEventHandler( Ventana_partida::OnEntrarPartida ) );
 	m_menu2->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuEditar ), this, m_EditarNom->GetId());
 	m_menu2->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuGuardar ), this, m_Guardar->GetId());
 	m_menu2->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuNueva ), this, m_Nueva->GetId());
@@ -348,7 +348,7 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 Ventana_partida::~Ventana_partida()
 {
 	// Disconnect Events
-	this->Disconnect( wxEVT_SET_FOCUS, wxFocusEventHandler( Ventana_partida::OnFocusPartida ) );
+	this->Disconnect( wxEVT_ENTER_WINDOW, wxMouseEventHandler( Ventana_partida::OnEntrarPartida ) );
 	this->Disconnect( m_Combate->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCombate ) );
 	this->Disconnect( m_Dado->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickDado ) );
 	m_ListaPersonajes->Disconnect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaPersonaje ), NULL, this );

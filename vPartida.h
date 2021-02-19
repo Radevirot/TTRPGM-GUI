@@ -11,6 +11,7 @@ private:
 	Partida *m_partida;
 	void ActualizarNombre();
 protected:
+	void OnEntrarPartida( wxMouseEvent& event )  override;
 	void OnMenuEditar( wxCommandEvent& event )  override;
 	void OnMenuGuardar( wxCommandEvent& event )  override;
 	void OnMenuCargar( wxCommandEvent& event )  override;
@@ -25,7 +26,6 @@ protected:
 	void OnMenuNueva( wxCommandEvent& event )  override;
 	void OnClickCrearP( wxCommandEvent& event )  override;
 	void OnClickCrearI( wxCommandEvent& event )  override;
-	void OnFocusPartida( wxFocusEvent& event )  override;
 	
 public:
 	vPartida(wxWindow *parent, Partida *p);
