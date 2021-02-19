@@ -38,7 +38,7 @@ void vPartida::OnClickCrearP( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickCrearI( wxCommandEvent& event )  {
-	vItem *Item = new vItem(NULL, m_partida, true);
+	vItem *Item = new vItem(NULL, m_partida);
 	
 }
 
@@ -85,7 +85,7 @@ void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
 	
 	int pos = m_ListaItems->GetSelection();
 	Item I=m_partida->ObtenerItem(pos);
-	dItem ItemMod(this,m_partida);
+	dItem ItemMod(this,m_partida,I);
 	ItemMod.ShowModal();
 }
 
