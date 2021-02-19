@@ -58,6 +58,13 @@ void vPersonaje::OnClickAgregar( wxCommandEvent& event )  {
 
 void vPersonaje::OnCheckListInventario( wxCommandEvent& event )  {
 	m_Personaje->ResetStat();
+	m_PVt->SetLabel(std_to_wx(std::to_string(0)));
+	m_DFNt->SetLabel(std_to_wx(std::to_string(0)));
+	m_FRZt->SetLabel(std_to_wx(std::to_string(0)));
+	m_AGLt->SetLabel(std_to_wx(std::to_string(0)));
+	m_RMt->SetLabel(std_to_wx(std::to_string(0)));
+	m_INTt->SetLabel(std_to_wx(std::to_string(0)));
+	m_MNt->SetLabel(std_to_wx(std::to_string(0)));
 	m_DN->SetLabel(std_to_wx(std::to_string(0)));
 	m_RNG->SetLabel(std_to_wx(std::to_string(0)));
 	m_PNT->SetLabel(std_to_wx(std::to_string(0)));

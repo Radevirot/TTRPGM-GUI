@@ -11,6 +11,10 @@ private:
 	Partida *m_partida;
 	void ActualizarNombre();
 protected:
+	void OnMenuEditar( wxCommandEvent& event )  override;
+	void OnMenuGuardar( wxCommandEvent& event )  override;
+	void OnMenuCargar( wxCommandEvent& event )  override;
+	void OnMenuAyuda( wxCommandEvent& event )  override;
 	void OnDobleClickListaPersonaje( wxCommandEvent& event )  override;
 	void OnClickBorrarPersonaje( wxCommandEvent& event )  override;
 	void OnClickVerInventario( wxCommandEvent& event )  override;

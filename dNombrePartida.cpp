@@ -20,3 +20,4 @@ void dNombrePartida::OnClickCancelar( wxCommandEvent& event )  {
 	EndModal(0);
 }
 
+

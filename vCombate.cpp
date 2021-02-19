@@ -11,8 +11,13 @@ vCombate::vCombate(wxWindow *parent, Partida *p) : Ventana_combate(parent) {
 	int Tam=m_partida->ObtenerTamPersonajes();
 	for(int i=0;i<Tam;i++) { 
 		Personaje P=m_partida->ObtenerPersonaje(i);
-		m_Atacante->Append(std_to_wx((P.ObtenerNombre())+"-"+std::to_string(P.ObtenerStat(0))));
-		m_Receptor->Append(std_to_wx((P.ObtenerNombre())+"-"+std::to_string(P.ObtenerStat(0))));
+		std::string Vida=std::to_string(P.ObtenerStat(0));
+		Vida.erase(Vida.end()-4,Vida.end());
+		std::string Danio=std::to_string(P.ObtenerStat(7));
+		Danio.erase(Danio.end()-4,Danio.end());
+		m_Atacante->Append(std_to_wx((P.ObtenerNombre())+" - Vida: "+Vida+" - Daño: "+Danio));
+		m_Receptor->Append(std_to_wx((P.ObtenerNombre())+" - Vida: "+Vida+" - Daño: "+Danio));
+		
 	}
 	m_Atacante->SetSelection(0);
 	if(Tam>1){ 

@@ -119,3 +119,19 @@ void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
 }
 
 
+void vPartida::OnMenuEditar( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+void vPartida::OnMenuCargar( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
+	event.Skip();
+}
+
