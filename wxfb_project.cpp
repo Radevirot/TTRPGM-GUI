@@ -139,6 +139,7 @@ Dialogo_NombrePartida::Dialogo_NombrePartida( wxWindow* parent, wxWindowID id, c
 	this->Centre( wxBOTH );
 
 	// Connect Events
+	m_textCtrlNombrePart->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_NombrePartida::OnKeyDownEnter ), NULL, this );
 	m_AceptarNombrePart->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickAceptar ), NULL, this );
 	m_CancelarNombrePart->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickCancelar ), NULL, this );
 }
@@ -146,6 +147,7 @@ Dialogo_NombrePartida::Dialogo_NombrePartida( wxWindow* parent, wxWindowID id, c
 Dialogo_NombrePartida::~Dialogo_NombrePartida()
 {
 	// Disconnect Events
+	m_textCtrlNombrePart->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_NombrePartida::OnKeyDownEnter ), NULL, this );
 	m_AceptarNombrePart->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickAceptar ), NULL, this );
 	m_CancelarNombrePart->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_NombrePartida::OnClickCancelar ), NULL, this );
 

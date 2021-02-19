@@ -21,3 +21,7 @@ void dNombrePartida::OnClickCancelar( wxCommandEvent& event )  {
 }
 
 
+void dNombrePartida::OnKeyDownEnter( wxKeyEvent& event )  {
+	event.Skip();
+}
+
