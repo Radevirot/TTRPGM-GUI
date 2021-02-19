@@ -16,14 +16,14 @@ tab_use_spaces=0
 explorer_path=.
 inspection_improving_template=wxString|>printf "%ls",${EXP}.m_impl._M_data()
 inherits_from=
-current_source=vDados.cpp
+current_source=vPersonaje.cpp
 path_char=\
 [source]
 path=Application.cpp
 cursor=0:9
 [source]
 path=vPersonaje.cpp
-cursor=35:1
+cursor=57:0
 open=true
 [source]
 path=wxfb_project.cpp
@@ -48,7 +48,7 @@ path=vPrincipal.cpp
 cursor=0:23
 [source]
 path=vPartida.cpp
-cursor=79:52
+cursor=82:43
 open=true
 [source]
 path=vItem.cpp
@@ -60,7 +60,7 @@ cursor=7:66
 open=true
 [source]
 path=vDados.cpp
-cursor=35:9
+cursor=21:1
 open=true
 [source]
 path=dNombrePartida.cpp
