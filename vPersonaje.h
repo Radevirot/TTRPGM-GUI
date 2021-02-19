@@ -3,6 +3,7 @@
 #include "wxfb_project.h"
 #include "wx/dynarray.h"
 #include "Partida.h"
+#include <string>
 
 
 class vPersonaje : public Ventana_personaje {
