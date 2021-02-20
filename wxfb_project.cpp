@@ -247,8 +247,8 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 
 	bSizer58->Add( m_CrearP, 0, wxALL|wxEXPAND, 5 );
 
-	m_button8 = new wxButton( this, wxID_ANY, wxT("Importar personaje existente"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer58->Add( m_button8, 0, wxALL|wxEXPAND, 5 );
+	m_ImportarP = new wxButton( this, wxID_ANY, wxT("Importar personaje existente"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer58->Add( m_ImportarP, 0, wxALL|wxEXPAND, 5 );
 
 	m_BorrarP = new wxButton( this, wxID_ANY, wxT("Borrar personaje"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer58->Add( m_BorrarP, 0, wxALL|wxEXPAND, 5 );
@@ -300,8 +300,8 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 
 	bSizer59->Add( m_CrearI, 0, wxALL|wxEXPAND, 5 );
 
-	m_button72 = new wxButton( this, wxID_ANY, wxT("Importar item existente"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer59->Add( m_button72, 0, wxALL|wxEXPAND, 5 );
+	m_ImportarI = new wxButton( this, wxID_ANY, wxT("Importar item existente"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer59->Add( m_ImportarI, 0, wxALL|wxEXPAND, 5 );
 
 	m_BorrarI = new wxButton( this, wxID_ANY, wxT("Borrar item"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer59->Add( m_BorrarI, 0, wxALL|wxEXPAND, 5 );
@@ -328,7 +328,7 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	this->Connect( wxEVT_ENTER_WINDOW, wxMouseEventHandler( Ventana_partida::OnEntrarPartida ) );
+	this->Connect( wxEVT_ACTIVATE, wxActivateEventHandler( Ventana_partida::OnActivarPartida ) );
 	m_menu2->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuEditar ), this, m_EditarNom->GetId());
 	m_menu2->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuGuardar ), this, m_Guardar->GetId());
 	m_menu2->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuNueva ), this, m_Nueva->GetId());
@@ -336,27 +336,35 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	m_menu1->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuAyuda ), this, m_Ayuda->GetId());
 	this->Connect( m_Combate->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCombate ) );
 	this->Connect( m_Dado->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickDado ) );
+	m_ListaPersonajes->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTeclaPList ), NULL, this );
 	m_ListaPersonajes->Connect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaPersonaje ), NULL, this );
 	m_CrearP->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearP ), NULL, this );
+	m_ImportarP->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickImportarP ), NULL, this );
 	m_BorrarP->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrarPersonaje ), NULL, this );
 	m_button19->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickVerInventario ), NULL, this );
+	m_ListaItems->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTeclaIList ), NULL, this );
 	m_ListaItems->Connect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaItem ), NULL, this );
 	m_CrearI->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearI ), NULL, this );
+	m_ImportarI->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickImportarI ), NULL, this );
 	m_BorrarI->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrar ), NULL, this );
 }
 
 Ventana_partida::~Ventana_partida()
 {
 	// Disconnect Events
-	this->Disconnect( wxEVT_ENTER_WINDOW, wxMouseEventHandler( Ventana_partida::OnEntrarPartida ) );
+	this->Disconnect( wxEVT_ACTIVATE, wxActivateEventHandler( Ventana_partida::OnActivarPartida ) );
 	this->Disconnect( m_Combate->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCombate ) );
 	this->Disconnect( m_Dado->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickDado ) );
+	m_ListaPersonajes->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTeclaPList ), NULL, this );
 	m_ListaPersonajes->Disconnect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaPersonaje ), NULL, this );
 	m_CrearP->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearP ), NULL, this );
+	m_ImportarP->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickImportarP ), NULL, this );
 	m_BorrarP->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrarPersonaje ), NULL, this );
 	m_button19->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickVerInventario ), NULL, this );
+	m_ListaItems->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTeclaIList ), NULL, this );
 	m_ListaItems->Disconnect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaItem ), NULL, this );
 	m_CrearI->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearI ), NULL, this );
+	m_ImportarI->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickImportarI ), NULL, this );
 	m_BorrarI->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrar ), NULL, this );
 
 }
@@ -960,7 +968,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_Nivel->Wrap( -1 );
 	bSizer12->Add( m_Nivel, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_Cantidad = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 10, 0 );
+	m_Cantidad = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 1, 1000, 1 );
 	bSizer12->Add( m_Cantidad, 0, wxALL, 5 );
 
 
@@ -1782,7 +1790,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_Nivel->Wrap( -1 );
 	bSizer12->Add( m_Nivel, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_Cantidad = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 10, 0 );
+	m_Cantidad = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 1, 1000, 1 );
 	bSizer12->Add( m_Cantidad, 0, wxALL, 5 );
 
 

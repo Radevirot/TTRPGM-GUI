@@ -106,18 +106,18 @@ class Ventana_partida : public wxFrame
 		wxStaticText* m_staticText5;
 		wxListBox* m_ListaPersonajes;
 		wxButton* m_CrearP;
-		wxButton* m_button8;
+		wxButton* m_ImportarP;
 		wxButton* m_BorrarP;
 		wxButton* m_button19;
 		wxStaticLine* m_staticline4;
 		wxStaticText* m_staticText6;
 		wxListBox* m_ListaItems;
 		wxButton* m_CrearI;
-		wxButton* m_button72;
+		wxButton* m_ImportarI;
 		wxButton* m_BorrarI;
 
 		// Virtual event handlers, overide them in your derived class
-		virtual void OnEntrarPartida( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnActivarPartida( wxActivateEvent& event ) { event.Skip(); }
 		virtual void OnMenuEditar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnMenuGuardar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnMenuNueva( wxCommandEvent& event ) { event.Skip(); }
@@ -125,12 +125,16 @@ class Ventana_partida : public wxFrame
 		virtual void OnMenuAyuda( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCombate( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickDado( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnApretarTeclaPList( wxKeyEvent& event ) { event.Skip(); }
 		virtual void OnDobleClickListaPersonaje( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCrearP( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickImportarP( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickBorrarPersonaje( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickVerInventario( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnApretarTeclaIList( wxKeyEvent& event ) { event.Skip(); }
 		virtual void OnDobleClickListaItem( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCrearI( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickImportarI( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickBorrar( wxCommandEvent& event ) { event.Skip(); }
 
 

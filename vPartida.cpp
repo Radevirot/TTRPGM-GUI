@@ -9,6 +9,11 @@
 
 
 vPartida::vPartida(wxWindow *parent, Partida *p) : Ventana_partida(parent) {
+	/*
+	Constructor de la ventana Partida, se le ingresan como parámetros un puntero
+	a la ventana padre y otro a la partida actual.
+	Guarda el valor del puntero, actualiza el nombre de la ventana, y la muestra.
+	*/
 	m_partida=p;
 	this->ActualizarNombre();
 	Show();
@@ -18,41 +23,28 @@ vPartida::~vPartida() {
 	
 }
 
+// MÉTODOS PRIVADOS AUXILIARES PARA EVITAR REPETIR CÓDIGO
+
 void vPartida::ActualizarNombre() {
+	/*
+	Actualiza el nombre de la ventana pidiendo el actual de partida y
+	agregándole "TTRPGM: " al comienzo.
+	*/
 	std::string name = "TTRPGM: " + m_partida->ObtenerNombre();
 	this->SetTitle(std_to_wx(name));
 }
 
-void vPartida::OnMenuNueva( wxCommandEvent& event )  {
-	dNombrePartida NomPart(this,m_partida);
-	int valor = NomPart.ShowModal();
-	if(valor==1){
-		Partida b(m_partida->ObtenerNombre());
-		*m_partida= b;
-		this->ActualizarNombre();
-	}
-}
-
-void vPartida::OnClickCrearP( wxCommandEvent& event )  {
-	vPersonaje *Pers = new vPersonaje(NULL, m_partida, true);
-}
-
-void vPartida::OnClickCrearI( wxCommandEvent& event )  {
-	vItem *Item = new vItem(NULL, m_partida);
-	
-}
-
-void vPartida::OnClickCombate( wxCommandEvent& event )  {
-	vCombate *Combate = new vCombate(NULL, m_partida);
-}
-
-void vPartida::OnClickDado( wxCommandEvent& event )  {
-	vDados *Dados = new vDados(NULL,m_partida);
-}
-
-void vPartida::OnEntrarPartida( wxMouseEvent& event )  {
+void vPartida::ActualizarListas(){
+	/*
+	Limpia ambas listas visualmente, ordena alfabéticamente las de Partida, y
+	las carga visualmente nuevamente, añadiendo el daño de cada Item y los puntos
+	de vida de cada Personaje. Además, si el nombre excede los 30 caracteres, se
+	colocan puntos suspensivos para evitar el redimensionamiento de la ventana.
+	*/
 	m_ListaItems->Clear();
 	m_ListaPersonajes->Clear();
+	m_partida->OrdenarIAlph();
+	m_partida->OrdenarPAlph();
 	for(int i=0;i<m_partida->ObtenerCantidadDeItems();i++) { 
 		Item I=m_partida->ObtenerItem(i);
 		std::string nombrefinal = I.ObtenerNombre().substr(0,30);
@@ -81,27 +73,54 @@ void vPartida::OnEntrarPartida( wxMouseEvent& event )  {
 	}
 }
 
-void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
-	
-	int pos = m_ListaItems->GetSelection();
-	Item I=m_partida->ObtenerItem(pos);
-	dItem ItemMod(this,m_partida,I);
-	ItemMod.ShowModal();
+// BARRA DE MENU 
+
+void vPartida::OnMenuEditar( wxCommandEvent& event )  {
+	dNombrePartida NomPart(this,m_partida);
+	int valor = NomPart.ShowModal();
+	if (valor==1) this->ActualizarNombre();
 }
 
-void vPartida::OnClickBorrar( wxCommandEvent& event )  {
-	if(m_ListaItems->GetSelection()==wxNOT_FOUND){
-		dErrorArrojarsinSelec Error(this,1);
-		Error.ShowModal();
-	} else {
-		int pos = m_ListaItems->GetSelection();
-		m_partida->EliminarItem(pos);
-		m_ListaItems->Delete(pos);
+void vPartida::OnMenuNueva( wxCommandEvent& event )  {
+	dNombrePartida NomPart(this,m_partida);
+	int valor = NomPart.ShowModal();
+	if(valor==1){
+		Partida b(m_partida->ObtenerNombre());
+		*m_partida= b;
+		this->ActualizarNombre();
+		this->ActualizarListas();
 	}
-	
 }
 
-void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
+void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+void vPartida::OnMenuCargar( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+// TOOLBAR 
+
+void vPartida::OnClickCombate( wxCommandEvent& event )  {
+	vCombate *Combate = new vCombate(NULL, m_partida);
+}
+
+void vPartida::OnClickDado( wxCommandEvent& event )  {
+	vDados *Dados = new vDados(NULL,m_partida);
+}
+
+// BOTONES DE PERSONAJE 
+
+void vPartida::OnClickCrearP( wxCommandEvent& event )  {
+	vPersonaje *Pers = new vPersonaje(NULL, m_partida, true);
+}
+
+void vPartida::OnClickImportarP( wxCommandEvent& event )  {
 	event.Skip();
 }
 
@@ -120,20 +139,79 @@ void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
 	event.Skip();
 }
 
+// LISTA DE PERSONAJES
 
-void vPartida::OnMenuEditar( wxCommandEvent& event )  {
+void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
 	event.Skip();
 }
 
-void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
+void vPartida::OnApretarTeclaPList( wxKeyEvent& event )  {
+	if(event.GetKeyCode()==WXK_DELETE){
+		if(m_ListaPersonajes->HasFocus()){
+			int pos = m_ListaPersonajes->GetSelection();
+			if(pos!=wxNOT_FOUND){
+				m_partida->EliminarPersonaje(pos);
+				m_ListaPersonajes->Delete(pos);
+				m_ListaPersonajes->SetSelection(pos);
+			}
+			
+		}
+	} else {
+		event.Skip();
+	}
+}
+
+// BOTONES DE ITEM 
+
+void vPartida::OnClickCrearI( wxCommandEvent& event )  {
+	vItem *Item = new vItem(NULL, m_partida);
+	
+}
+
+void vPartida::OnClickImportarI( wxCommandEvent& event )  {
 	event.Skip();
 }
 
-void vPartida::OnMenuCargar( wxCommandEvent& event )  {
-	event.Skip();
+void vPartida::OnClickBorrar( wxCommandEvent& event )  {
+	if(m_ListaItems->GetSelection()==wxNOT_FOUND){
+		dErrorArrojarsinSelec Error(this,1);
+		Error.ShowModal();
+	} else {
+		int pos = m_ListaItems->GetSelection();
+		m_partida->EliminarItem(pos);
+		m_ListaItems->Delete(pos);
+	}
+	
 }
 
-void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
-	event.Skip();
+// LISTA DE ITEMS 
+
+void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
+	
+	int pos = m_ListaItems->GetSelection();
+	Item I=m_partida->ObtenerItem(pos);
+	dItem ItemMod(this,m_partida,I,pos);
+	ItemMod.ShowModal();
 }
 
+void vPartida::OnApretarTeclaIList( wxKeyEvent& event )  {
+	if(event.GetKeyCode()==WXK_DELETE){
+		if(m_ListaItems->HasFocus()){
+			int pos = m_ListaItems->GetSelection();
+			if(pos!=wxNOT_FOUND){
+				m_partida->EliminarItem(pos);
+				m_ListaItems->Delete(pos);
+				m_ListaItems->SetSelection(pos);
+			}
+			
+		}
+	} else{
+		event.Skip();
+	}
+}
+
+// EVENTO DE ACTUALIZACIÓN
+
+void vPartida::OnActivarPartida( wxActivateEvent& event )  {
+	this->ActualizarListas();
+}

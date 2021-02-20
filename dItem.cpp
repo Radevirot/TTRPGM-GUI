@@ -41,6 +41,8 @@ void dItem::OnClickAplicar( wxCommandEvent& event )  {
 	I.ModificarDesc(wx_to_std(m_Descripcion->GetValue()));
 	m_partida->EliminarItem(pos);
 	m_partida->AgregarItem(I);
+	EndModal(1);
+	
 }
 
 void dItem::OnClickExportar( wxCommandEvent& event )  {
