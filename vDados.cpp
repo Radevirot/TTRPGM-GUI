@@ -20,7 +20,6 @@ vDados::vDados(wxWindow *parent, Partida *p) : Ventana_dados(parent) {
 		m_Seleccionado->Append(std_to_wx(D.ObtenerNombre()+" - Min: "+ std::to_string(D.ObtenerMin())+" - Max: "+ std::to_string(D.ObtenerMax())));
 		m_Seleccionado->SetSelection(0);
 	}
-	m_Seleccionado->SetSelection(0);
 	Show();
 }
 

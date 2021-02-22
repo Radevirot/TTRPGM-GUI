@@ -57,7 +57,7 @@ class Ventana_principal : public wxDialog
 
 	public:
 
-		Ventana_principal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 293,246 ), long style = wxDEFAULT_DIALOG_STYLE );
+		Ventana_principal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 234,245 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~Ventana_principal();
 
 };

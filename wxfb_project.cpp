@@ -19,9 +19,9 @@ Ventana_principal::Ventana_principal( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText66 = new wxStaticText( this, wxID_ANY, wxT("Bienvenido al administrador de RPG de mesa"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText66 = new wxStaticText( this, wxID_ANY, wxT("¡Bienvenido al administrador\nde RPG de mesa!"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL );
 	m_staticText66->Wrap( -1 );
-	bSizer4->Add( m_staticText66, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer4->Add( m_staticText66, 0, wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
 
 	bSizer2->Add( bSizer4, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
@@ -30,28 +30,28 @@ Ventana_principal::Ventana_principal( wxWindow* parent, wxWindowID id, const wxS
 	bSizer5 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_Empezarpartida = new wxButton( this, wxID_ANY, wxT("Empezar partida"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer5->Add( m_Empezarpartida, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
+	bSizer5->Add( m_Empezarpartida, 1, wxALL|wxEXPAND, 5 );
 
 
-	bSizer2->Add( bSizer5, 1, wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
+	bSizer2->Add( bSizer5, 1, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer6;
 	bSizer6 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_Cargarpartida = new wxButton( this, wxID_ANY, wxT("Cargar partida"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer6->Add( m_Cargarpartida, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
+	bSizer6->Add( m_Cargarpartida, 1, wxALL|wxEXPAND, 5 );
 
 
-	bSizer2->Add( bSizer6, 1, wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
+	bSizer2->Add( bSizer6, 1, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer7;
 	bSizer7 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_Salir = new wxButton( this, wxID_ANY, wxT("Salir"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer7->Add( m_Salir, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
+	bSizer7->Add( m_Salir, 1, wxALL|wxEXPAND, 5 );
 
 
-	bSizer2->Add( bSizer7, 1, wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
+	bSizer2->Add( bSizer7, 1, wxEXPAND, 5 );
 
 
 	this->SetSizer( bSizer2 );
@@ -103,7 +103,7 @@ Dialogo_NombrePartida::Dialogo_NombrePartida( wxWindow* parent, wxWindowID id, c
 	#else
 	m_textCtrlNombrePart->SetMaxLength( 256 );
 	#endif
-	bSizer133->Add( m_textCtrlNombrePart, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer133->Add( m_textCtrlNombrePart, 1, wxALL, 5 );
 
 
 	bSizer131->Add( bSizer133, 1, wxEXPAND, 5 );
@@ -115,7 +115,7 @@ Dialogo_NombrePartida::Dialogo_NombrePartida( wxWindow* parent, wxWindowID id, c
 	bSizer135 = new wxBoxSizer( wxVERTICAL );
 
 	m_AceptarNombrePart = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer135->Add( m_AceptarNombrePart, 1, wxALL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
+	bSizer135->Add( m_AceptarNombrePart, 1, wxALL|wxEXPAND, 5 );
 
 
 	bSizer134->Add( bSizer135, 1, wxEXPAND, 5 );
@@ -479,7 +479,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	bSizer13->Add( bSizer487, 1, wxEXPAND, 5 );
 
 
-	bSizer8->Add( bSizer13, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer8->Add( bSizer13, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer14;
 	bSizer14 = new wxBoxSizer( wxHORIZONTAL );
@@ -989,13 +989,13 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText94->Wrap( -1 );
 	m_staticText94->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
-	bSizer488->Add( m_staticText94, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer488->Add( m_staticText94, 0, wxALIGN_CENTER|wxALL, 5 );
 
 
 	bSizer13->Add( bSizer488, 1, wxEXPAND, 5 );
 
 
-	bSizer158->Add( bSizer13, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer158->Add( bSizer13, 0, wxEXPAND, 5 );
 
 
 	bSizer7->Add( bSizer158, 0, wxEXPAND, 5 );
@@ -1295,10 +1295,10 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText431->Wrap( -1 );
 	m_staticText431->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
-	bSizer3411->Add( m_staticText431, 1, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer3411->Add( m_staticText431, 1, wxALIGN_CENTER|wxALL, 5 );
 
 
-	bSizer149->Add( bSizer3411, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer149->Add( bSizer3411, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer342;
 	bSizer342 = new wxBoxSizer( wxVERTICAL );
@@ -1362,7 +1362,7 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	m_staticText96->Wrap( -1 );
 	m_staticText96->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
-	bSizer187->Add( m_staticText96, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
+	bSizer187->Add( m_staticText96, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	m_Seleccionado = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
 	bSizer187->Add( m_Seleccionado, 1, wxALL|wxEXPAND, 5 );
@@ -1377,7 +1377,7 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	m_staticText105->Wrap( -1 );
 	m_staticText105->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
-	bSizer188->Add( m_staticText105, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer188->Add( m_staticText105, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	wxBoxSizer* bSizer189;
 	bSizer189 = new wxBoxSizer( wxHORIZONTAL );
@@ -1450,7 +1450,7 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizer195->Add( m_Numero, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
-	bSizer188->Add( bSizer195, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer188->Add( bSizer195, 0, wxALIGN_CENTER, 5 );
 
 
 	bSizer197->Add( bSizer188, 1, wxEXPAND, 5 );
@@ -1465,7 +1465,7 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizer199 = new wxBoxSizer( wxVERTICAL );
 
 	m_Borrar = new wxButton( this, wxID_ANY, wxT("Borrar seleccionado"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer199->Add( m_Borrar, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxEXPAND, 5 );
+	bSizer199->Add( m_Borrar, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer198->Add( bSizer199, 1, 0, 5 );
@@ -1553,17 +1553,17 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 
 	m_staticText108 = new wxStaticText( this, wxID_ANY, wxT("Personaje atacante"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText108->Wrap( -1 );
-	bSizer203->Add( m_staticText108, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer203->Add( m_staticText108, 0, wxALIGN_CENTER|wxALL, 5 );
 
 
-	bSizer204->Add( bSizer203, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer204->Add( bSizer203, 1, 0, 5 );
 
 	wxBoxSizer* bSizer205;
 	bSizer205 = new wxBoxSizer( wxVERTICAL );
 
 	m_staticText109 = new wxStaticText( this, wxID_ANY, wxT("Receptor de daño"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText109->Wrap( -1 );
-	bSizer205->Add( m_staticText109, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer205->Add( m_staticText109, 0, wxALIGN_CENTER|wxALL, 5 );
 
 
 	bSizer204->Add( bSizer205, 1, 0, 5 );
@@ -1595,16 +1595,16 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 
 	m_staticText112 = new wxStaticText( this, wxID_ANY, wxT("Puntos de daño provocados:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText112->Wrap( -1 );
-	bSizer209->Add( m_staticText112, 0, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
+	bSizer209->Add( m_staticText112, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	m_DanioProvo = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_DanioProvo->Wrap( -1 );
 	m_DanioProvo->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
-	bSizer209->Add( m_DanioProvo, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer209->Add( m_DanioProvo, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
 
-	bSizer200->Add( bSizer209, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer200->Add( bSizer209, 0, wxALIGN_CENTER, 5 );
 
 	wxBoxSizer* bSizer210;
 	bSizer210 = new wxBoxSizer( wxHORIZONTAL );
@@ -1819,7 +1819,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer13->Add( bSizer488, 1, wxEXPAND, 5 );
 
 
-	bSizer158->Add( bSizer13, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer158->Add( bSizer13, 0, wxEXPAND, 5 );
 
 
 	bSizer7->Add( bSizer158, 0, wxEXPAND, 5 );
@@ -2119,10 +2119,10 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText431->Wrap( -1 );
 	m_staticText431->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
-	bSizer3411->Add( m_staticText431, 1, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer3411->Add( m_staticText431, 1, wxALIGN_CENTER_HORIZONTAL|wxALL, 5 );
 
 
-	bSizer149->Add( bSizer3411, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer149->Add( bSizer3411, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer342;
 	bSizer342 = new wxBoxSizer( wxVERTICAL );
@@ -2275,7 +2275,7 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 	bSizer13->Add( bSizer487, 1, wxEXPAND, 5 );
 
 
-	bSizer8->Add( bSizer13, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer8->Add( bSizer13, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer14;
 	bSizer14 = new wxBoxSizer( wxHORIZONTAL );
@@ -2588,7 +2588,7 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 	bSizer341->Add( m_staticText43, 0, wxALL, 5 );
 
 
-	bSizer8->Add( bSizer341, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer8->Add( bSizer341, 0, wxALIGN_CENTER, 5 );
 
 	wxBoxSizer* bSizer34;
 	bSizer34 = new wxBoxSizer( wxVERTICAL );
@@ -2643,7 +2643,7 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 	m_staticText32->Wrap( -1 );
 	m_staticText32->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
-	bSizer9->Add( m_staticText32, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer9->Add( m_staticText32, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	wxBoxSizer* bSizer41;
 	bSizer41 = new wxBoxSizer( wxVERTICAL );
