@@ -4,6 +4,7 @@
 #include "Partida.h"
 #include "Personaje.h"
 #include <string>
+#include <vector>
 #include "wx/dynarray.h"
 #include "string_conv.h"
 #include "dInventario.h"

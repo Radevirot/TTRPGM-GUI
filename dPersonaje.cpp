@@ -9,19 +9,25 @@ dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje Per, int posc) : 
 	
 	
 	int tam=P.TamInv();
+	std::vector<int> equipados;
 	for(int i=0;i<tam;i++) { 
 		Item I=P.MostrarItem(i);
 		m_Personaje->AgregarInv(I);
 		m_Inventario->Append(std_to_wx(I.ObtenerNombre()));
 		bool Equip=I.Equipado();
 		if(Equip){ 
-			m_Inventario->Check(i,true);
 			I.EquiparToggle();
-			m_Personaje->BorrarItem(pos);
+			equipados.push_back(i);
 			m_Personaje->AgregarInv(I);
-			m_Personaje->OrdenarAlph();
 		}
 	}
+	for(int i=0;i<equipados.size();i++) { 
+		m_Inventario->Check(equipados[i],true);
+		m_Personaje->BorrarItem(equipados[i]);
+		m_Personaje->OrdenarAlph();
+	}
+
+	
 	Actualizacion();
 	
 	m_Nombre->SetLabel(std_to_wx(P.ObtenerNombre()));
