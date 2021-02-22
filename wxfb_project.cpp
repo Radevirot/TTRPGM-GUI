@@ -191,9 +191,10 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	m_toolBar4 = this->CreateToolBar( wxTB_HORIZONTAL, wxID_ANY );
 	m_toolBar4->SetBackgroundColour( wxColour( 224, 224, 224 ) );
 
-	m_Combate = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxNullBitmap, wxNullBitmap, wxITEM_NORMAL, wxT("Simulación de ataque"), wxEmptyString, NULL );
 
-	m_Dado = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxNullBitmap, wxNullBitmap, wxITEM_NORMAL, wxT("Dado virtual"), wxEmptyString, NULL );
+	m_Combate = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxBitmap( wxT("imagenes/combate.bmp"), wxBITMAP_TYPE_ANY ), wxNullBitmap, wxITEM_NORMAL, wxT("Simulación de ataque"), wxEmptyString, NULL );
+
+	m_Dado = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxBitmap( wxT("imagenes/dado.bmp"), wxBITMAP_TYPE_ANY ), wxNullBitmap, wxITEM_NORMAL, wxT("Dado virtual"), wxEmptyString, NULL );
 
 	m_toolBar4->Realize();
 
