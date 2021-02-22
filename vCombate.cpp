@@ -1,6 +1,11 @@
 #include "vCombate.h"
 
 vCombate::vCombate(wxWindow *parent, Partida *p) : Ventana_combate(parent) {
+	/*
+	Constructor de la ventana Combate, se le ingresan como parámetros un puntero
+	a la ventana padre y otro a la partida actual.
+	Carga y muestra formulas de combate y la lista de personajes atacantes y receptores.
+	*/
 	m_partida=p;
 	m_Formula->Append(std_to_wx("(50+(DÑ*4)*MULT)-(DFN*2)"));
 	m_Formula->Append(std_to_wx("(((DÑ*0.5)*MULT)-(DFN*0.25))"));
@@ -32,6 +37,7 @@ vCombate::~vCombate() {
 	
 }
 
+// BOTONES
 void vCombate::OnClickCerrar( wxCommandEvent& event )  {
 	Close(true);
 }
