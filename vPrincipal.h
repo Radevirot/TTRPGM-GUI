@@ -2,7 +2,7 @@
 #define VPRINCIPAL_H
 #include "wxfb_project.h"
 #include "Partida.h"
-
+	
 class vPrincipal : public Ventana_principal {
 	
 private:
