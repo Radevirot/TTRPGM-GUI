@@ -3,6 +3,7 @@
 #include "dErrorArrojarsinSelec.h"
 #include "string_conv.h"
 #include <string>
+#include <wx/msgdlg.h>
 
 
 
@@ -38,8 +39,7 @@ void vDados::OnClickAgregar( wxCommandEvent& event )  {
 
 void vDados::OnClickArrojar( wxCommandEvent& event )  {
 	if(m_Seleccionado->GetSelection()==wxNOT_FOUND){
-		dErrorArrojarsinSelec Error(this,2);
-		Error.ShowModal();
+		wxMessageBox(wxT("No es posible arrojar un dado sin\nhaber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
 	} else {
 		int Pos=m_Seleccionado->GetSelection();
 		D=m_partida->ObtenerDado(Pos);
@@ -50,8 +50,7 @@ void vDados::OnClickArrojar( wxCommandEvent& event )  {
 
 void vDados::OnClickBorrar( wxCommandEvent& event )  {
 	if(m_Seleccionado->GetSelection()==wxNOT_FOUND){
-		dErrorArrojarsinSelec Error(this,3);
-		Error.ShowModal();
+		wxMessageBox(wxT("No es posible borrar un dado sin\nhaber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
 	} else {
 		int Pos=m_Seleccionado->GetSelection();
 		m_partida->EliminarDado(Pos);

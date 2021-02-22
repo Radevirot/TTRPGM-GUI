@@ -95,8 +95,7 @@ void dPersonaje::OnClickAgregar( wxCommandEvent& event )  {
 
 void dPersonaje::OnClickBorrar( wxCommandEvent& event )  {
 	if(m_Inventario->GetSelection()==wxNOT_FOUND){
-		dErrorArrojarsinSelec Error(this,1);
-		Error.ShowModal();
+		wxMessageBox(wxT("No es posible borrar un item sin\nhaber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
 	} else {
 		int pos = m_Inventario->GetSelection();
 		m_Inventario->Delete(pos);

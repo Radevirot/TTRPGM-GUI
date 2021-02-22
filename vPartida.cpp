@@ -7,7 +7,7 @@
 #include "dErrorArrojarsinSelec.h"
 #include "dNombrePartida.h"
 #include "string_conv.h"
-
+#include <wx/msgdlg.h>
 
 vPartida::vPartida(wxWindow *parent, Partida *p) : Ventana_partida(parent) {
 	/*
@@ -108,7 +108,12 @@ void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
 // TOOLBAR 
 
 void vPartida::OnClickCombate( wxCommandEvent& event )  {
-	vCombate *Combate = new vCombate(NULL, m_partida);
+	if (m_partida->ObtenerTamPersonajes()==0){
+		wxMessageBox(wxT("Debe tener al menos un personaje creado."),wxT("Error"),wxICON_ERROR);
+	} else {
+		vCombate *Combate = new vCombate(NULL, m_partida);
+	}
+	
 }
 
 void vPartida::OnClickDado( wxCommandEvent& event )  {
@@ -127,8 +132,7 @@ void vPartida::OnClickImportarP( wxCommandEvent& event )  {
 
 void vPartida::OnClickBorrarPersonaje( wxCommandEvent& event )  {
 	if(m_ListaPersonajes->GetSelection()==wxNOT_FOUND){
-		dErrorArrojarsinSelec Error(this,4);
-		Error.ShowModal();
+		wxMessageBox(wxT("No es posible borrar un personaje sin\nhaber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
 	} else {
 		int pos = m_ListaPersonajes->GetSelection();
 		m_partida->EliminarPersonaje(pos);
@@ -178,8 +182,7 @@ void vPartida::OnClickImportarI( wxCommandEvent& event )  {
 
 void vPartida::OnClickBorrar( wxCommandEvent& event )  {
 	if(m_ListaItems->GetSelection()==wxNOT_FOUND){
-		dErrorArrojarsinSelec Error(this,1);
-		Error.ShowModal();
+		wxMessageBox(wxT("No es posible borrar un item sin\nhaber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
 	} else {
 		int pos = m_ListaItems->GetSelection();
 		m_partida->EliminarItem(pos);
