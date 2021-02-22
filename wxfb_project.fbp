@@ -932,8 +932,13 @@
                 <property name="window_extra_style"></property>
                 <property name="window_name"></property>
                 <property name="window_style"></property>
+                <object class="spacer" expanded="1">
+                    <property name="height">0</property>
+                    <property name="permission">protected</property>
+                    <property name="width">264</property>
+                </object>
                 <object class="tool" expanded="0">
-                    <property name="bitmap"></property>
+                    <property name="bitmap">Load From File; imagenes/combate.bmp</property>
                     <property name="context_menu">0</property>
                     <property name="id">wxID_ANY</property>
                     <property name="kind">wxITEM_NORMAL</property>
@@ -945,7 +950,7 @@
                     <event name="OnToolClicked">OnClickCombate</event>
                 </object>
                 <object class="tool" expanded="0">
-                    <property name="bitmap">Load From Resource; </property>
+                    <property name="bitmap">Load From File; imagenes/dado.bmp</property>
                     <property name="context_menu">0</property>
                     <property name="id">wxID_ANY</property>
                     <property name="kind">wxITEM_NORMAL</property>
