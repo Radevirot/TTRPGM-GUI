@@ -1,2 +1,3 @@
 #include "winuser.h"
+0 ICON "imagenes\\logo.ico"
 1 RT_MANIFEST "manifest.xml"
