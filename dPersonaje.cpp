@@ -16,7 +16,10 @@ dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje Per, int posc) : 
 		bool Equip=I.Equipado();
 		if(Equip){ 
 			m_Inventario->Check(i,true);
-			m_Personaje->RestarStatsDeItem(I);
+			I.EquiparToggle();
+			m_Personaje->BorrarItem(pos);
+			m_Personaje->AgregarInv(I);
+			m_Personaje->OrdenarAlph();
 		}
 	}
 	Actualizacion();
@@ -49,6 +52,16 @@ void dPersonaje::OnClickAplicar( wxCommandEvent& event )  {
 	m_Personaje->ModificarStat(5,((m_INTb->GetValue())+m_Personaje->ObtenerStat(5)));
 	m_Personaje->ModificarStat(6,((m_MNb->GetValue())+m_Personaje->ObtenerStat(6)));
 	m_Personaje->ModificarDetalle(wx_to_std(m_Detalle->GetValue()));
+	int Tam=m_Inventario->GetCheckedItems(W);
+	for(int i=0;i<Tam;i++) {
+		int pos = W.Item(i);
+		Item I=m_Personaje->MostrarItem(pos);
+		I.EquiparToggle();
+		m_Personaje->BorrarItem(pos);
+		m_Personaje->AgregarInv(I);
+		m_Personaje->OrdenarAlph();
+	}
+	W.empty();
 	
 	m_partida->EliminarPersonaje(pos);
 	m_partida->AgregarPersonaje(*m_Personaje);
@@ -60,14 +73,7 @@ void dPersonaje::OnClickExportar( wxCommandEvent& event )  {
 }
 
 void dPersonaje::OnCheckListInventario( wxCommandEvent& event )  {
-	int Tam=m_Inventario->GetCheckedItems(W);
-	for(int i=0;i<Tam;i++){
-		int pos = W.Item(i);
-		Item I=m_Personaje->MostrarItem(pos);
-		m_Personaje->RestarStatsDeItem(I);
-	}
 	Actualizacion();
-	W.empty();
 }
 
 void dPersonaje::OnClickAgregar( wxCommandEvent& event )  {
@@ -87,10 +93,10 @@ void dPersonaje::OnClickBorrar( wxCommandEvent& event )  {
 		Error.ShowModal();
 	} else {
 		int pos = m_Inventario->GetSelection();
-		m_Personaje->BorrarItem(pos);
 		m_Inventario->Delete(pos);
-		i--;
+		m_Personaje->BorrarItem(pos);
 		m_Personaje->OrdenarAlph();
+		i--;
 		Actualizacion();
 	}
 }
@@ -112,13 +118,6 @@ void dPersonaje::Actualizacion(){
 	for(int i=0;i<Tam;i++) { 
 		int pos = W.Item(i);
 		Item I=m_Personaje->MostrarItem(pos);
-		bool equip=I.Equipado();
-		if(!equip){
-			I.EquiparToggle();
-			m_Personaje->BorrarItem(pos);
-			m_Personaje->AgregarInv(I);
-			m_Personaje->OrdenarAlph();
-		}
 		m_Personaje->SumarStatsDeItem(I);
 		std::string Stat=std::to_string(m_Personaje->ObtenerStat(0));
 		Stat.erase(Stat.end()-4,Stat.end());

@@ -16,14 +16,25 @@ void vPersonaje::OnClickAplicar( wxCommandEvent& event )  {
 	m_Personaje->NombrarPersonaje(wx_to_std(m_Nombre->GetValue()));
 	m_Personaje->ModificarNivel(m_Nivel->GetValue());
 	m_Personaje->ModificarXP(m_EXP->GetValue());
-	m_Personaje->ModificarStat(0,((m_PVb->GetValue())+m_Personaje->ObtenerStat(0)));
-	m_Personaje->ModificarStat(1,((m_DFNb->GetValue())+m_Personaje->ObtenerStat(1)));
-	m_Personaje->ModificarStat(2,((m_FRZb->GetValue())+m_Personaje->ObtenerStat(2)));
-	m_Personaje->ModificarStat(3,((m_AGLb->GetValue())+m_Personaje->ObtenerStat(3)));
-	m_Personaje->ModificarStat(4,((m_RMb->GetValue())+m_Personaje->ObtenerStat(4)));
-	m_Personaje->ModificarStat(5,((m_INTb->GetValue())+m_Personaje->ObtenerStat(5)));
-	m_Personaje->ModificarStat(6,((m_MNb->GetValue())+m_Personaje->ObtenerStat(6)));
+	m_Personaje->ModificarStat(0,((m_PVb->GetValue())));//+m_Personaje->ObtenerStat(0)));
+	m_Personaje->ModificarStat(1,((m_DFNb->GetValue())));//+m_Personaje->ObtenerStat(1)));
+	m_Personaje->ModificarStat(2,((m_FRZb->GetValue())));//+m_Personaje->ObtenerStat(2)));
+	m_Personaje->ModificarStat(3,((m_AGLb->GetValue())));//+m_Personaje->ObtenerStat(3)));
+	m_Personaje->ModificarStat(4,((m_RMb->GetValue())));//+m_Personaje->ObtenerStat(4)));
+	m_Personaje->ModificarStat(5,((m_INTb->GetValue())));//+m_Personaje->ObtenerStat(5)));
+	m_Personaje->ModificarStat(6,((m_MNb->GetValue())));//+m_Personaje->ObtenerStat(6)));
 	m_Personaje->ModificarDetalle(wx_to_std(m_Detalle->GetValue()));
+	int Tam=m_Inventario->GetCheckedItems(W);
+	for(int i=0;i<Tam;i++) {
+		int pos = W.Item(i);
+		Item I=m_Personaje->MostrarItem(pos);
+		I.EquiparToggle();
+		m_Personaje->BorrarItem(pos);
+		m_Personaje->AgregarInv(I);
+		m_Personaje->OrdenarAlph();
+	}
+	W.empty();
+	
 	m_partida->AgregarPersonaje(*m_Personaje);
 	
 	Close(true);
@@ -51,28 +62,16 @@ void vPersonaje::OnClickBorrar( wxCommandEvent& event )  {
 		Error.ShowModal();
 	} else {
 		int pos = m_Inventario->GetSelection();
-		m_Personaje->BorrarItem(pos);
 		m_Inventario->Delete(pos);
-		i--;
+		m_Personaje->BorrarItem(pos);
 		m_Personaje->OrdenarAlph();
+		i--;
 		Actualizacion();
 	}
 }
 
 void vPersonaje::OnCheckListInventario( wxCommandEvent& event )  {
-	if(l>0){
-		int Tam=m_Inventario->GetCheckedItems(W);
-		for(int i=0;i<Tam;i++){
-			int pos = W.Item(i);
-			Item I=m_Personaje->MostrarItem(pos);
-			m_Personaje->RestarStatsDeItem(I);
-		}
-	}
 	Actualizacion();
-	if(l>0){
-		W.empty();
-	}
-	l++;
 }
 
 void vPersonaje::Actualizacion(){
@@ -92,13 +91,6 @@ void vPersonaje::Actualizacion(){
 	for(int i=0;i<Tam;i++) { 
 		int pos = W.Item(i);
 		Item I=m_Personaje->MostrarItem(pos);
-		bool equip=I.Equipado();
-		if(!equip){
-			I.EquiparToggle();
-			m_Personaje->BorrarItem(pos);
-			m_Personaje->AgregarInv(I);
-			m_Personaje->OrdenarAlph();
-		}
 		m_Personaje->SumarStatsDeItem(I);
 		std::string Stat=std::to_string(m_Personaje->ObtenerStat(0));
 		Stat.erase(Stat.end()-4,Stat.end());
@@ -133,7 +125,6 @@ void vPersonaje::Actualizacion(){
 		Stat=std::to_string(m_Personaje->ObtenerStat(10));
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_BLQ->SetLabel(std_to_wx(Stat));
-		
 	}
 	W.empty();
 }

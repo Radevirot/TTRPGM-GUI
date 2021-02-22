@@ -92,6 +92,13 @@ void Personaje::ModificarStat(int pos,float stat){
 }
 
 void Personaje::ResetStat(){
+	PStats[0] = 0;
+	PStats[1] = 0;
+	PStats[2] = 0;
+	PStats[3] = 0;
+	PStats[4] = 0;
+	PStats[5] = 0;
+	PStats[6] = 0;
 	PStats[7] = 0;
 	PStats[8] = 0;
 	PStats[9] = 0;
