@@ -12,6 +12,7 @@ private:
 	Personaje *m_Personaje;
 	Partida *m_partida;
 protected:
+	void OnListDobleClick( wxCommandEvent& event )  override;
 	void OnClickAgregar( wxCommandEvent& event )  override;
 	void OnClickCancelar( wxCommandEvent& event )  override;
 	

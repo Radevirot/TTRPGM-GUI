@@ -3,6 +3,7 @@
 #include "vDados.h"
 #include "vCombate.h"
 #include "dItem.h"
+#include "dPersonaje.h"
 #include "dErrorArrojarsinSelec.h"
 #include "dNombrePartida.h"
 #include "string_conv.h"
@@ -117,7 +118,7 @@ void vPartida::OnClickDado( wxCommandEvent& event )  {
 // BOTONES DE PERSONAJE 
 
 void vPartida::OnClickCrearP( wxCommandEvent& event )  {
-	vPersonaje *Pers = new vPersonaje(NULL, m_partida, true);
+	vPersonaje *Pers = new vPersonaje(NULL, m_partida);
 }
 
 void vPartida::OnClickImportarP( wxCommandEvent& event )  {
@@ -142,7 +143,10 @@ void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
 // LISTA DE PERSONAJES
 
 void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
-	event.Skip();
+	int pos = m_ListaPersonajes->GetSelection();
+	Personaje P=m_partida->ObtenerPersonaje(pos);
+	dPersonaje PersonajeMod(this,m_partida,P,pos);
+	PersonajeMod.ShowModal();
 }
 
 void vPartida::OnApretarTeclaPList( wxKeyEvent& event )  {

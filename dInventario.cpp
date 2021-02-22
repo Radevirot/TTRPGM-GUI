@@ -21,7 +21,15 @@ void dInventario::OnClickCancelar( wxCommandEvent& event )  {
 	EndModal(0);
 }
 
+void dInventario::OnListDobleClick( wxCommandEvent& event )  {
+	int pos=m_ListaItems->GetSelection();
+	Item I=m_partida->ObtenerItem(pos);
+	m_Personaje->AgregarInv(I);
+	EndModal(1);
+}
+
 dInventario::~dInventario() {
 	
 }
+
 

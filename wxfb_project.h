@@ -202,6 +202,7 @@ class Ventana_personaje : public wxFrame
 		wxStaticText* m_staticText32;
 		wxCheckListBox* m_Inventario;
 		wxButton* m_button6;
+		wxButton* m_button34;
 		wxStaticLine* m_staticline4111;
 
 		// Virtual event handlers, overide them in your derived class
@@ -209,11 +210,12 @@ class Ventana_personaje : public wxFrame
 		virtual void OnClickExportar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnCheckListInventario( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickAgregar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickBorrar( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
 
-		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Creación/Modificación de Personaje"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 589,705 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Creación"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 589,705 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_personaje();
 
@@ -386,6 +388,7 @@ class Dialogo_Inventario : public wxDialog
 		wxButton* m_Cancelar;
 
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnListDobleClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickAgregar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCancelar( wxCommandEvent& event ) { event.Skip(); }
 
@@ -449,6 +452,80 @@ class Dialogo_item : public wxDialog
 
 		Dialogo_item( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Modificación de Item"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 574,644 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~Dialogo_item();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class Dialogo_Personaje
+///////////////////////////////////////////////////////////////////////////////
+class Dialogo_Personaje : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticLine* m_staticline4112;
+		wxStaticText* m_Personajename;
+		wxTextCtrl* m_Nombre;
+		wxStaticText* m_asda;
+		wxSpinCtrl* m_Nivel;
+		wxStaticText* m_sdad;
+		wxSpinCtrlDouble* m_EXP;
+		wxStaticLine* m_staticline41;
+		wxStaticText* m_staticText94;
+		wxStaticText* m_staticText93;
+		wxStaticText* m_staticText8;
+		wxSpinCtrlDouble* m_PVb;
+		wxStaticText* m_PVt;
+		wxStaticText* m_staticText81;
+		wxSpinCtrlDouble* m_DFNb;
+		wxStaticText* m_DFNt;
+		wxStaticText* m_staticText82;
+		wxSpinCtrlDouble* m_FRZb;
+		wxStaticText* m_FRZt;
+		wxStaticText* m_staticText83;
+		wxSpinCtrlDouble* m_AGLb;
+		wxStaticText* m_AGLt;
+		wxStaticText* m_staticText84;
+		wxSpinCtrlDouble* m_RMb;
+		wxStaticText* m_RMt;
+		wxStaticText* m_staticText85;
+		wxSpinCtrlDouble* m_INTb;
+		wxStaticText* m_INTt;
+		wxStaticText* m_staticText86;
+		wxSpinCtrlDouble* m_MNb;
+		wxStaticText* m_MNt;
+		wxStaticText* m_staticText87;
+		wxStaticText* m_DN;
+		wxStaticText* m_staticText871;
+		wxStaticText* m_RNG;
+		wxStaticText* m_staticText8721;
+		wxStaticText* m_PNT;
+		wxStaticText* m_staticText872;
+		wxStaticText* m_BLQ;
+		wxStaticLine* m_staticline4;
+		wxStaticText* m_staticText43;
+		wxTextCtrl* m_Detalle;
+		wxStaticLine* m_staticline411;
+		wxButton* m_aplicarcambios;
+		wxButton* m_button4;
+		wxStaticText* m_staticText32;
+		wxCheckListBox* m_Inventario;
+		wxButton* m_button6;
+		wxButton* m_button34;
+		wxStaticLine* m_staticline4111;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnClickAplicar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickExportar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnCheckListInventario( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickAgregar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnClickBorrar( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		Dialogo_Personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Modificación de Personaje"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 583,727 ), long style = wxDEFAULT_DIALOG_STYLE );
+		~Dialogo_Personaje();
 
 };
 
