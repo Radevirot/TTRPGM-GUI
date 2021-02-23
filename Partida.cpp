@@ -145,8 +145,7 @@ void Partida::Guardar(std::string nombrearchi){
 	/*
 	Pide un string para el nombre del archivo. Exporta la partida junto con
 	los dados, personajes y sus items.
-	*/
-	nombrearchi+=".part";													
+	*/												
 	std::ofstream archivo(nombrearchi,std::ios::binary|std::ios::trunc);
 	
 	int CantPersonaje=Plist.size(), CantDados=Dlist.size(), CantItems=Ilist.size();
@@ -178,7 +177,6 @@ void Partida::Cargar(std::string nombrearchi){
 	Pide un string para el archivo. Importa todos los datos de la partida, 
 	incluyendo los dados, personajes y sus items.
 	*/
-	nombrearchi+=".part";
 	std::ifstream archivo(nombrearchi,std::ios::binary);
 	
 	if (!archivo.is_open()){
