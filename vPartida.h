@@ -3,6 +3,7 @@
 #include "wxfb_project.h"
 #include "Partida.h"
 #include "vItem.h"
+#include <wx/filedlg.h>
 
 
 class vPartida : public Ventana_partida {

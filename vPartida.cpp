@@ -111,19 +111,19 @@ void vPartida::OnClickCombate( wxCommandEvent& event )  {
 	if (m_partida->ObtenerTamPersonajes()==0){
 		wxMessageBox(wxT("Debe tener al menos un personaje creado."),wxT("Error"),wxICON_ERROR);
 	} else {
-		vCombate *Combate = new vCombate(NULL, m_partida);
+		vCombate *Combate = new vCombate(this, m_partida);
 	}
 	
 }
 
 void vPartida::OnClickDado( wxCommandEvent& event )  {
-	vDados *Dados = new vDados(NULL,m_partida);
+	vDados *Dados = new vDados(this,m_partida);
 }
 
 // BOTONES DE PERSONAJE 
 
 void vPartida::OnClickCrearP( wxCommandEvent& event )  {
-	vPersonaje *Pers = new vPersonaje(NULL, m_partida);
+	vPersonaje *Pers = new vPersonaje(this, m_partida);
 }
 
 void vPartida::OnClickImportarP( wxCommandEvent& event )  {
@@ -172,12 +172,15 @@ void vPartida::OnApretarTeclaPList( wxKeyEvent& event )  {
 // BOTONES DE ITEM 
 
 void vPartida::OnClickCrearI( wxCommandEvent& event )  {
-	vItem *Item = new vItem(NULL, m_partida);
+	vItem *Item = new vItem(this, m_partida);
 	
 }
 
 void vPartida::OnClickImportarI( wxCommandEvent& event )  {
-	event.Skip();
+	wxFileDialog exportarItem(this,wxT("Elija un archivo de item para importar"),"","","Archivos DAT (*.dat)|*.dat",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
+	if (exportarItem.ShowModal()==wxID_OK){
+		
+	}
 }
 
 void vPartida::OnClickBorrar( wxCommandEvent& event )  {
