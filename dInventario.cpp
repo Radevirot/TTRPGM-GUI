@@ -1,7 +1,7 @@
 #include "dInventario.h"
 
-dInventario::dInventario(wxWindow *parent, Personaje *p, Partida *pa) : Dialogo_Inventario(parent) {
-	m_Personaje=p;
+dInventario::dInventario(wxWindow *parent, Personaje &p, Partida *pa) : Dialogo_Inventario(parent) {
+	m_Personaje=&p;
 	m_partida=pa;
 	int Cant=m_partida->ObtenerCantidadDeItems();
 	for(int i=0;i<Cant;i++) { 

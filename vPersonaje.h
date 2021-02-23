@@ -13,7 +13,7 @@ class vPersonaje : public Ventana_personaje {
 	
 private:
 	Partida *m_partida;
-	Personaje *m_Personaje;
+	Personaje m_Personaje;
 	int it=0;
 	wxArrayInt W;
 	void Actualizacion();
