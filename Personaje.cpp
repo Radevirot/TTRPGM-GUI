@@ -1,5 +1,4 @@
 #include "Personaje.h"
-#include <iostream>
 
 Personaje::Personaje(){
 	/* 
@@ -8,51 +7,6 @@ Personaje::Personaje(){
 	PStats.resize(11);
 }
 
-Personaje::Personaje(float Hp, float defensa, float fuerza, float agilidad, float RM, float inteligencia, float mana) {
-	/* 
-	Constructor que requiere todas las stats, probablemente no lo usemos.
-	*/
-	PStats[0]=Hp;
-	PStats[1]=defensa;
-	PStats[2]=fuerza;
-	PStats[3]=agilidad;
-	PStats[4]=RM;
-	PStats[5]=inteligencia;
-	PStats[6]=mana;
-	PStats[7]=0;
-	PStats[8]=0;
-	PStats[9]=0;
-	PStats[10]=0;
-	
-}
-
-void Personaje::MostrarInfo(){
-	/*
-	Método temporal para mostrar información del personaje.
-	*/
-	std::cout << "Nombre: " << Pnombre << std::endl;
-	std::cout << "Detalle: " << Pdetalle << std::endl;
-	std::cout << "Nivel: " << Pnivel << std::endl;
-	std::cout << "Experiencia: " << XP << std::endl;
-	std::cout << "Vida: " << PStats[0] << std::endl;
-	std::cout << "Defensa: " << PStats[1] << std::endl;
-	std::cout << "Fuerza: " << PStats[2] << std::endl;
-	std::cout << "Agilidad: " << PStats[3] << std::endl; 
-	std::cout << "Resistencia Magica: " << PStats[4] << std::endl;
-	std::cout << "Inteligencia: " << PStats[5] << std::endl; 
-	std::cout << "Mana: " << PStats[6] << std::endl;
-	std::cout << "Daño: " << PStats[7] << std::endl;
-	std::cout << "Rango: " << PStats[8] << std::endl;
-	std::cout << "Punteria: " << PStats[9] << std::endl;
-	std::cout << "Probabilidad de bloqueo: " << PStats[10] << std::endl;
-	std::cout << "INVENTARIO" << std::endl;
-	std::cout << "Cantidad de items en inventario: " << Inv.size() << std::endl;
-	for(size_t i=0;i<Inv.size();i++) { 
-		std::cout << "Item " << i+1 << ":" << std::endl;
-		Inv[i].MostrarInfo();
-		std::cout << std::endl;
-	}
-}
 
 float Personaje::ObtenerStat(int pos){
 	/*
@@ -281,7 +235,7 @@ void Personaje::Importar(std::string nombrearchi){
 	std::ifstream archivo(nombrearchi,std::ios::binary);
 	
 	if (!archivo.is_open()){
-		std::cout << "No se pudo abrir el archivo." << std::endl;
+		
 	} else {
 		char pstraux[256], pdetalleaux[1000];
 		archivo.read(pstraux,256);

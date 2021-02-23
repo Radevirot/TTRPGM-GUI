@@ -3,6 +3,11 @@
 #include "wxfb_project.h"
 #include "Partida.h"
 #include <string>
+#include "Dado.h"
+#include "dErrorArrojarsinSelec.h"
+#include "string_conv.h"
+#include <wx/msgdlg.h>
+
 
 class vDados : public Ventana_dados {
 	

@@ -1,5 +1,4 @@
 #include "Item.h"
-#include <iostream>
 
 Item::Item(){
 	/*
@@ -8,47 +7,6 @@ Item::Item(){
 	IStats.resize(11);
 }
 
-Item::Item(float Hp, float defensa, float fuerza, float agilidad, float RM, float inteligencia, float mana, float danio, float rango, float punteria, float bloqueo) {
-	/* 
-	Constructor que requiere todas las stats, probablemente no lo usemos.
-	*/
-	
-	IStats[0]=Hp;
-	IStats[1]=defensa;
-	IStats[2]=fuerza;
-	IStats[3]=agilidad;
-	IStats[4]=RM;
-	IStats[5]=inteligencia;
-	IStats[6]=mana;
-	IStats[7]=danio;
-	IStats[8]=rango;
-	IStats[9]=punteria;
-	IStats[10]=bloqueo;
-	
-}
-
-
-void Item::MostrarInfo(){
-	/*
-	Método temporal para mostrar información del item.
-	*/
-	std::cout << "Nombre: " << _nombre << std::endl;
-	std::cout << "Cantidad: " << _cant << std::endl;
-	std::cout << "Equipado: "; if(equipado){std::cout << "Si" << std::endl;} else {std::cout << "No" << std::endl;}
-	std::cout << "Descripcion: " << _desc << std::endl;
-	std::cout << "Detalle: " << _detalle << std::endl;
-	std::cout << "Vida: " << IStats[0] << std::endl;
-	std::cout << "Defensa: " << IStats[1] << std::endl;
-	std::cout << "Fuerza: " << IStats[2] << std::endl;
-	std::cout << "Agilidad: " << IStats[3] << std::endl; 
-	std::cout << "Resistencia Magica: " << IStats[4] << std::endl;
-	std::cout << "Inteligencia: " << IStats[5] << std::endl; 
-	std::cout << "Mana: " << IStats[6] << std::endl; 
-	std::cout << "Daño: " << IStats[7] << std::endl; 
-	std::cout << "Rango: " << IStats[8] << std::endl; 
-	std::cout << "Punteria: " << IStats[9] << std::endl; 
-	std::cout << "Probabilidad de bloqueo: " << IStats[10] << std::endl; 
-}
 
 void Item::ModificarStat(int pos,float stat){
 	/*
@@ -233,7 +191,7 @@ void Item::Importar(std::string nombrearchi, bool esunico, int posbinaria){
 		std::ifstream archivo(nombrearchi,std::ios::binary);
 		
 		if (!archivo.is_open()){
-			std::cout << "No se pudo abrir el archivo." << std::endl;					// Checkea si se abrió el archivo
+			// Checkea si se abrió el archivo
 		} else {
 			char straux[256],descaux[1000],detalleaux[1000];
 			archivo.read(straux,256);													

@@ -1,5 +1,4 @@
 #include "vPrincipal.h"
-#include "dNombrePartida.h"
 
 vPrincipal::vPrincipal(Partida *p) : Ventana_principal(NULL) {
 	m_partida=p;

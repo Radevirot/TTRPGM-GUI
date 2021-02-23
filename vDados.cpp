@@ -1,10 +1,4 @@
 #include "vDados.h"
-#include "Dado.h"
-#include "dErrorArrojarsinSelec.h"
-#include "string_conv.h"
-#include <string>
-#include <wx/msgdlg.h>
-
 
 
 vDados::vDados(wxWindow *parent, Partida *p) : Ventana_dados(parent) {

@@ -1,7 +1,5 @@
-#include <wx/image.h>
 #include "Application.h"
-#include "vPrincipal.h"
-#include "vPartida.h"
+
 
 IMPLEMENT_APP(Application)
 

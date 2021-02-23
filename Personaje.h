@@ -14,9 +14,7 @@ class Personaje {
 	*/
 public:
 	Personaje();
-	Personaje(float Hp, float defenza, float fuerza, float agilidad, float RM, float inteligencia, float mana); //STATS
 
-	void MostrarInfo();
 	float ObtenerStat(int pos);	
 	void SumarStatsDeItem(Item &item);												//EDITAR STATS
 	void RestarStatsDeItem(Item &item);

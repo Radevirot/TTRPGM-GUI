@@ -5,7 +5,6 @@
 #include <string>
 #include <cstring>
 #include <fstream>
-//#include <random>
 
 class Dado {
 	/*

@@ -17,9 +17,7 @@ class Item {
 public:
 	
 	Item();
-	Item(float Hp, float defensa, float fuerza, float agilidad, float RM, float inteligencia, float mana, float danio, float rango, float punteria, float bloqueo);
 	
-	void MostrarInfo();
 	void ModificarStat(int pos,float stat);
 	float ObtenerStat(int pos);
 	

@@ -1,7 +1,4 @@
 #include "dNombrePartida.h"
-#include "Partida.h"
-#include "string_conv.h"
-#include "vPartida.h"
 
 dNombrePartida::dNombrePartida(wxWindow *parent, Partida *p) : Dialogo_NombrePartida(parent) {
 	m_partida=p;

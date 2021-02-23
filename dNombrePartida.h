@@ -2,6 +2,9 @@
 #define DNOMBREPARTIDA_H
 #include "wxfb_project.h"
 #include "Partida.h"
+#include "string_conv.h"
+#include "vPartida.h"
+
 
 class dNombrePartida : public Dialogo_NombrePartida {
 
