@@ -9,6 +9,7 @@ dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje Per, int posc) : 
 	
 	
 	int tam=P.TamInv();
+	it=tam;
 	std::vector<int> equipados;
 	for(int i=0;i<tam;i++) { 
 		Item I=P.MostrarItem(i);
@@ -86,9 +87,9 @@ void dPersonaje::OnClickAgregar( wxCommandEvent& event )  {
 	dInventario Inv(this, m_Personaje, m_partida);
 	int val=Inv.ShowModal();
 	if(val==1){
-		Item I=m_Personaje->MostrarItem(i);
+		Item I=m_Personaje->MostrarItem(it);
 		m_Inventario->Append(std_to_wx(I.ObtenerNombre()));
-		i++;
+		it++;
 	}
 	m_Personaje->OrdenarAlph();
 }
@@ -101,7 +102,7 @@ void dPersonaje::OnClickBorrar( wxCommandEvent& event )  {
 		m_Inventario->Delete(pos);
 		m_Personaje->BorrarItem(pos);
 		m_Personaje->OrdenarAlph();
-		i--;
+		it--;
 		Actualizacion();
 	}
 }

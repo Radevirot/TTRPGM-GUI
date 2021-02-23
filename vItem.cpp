@@ -27,6 +27,7 @@ void vItem::OnClickAplicar( wxCommandEvent& event )  {
 	I.ModificarDetalle(wx_to_std(m_Detalle->GetValue()));
 	I.ModificarDesc(wx_to_std(m_Descripcion->GetValue()));
 	m_partida->AgregarItem(I);
+	m_partida->OrdenarIAlph();
 	
 	Close(true);
 

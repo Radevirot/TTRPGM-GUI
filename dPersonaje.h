@@ -18,7 +18,7 @@ private:
 	Personaje P;
 	Personaje *m_Personaje;
 	int pos;
-	int i=0;
+	int it=0;
 	wxArrayInt W;
 	void Actualizacion();
 protected:

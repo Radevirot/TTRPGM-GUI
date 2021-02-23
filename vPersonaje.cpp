@@ -49,9 +49,9 @@ void vPersonaje::OnClickAgregar( wxCommandEvent& event )  {
 	dInventario Inv(this, m_Personaje, m_partida);
 	int val=Inv.ShowModal();
 	if(val==1){
-		Item I=m_Personaje->MostrarItem(i);
+		Item I=m_Personaje->MostrarItem(it);
 		m_Inventario->Append(std_to_wx(I.ObtenerNombre()));
-		i++;
+		it++;
 	}
 	m_Personaje->OrdenarAlph();
 }
@@ -64,7 +64,7 @@ void vPersonaje::OnClickBorrar( wxCommandEvent& event )  {
 		m_Inventario->Delete(pos);
 		m_Personaje->BorrarItem(pos);
 		m_Personaje->OrdenarAlph();
-		i--;
+		it--;
 		Actualizacion();
 	}
 }
