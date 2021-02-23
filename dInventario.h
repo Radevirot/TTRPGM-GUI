@@ -17,7 +17,7 @@ protected:
 	void OnClickCancelar( wxCommandEvent& event )  override;
 	
 public:
-	dInventario(wxWindow *parent, Personaje *p, Partida *pa);
+	dInventario(wxWindow *parent, Personaje &p, Partida *pa);
 	~dInventario();
 };
 

@@ -14,8 +14,7 @@ class dPersonaje : public Dialogo_Personaje {
 	
 private:
 	Partida *m_partida;
-	Personaje P;
-	Personaje *m_Personaje;
+	Personaje m_Personaje,P;
 	int pos;
 	int it=0;
 	wxArrayInt W;
@@ -28,7 +27,7 @@ protected:
 	void OnClickAgregar( wxCommandEvent& event )  override;
 	
 public:
-	dPersonaje(wxWindow *parent, Partida *p, Personaje Per, int posc);
+	dPersonaje(wxWindow *parent, Partida *p, Personaje &Per, int posc);
 	~dPersonaje();
 };
 
