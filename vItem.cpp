@@ -9,7 +9,7 @@ vItem::~vItem() {
 	
 }
 
-void vItem::OnClickAplicar( wxCommandEvent& event )  {
+Item vItem::CargarInformacion(){
 	Item I;
 	I.NombrarItem(wx_to_std(m_NombreItem->GetValue()));
 	I.ModificarCant(m_Cantidad->GetValue());
@@ -26,14 +26,23 @@ void vItem::OnClickAplicar( wxCommandEvent& event )  {
 	I.ModificarStat(10,(m_Bloqueo->GetValue()));
 	I.ModificarDetalle(wx_to_std(m_Detalle->GetValue()));
 	I.ModificarDesc(wx_to_std(m_Descripcion->GetValue()));
+	return I;
+}
+
+void vItem::OnClickAplicar( wxCommandEvent& event )  {
+	
+	Item I=this->CargarInformacion();
 	m_partida->AgregarItem(I);
 	m_partida->OrdenarIAlph();
-	
 	Close(true);
 
 }
 
 void vItem::OnClickExportar( wxCommandEvent& event )  {
-	event.Skip();
+	wxFileDialog exportarItem(this,wxT("Exportar item"),".\\datos",m_NombreItem->GetValue()+".ite","Archivos ITE (*.ite)|*.ite",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
+	if(exportarItem.ShowModal()==wxID_OK){
+		Item I=this->CargarInformacion();
+		I.Exportar(wx_to_std(exportarItem.GetPath()));
+	}
 }
 

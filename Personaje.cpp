@@ -171,7 +171,6 @@ void Personaje::Exportar(std::string nombrearchi, bool esunico){
 	*/
 	
 	if(esunico){
-		nombrearchi+=".per";
 		std::ofstream archivo(nombrearchi,std::ios::binary|std::ios::trunc);
 		
 		char pstraux[256], pdetalleaux[1000];
@@ -230,8 +229,7 @@ void Personaje::Importar(std::string nombrearchi){
 	archivos de tipo personaje únicos.
 	
 	Importa los datos del personaje y sus items.
-	*/
-	nombrearchi+=".per";		
+	*/	
 	std::ifstream archivo(nombrearchi,std::ios::binary);
 	
 	if (!archivo.is_open()){

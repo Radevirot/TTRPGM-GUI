@@ -126,7 +126,6 @@ void Item::Exportar(std::string nombrearchi, bool esunico){
 	*/
 	
 	if(esunico){
-		nombrearchi+=".ite";															// Agrega .dat al nombre.
 		std::ofstream archivo(nombrearchi,std::ios::binary|std::ios::trunc);			// Crear archivo.
 		
 		char straux[256],descaux[1000],detalleaux[1000];
@@ -187,7 +186,6 @@ void Item::Importar(std::string nombrearchi, bool esunico, int posbinaria){
 	*/
 	
 	if(esunico){
-		nombrearchi+=".ite";		
 		std::ifstream archivo(nombrearchi,std::ios::binary);
 		
 		if (!archivo.is_open()){

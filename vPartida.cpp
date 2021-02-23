@@ -169,9 +169,13 @@ void vPartida::OnClickCrearI( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickImportarI( wxCommandEvent& event )  {
-	wxFileDialog exportarItem(this,wxT("Elija un archivo de item para importar"),"","","Archivos DAT (*.dat)|*.dat",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
-	if (exportarItem.ShowModal()==wxID_OK){
-		
+	wxFileDialog importarItem(this,wxT("Elija un archivo de item para importar"),".\\datos","","Archivos ITE (*.ite)|*.ite",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
+	if (importarItem.ShowModal()==wxID_OK){
+		Item I;
+		I.Importar(wx_to_std(importarItem.GetPath()));
+		m_partida->AgregarItem(I);
+		m_partida->OrdenarIAlph();
+		this->ActualizarListas();
 	}
 }
 
