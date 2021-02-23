@@ -1,13 +1,5 @@
 #include "vPartida.h"
-#include "vPersonaje.h"
-#include "vDados.h"
-#include "vCombate.h"
-#include "dItem.h"
-#include "dPersonaje.h"
-#include "dErrorArrojarsinSelec.h"
-#include "dNombrePartida.h"
-#include "string_conv.h"
-#include <wx/msgdlg.h>
+
 
 vPartida::vPartida(wxWindow *parent, Partida *p) : Ventana_partida(parent) {
 	/*

@@ -8,7 +8,6 @@
 #include "wx/dynarray.h"
 #include "string_conv.h"
 #include "dInventario.h"
-#include "dErrorArrojarsinSelec.h"
 #include <wx/msgdlg.h>
 
 class dPersonaje : public Dialogo_Personaje {

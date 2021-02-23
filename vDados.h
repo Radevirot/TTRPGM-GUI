@@ -4,7 +4,6 @@
 #include "Partida.h"
 #include <string>
 #include "Dado.h"
-#include "dErrorArrojarsinSelec.h"
 #include "string_conv.h"
 #include <wx/msgdlg.h>
 

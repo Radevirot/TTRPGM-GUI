@@ -4,6 +4,14 @@
 #include "Partida.h"
 #include "vItem.h"
 #include <wx/filedlg.h>
+#include "vPersonaje.h"
+#include "vDados.h"
+#include "vCombate.h"
+#include "dItem.h"
+#include "dPersonaje.h"
+#include "dNombrePartida.h"
+#include "string_conv.h"
+#include <wx/msgdlg.h>
 
 
 class vPartida : public Ventana_partida {
