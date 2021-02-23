@@ -2,7 +2,6 @@
 #define PARTIDA_H
 #include "Personaje.h"
 #include "Dado.h"
-#include <iostream>
 
 
 
