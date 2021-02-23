@@ -354,28 +354,6 @@ class Ventana_combate : public wxFrame
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class Dialogo_ErrorArrojarsinSelec
-///////////////////////////////////////////////////////////////////////////////
-class Dialogo_ErrorArrojarsinSelec : public wxDialog
-{
-	private:
-
-	protected:
-		wxStaticText* m_staticText63;
-		wxButton* m_button23;
-
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnClickAceptar( wxCommandEvent& event ) { event.Skip(); }
-
-
-	public:
-
-		Dialogo_ErrorArrojarsinSelec( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Error"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 252,122 ), long style = wxDEFAULT_DIALOG_STYLE );
-		~Dialogo_ErrorArrojarsinSelec();
-
-};
-
-///////////////////////////////////////////////////////////////////////////////
 /// Class Dialogo_Inventario
 ///////////////////////////////////////////////////////////////////////////////
 class Dialogo_Inventario : public wxDialog
@@ -395,7 +373,7 @@ class Dialogo_Inventario : public wxDialog
 
 	public:
 
-		Dialogo_Inventario( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Inventario"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 415,420 ), long style = wxDEFAULT_DIALOG_STYLE );
+		Dialogo_Inventario( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Lista de items"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 415,420 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~Dialogo_Inventario();
 
 };

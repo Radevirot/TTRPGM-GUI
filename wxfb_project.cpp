@@ -1650,49 +1650,6 @@ Ventana_combate::~Ventana_combate()
 
 }
 
-Dialogo_ErrorArrojarsinSelec::Dialogo_ErrorArrojarsinSelec( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
-{
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-
-	wxBoxSizer* bSizer136;
-	bSizer136 = new wxBoxSizer( wxVERTICAL );
-
-	wxBoxSizer* bSizer137;
-	bSizer137 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText63 = new wxStaticText( this, wxID_ANY, wxT("No es posible arrojar un dado sin\nhaber seleccionado uno previamente"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL );
-	m_staticText63->Wrap( -1 );
-	bSizer137->Add( m_staticText63, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer136->Add( bSizer137, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
-
-	wxBoxSizer* bSizer138;
-	bSizer138 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_button23 = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer138->Add( m_button23, 0, wxALL, 5 );
-
-
-	bSizer136->Add( bSizer138, 0, wxALIGN_RIGHT, 5 );
-
-
-	this->SetSizer( bSizer136 );
-	this->Layout();
-
-	this->Centre( wxBOTH );
-
-	// Connect Events
-	m_button23->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_ErrorArrojarsinSelec::OnClickAceptar ), NULL, this );
-}
-
-Dialogo_ErrorArrojarsinSelec::~Dialogo_ErrorArrojarsinSelec()
-{
-	// Disconnect Events
-	m_button23->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_ErrorArrojarsinSelec::OnClickAceptar ), NULL, this );
-
-}
-
 Dialogo_Inventario::Dialogo_Inventario( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
