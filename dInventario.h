@@ -5,12 +5,14 @@
 #include "Partida.h"
 #include "Item.h"
 #include "string_conv.h"
+#include <wx/msgdlg.h>
 
 class dInventario : public Dialogo_Inventario {
 	
 private:
 	Personaje *m_Personaje;
 	Partida *m_partida;
+	int Cant;
 protected:
 	void OnListDobleClick( wxCommandEvent& event )  override;
 	void OnClickAgregar( wxCommandEvent& event )  override;
