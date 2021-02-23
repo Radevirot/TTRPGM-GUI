@@ -37,6 +37,7 @@ public:
 	bool Equipado();
 	
 	bool operator< (Item i2) const;
+	bool operator== (Item i2) const;
 	
 	void Exportar(std::string nombrearchi, bool esunico=true);
 	void Importar(std::string nombrearchi, bool esunico=true, int posbinaria=0);

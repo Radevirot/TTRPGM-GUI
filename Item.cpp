@@ -114,6 +114,26 @@ bool Item::operator< (Item i2) const{
 	return EsMenor;
 }
 
+bool Item::operator== (Item i2) const{
+	/*
+	Sobrecarga del operador igual igual, pide un item que comparar.
+	Retorna un booleano que indica si los items son iguales.
+	*/
+	bool statsiguales;
+	for(int i=0;i<11;i++) { 
+		if(this->IStats[i]==i2.IStats[i]){ 
+			statsiguales=true;
+		}else{ 
+			statsiguales=false;
+			break;
+		}
+	}
+	if(this->_nombre==i2._nombre && this->_cant==i2._cant && this->_detalle==i2._detalle && statsiguales && this->_desc==i2._desc){ 
+		return true;
+	}else{ 
+		return false;
+	}
+}
 
 void Item::Exportar(std::string nombrearchi, bool esunico){
 	/*
