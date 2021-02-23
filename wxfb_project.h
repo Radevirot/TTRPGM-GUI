@@ -341,6 +341,7 @@ class Ventana_combate : public wxFrame
 		wxButton* m_Cerrar;
 
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnActivetaCombate( wxActivateEvent& event ) { event.Skip(); }
 		virtual void OnClickAtacar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCerrar( wxCommandEvent& event ) { event.Skip(); }
 

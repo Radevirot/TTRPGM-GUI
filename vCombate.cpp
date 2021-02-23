@@ -13,23 +13,6 @@ vCombate::vCombate(wxWindow *parent, Partida *p) : Ventana_combate(parent) {
 	m_Formula->Append(std_to_wx("((FRZ+(DÑ*0.5)*MULT)-(DFN*0.25))"));
 	m_Formula->Append(std_to_wx("((FRZ+(DÑ*0.5)*MULT)-(DFN*0.5))"));
 	m_Formula->SetSelection(0);
-	int Tam=m_partida->ObtenerTamPersonajes();
-	for(int i=0;i<Tam;i++) { 
-		Personaje P=m_partida->ObtenerPersonaje(i);
-		std::string Vida=std::to_string(P.ObtenerStat(0));
-		Vida.erase(Vida.end()-4,Vida.end());
-		std::string Danio=std::to_string(P.ObtenerStat(7));
-		Danio.erase(Danio.end()-4,Danio.end());
-		m_Atacante->Append(std_to_wx((P.ObtenerNombre())+" - Vida: "+Vida+" - Daño: "+Danio));
-		m_Receptor->Append(std_to_wx((P.ObtenerNombre())+" - Vida: "+Vida+" - Daño: "+Danio));
-		
-	}
-	m_Atacante->SetSelection(0);
-	if(Tam>1){ 
-		m_Receptor->SetSelection(1);
-	}else{ 
-		m_Receptor->SetSelection(0);
-	}
 	Show();
 }
 
@@ -47,6 +30,49 @@ void vCombate::OnClickAtacar( wxCommandEvent& event )  {
 	int posrecp=m_Receptor->GetSelection();
 	int Danio=m_partida->Combate(posatc,posrecp,m_Formula->GetSelection(),m_Multiplicador->GetValue(),m_ModificarPV->IsChecked());
 	m_DanioProvo->SetLabel(std_to_wx(std::to_string(Danio)));
+	
+	m_Atacante->Clear();
+	m_Receptor->Clear();
+	int Tam=m_partida->ObtenerTamPersonajes();
+	for(int i=0;i<Tam;i++) { 
+		Personaje P=m_partida->ObtenerPersonaje(i);
+		std::string Vida=std::to_string(P.ObtenerStat(0));
+		Vida.erase(Vida.end()-4,Vida.end());
+		std::string Danio=std::to_string(P.ObtenerStat(7));
+		Danio.erase(Danio.end()-4,Danio.end());
+		m_Atacante->Append(std_to_wx((P.ObtenerNombre())+" - Vida: "+Vida+" - Daño: "+Danio));
+		m_Receptor->Append(std_to_wx((P.ObtenerNombre())+" - Vida: "+Vida+" - Daño: "+Danio));
+		
+	}
+	PosUAt=posatc;
+	PosURc=posrecp;
+	m_Atacante->SetSelection(PosUAt);
+	if(Tam>1){ 
+		m_Receptor->SetSelection(PosURc);
+	}else{ 
+		m_Receptor->SetSelection(0);
+	}
 }
 
+// ACTUALIZAR
+void vCombate::OnActivetaCombate( wxActivateEvent& event )  {
+	m_Atacante->Clear();
+	m_Receptor->Clear();
+	int Tam=m_partida->ObtenerTamPersonajes();
+	for(int i=0;i<Tam;i++) { 
+		Personaje P=m_partida->ObtenerPersonaje(i);
+		std::string Vida=std::to_string(P.ObtenerStat(0));
+		Vida.erase(Vida.end()-4,Vida.end());
+		std::string Danio=std::to_string(P.ObtenerStat(7));
+		Danio.erase(Danio.end()-4,Danio.end());
+		m_Atacante->Append(std_to_wx((P.ObtenerNombre())+" - Vida: "+Vida+" - Daño: "+Danio));
+		m_Receptor->Append(std_to_wx((P.ObtenerNombre())+" - Vida: "+Vida+" - Daño: "+Danio));
+	}
+	m_Atacante->SetSelection(PosUAt);
+	if(Tam>1){ 
+		m_Receptor->SetSelection(PosURc);
+	}else{ 
+		m_Receptor->SetSelection(0);
+	}
+}
 
