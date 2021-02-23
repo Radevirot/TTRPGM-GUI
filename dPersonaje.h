@@ -9,6 +9,7 @@
 #include "string_conv.h"
 #include "dInventario.h"
 #include <wx/msgdlg.h>
+#include <wx/filedlg.h>
 
 class dPersonaje : public Dialogo_Personaje {
 	
@@ -19,6 +20,7 @@ private:
 	int it=0;
 	wxArrayInt W;
 	void Actualizacion();
+	void GuardarCambios();
 protected:
 	void OnClickBorrar( wxCommandEvent& event )  override;
 	void OnClickAplicar( wxCommandEvent& event )  override;

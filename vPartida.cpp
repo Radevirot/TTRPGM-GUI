@@ -119,7 +119,14 @@ void vPartida::OnClickCrearP( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickImportarP( wxCommandEvent& event )  {
-	event.Skip();
+	wxFileDialog importarPersonaje(this,wxT("Elija un archivo de personaje para importar"),".\\datos","","Archivos PER (*.per)|*.per",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
+	if (importarPersonaje.ShowModal()==wxID_OK){
+		Personaje P;
+		P.Importar(wx_to_std(importarPersonaje.GetPath()));
+		m_partida->AgregarPersonaje(P);
+		m_partida->OrdenarPAlph();
+		this->ActualizarListas();
+	}
 }
 
 void vPartida::OnClickBorrarPersonaje( wxCommandEvent& event )  {

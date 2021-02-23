@@ -8,6 +8,7 @@
 #include "string_conv.h"
 #include "dInventario.h"
 #include <wx/msgdlg.h>
+#include <wx/filedlg.h>
 
 class vPersonaje : public Ventana_personaje {
 	
@@ -17,6 +18,7 @@ private:
 	int it=0;
 	wxArrayInt W;
 	void Actualizacion();
+	void GuardarCambios();
 protected:
 	void OnClickBorrar( wxCommandEvent& event )  override;
 	void OnCheckListInventario( wxCommandEvent& event )  override;

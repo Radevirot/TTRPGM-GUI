@@ -1013,9 +1013,9 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	wxBoxSizer* bSizer31;
 	bSizer31 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText87 = new wxStaticText( this, wxID_ANY, wxT("DÑ    "), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText87->Wrap( -1 );
-	bSizer31->Add( m_staticText87, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	m_staticText875 = new wxStaticText( this, wxID_ANY, wxT("DÑ    "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText875->Wrap( -1 );
+	bSizer31->Add( m_staticText875, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
 	bSizer147->Add( bSizer31, 0, wxEXPAND, 5 );

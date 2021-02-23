@@ -1,5 +1,6 @@
 #include "dPersonaje.h"
 
+
 dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje &Per, int posc) : Dialogo_Personaje(parent) {
 	m_partida=p;
 	P=Per;
@@ -45,7 +46,7 @@ dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje &Per, int posc) :
 	Show();
 }
 
-void dPersonaje::OnClickAplicar( wxCommandEvent& event )  {
+void dPersonaje::GuardarCambios(){
 	m_Personaje.NombrarPersonaje(wx_to_std(m_Nombre->GetValue()));
 	m_Personaje.ModificarNivel(m_Nivel->GetValue());
 	m_Personaje.ModificarXP(m_EXP->GetValue());
@@ -67,14 +68,22 @@ void dPersonaje::OnClickAplicar( wxCommandEvent& event )  {
 		m_Personaje.OrdenarAlph();
 	}
 	W.empty();
-	
+}
+
+void dPersonaje::OnClickAplicar( wxCommandEvent& event )  {
+
+	this->GuardarCambios();
 	m_partida->EliminarPersonaje(pos);
 	m_partida->AgregarPersonaje(m_Personaje);
 	EndModal(1);
 }
 
 void dPersonaje::OnClickExportar( wxCommandEvent& event )  {
-	event.Skip();
+	wxFileDialog exportarPersonaje(this,wxT("Exportar personaje"),".\\datos",m_Nombre->GetValue()+".per","Archivos PER (*.per)|*.per",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
+	if(exportarPersonaje.ShowModal()==wxID_OK){
+		this->GuardarCambios();
+		m_Personaje.Exportar(wx_to_std(exportarPersonaje.GetPath()));
+	}
 }
 
 void dPersonaje::OnCheckListInventario( wxCommandEvent& event )  {

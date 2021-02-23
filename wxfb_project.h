@@ -236,7 +236,7 @@ class Ventana_item : public wxFrame
 		wxStaticText* m_Nivel;
 		wxSpinCtrl* m_Cantidad;
 		wxStaticText* m_staticText94;
-		wxStaticText* m_staticText87;
+		wxStaticText* m_staticText875;
 		wxSpinCtrlDouble* m_Danio;
 		wxStaticText* m_staticText871;
 		wxSpinCtrlDouble* m_Rango;
