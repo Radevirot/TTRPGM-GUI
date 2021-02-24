@@ -8,6 +8,11 @@ vPartida::vPartida(wxWindow *parent, Partida *p) : Ventana_partida(parent) {
 	Guarda el valor del puntero, actualiza el nombre de la ventana, y la muestra.
 	*/
 	m_partida=p;
+	wxBitmap prueba(wxT("imagenes/logo.bmp"), wxBITMAP_TYPE_ANY);
+	wxIcon icon;
+	icon.CopyFromBitmap(prueba);
+	_icon=icon;
+	this->SetIcon(icon);
 	this->ActualizarNombre();
 	Show();
 }
@@ -70,12 +75,14 @@ void vPartida::ActualizarListas(){
 
 void vPartida::OnMenuEditar( wxCommandEvent& event )  {
 	dNombrePartida NomPart(this,m_partida);
+	NomPart.SetIcon(_icon);
 	int valor = NomPart.ShowModal();
 	if (valor==1) this->ActualizarNombre();
 }
 
 void vPartida::OnMenuNueva( wxCommandEvent& event )  {
 	dNombrePartida NomPart(this,m_partida);
+	NomPart.SetIcon(_icon);
 	int valor = NomPart.ShowModal();
 	if(valor==1){
 		Partida b(m_partida->ObtenerNombre());
@@ -87,6 +94,7 @@ void vPartida::OnMenuNueva( wxCommandEvent& event )  {
 
 void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
 	wxFileDialog guardarPartida(this,wxT("Guardar partida"),".\\datos",m_partida->ObtenerNombre()+".part","Archivos PART (*.part)|*.part",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
+	guardarPartida.SetIcon(_icon);
 	if(guardarPartida.ShowModal()==wxID_OK){
 		m_partida->Guardar(wx_to_std(guardarPartida.GetPath()));
 	}
@@ -94,6 +102,7 @@ void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
 
 void vPartida::OnMenuCargar( wxCommandEvent& event )  {
 	wxFileDialog cargarPartida(this,wxT("Elija un archivo de partida para cargar"),".\\datos","","Archivos PART (*.part)|*.part",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
+	cargarPartida.SetIcon(_icon);
 	if(cargarPartida.ShowModal()==wxID_OK){
 		Partida b("");
 		*m_partida=b;
@@ -114,22 +123,26 @@ void vPartida::OnClickCombate( wxCommandEvent& event )  {
 		wxMessageBox(wxT("Debe tener al menos un personaje creado."),wxT("Error"),wxICON_ERROR);
 	} else {
 		vCombate *Combate = new vCombate(this, m_partida);
+		Combate->SetIcon(_icon);
 	}
 	
 }
 
 void vPartida::OnClickDado( wxCommandEvent& event )  {
 	vDados *Dados = new vDados(this,m_partida);
+	Dados->SetIcon(_icon);
 }
 
 // BOTONES DE PERSONAJE 
 
 void vPartida::OnClickCrearP( wxCommandEvent& event )  {
 	vPersonaje *Pers = new vPersonaje(this, m_partida);
+	Pers->SetIcon(_icon);
 }
 
 void vPartida::OnClickImportarP( wxCommandEvent& event )  {
 	wxFileDialog importarPersonaje(this,wxT("Elija un archivo de personaje para importar"),".\\datos","","Archivos PER (*.per)|*.per",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
+	importarPersonaje.SetIcon(_icon);
 	if (importarPersonaje.ShowModal()==wxID_OK){
 		Personaje P;
 		P.Importar(wx_to_std(importarPersonaje.GetPath()));
@@ -159,6 +172,7 @@ void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
 	int pos = m_ListaPersonajes->GetSelection();
 	Personaje P=m_partida->ObtenerPersonaje(pos);
 	dPersonaje PersonajeMod(this,m_partida,P,pos);
+	PersonajeMod.SetIcon(_icon);
 	PersonajeMod.ShowModal();
 }
 
@@ -182,11 +196,13 @@ void vPartida::OnApretarTeclaPList( wxKeyEvent& event )  {
 
 void vPartida::OnClickCrearI( wxCommandEvent& event )  {
 	vItem *Item = new vItem(this, m_partida);
+	Item->SetIcon(_icon);
 	
 }
 
 void vPartida::OnClickImportarI( wxCommandEvent& event )  {
 	wxFileDialog importarItem(this,wxT("Elija un archivo de item para importar"),".\\datos","","Archivos ITE (*.ite)|*.ite",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
+	importarItem.SetIcon(_icon);
 	if (importarItem.ShowModal()==wxID_OK){
 		Item I;
 		I.Importar(wx_to_std(importarItem.GetPath()));
@@ -214,6 +230,7 @@ void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
 	int pos = m_ListaItems->GetSelection();
 	Item I=m_partida->ObtenerItem(pos);
 	dItem ItemMod(this,m_partida,I,pos);
+	ItemMod.SetIcon(_icon);
 	ItemMod.ShowModal();
 }
 
