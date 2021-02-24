@@ -11,6 +11,7 @@ private:
 	Partida *m_partida;
 	int PosUAt=0, PosURc=1;
 protected:
+	void Seleccion(Personaje Prs);
 	void Seleccion(Personaje Ps, bool AtRc);
 	void OnChoiceAtq( wxCommandEvent& event )  override;
 	void OnChoiceRecp( wxCommandEvent& event )  override;

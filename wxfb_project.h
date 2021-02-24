@@ -206,8 +206,10 @@ class Ventana_personaje : public wxFrame
 		wxStaticLine* m_staticline4111;
 
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnSpinCtrlPersonaje( wxSpinDoubleEvent& event ) { event.Skip(); }
 		virtual void OnClickAplicar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickExportar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnCheckListPersonaje( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnCheckListInventario( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickAgregar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickBorrar( wxCommandEvent& event ) { event.Skip(); }
@@ -350,7 +352,7 @@ class Ventana_combate : public wxFrame
 
 	public:
 
-		Ventana_combate( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Simulación de combate"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 721,273 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_combate( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Simulación de combate"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 557,286 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_combate();
 
@@ -498,6 +500,7 @@ class Dialogo_Personaje : public wxDialog
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnClickAplicar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickExportar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnCheckListPersonaje( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnCheckListInventario( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickAgregar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickBorrar( wxCommandEvent& event ) { event.Skip(); }

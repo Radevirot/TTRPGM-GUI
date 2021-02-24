@@ -36,27 +36,21 @@ void vCombate::OnClickAtacar( wxCommandEvent& event )  {
 	int Tam=m_partida->ObtenerTamPersonajes();
 	for(int i=0;i<Tam;i++) { 
 		Personaje P=m_partida->ObtenerPersonaje(i);
-		std::string Vida=std::to_string(P.ObtenerStat(0));
-		Vida.erase(Vida.end()-4,Vida.end());
-		std::string Danio=std::to_string(P.ObtenerStat(7));
-		Danio.erase(Danio.end()-4,Danio.end());
-		std::string Defen=std::to_string(P.ObtenerStat(1));
-		Defen.erase(Defen.end()-4,Defen.end());
-		m_Atacante->Append(std_to_wx(P.ObtenerNombre()));
-		m_Receptor->Append(std_to_wx(P.ObtenerNombre()));
-		
+		Seleccion(P);
 	}
+	
 	PosUAt=posatc;
 	PosURc=posrecp;
 	Personaje PA=m_partida->ObtenerPersonaje(PosUAt);
-	Personaje PR=m_partida->ObtenerPersonaje(PosURc);
 	
 	m_Atacante->SetSelection(PosUAt);
-	Seleccion(PR, true);
+	Seleccion(PA, true);
 	if(Tam>1){ 
+		Personaje PR=m_partida->ObtenerPersonaje(PosURc);
 		m_Receptor->SetSelection(PosURc);
 		Seleccion(PR, false);
 	}else{ 
+		Personaje PR=m_partida->ObtenerPersonaje(0);
 		m_Receptor->SetSelection(0);
 		Seleccion(PR, false);
 	}
@@ -69,40 +63,38 @@ void vCombate::OnActivetaCombate( wxActivateEvent& event )  {
 	int Tam=m_partida->ObtenerTamPersonajes();
 	for(int i=0;i<Tam;i++) { 
 		Personaje P=m_partida->ObtenerPersonaje(i);
-		std::string Vida=std::to_string(P.ObtenerStat(0));
-		Vida.erase(Vida.end()-4,Vida.end());
-		std::string Danio=std::to_string(P.ObtenerStat(7));
-		Danio.erase(Danio.end()-4,Danio.end());
-		std::string Defen=std::to_string(P.ObtenerStat(1));
-		Defen.erase(Defen.end()-4,Defen.end());
-		m_Atacante->Append(std_to_wx(P.ObtenerNombre()));
-		m_Receptor->Append(std_to_wx(P.ObtenerNombre()));
+		Seleccion(P);
 	}
 	Personaje PA=m_partida->ObtenerPersonaje(PosUAt);
-	Personaje PR=m_partida->ObtenerPersonaje(PosURc);
 	
 	m_Atacante->SetSelection(PosUAt);
-	Seleccion(PR, true);
+	Seleccion(PA, true);
 	if(Tam>1){ 
+		Personaje PR=m_partida->ObtenerPersonaje(PosURc);
 		m_Receptor->SetSelection(PosURc);
 		Seleccion(PR, false);
 	}else{ 
+		Personaje PR=m_partida->ObtenerPersonaje(0);
 		m_Receptor->SetSelection(0);
 		Seleccion(PR, false);
 	}
 }
 
 void vCombate::OnChoiceAtq( wxCommandEvent& event )  {
+	int posatc=m_Atacante->GetSelection();
+	PosUAt=posatc;
 	int Atq=m_Atacante->GetSelection();
-	Personaje PA=m_partida->ObtenerPersonaje(Atq);
-	Seleccion(PA, true);
+	Personaje PAT=m_partida->ObtenerPersonaje(Atq);
+	Seleccion(PAT, true);
 	
 }
 
 void vCombate::OnChoiceRecp( wxCommandEvent& event )  {
+	int posrecp=m_Receptor->GetSelection();
+	PosURc=posrecp;
 	int Rcp=m_Receptor->GetSelection();
-	Personaje PR=m_partida->ObtenerPersonaje(Rcp);
-	Seleccion(PR, false);
+	Personaje PRC=m_partida->ObtenerPersonaje(Rcp);
+	Seleccion(PRC, false);
 }
 
 void vCombate::Seleccion(Personaje Ps, bool AtRc){
@@ -117,4 +109,11 @@ void vCombate::Seleccion(Personaje Ps, bool AtRc){
 	}else{
 		m_Receptor->SetToolTip(std_to_wx((Ps.ObtenerNombre())+" - PV: "+Vida+" - DÑ: "+Danio+" - DFN: "+Defen));
 	}
+}
+
+void vCombate::Seleccion(Personaje Prs){
+	std::string Vida=std::to_string(Prs.ObtenerStat(0));
+	Vida.erase(Vida.end()-4,Vida.end());
+	m_Atacante->Append(std_to_wx((Prs.ObtenerNombre())+" - PV: "+Vida));
+	m_Receptor->Append(std_to_wx((Prs.ObtenerNombre())+" - PV: "+Vida));
 }

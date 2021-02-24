@@ -433,7 +433,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	m_sdad->Wrap( -1 );
 	bSizer121->Add( m_sdad, 0, wxALL, 5 );
 
-	m_EXP = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_EXP = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_EXP->SetDigits( 0 );
 	bSizer121->Add( m_EXP, 0, wxALL, 5 );
 
@@ -495,7 +495,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer14->Add( bSizer36, 0, wxEXPAND|wxRIGHT, 5 );
 
-	m_PVb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_PVb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_PVb->SetDigits( 0 );
 	bSizer14->Add( m_PVb, 0, wxALL, 5 );
 
@@ -525,7 +525,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer141->Add( bSizer35, 0, wxEXPAND, 5 );
 
-	m_DFNb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_DFNb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_DFNb->SetDigits( 0 );
 	bSizer141->Add( m_DFNb, 0, wxALL, 5 );
 
@@ -555,7 +555,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer142->Add( bSizer37, 0, wxEXPAND, 5 );
 
-	m_FRZb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_FRZb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_FRZb->SetDigits( 0 );
 	bSizer142->Add( m_FRZb, 0, wxALL, 5 );
 
@@ -585,7 +585,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer143->Add( bSizer27, 0, wxEXPAND, 5 );
 
-	m_AGLb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_AGLb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_AGLb->SetDigits( 0 );
 	bSizer143->Add( m_AGLb, 0, wxALL, 5 );
 
@@ -615,7 +615,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer144->Add( bSizer28, 0, wxEXPAND, 5 );
 
-	m_RMb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_RMb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_RMb->SetDigits( 0 );
 	bSizer144->Add( m_RMb, 0, wxALL, 5 );
 
@@ -645,7 +645,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer145->Add( bSizer29, 0, wxEXPAND, 5 );
 
-	m_INTb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_INTb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_INTb->SetDigits( 0 );
 	bSizer145->Add( m_INTb, 0, wxALL, 5 );
 
@@ -675,7 +675,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer146->Add( bSizer30, 0, wxEXPAND, 5 );
 
-	m_MNb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_MNb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_MNb->SetDigits( 0 );
 	bSizer146->Add( m_MNb, 0, wxALL, 5 );
 
@@ -893,8 +893,16 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	this->Centre( wxBOTH );
 
 	// Connect Events
+	m_PVb->Connect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Ventana_personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_DFNb->Connect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Ventana_personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_FRZb->Connect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Ventana_personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_AGLb->Connect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Ventana_personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_RMb->Connect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Ventana_personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_INTb->Connect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Ventana_personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_MNb->Connect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Ventana_personaje::OnSpinCtrlPersonaje ), NULL, this );
 	m_aplicarcambios->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickAplicar ), NULL, this );
 	m_button4->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickExportar ), NULL, this );
+	m_Inventario->Connect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_personaje::OnCheckListPersonaje ), NULL, this );
 	m_Inventario->Connect( wxEVT_COMMAND_CHECKLISTBOX_TOGGLED, wxCommandEventHandler( Ventana_personaje::OnCheckListInventario ), NULL, this );
 	m_button6->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickAgregar ), NULL, this );
 	m_button34->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickBorrar ), NULL, this );
@@ -903,8 +911,16 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 Ventana_personaje::~Ventana_personaje()
 {
 	// Disconnect Events
+	m_PVb->Disconnect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Ventana_personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_DFNb->Disconnect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Ventana_personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_FRZb->Disconnect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Ventana_personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_AGLb->Disconnect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Ventana_personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_RMb->Disconnect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Ventana_personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_INTb->Disconnect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Ventana_personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_MNb->Disconnect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Ventana_personaje::OnSpinCtrlPersonaje ), NULL, this );
 	m_aplicarcambios->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickAplicar ), NULL, this );
 	m_button4->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickExportar ), NULL, this );
+	m_Inventario->Disconnect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_personaje::OnCheckListPersonaje ), NULL, this );
 	m_Inventario->Disconnect( wxEVT_COMMAND_CHECKLISTBOX_TOGGLED, wxCommandEventHandler( Ventana_personaje::OnCheckListInventario ), NULL, this );
 	m_button6->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickAgregar ), NULL, this );
 	m_button34->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_personaje::OnClickBorrar ), NULL, this );
@@ -1020,7 +1036,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer147->Add( bSizer31, 0, wxEXPAND, 5 );
 
-	m_Danio = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Danio = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Danio->SetDigits( 0 );
 	bSizer147->Add( m_Danio, 0, wxALL, 5 );
 
@@ -1040,7 +1056,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer1471->Add( bSizer32, 0, wxEXPAND, 5 );
 
-	m_Rango = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Rango = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Rango->SetDigits( 0 );
 	bSizer1471->Add( m_Rango, 0, wxALL, 5 );
 
@@ -1060,7 +1076,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer14721->Add( bSizer331, 0, wxEXPAND, 5 );
 
-	m_Punteria = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Punteria = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Punteria->SetDigits( 0 );
 	bSizer14721->Add( m_Punteria, 0, wxALL, 5 );
 
@@ -1080,7 +1096,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer1472->Add( bSizer33, 0, wxEXPAND, 5 );
 
-	m_Bloqueo = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Bloqueo = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Bloqueo->SetDigits( 0 );
 	bSizer1472->Add( m_Bloqueo, 0, wxALL, 5 );
 
@@ -1100,7 +1116,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer141->Add( bSizer35, 0, wxEXPAND, 5 );
 
-	m_Defenza = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Defenza = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Defenza->SetDigits( 0 );
 	bSizer141->Add( m_Defenza, 0, wxALL, 5 );
 
@@ -1120,7 +1136,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer144->Add( bSizer28, 0, wxEXPAND, 5 );
 
-	m_ResistenciaMagica = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_ResistenciaMagica = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_ResistenciaMagica->SetDigits( 0 );
 	bSizer144->Add( m_ResistenciaMagica, 0, wxALL, 5 );
 
@@ -1155,7 +1171,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer14->Add( bSizer36, 0, wxEXPAND|wxRIGHT, 5 );
 
-	m_PuntosVida = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_PuntosVida = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_PuntosVida->SetDigits( 0 );
 	bSizer14->Add( m_PuntosVida, 0, wxALL, 5 );
 
@@ -1175,7 +1191,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer142->Add( bSizer37, 0, wxEXPAND, 5 );
 
-	m_Fuerza = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Fuerza = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Fuerza->SetDigits( 0 );
 	bSizer142->Add( m_Fuerza, 0, wxALL, 5 );
 
@@ -1195,7 +1211,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer143->Add( bSizer27, 0, wxEXPAND, 5 );
 
-	m_Agilidad = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Agilidad = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Agilidad->SetDigits( 0 );
 	bSizer143->Add( m_Agilidad, 0, wxALL, 5 );
 
@@ -1215,7 +1231,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer145->Add( bSizer29, 0, wxEXPAND, 5 );
 
-	m_Inteligencia = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Inteligencia = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Inteligencia->SetDigits( 0 );
 	bSizer145->Add( m_Inteligencia, 0, wxALL, 5 );
 
@@ -1235,7 +1251,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer146->Add( bSizer30, 0, wxEXPAND, 5 );
 
-	m_Mana = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Mana = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Mana->SetDigits( 0 );
 	bSizer146->Add( m_Mana, 0, wxALL, 5 );
 
@@ -1546,6 +1562,12 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	m_staticline22 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	bSizer200->Add( m_staticline22, 0, wxEXPAND | wxALL, 5 );
 
+	wxBoxSizer* bSizer228;
+	bSizer228 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer229;
+	bSizer229 = new wxBoxSizer( wxVERTICAL );
+
 	wxBoxSizer* bSizer204;
 	bSizer204 = new wxBoxSizer( wxHORIZONTAL );
 
@@ -1559,6 +1581,9 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 
 	bSizer204->Add( bSizer203, 1, 0, 5 );
 
+
+	bSizer204->Add( 80, 0, 1, wxEXPAND, 5 );
+
 	wxBoxSizer* bSizer205;
 	bSizer205 = new wxBoxSizer( wxVERTICAL );
 
@@ -1570,13 +1595,13 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	bSizer204->Add( bSizer205, 1, 0, 5 );
 
 
-	bSizer200->Add( bSizer204, 0, wxEXPAND, 5 );
+	bSizer229->Add( bSizer204, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 	wxBoxSizer* bSizer2031;
 	bSizer2031 = new wxBoxSizer( wxHORIZONTAL );
 
 	wxArrayString m_AtacanteChoices;
-	m_Atacante = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 300,-1 ), m_AtacanteChoices, 0 );
+	m_Atacante = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), m_AtacanteChoices, 0 );
 	m_Atacante->SetSelection( 0 );
 	bSizer2031->Add( m_Atacante, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
@@ -1584,12 +1609,12 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	bSizer2031->Add( m_bpButton2, 0, wxALL, 5 );
 
 	wxArrayString m_ReceptorChoices;
-	m_Receptor = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 300,-1 ), m_ReceptorChoices, 0 );
+	m_Receptor = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), m_ReceptorChoices, 0 );
 	m_Receptor->SetSelection( 0 );
 	bSizer2031->Add( m_Receptor, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
-	bSizer200->Add( bSizer2031, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer229->Add( bSizer2031, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 	wxBoxSizer* bSizer209;
 	bSizer209 = new wxBoxSizer( wxHORIZONTAL );
@@ -1605,7 +1630,13 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	bSizer209->Add( m_DanioProvo, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
 
-	bSizer200->Add( bSizer209, 0, wxALIGN_CENTER, 5 );
+	bSizer229->Add( bSizer209, 0, wxALIGN_CENTER, 5 );
+
+
+	bSizer228->Add( bSizer229, 1, wxEXPAND, 5 );
+
+
+	bSizer200->Add( bSizer228, 1, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer210;
 	bSizer210 = new wxBoxSizer( wxHORIZONTAL );
@@ -1807,7 +1838,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer147->Add( bSizer31, 0, wxEXPAND, 5 );
 
-	m_Danio = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Danio = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Danio->SetDigits( 0 );
 	bSizer147->Add( m_Danio, 0, wxALL, 5 );
 
@@ -1827,7 +1858,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer1471->Add( bSizer32, 0, wxEXPAND, 5 );
 
-	m_Rango = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Rango = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Rango->SetDigits( 0 );
 	bSizer1471->Add( m_Rango, 0, wxALL, 5 );
 
@@ -1847,7 +1878,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer14721->Add( bSizer331, 0, wxEXPAND, 5 );
 
-	m_Punteria = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Punteria = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Punteria->SetDigits( 0 );
 	bSizer14721->Add( m_Punteria, 0, wxALL, 5 );
 
@@ -1867,7 +1898,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer1472->Add( bSizer33, 0, wxEXPAND, 5 );
 
-	m_Bloqueo = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Bloqueo = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Bloqueo->SetDigits( 0 );
 	bSizer1472->Add( m_Bloqueo, 0, wxALL, 5 );
 
@@ -1887,7 +1918,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer141->Add( bSizer35, 0, wxEXPAND, 5 );
 
-	m_Defenza = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Defenza = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Defenza->SetDigits( 0 );
 	bSizer141->Add( m_Defenza, 0, wxALL, 5 );
 
@@ -1907,7 +1938,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer144->Add( bSizer28, 0, wxEXPAND, 5 );
 
-	m_ResistenciaMagica = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_ResistenciaMagica = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_ResistenciaMagica->SetDigits( 0 );
 	bSizer144->Add( m_ResistenciaMagica, 0, wxALL, 5 );
 
@@ -1942,7 +1973,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer14->Add( bSizer36, 0, wxEXPAND|wxRIGHT, 5 );
 
-	m_PuntosVida = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_PuntosVida = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_PuntosVida->SetDigits( 0 );
 	bSizer14->Add( m_PuntosVida, 0, wxALL, 5 );
 
@@ -1962,7 +1993,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer142->Add( bSizer37, 0, wxEXPAND, 5 );
 
-	m_Fuerza = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Fuerza = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Fuerza->SetDigits( 0 );
 	bSizer142->Add( m_Fuerza, 0, wxALL, 5 );
 
@@ -1982,7 +2013,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer143->Add( bSizer27, 0, wxEXPAND, 5 );
 
-	m_Agilidad = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Agilidad = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Agilidad->SetDigits( 0 );
 	bSizer143->Add( m_Agilidad, 0, wxALL, 5 );
 
@@ -2002,7 +2033,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer145->Add( bSizer29, 0, wxEXPAND, 5 );
 
-	m_Inteligencia = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Inteligencia = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Inteligencia->SetDigits( 0 );
 	bSizer145->Add( m_Inteligencia, 0, wxALL, 5 );
 
@@ -2022,7 +2053,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer146->Add( bSizer30, 0, wxEXPAND, 5 );
 
-	m_Mana = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_Mana = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_Mana->SetDigits( 0 );
 	bSizer146->Add( m_Mana, 0, wxALL, 5 );
 
@@ -2192,7 +2223,7 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 	m_sdad->Wrap( -1 );
 	bSizer121->Add( m_sdad, 0, wxALL, 5 );
 
-	m_EXP = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_EXP = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_EXP->SetDigits( 0 );
 	bSizer121->Add( m_EXP, 0, wxALL, 5 );
 
@@ -2284,7 +2315,7 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer141->Add( bSizer35, 0, wxEXPAND, 5 );
 
-	m_DFNb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_DFNb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_DFNb->SetDigits( 0 );
 	bSizer141->Add( m_DFNb, 0, wxALL, 5 );
 
@@ -2314,7 +2345,7 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer142->Add( bSizer37, 0, wxEXPAND, 5 );
 
-	m_FRZb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_FRZb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_FRZb->SetDigits( 0 );
 	bSizer142->Add( m_FRZb, 0, wxALL, 5 );
 
@@ -2344,7 +2375,7 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer143->Add( bSizer27, 0, wxEXPAND, 5 );
 
-	m_AGLb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_AGLb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_AGLb->SetDigits( 0 );
 	bSizer143->Add( m_AGLb, 0, wxALL, 5 );
 
@@ -2374,7 +2405,7 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer144->Add( bSizer28, 0, wxEXPAND, 5 );
 
-	m_RMb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_RMb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_RMb->SetDigits( 0 );
 	bSizer144->Add( m_RMb, 0, wxALL, 5 );
 
@@ -2404,7 +2435,7 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer145->Add( bSizer29, 0, wxEXPAND, 5 );
 
-	m_INTb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_INTb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_INTb->SetDigits( 0 );
 	bSizer145->Add( m_INTb, 0, wxALL, 5 );
 
@@ -2434,7 +2465,7 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer146->Add( bSizer30, 0, wxEXPAND, 5 );
 
-	m_MNb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1e+06, 0.000000, 1 );
+	m_MNb = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
 	m_MNb->SetDigits( 0 );
 	bSizer146->Add( m_MNb, 0, wxALL, 5 );
 
@@ -2654,6 +2685,7 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 	// Connect Events
 	m_aplicarcambios->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Personaje::OnClickAplicar ), NULL, this );
 	m_button4->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Personaje::OnClickExportar ), NULL, this );
+	m_Inventario->Connect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Dialogo_Personaje::OnCheckListPersonaje ), NULL, this );
 	m_Inventario->Connect( wxEVT_COMMAND_CHECKLISTBOX_TOGGLED, wxCommandEventHandler( Dialogo_Personaje::OnCheckListInventario ), NULL, this );
 	m_button6->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Personaje::OnClickAgregar ), NULL, this );
 	m_button34->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Personaje::OnClickBorrar ), NULL, this );
@@ -2664,6 +2696,7 @@ Dialogo_Personaje::~Dialogo_Personaje()
 	// Disconnect Events
 	m_aplicarcambios->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Personaje::OnClickAplicar ), NULL, this );
 	m_button4->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Personaje::OnClickExportar ), NULL, this );
+	m_Inventario->Disconnect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Dialogo_Personaje::OnCheckListPersonaje ), NULL, this );
 	m_Inventario->Disconnect( wxEVT_COMMAND_CHECKLISTBOX_TOGGLED, wxCommandEventHandler( Dialogo_Personaje::OnCheckListInventario ), NULL, this );
 	m_button6->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Personaje::OnClickAgregar ), NULL, this );
 	m_button34->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Personaje::OnClickBorrar ), NULL, this );
