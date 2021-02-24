@@ -342,13 +342,15 @@ class Ventana_combate : public wxFrame
 
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnActivetaCombate( wxActivateEvent& event ) { event.Skip(); }
+		virtual void OnChoiceAtq( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickAtacar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnChoiceRecp( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCerrar( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
 
-		Ventana_combate( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Simulación de combate"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,273 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_combate( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("TTRPGM: Simulación de combate"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 721,273 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~Ventana_combate();
 
