@@ -20,6 +20,7 @@ private:
 	void Actualizacion();
 	void GuardarCambios();
 protected:
+	void OnCheckListPersonaje( wxCommandEvent& event )  override;
 	void OnSpinCtrlPersonaje( wxSpinDoubleEvent& event )  override;
 	void OnClickBorrar( wxCommandEvent& event )  override;
 	void OnCheckListInventario( wxCommandEvent& event )  override;

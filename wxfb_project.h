@@ -498,6 +498,7 @@ class Dialogo_Personaje : public wxDialog
 		wxStaticLine* m_staticline4111;
 
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnSpinCtrlPersonaje( wxSpinDoubleEvent& event ) { event.Skip(); }
 		virtual void OnClickAplicar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickExportar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnCheckListPersonaje( wxCommandEvent& event ) { event.Skip(); }

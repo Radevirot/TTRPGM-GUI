@@ -28,9 +28,6 @@ dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje &Per, int posc) :
 		m_Personaje.OrdenarAlph();
 	}
 
-	
-	Actualizacion();
-	
 	m_Nombre->SetLabel(std_to_wx(P.ObtenerNombre()));
 	m_Nivel->SetValue(std_to_wx(std::to_string(P.ObtenerNivel())));
 	m_EXP->SetValue(std_to_wx(std::to_string(P.ObtenerXP())));
@@ -42,6 +39,8 @@ dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje &Per, int posc) :
 	m_INTb->SetValue(std_to_wx(std::to_string(P.ObtenerStat(5))));
 	m_MNb->SetValue(std_to_wx(std::to_string(P.ObtenerStat(6))));
 	m_Detalle->SetLabel(std_to_wx(P.ObtenerDetalle()));
+	
+	Actualizacion();
 	
 
 	Show();
@@ -133,25 +132,25 @@ void dPersonaje::Actualizacion(){
 		int pos = W.Item(i);
 		Item I=m_Personaje.MostrarItem(pos);
 		m_Personaje.SumarStatsDeItem(I);
-		std::string Stat=std::to_string(m_Personaje.ObtenerStat(0));
+		std::string Stat=std::to_string(m_Personaje.ObtenerStat(0)+m_PVb->GetValue());
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_PVt->SetLabel(std_to_wx(Stat));
-		Stat=std::to_string(m_Personaje.ObtenerStat(1));
+		Stat=std::to_string(m_Personaje.ObtenerStat(1)+m_DFNb->GetValue());
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_DFNt->SetLabel(std_to_wx(Stat));
-		Stat=std::to_string(m_Personaje.ObtenerStat(2));
+		Stat=std::to_string(m_Personaje.ObtenerStat(2)+m_FRZb->GetValue());
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_FRZt->SetLabel(std_to_wx(Stat));
-		Stat=std::to_string(m_Personaje.ObtenerStat(3));
+		Stat=std::to_string(m_Personaje.ObtenerStat(3)+m_AGLb->GetValue());
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_AGLt->SetLabel(std_to_wx(Stat));
-		Stat=std::to_string(m_Personaje.ObtenerStat(4));
+		Stat=std::to_string(m_Personaje.ObtenerStat(4)+m_RMb->GetValue());
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_RMt->SetLabel(std_to_wx(Stat));
-		Stat=std::to_string(m_Personaje.ObtenerStat(5));
+		Stat=std::to_string(m_Personaje.ObtenerStat(5)+m_INTb->GetValue());
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_INTt->SetLabel(std_to_wx(Stat));
-		Stat=std::to_string(m_Personaje.ObtenerStat(6));
+		Stat=std::to_string(m_Personaje.ObtenerStat(6)+m_MNb->GetValue());
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_MNt->SetLabel(std_to_wx(Stat));
 		Stat=std::to_string(m_Personaje.ObtenerStat(7));
@@ -176,4 +175,12 @@ dPersonaje::~dPersonaje() {
 	
 }
 
+
+void dPersonaje::OnCheckListPersonaje( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+void dPersonaje::OnSpinCtrlPersonaje( wxSpinDoubleEvent& event )  {
+	Actualizacion();
+}
 

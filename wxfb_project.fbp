@@ -1969,7 +1969,7 @@
                 </object>
             </object>
         </object>
-        <object class="Frame" expanded="0">
+        <object class="Frame" expanded="1">
             <property name="aui_managed">0</property>
             <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
             <property name="bg">wxSYS_COLOUR_BTNFACE</property>
@@ -13395,7 +13395,7 @@
                 </object>
             </object>
         </object>
-        <object class="Dialog" expanded="0">
+        <object class="Dialog" expanded="1">
             <property name="aui_managed">0</property>
             <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
             <property name="bg"></property>
@@ -13421,7 +13421,7 @@
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
             <property name="window_style"></property>
-            <object class="wxBoxSizer" expanded="0">
+            <object class="wxBoxSizer" expanded="1">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer7</property>
                 <property name="orient">wxHORIZONTAL</property>
@@ -13495,11 +13495,11 @@
                         </object>
                     </object>
                 </object>
-                <object class="sizeritem" expanded="0">
+                <object class="sizeritem" expanded="1">
                     <property name="border">5</property>
                     <property name="flag">wxEXPAND</property>
                     <property name="proportion">1</property>
-                    <object class="wxBoxSizer" expanded="0">
+                    <object class="wxBoxSizer" expanded="1">
                         <property name="minimum_size"></property>
                         <property name="name">bSizer8</property>
                         <property name="orient">wxVERTICAL</property>
@@ -14277,6 +14277,7 @@
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
+                                        <event name="OnSpinCtrlDouble">OnSpinCtrlPersonaje</event>
                                     </object>
                                 </object>
                                 <object class="sizeritem" expanded="0">
@@ -14353,11 +14354,11 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer141</property>
                                 <property name="orient">wxHORIZONTAL</property>
@@ -14496,6 +14497,7 @@
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
+                                        <event name="OnSpinCtrlDouble">OnSpinCtrlPersonaje</event>
                                     </object>
                                 </object>
                                 <object class="sizeritem" expanded="0">
@@ -14572,11 +14574,11 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer142</property>
                                 <property name="orient">wxHORIZONTAL</property>
@@ -14715,6 +14717,7 @@
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
+                                        <event name="OnSpinCtrlDouble">OnSpinCtrlPersonaje</event>
                                     </object>
                                 </object>
                                 <object class="sizeritem" expanded="0">
@@ -14791,11 +14794,11 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer143</property>
                                 <property name="orient">wxHORIZONTAL</property>
@@ -14934,6 +14937,7 @@
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
+                                        <event name="OnSpinCtrlDouble">OnSpinCtrlPersonaje</event>
                                     </object>
                                 </object>
                                 <object class="sizeritem" expanded="0">
@@ -15010,11 +15014,11 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer144</property>
                                 <property name="orient">wxHORIZONTAL</property>
@@ -15153,6 +15157,7 @@
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
+                                        <event name="OnSpinCtrlDouble">OnSpinCtrlPersonaje</event>
                                     </object>
                                 </object>
                                 <object class="sizeritem" expanded="0">
@@ -15229,11 +15234,11 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer145</property>
                                 <property name="orient">wxHORIZONTAL</property>
@@ -15372,6 +15377,7 @@
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
+                                        <event name="OnSpinCtrlDouble">OnSpinCtrlPersonaje</event>
                                     </object>
                                 </object>
                                 <object class="sizeritem" expanded="0">
@@ -15448,11 +15454,11 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer146</property>
                                 <property name="orient">wxHORIZONTAL</property>
@@ -15591,6 +15597,7 @@
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
+                                        <event name="OnSpinCtrlDouble">OnSpinCtrlPersonaje</event>
                                     </object>
                                 </object>
                                 <object class="sizeritem" expanded="0">
@@ -15667,11 +15674,11 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer147</property>
                                 <property name="orient">wxHORIZONTAL</property>
