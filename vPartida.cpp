@@ -86,11 +86,21 @@ void vPartida::OnMenuNueva( wxCommandEvent& event )  {
 }
 
 void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
-	event.Skip();
+	wxFileDialog guardarPartida(this,wxT("Guardar partida"),".\\datos",m_partida->ObtenerNombre()+".part","Archivos PART (*.part)|*.part",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
+	if(guardarPartida.ShowModal()==wxID_OK){
+		m_partida->Guardar(wx_to_std(guardarPartida.GetPath()));
+	}
 }
 
 void vPartida::OnMenuCargar( wxCommandEvent& event )  {
-	event.Skip();
+	wxFileDialog cargarPartida(this,wxT("Elija un archivo de partida para cargar"),".\\datos","","Archivos PART (*.part)|*.part",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
+	if(cargarPartida.ShowModal()==wxID_OK){
+		Partida b("");
+		*m_partida=b;
+		m_partida->Cargar(wx_to_std(cargarPartida.GetPath()));
+		this->ActualizarNombre();
+		this->ActualizarListas();
+	}
 }
 
 void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
