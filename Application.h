@@ -3,7 +3,6 @@
 #include "Partida.h"
 #include "vPrincipal.h"
 #include "vPartida.h"
-
 #include <wx/app.h>
 #include <wx/image.h>
 
