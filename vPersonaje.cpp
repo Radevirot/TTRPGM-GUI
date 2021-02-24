@@ -14,13 +14,13 @@ void vPersonaje::GuardarCambios(){
 	m_Personaje.NombrarPersonaje(wx_to_std(m_Nombre->GetValue()));
 	m_Personaje.ModificarNivel(m_Nivel->GetValue());
 	m_Personaje.ModificarXP(m_EXP->GetValue());
-	m_Personaje.ModificarStat(0,((m_PVb->GetValue())));
-	m_Personaje.ModificarStat(1,((m_DFNb->GetValue())));
-	m_Personaje.ModificarStat(2,((m_FRZb->GetValue())));
-	m_Personaje.ModificarStat(3,((m_AGLb->GetValue())));
-	m_Personaje.ModificarStat(4,((m_RMb->GetValue())));
-	m_Personaje.ModificarStat(5,((m_INTb->GetValue())));
-	m_Personaje.ModificarStat(6,((m_MNb->GetValue())));
+	m_Personaje.ModificarStat(0,((m_PVb->GetValue()))+m_Personaje.ObtenerStat(0));
+	m_Personaje.ModificarStat(1,((m_DFNb->GetValue()))+m_Personaje.ObtenerStat(1));
+	m_Personaje.ModificarStat(2,((m_FRZb->GetValue()))+m_Personaje.ObtenerStat(2));
+	m_Personaje.ModificarStat(3,((m_AGLb->GetValue()))+m_Personaje.ObtenerStat(3));
+	m_Personaje.ModificarStat(4,((m_RMb->GetValue()))+m_Personaje.ObtenerStat(4));
+	m_Personaje.ModificarStat(5,((m_INTb->GetValue()))+m_Personaje.ObtenerStat(5));
+	m_Personaje.ModificarStat(6,((m_MNb->GetValue()))+m_Personaje.ObtenerStat(6));
 	m_Personaje.ModificarDetalle(wx_to_std(m_Detalle->GetValue()));
 	int Tam=m_Inventario->GetCheckedItems(W);
 	for(int i=0;i<Tam;i++) {
@@ -97,25 +97,25 @@ void vPersonaje::Actualizacion(){
 		int pos = W.Item(i);
 		Item I=m_Personaje.MostrarItem(pos);
 		m_Personaje.SumarStatsDeItem(I);
-		std::string Stat=std::to_string(m_Personaje.ObtenerStat(0));
+		std::string Stat=std::to_string(m_Personaje.ObtenerStat(0)+m_PVb->GetValue());
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_PVt->SetLabel(std_to_wx(Stat));
-		Stat=std::to_string(m_Personaje.ObtenerStat(1));
+		Stat=std::to_string(m_Personaje.ObtenerStat(1)+m_DFNb->GetValue());
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_DFNt->SetLabel(std_to_wx(Stat));
-		Stat=std::to_string(m_Personaje.ObtenerStat(2));
+		Stat=std::to_string(m_Personaje.ObtenerStat(2)+m_FRZb->GetValue());
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_FRZt->SetLabel(std_to_wx(Stat));
-		Stat=std::to_string(m_Personaje.ObtenerStat(3));
+		Stat=std::to_string(m_Personaje.ObtenerStat(3)+m_AGLb->GetValue());
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_AGLt->SetLabel(std_to_wx(Stat));
-		Stat=std::to_string(m_Personaje.ObtenerStat(4));
+		Stat=std::to_string(m_Personaje.ObtenerStat(4)+m_RMb->GetValue());
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_RMt->SetLabel(std_to_wx(Stat));
-		Stat=std::to_string(m_Personaje.ObtenerStat(5));
+		Stat=std::to_string(m_Personaje.ObtenerStat(5)+m_INTb->GetValue());
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_INTt->SetLabel(std_to_wx(Stat));
-		Stat=std::to_string(m_Personaje.ObtenerStat(6));
+		Stat=std::to_string(m_Personaje.ObtenerStat(6)+m_MNb->GetValue());
 		Stat.erase(Stat.end()-4,Stat.end());
 		m_MNt->SetLabel(std_to_wx(Stat));
 		Stat=std::to_string(m_Personaje.ObtenerStat(7));
@@ -133,3 +133,8 @@ void vPersonaje::Actualizacion(){
 	}
 	W.empty();
 }
+
+void vPersonaje::OnSpinCtrlPersonaje( wxSpinDoubleEvent& event )  {
+	Actualizacion();
+}
+

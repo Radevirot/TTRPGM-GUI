@@ -19,6 +19,7 @@ dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje &Per, int posc) :
 			I.EquiparToggle();
 			equipados.push_back(i);
 			m_Personaje.AgregarInv(I);
+			m_Personaje.RestarStatsDeItem(I);
 		}
 	}
 	for(int i=0;i<equipados.size();i++) { 
@@ -50,13 +51,13 @@ void dPersonaje::GuardarCambios(){
 	m_Personaje.NombrarPersonaje(wx_to_std(m_Nombre->GetValue()));
 	m_Personaje.ModificarNivel(m_Nivel->GetValue());
 	m_Personaje.ModificarXP(m_EXP->GetValue());
-	m_Personaje.ModificarStat(0,((m_PVb->GetValue())));//+m_Personaje->ObtenerStat(0)));
-	m_Personaje.ModificarStat(1,((m_DFNb->GetValue())));//+m_Personaje->ObtenerStat(1)));
-	m_Personaje.ModificarStat(2,((m_FRZb->GetValue())));//+m_Personaje->ObtenerStat(2)));
-	m_Personaje.ModificarStat(3,((m_AGLb->GetValue())));//+m_Personaje->ObtenerStat(3)));
-	m_Personaje.ModificarStat(4,((m_RMb->GetValue())));//+m_Personaje->ObtenerStat(4)));
-	m_Personaje.ModificarStat(5,((m_INTb->GetValue())));//+m_Personaje->ObtenerStat(5)));
-	m_Personaje.ModificarStat(6,((m_MNb->GetValue())));//+m_Personaje->ObtenerStat(6)));
+	m_Personaje.ModificarStat(0,((m_PVb->GetValue()))+m_Personaje.ObtenerStat(0));
+	m_Personaje.ModificarStat(1,((m_DFNb->GetValue()))+m_Personaje.ObtenerStat(1));
+	m_Personaje.ModificarStat(2,((m_FRZb->GetValue()))+m_Personaje.ObtenerStat(2));
+	m_Personaje.ModificarStat(3,((m_AGLb->GetValue()))+m_Personaje.ObtenerStat(3));
+	m_Personaje.ModificarStat(4,((m_RMb->GetValue()))+m_Personaje.ObtenerStat(4));
+	m_Personaje.ModificarStat(5,((m_INTb->GetValue()))+m_Personaje.ObtenerStat(5));
+	m_Personaje.ModificarStat(6,((m_MNb->GetValue()))+m_Personaje.ObtenerStat(6));
 	m_Personaje.ModificarDetalle(wx_to_std(m_Detalle->GetValue()));
 	int Tam=m_Inventario->GetCheckedItems(W);
 	for(int i=0;i<Tam;i++) {
