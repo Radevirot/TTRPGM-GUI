@@ -15,8 +15,6 @@ void vPrincipal::OnClickEmpezar( wxCommandEvent& event )  {
 void vPrincipal::OnClickCargar( wxCommandEvent& event )  {
 	wxFileDialog cargarPartida(this,wxT("Elija un archivo de partida para cargar"),".\\datos","","Archivos PART (*.part)|*.part",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
 	if(cargarPartida.ShowModal()==wxID_OK){
-		Partida b("");
-		*m_partida=b;
 		m_partida->Cargar(wx_to_std(cargarPartida.GetPath()));
 		EndModal(1);
 	}

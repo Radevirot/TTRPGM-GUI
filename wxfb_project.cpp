@@ -1576,7 +1576,7 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	bSizer2031 = new wxBoxSizer( wxHORIZONTAL );
 
 	wxArrayString m_AtacanteChoices;
-	m_Atacante = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), m_AtacanteChoices, 0 );
+	m_Atacante = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 300,-1 ), m_AtacanteChoices, 0 );
 	m_Atacante->SetSelection( 0 );
 	bSizer2031->Add( m_Atacante, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
@@ -1584,7 +1584,7 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	bSizer2031->Add( m_bpButton2, 0, wxALL, 5 );
 
 	wxArrayString m_ReceptorChoices;
-	m_Receptor = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), m_ReceptorChoices, 0 );
+	m_Receptor = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 300,-1 ), m_ReceptorChoices, 0 );
 	m_Receptor->SetSelection( 0 );
 	bSizer2031->Add( m_Receptor, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
@@ -1639,7 +1639,9 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 
 	// Connect Events
 	this->Connect( wxEVT_ACTIVATE, wxActivateEventHandler( Ventana_combate::OnActivetaCombate ) );
+	m_Atacante->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( Ventana_combate::OnChoiceAtq ), NULL, this );
 	m_bpButton2->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickAtacar ), NULL, this );
+	m_Receptor->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( Ventana_combate::OnChoiceRecp ), NULL, this );
 	m_Cerrar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickCerrar ), NULL, this );
 }
 
@@ -1647,7 +1649,9 @@ Ventana_combate::~Ventana_combate()
 {
 	// Disconnect Events
 	this->Disconnect( wxEVT_ACTIVATE, wxActivateEventHandler( Ventana_combate::OnActivetaCombate ) );
+	m_Atacante->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( Ventana_combate::OnChoiceAtq ), NULL, this );
 	m_bpButton2->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickAtacar ), NULL, this );
+	m_Receptor->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( Ventana_combate::OnChoiceRecp ), NULL, this );
 	m_Cerrar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickCerrar ), NULL, this );
 
 }
