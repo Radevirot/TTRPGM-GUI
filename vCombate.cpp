@@ -7,11 +7,13 @@ vCombate::vCombate(wxWindow *parent, Partida *p) : Ventana_combate(parent) {
 	Carga y muestra formulas de combate y la lista de personajes atacantes y receptores.
 	*/
 	m_partida=p;
-	m_Formula->Append(std_to_wx("(50+DÑ*4*MULT)-(DFN*2)"));
-	m_Formula->Append(std_to_wx("(DÑ*0.5*MULT)-(DFN*0.25)"));
-	m_Formula->Append(std_to_wx("(FRZ*MULT)-(DFN*0.5)"));
-	m_Formula->Append(std_to_wx("(FRZ+DÑ*0.5*MULT)-(DFN*0.25)"));
-	m_Formula->Append(std_to_wx("(FRZ+DÑ*0.5*MULT)-(DFN*0.5)"));
+	m_Formula->Append(std_to_wx("1. (50+DÑ*4*MULT)-(DFN*2)"));
+	m_Formula->Append(std_to_wx("2. (DÑ*0.5*MULT)-(DFN*0.25)"));
+	m_Formula->Append(std_to_wx("3. (FRZ*MULT)-(DFN*0.5)"));
+	m_Formula->Append(std_to_wx("4. (FRZ+DÑ*0.5*MULT)-(DFN*0.25)"));
+	m_Formula->Append(std_to_wx("5. (FRZ+DÑ*0.5*MULT)-(DFN*0.5)"));
+	m_Formula->Append(std_to_wx("6. (50+INT*4*MULT)-(RM*2)"));
+	m_Formula->Append(std_to_wx("7. (INT*0.5*MULT)-(RM*0.25)"));
 	m_Formula->SetSelection(0);
 	Show();
 }
@@ -29,7 +31,9 @@ void vCombate::OnClickAtacar( wxCommandEvent& event )  {
 	int posatc=m_Atacante->GetSelection();
 	int posrecp=m_Receptor->GetSelection();
 	float DanioR=m_partida->Combate(posatc,posrecp,m_Formula->GetSelection(),m_Multiplicador->GetValue(),m_ModificarPV->IsChecked());
-	m_DanioProvo->SetLabel(std_to_wx(std::to_string(DanioR)));
+	std::string DanioSt=std::to_string(DanioR);
+	DanioSt.erase(DanioSt.end()-4,DanioSt.end());
+	m_DanioProvo->SetLabel(std_to_wx(DanioSt));
 	
 	m_Atacante->Clear();
 	m_Receptor->Clear();
@@ -115,3 +119,71 @@ void vCombate::Seleccion(Personaje Prs){
 	m_Atacante->Append(std_to_wx((Prs.ObtenerNombre())+" - PV: "+Vida));
 	m_Receptor->Append(std_to_wx((Prs.ObtenerNombre())+" - PV: "+Vida));
 }
+
+void vCombate::OnApretarTecla( wxKeyEvent& event )  {
+	
+	switch (event.GetKeyCode()){
+	case WXK_SHIFT: m_ModificarPV->SetValue(true); break;
+	case WXK_CONTROL: manteniendoControl=true; break;
+	case WXK_ALT: manteniendoAlt=true; break;
+	case WXK_ESCAPE: Close(true); break;
+	}
+	
+}
+
+void vCombate::OnLevantarTecla( wxKeyEvent& event )  {
+	switch (event.GetKeyCode()){
+	case WXK_SHIFT: m_ModificarPV->SetValue(false); break;
+	case WXK_CONTROL: manteniendoControl=false; break;
+	case WXK_ALT: manteniendoAlt=false; break;
+	}
+}
+
+void vCombate::OnScrollFormula( wxMouseEvent& event )  {
+	if(manteniendoControl){
+		if(event.GetWheelRotation()<0){
+			m_Formula->SetSelection(m_Formula->GetSelection()+1);
+		} else if (event.GetWheelRotation()>0){
+			if((m_Formula->GetSelection()-1)!=wxNOT_FOUND) m_Formula->SetSelection(m_Formula->GetSelection()-1);
+		}
+	}
+}
+
+void vCombate::OnScrollMult( wxMouseEvent& event )  {
+	if(manteniendoControl){
+		if(event.GetWheelRotation()>0){
+			m_Multiplicador->SetValue(m_Multiplicador->GetValue()+1);
+		} else if (event.GetWheelRotation()<0){
+			m_Multiplicador->SetValue(m_Multiplicador->GetValue()-1);
+		}
+	}
+}
+
+void vCombate::OnScrollAtq( wxMouseEvent& event )  {
+	if(manteniendoControl){
+		if(event.GetWheelRotation()<0){
+			m_Atacante->SetSelection(m_Atacante->GetSelection()+1);
+		} else if (event.GetWheelRotation()>0){
+			if((m_Atacante->GetSelection()-1)!=wxNOT_FOUND) m_Atacante->SetSelection(m_Atacante->GetSelection()-1);
+		}
+	}
+}
+
+void vCombate::OnScrollRecp( wxMouseEvent& event )  {
+	if(manteniendoControl){
+		if(event.GetWheelRotation()<0){
+			m_Receptor->SetSelection(m_Receptor->GetSelection()+1);
+		} else if (event.GetWheelRotation()>0){
+			if((m_Receptor->GetSelection()-1)!=wxNOT_FOUND) m_Receptor->SetSelection(m_Receptor->GetSelection()-1);
+		}
+	}
+}
+
+void vCombate::OnClickVentana( wxMouseEvent& event )  {
+	if(manteniendoAlt){
+		int aux=m_Atacante->GetSelection();
+		m_Atacante->SetSelection(m_Receptor->GetSelection());
+		m_Receptor->SetSelection(aux);
+	}
+}
+

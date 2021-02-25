@@ -71,20 +71,24 @@ void vPartida::ActualizarListas(){
 	}
 }
 
-// BARRA DE MENU 
-
-void vPartida::OnMenuEditar( wxCommandEvent& event )  {
-	dNombrePartida NomPart(this,m_partida);
-	wxBitmap renombrar(wxT("imagenes/renombrar.bmp"), wxBITMAP_TYPE_ANY);
-	wxIcon icon;
-	icon.CopyFromBitmap(renombrar);
-	NomPart.SetIcon(icon);
-	NomPart.SetTitle(wxT("Renombrar partida"));
-	int valor = NomPart.ShowModal();
-	if (valor==1) this->ActualizarNombre();
+void vPartida::GuardarPartida(){
+	wxFileDialog guardarPartida(this,wxT("Guardar partida"),".\\datos",m_partida->ObtenerNombre()+".part","Archivos PART (*.part)|*.part",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
+	if(guardarPartida.ShowModal()==wxID_OK){
+		m_partida->Guardar(wx_to_std(guardarPartida.GetPath()));
+	}
+}
+void vPartida::CargarPartida(){
+	wxFileDialog cargarPartida(this,wxT("Elija un archivo de partida para cargar"),".\\datos","","Archivos PART (*.part)|*.part",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
+	if(cargarPartida.ShowModal()==wxID_OK){
+		Partida b("");
+		*m_partida=b;
+		m_partida->Cargar(wx_to_std(cargarPartida.GetPath()));
+		this->ActualizarNombre();
+		this->ActualizarListas();
+	}
 }
 
-void vPartida::OnMenuNueva( wxCommandEvent& event )  {
+void vPartida::NuevaPartida(){
 	dNombrePartida NomPart(this,m_partida);
 	wxBitmap nueva(wxT("imagenes/Nueva.bmp"), wxBITMAP_TYPE_ANY);
 	wxIcon icon;
@@ -100,31 +104,18 @@ void vPartida::OnMenuNueva( wxCommandEvent& event )  {
 	}
 }
 
-void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
-	wxFileDialog guardarPartida(this,wxT("Guardar partida"),".\\datos",m_partida->ObtenerNombre()+".part","Archivos PART (*.part)|*.part",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
-	if(guardarPartida.ShowModal()==wxID_OK){
-		m_partida->Guardar(wx_to_std(guardarPartida.GetPath()));
-	}
+void vPartida::RenombrarPartida(){
+	dNombrePartida NomPart(this,m_partida);
+	wxBitmap renombrar(wxT("imagenes/renombrar.bmp"), wxBITMAP_TYPE_ANY);
+	wxIcon icon;
+	icon.CopyFromBitmap(renombrar);
+	NomPart.SetIcon(icon);
+	NomPart.SetTitle(wxT("Renombrar partida"));
+	int valor = NomPart.ShowModal();
+	if (valor==1) this->ActualizarNombre();
 }
 
-void vPartida::OnMenuCargar( wxCommandEvent& event )  {
-	wxFileDialog cargarPartida(this,wxT("Elija un archivo de partida para cargar"),".\\datos","","Archivos PART (*.part)|*.part",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
-	if(cargarPartida.ShowModal()==wxID_OK){
-		Partida b("");
-		*m_partida=b;
-		m_partida->Cargar(wx_to_std(cargarPartida.GetPath()));
-		this->ActualizarNombre();
-		this->ActualizarListas();
-	}
-}
-
-void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
-	event.Skip();
-}
-
-// TOOLBAR 
-
-void vPartida::OnClickCombate( wxCommandEvent& event )  {
+void vPartida::AbrirCombate(){
 	if (m_partida->ObtenerTamPersonajes()==0){
 		wxMessageBox(wxT("Debe tener al menos un personaje creado."),wxT("Error"),wxICON_ERROR);
 	} else {
@@ -134,15 +125,46 @@ void vPartida::OnClickCombate( wxCommandEvent& event )  {
 		icon.CopyFromBitmap(combat);
 		Combate->SetIcon(icon);
 	}
-	
 }
 
-void vPartida::OnClickDado( wxCommandEvent& event )  {
+void vPartida::AbrirDados(){
 	vDados *Dados = new vDados(this,m_partida);
 	wxBitmap dado(wxT("imagenes/dado.bmp"), wxBITMAP_TYPE_ANY);
 	wxIcon icon;
 	icon.CopyFromBitmap(dado);
 	Dados->SetIcon(icon);
+}
+
+// BARRA DE MENU 
+
+void vPartida::OnMenuEditar( wxCommandEvent& event )  {
+	this->RenombrarPartida();
+}
+
+void vPartida::OnMenuNueva( wxCommandEvent& event )  {
+	this->NuevaPartida();
+}
+
+void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
+	this->GuardarPartida();
+}
+
+void vPartida::OnMenuCargar( wxCommandEvent& event )  {
+	this->CargarPartida();
+}
+
+void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+// TOOLBAR 
+
+void vPartida::OnClickCombate( wxCommandEvent& event )  {
+	this->AbrirCombate();
+}
+
+void vPartida::OnClickDado( wxCommandEvent& event )  {
+	this->AbrirDados();
 }
 
 // BOTONES DE PERSONAJE 
@@ -187,21 +209,6 @@ void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
 	PersonajeMod.ShowModal();
 }
 
-void vPartida::OnApretarTeclaPList( wxKeyEvent& event )  {
-	if(event.GetKeyCode()==WXK_DELETE){
-		if(m_ListaPersonajes->HasFocus()){
-			int pos = m_ListaPersonajes->GetSelection();
-			if(pos!=wxNOT_FOUND){
-				m_partida->EliminarPersonaje(pos);
-				m_ListaPersonajes->Delete(pos);
-				m_ListaPersonajes->SetSelection(pos);
-			}
-			
-		}
-	} else {
-		event.Skip();
-	}
-}
 
 // BOTONES DE ITEM 
 
@@ -244,24 +251,52 @@ void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
 	ItemMod.ShowModal();
 }
 
-void vPartida::OnApretarTeclaIList( wxKeyEvent& event )  {
-	if(event.GetKeyCode()==WXK_DELETE){
+
+// TECLAS
+
+void vPartida::OnApretarTecla( wxKeyEvent& event )  {
+	switch (event.GetKeyCode()){
+	case WXK_DELETE:
 		if(m_ListaItems->HasFocus()){
 			int pos = m_ListaItems->GetSelection();
 			if(pos!=wxNOT_FOUND){
 				m_partida->EliminarItem(pos);
 				m_ListaItems->Delete(pos);
-				m_ListaItems->SetSelection(pos);
+				if(m_ListaItems->GetSelection()!=wxNOT_FOUND) m_ListaItems->SetSelection(pos); else m_ListaItems->SetSelection(pos-1);
 			}
-			
+		} else if(m_ListaPersonajes->HasFocus()) {
+			int pos = m_ListaPersonajes->GetSelection();
+			if(pos!=wxNOT_FOUND){
+				m_partida->EliminarPersonaje(pos);
+				m_ListaPersonajes->Delete(pos);
+				if(m_ListaPersonajes->GetSelection()!=wxNOT_FOUND) m_ListaPersonajes->SetSelection(pos); else m_ListaPersonajes->SetSelection(pos-1);
+			}
 		}
-	} else{
-		event.Skip();
+	case WXK_CONTROL: manteniendoControl=true; break;
+	case 83: case 71: if(manteniendoControl) this->GuardarPartida(); break; //		83=S,71=G | CTRL+S / CTRL+G para guardar
+	case 79: case 65: if(manteniendoControl) this->CargarPartida(); break; //		79=O,65=A | CTRL+O / CTRL+A para cargar
+	case 78: if(manteniendoControl) this->NuevaPartida(); break; //					78=N 	  | CTRL+N para crear nueva
+	case 82: if(manteniendoControl) this->RenombrarPartida(); break; //				82=R 	  | CTRL+R para renombrar
+	case 49: if(manteniendoControl) this->AbrirCombate(); break; //					49=1	  | CTRL+1 para abrir ventana de combate
+	case 50: if(manteniendoControl) this->AbrirDados(); break; //					50=2	  | CTRL+2 para abrir ventana de dados
 	}
 }
+
+void vPartida::OnLevantarTecla( wxKeyEvent& event )  {
+	switch (event.GetKeyCode()){
+		case WXK_CONTROL: manteniendoControl=false; break;
+	}
+}
+
 
 // EVENTO DE ACTUALIZACIÓN
 
 void vPartida::OnActivarPartida( wxActivateEvent& event )  {
+	manteniendoControl=false;
 	this->ActualizarListas();
 }
+
+
+
+
+

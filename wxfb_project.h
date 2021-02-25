@@ -117,6 +117,8 @@ class Ventana_partida : public wxFrame
 
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnActivarPartida( wxActivateEvent& event ) { event.Skip(); }
+		virtual void OnApretarTecla( wxKeyEvent& event ) { event.Skip(); }
+		virtual void OnLevantarTecla( wxKeyEvent& event ) { event.Skip(); }
 		virtual void OnMenuGuardar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnMenuCargar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnMenuEditar( wxCommandEvent& event ) { event.Skip(); }
@@ -124,13 +126,11 @@ class Ventana_partida : public wxFrame
 		virtual void OnMenuAyuda( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCombate( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickDado( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnApretarTeclaPList( wxKeyEvent& event ) { event.Skip(); }
 		virtual void OnDobleClickListaPersonaje( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCrearP( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickImportarP( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickBorrarPersonaje( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickVerInventario( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnApretarTeclaIList( wxKeyEvent& event ) { event.Skip(); }
 		virtual void OnDobleClickListaItem( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickCrearI( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickImportarI( wxCommandEvent& event ) { event.Skip(); }
@@ -304,6 +304,10 @@ class Ventana_dados : public wxFrame
 		wxButton* m_Cerrar;
 
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnActivarDado( wxActivateEvent& event ) { event.Skip(); }
+		virtual void OnApretarTecla( wxKeyEvent& event ) { event.Skip(); }
+		virtual void OnLevantarTecla( wxKeyEvent& event ) { event.Skip(); }
+		virtual void OnApretarEnter( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickAgregar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickArrojar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickBorrar( wxCommandEvent& event ) { event.Skip(); }
@@ -343,9 +347,16 @@ class Ventana_combate : public wxFrame
 
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnActivetaCombate( wxActivateEvent& event ) { event.Skip(); }
+		virtual void OnApretarTecla( wxKeyEvent& event ) { event.Skip(); }
+		virtual void OnLevantarTecla( wxKeyEvent& event ) { event.Skip(); }
+		virtual void OnClickVentana( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnScrollFormula( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnScrollMult( wxMouseEvent& event ) { event.Skip(); }
 		virtual void OnChoiceAtq( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnScrollAtq( wxMouseEvent& event ) { event.Skip(); }
 		virtual void OnClickAtacar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnChoiceRecp( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnScrollRecp( wxMouseEvent& event ) { event.Skip(); }
 		virtual void OnClickCerrar( wxCommandEvent& event ) { event.Skip(); }
 
 

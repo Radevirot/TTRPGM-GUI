@@ -10,7 +10,15 @@ class vCombate : public Ventana_combate {
 private:
 	Partida *m_partida;
 	int PosUAt=0, PosURc=1;
+	bool manteniendoControl=false, manteniendoAlt=false;
 protected:
+	void OnClickVentana( wxMouseEvent& event )  override;
+	void OnScrollMult( wxMouseEvent& event )  override;
+	void OnScrollAtq( wxMouseEvent& event )  override;
+	void OnScrollRecp( wxMouseEvent& event )  override;
+	void OnScrollFormula( wxMouseEvent& event )  override;
+	void OnApretarTecla( wxKeyEvent& event )  override;
+	void OnLevantarTecla( wxKeyEvent& event )  override;
 	void Seleccion(Personaje Prs);
 	void Seleccion(Personaje Ps, bool AtRc);
 	void OnChoiceAtq( wxCommandEvent& event )  override;

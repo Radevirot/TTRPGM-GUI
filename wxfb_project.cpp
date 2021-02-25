@@ -352,43 +352,95 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 
 	// Connect Events
 	this->Connect( wxEVT_ACTIVATE, wxActivateEventHandler( Ventana_partida::OnActivarPartida ) );
+	this->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ) );
+	this->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ) );
 	m_menu1->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuGuardar ), this, m_Guardar->GetId());
 	m_menu1->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuCargar ), this, m_Cargar->GetId());
 	m_menu1->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuEditar ), this, m_EditarNom->GetId());
 	m_menu1->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuNueva ), this, m_Nueva->GetId());
 	m_menu1->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuAyuda ), this, m_Ayuda->GetId());
+	m_toolBar4->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_toolBar4->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	this->Connect( m_Combate->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCombate ) );
 	this->Connect( m_Dado->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickDado ) );
-	m_ListaPersonajes->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTeclaPList ), NULL, this );
+	m_staticText5->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_staticText5->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
+	m_ListaPersonajes->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_ListaPersonajes->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_ListaPersonajes->Connect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaPersonaje ), NULL, this );
 	m_CrearP->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearP ), NULL, this );
+	m_CrearP->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_CrearP->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_ImportarP->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickImportarP ), NULL, this );
+	m_ImportarP->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_ImportarP->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_BorrarP->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrarPersonaje ), NULL, this );
+	m_BorrarP->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_BorrarP->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_button19->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickVerInventario ), NULL, this );
-	m_ListaItems->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTeclaIList ), NULL, this );
+	m_button19->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_button19->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
+	m_staticline4->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_staticline4->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
+	m_staticText6->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_staticText6->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
+	m_ListaItems->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_ListaItems->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_ListaItems->Connect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaItem ), NULL, this );
 	m_CrearI->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearI ), NULL, this );
+	m_CrearI->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_CrearI->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_ImportarI->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickImportarI ), NULL, this );
+	m_ImportarI->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_ImportarI->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_BorrarI->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrar ), NULL, this );
+	m_BorrarI->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_BorrarI->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 }
 
 Ventana_partida::~Ventana_partida()
 {
 	// Disconnect Events
 	this->Disconnect( wxEVT_ACTIVATE, wxActivateEventHandler( Ventana_partida::OnActivarPartida ) );
+	this->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ) );
+	this->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ) );
+	m_toolBar4->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_toolBar4->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	this->Disconnect( m_Combate->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCombate ) );
 	this->Disconnect( m_Dado->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickDado ) );
-	m_ListaPersonajes->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTeclaPList ), NULL, this );
+	m_staticText5->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_staticText5->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
+	m_ListaPersonajes->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_ListaPersonajes->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_ListaPersonajes->Disconnect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaPersonaje ), NULL, this );
 	m_CrearP->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearP ), NULL, this );
+	m_CrearP->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_CrearP->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_ImportarP->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickImportarP ), NULL, this );
+	m_ImportarP->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_ImportarP->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_BorrarP->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrarPersonaje ), NULL, this );
+	m_BorrarP->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_BorrarP->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_button19->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickVerInventario ), NULL, this );
-	m_ListaItems->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTeclaIList ), NULL, this );
+	m_button19->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_button19->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
+	m_staticline4->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_staticline4->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
+	m_staticText6->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_staticText6->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
+	m_ListaItems->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_ListaItems->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_ListaItems->Disconnect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Ventana_partida::OnDobleClickListaItem ), NULL, this );
 	m_CrearI->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCrearI ), NULL, this );
+	m_CrearI->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_CrearI->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_ImportarI->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickImportarI ), NULL, this );
+	m_ImportarI->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_ImportarI->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_BorrarI->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrar ), NULL, this );
+	m_BorrarI->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_BorrarI->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 
 }
 
@@ -1388,6 +1440,9 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	this->SetForegroundColour( wxColour( 0, 0, 0 ) );
 	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
 
+	wxBoxSizer* bSizer230;
+	bSizer230 = new wxBoxSizer( wxVERTICAL );
+
 	wxBoxSizer* bSizer162;
 	bSizer162 = new wxBoxSizer( wxVERTICAL );
 
@@ -1425,7 +1480,7 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	m_staticText98->Wrap( -1 );
 	bSizer189->Add( m_staticText98, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_Nombre = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_Nombre = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
 	#ifdef __WXGTK__
 	if ( !m_Nombre->HasFlag( wxTE_MULTILINE ) )
 	{
@@ -1522,25 +1577,96 @@ Ventana_dados::Ventana_dados( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizer162->Add( bSizer198, 0, wxEXPAND, 5 );
 
 
-	this->SetSizer( bSizer162 );
+	bSizer230->Add( bSizer162, 1, wxEXPAND, 5 );
+
+
+	this->SetSizer( bSizer230 );
 	this->Layout();
 
 	this->Centre( wxBOTH );
 
 	// Connect Events
+	this->Connect( wxEVT_ACTIVATE, wxActivateEventHandler( Ventana_dados::OnActivarDado ) );
+	this->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ) );
+	this->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ) );
+	m_staticText96->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_staticText96->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_Seleccionado->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_Seleccionado->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_staticText105->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_staticText105->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_staticText98->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_staticText98->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_Nombre->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_Nombre->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( Ventana_dados::OnApretarEnter ), NULL, this );
+	m_staticText981->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_staticText981->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_ValMin->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_ValMin->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_ValMin->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( Ventana_dados::OnApretarEnter ), NULL, this );
+	m_staticText982->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_staticText982->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_ValMax->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_ValMax->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_ValMax->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( Ventana_dados::OnApretarEnter ), NULL, this );
 	m_Agregar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickAgregar ), NULL, this );
+	m_Agregar->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_Agregar->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
 	m_button21->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickArrojar ), NULL, this );
+	m_button21->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_staticText102->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_staticText102->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_Numero->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_Numero->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
 	m_Borrar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickBorrar ), NULL, this );
+	m_Borrar->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_Borrar->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
 	m_Cerrar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickCerrar ), NULL, this );
+	m_Cerrar->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_Cerrar->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
 }
 
 Ventana_dados::~Ventana_dados()
 {
 	// Disconnect Events
+	this->Disconnect( wxEVT_ACTIVATE, wxActivateEventHandler( Ventana_dados::OnActivarDado ) );
+	this->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ) );
+	this->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ) );
+	m_staticText96->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_staticText96->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_Seleccionado->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_Seleccionado->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_staticText105->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_staticText105->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_staticText98->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_staticText98->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_Nombre->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_Nombre->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( Ventana_dados::OnApretarEnter ), NULL, this );
+	m_staticText981->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_staticText981->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_ValMin->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_ValMin->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_ValMin->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( Ventana_dados::OnApretarEnter ), NULL, this );
+	m_staticText982->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_staticText982->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_ValMax->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_ValMax->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_ValMax->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( Ventana_dados::OnApretarEnter ), NULL, this );
 	m_Agregar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickAgregar ), NULL, this );
+	m_Agregar->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_Agregar->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
 	m_button21->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickArrojar ), NULL, this );
+	m_button21->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_staticText102->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_staticText102->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
+	m_Numero->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_Numero->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
 	m_Borrar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickBorrar ), NULL, this );
+	m_Borrar->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_Borrar->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
 	m_Cerrar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_dados::OnClickCerrar ), NULL, this );
+	m_Cerrar->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_dados::OnApretarTecla ), NULL, this );
+	m_Cerrar->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_dados::OnLevantarTecla ), NULL, this );
 
 }
 
@@ -1560,7 +1686,7 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	bSizer201->Add( m_staticText106, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	wxArrayString m_FormulaChoices;
-	m_Formula = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), m_FormulaChoices, 0 );
+	m_Formula = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 225,-1 ), m_FormulaChoices, 0 );
 	m_Formula->SetSelection( 0 );
 	bSizer201->Add( m_Formula, 0, wxALL, 5 );
 
@@ -1574,7 +1700,7 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	m_staticText107->Wrap( -1 );
 	bSizer202->Add( m_staticText107, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_Multiplicador = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 100, 1, 1 );
+	m_Multiplicador = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 1, 100, 1, 1 );
 	m_Multiplicador->SetDigits( 0 );
 	bSizer202->Add( m_Multiplicador, 0, wxALL, 5 );
 
@@ -1627,7 +1753,9 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	m_Atacante->SetSelection( 0 );
 	bSizer2031->Add( m_Atacante, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_bpButton2 = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 35,35 ), wxBU_AUTODRAW|0 );
+	m_bpButton2 = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 40,40 ), wxBU_AUTODRAW|0 );
+
+	m_bpButton2->SetBitmap( wxBitmap( wxT("imagenes/ataque.bmp"), wxBITMAP_TYPE_ANY ) );
 	bSizer2031->Add( m_bpButton2, 0, wxALL, 5 );
 
 	wxArrayString m_ReceptorChoices;
@@ -1692,20 +1820,90 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 
 	// Connect Events
 	this->Connect( wxEVT_ACTIVATE, wxActivateEventHandler( Ventana_combate::OnActivetaCombate ) );
+	this->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ) );
+	this->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ) );
+	this->Connect( wxEVT_LEFT_DOWN, wxMouseEventHandler( Ventana_combate::OnClickVentana ) );
+	m_staticText106->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_staticText106->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_Formula->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_Formula->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_Formula->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Ventana_combate::OnScrollFormula ), NULL, this );
+	m_staticText107->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_staticText107->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_Multiplicador->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_Multiplicador->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_Multiplicador->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Ventana_combate::OnScrollMult ), NULL, this );
+	m_staticline22->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_staticline22->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_staticText108->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_staticText108->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_staticText109->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_staticText109->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
 	m_Atacante->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( Ventana_combate::OnChoiceAtq ), NULL, this );
+	m_Atacante->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_Atacante->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_Atacante->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Ventana_combate::OnScrollAtq ), NULL, this );
 	m_bpButton2->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickAtacar ), NULL, this );
+	m_bpButton2->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_bpButton2->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
 	m_Receptor->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( Ventana_combate::OnChoiceRecp ), NULL, this );
+	m_Receptor->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_Receptor->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_Receptor->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Ventana_combate::OnScrollRecp ), NULL, this );
+	m_staticText112->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_staticText112->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_DanioProvo->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_DanioProvo->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_ModificarPV->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_ModificarPV->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
 	m_Cerrar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickCerrar ), NULL, this );
+	m_Cerrar->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_Cerrar->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
 }
 
 Ventana_combate::~Ventana_combate()
 {
 	// Disconnect Events
 	this->Disconnect( wxEVT_ACTIVATE, wxActivateEventHandler( Ventana_combate::OnActivetaCombate ) );
+	this->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ) );
+	this->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ) );
+	this->Disconnect( wxEVT_LEFT_DOWN, wxMouseEventHandler( Ventana_combate::OnClickVentana ) );
+	m_staticText106->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_staticText106->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_Formula->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_Formula->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_Formula->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Ventana_combate::OnScrollFormula ), NULL, this );
+	m_staticText107->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_staticText107->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_Multiplicador->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_Multiplicador->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_Multiplicador->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Ventana_combate::OnScrollMult ), NULL, this );
+	m_staticline22->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_staticline22->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_staticText108->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_staticText108->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_staticText109->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_staticText109->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
 	m_Atacante->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( Ventana_combate::OnChoiceAtq ), NULL, this );
+	m_Atacante->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_Atacante->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_Atacante->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Ventana_combate::OnScrollAtq ), NULL, this );
 	m_bpButton2->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickAtacar ), NULL, this );
+	m_bpButton2->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_bpButton2->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
 	m_Receptor->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( Ventana_combate::OnChoiceRecp ), NULL, this );
+	m_Receptor->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_Receptor->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_Receptor->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Ventana_combate::OnScrollRecp ), NULL, this );
+	m_staticText112->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_staticText112->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_DanioProvo->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_DanioProvo->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
+	m_ModificarPV->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_ModificarPV->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
 	m_Cerrar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_combate::OnClickCerrar ), NULL, this );
+	m_Cerrar->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_combate::OnApretarTecla ), NULL, this );
+	m_Cerrar->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_combate::OnLevantarTecla ), NULL, this );
 
 }
 
