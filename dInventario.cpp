@@ -60,7 +60,7 @@ void dInventario::OnListDobleClick( wxCommandEvent& event )  {
 }
 
 dInventario::~dInventario() {
-	
+	delete m_Personaje;
 }
 
 

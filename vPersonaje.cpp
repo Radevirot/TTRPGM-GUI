@@ -142,7 +142,10 @@ void vPersonaje::OnCheckListPersonaje( wxCommandEvent& event )  {
 	int pos = m_Inventario->GetSelection();
 	Item I=m_Personaje.MostrarItem(pos);
 	dItem ItemMod(this,m_partida,I,pos,false);
-	ItemMod.SetIcon(_icon);
+	wxBitmap logo(wxT("imagenes/logo.bmp"), wxBITMAP_TYPE_ANY);
+	wxIcon icon;
+	icon.CopyFromBitmap(logo);
+	ItemMod.SetIcon(icon);
 	ItemMod.ShowModal();
 	m_Personaje.BorrarItem(pos);
 	m_Personaje.AgregarInv(I);

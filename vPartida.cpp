@@ -206,7 +206,11 @@ void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
 		int pos = m_ListaPersonajes->GetSelection();
 		Personaje P=m_partida->ObtenerPersonaje(pos);
 		dInventario InvPer(this,P,m_partida);
-		InvPer.ShowModal();
+		if (InvPer.ShowModal()==1){
+			m_partida->EliminarPersonaje(pos);
+			m_partida->AgregarPersonaje(P);
+			m_partida->OrdenarPAlph();
+		}
 	} else {
 		int pos = m_ListaPersonajes->GetSelection();
 		Personaje P=m_partida->ObtenerPersonaje(pos);
