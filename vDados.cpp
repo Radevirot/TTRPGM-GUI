@@ -45,8 +45,7 @@ void vDados::OnClickAgregar( wxCommandEvent& event )  {
 } 
 
 void vDados::OnClickArrojar( wxCommandEvent& event )  {
-
-
+	this->ArrojarDado();
 }
 
 void vDados::OnClickBorrar( wxCommandEvent& event )  {
