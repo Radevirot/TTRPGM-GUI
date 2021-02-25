@@ -19,7 +19,7 @@ Ventana_principal::Ventana_principal( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText66 = new wxStaticText( this, wxID_ANY, wxT("¡Bienvenido al administrador\nde RPG de mesa!"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL );
+	m_staticText66 = new wxStaticText( this, wxID_ANY, wxT("¡Bienvenido a la aplicación de\n gestión de juegos de rol!"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL );
 	m_staticText66->Wrap( -1 );
 	bSizer4->Add( m_staticText66, 0, wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
@@ -160,28 +160,51 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 
 	m_menubar1 = new wxMenuBar( 0 );
 	m_menu1 = new wxMenu();
-	m_menu2 = new wxMenu();
-	wxMenuItem* m_menu2Item = new wxMenuItem( m_menu1, wxID_ANY, wxT("Partida"), wxEmptyString, wxITEM_NORMAL, m_menu2 );
-	wxMenuItem* m_EditarNom;
-	m_EditarNom = new wxMenuItem( m_menu2, wxID_ANY, wxString( wxT("Editar nombre") ) , wxEmptyString, wxITEM_NORMAL );
-	m_menu2->Append( m_EditarNom );
-
 	wxMenuItem* m_Guardar;
-	m_Guardar = new wxMenuItem( m_menu2, wxID_ANY, wxString( wxT("Guardar") ) , wxEmptyString, wxITEM_NORMAL );
-	m_menu2->Append( m_Guardar );
-
-	wxMenuItem* m_Nueva;
-	m_Nueva = new wxMenuItem( m_menu2, wxID_ANY, wxString( wxT("Nueva") ) , wxEmptyString, wxITEM_NORMAL );
-	m_menu2->Append( m_Nueva );
+	m_Guardar = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Guardar") ) , wxEmptyString, wxITEM_NORMAL );
+	#ifdef __WXMSW__
+	m_Guardar->SetBitmaps( wxBitmap( wxT("imagenes/guardar.bmp"), wxBITMAP_TYPE_ANY ) );
+	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
+	m_Guardar->SetBitmap( wxBitmap( wxT("imagenes/guardar.bmp"), wxBITMAP_TYPE_ANY ) );
+	#endif
+	m_menu1->Append( m_Guardar );
 
 	wxMenuItem* m_Cargar;
-	m_Cargar = new wxMenuItem( m_menu2, wxID_ANY, wxString( wxT("Cargar") ) , wxEmptyString, wxITEM_NORMAL );
-	m_menu2->Append( m_Cargar );
+	m_Cargar = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Cargar") ) , wxEmptyString, wxITEM_NORMAL );
+	#ifdef __WXMSW__
+	m_Cargar->SetBitmaps( wxBitmap( wxT("imagenes/cargar.bmp"), wxBITMAP_TYPE_ANY ) );
+	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
+	m_Cargar->SetBitmap( wxBitmap( wxT("imagenes/cargar.bmp"), wxBITMAP_TYPE_ANY ) );
+	#endif
+	m_menu1->Append( m_Cargar );
 
-	m_menu1->Append( m_menu2Item );
+	wxMenuItem* m_EditarNom;
+	m_EditarNom = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Renombrar") ) , wxEmptyString, wxITEM_NORMAL );
+	#ifdef __WXMSW__
+	m_EditarNom->SetBitmaps( wxBitmap( wxT("imagenes/renombrar.bmp"), wxBITMAP_TYPE_ANY ) );
+	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
+	m_EditarNom->SetBitmap( wxBitmap( wxT("imagenes/renombrar.bmp"), wxBITMAP_TYPE_ANY ) );
+	#endif
+	m_menu1->Append( m_EditarNom );
+
+	wxMenuItem* m_Nueva;
+	m_Nueva = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Nueva") ) , wxEmptyString, wxITEM_NORMAL );
+	#ifdef __WXMSW__
+	m_Nueva->SetBitmaps( wxBitmap( wxT("imagenes/Nueva.bmp"), wxBITMAP_TYPE_ANY ) );
+	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
+	m_Nueva->SetBitmap( wxBitmap( wxT("imagenes/Nueva.bmp"), wxBITMAP_TYPE_ANY ) );
+	#endif
+	m_menu1->Append( m_Nueva );
+
+	m_menu1->AppendSeparator();
 
 	wxMenuItem* m_Ayuda;
 	m_Ayuda = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Ayuda") ) , wxEmptyString, wxITEM_NORMAL );
+	#ifdef __WXMSW__
+	m_Ayuda->SetBitmaps( wxBitmap( wxT("imagenes/ayuda.bmp"), wxBITMAP_TYPE_ANY ) );
+	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
+	m_Ayuda->SetBitmap( wxBitmap( wxT("imagenes/ayuda.bmp"), wxBITMAP_TYPE_ANY ) );
+	#endif
 	m_menu1->Append( m_Ayuda );
 
 	m_menubar1->Append( m_menu1, wxT("Opciones") );
@@ -190,7 +213,6 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 
 	m_toolBar4 = this->CreateToolBar( wxTB_HORIZONTAL, wxID_ANY );
 	m_toolBar4->SetBackgroundColour( wxColour( 224, 224, 224 ) );
-
 
 	m_Combate = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxBitmap( wxT("imagenes/combate.bmp"), wxBITMAP_TYPE_ANY ), wxNullBitmap, wxITEM_NORMAL, wxT("Simulación de ataque"), wxEmptyString, NULL );
 
@@ -330,10 +352,10 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 
 	// Connect Events
 	this->Connect( wxEVT_ACTIVATE, wxActivateEventHandler( Ventana_partida::OnActivarPartida ) );
-	m_menu2->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuEditar ), this, m_EditarNom->GetId());
-	m_menu2->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuGuardar ), this, m_Guardar->GetId());
-	m_menu2->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuNueva ), this, m_Nueva->GetId());
-	m_menu2->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuCargar ), this, m_Cargar->GetId());
+	m_menu1->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuGuardar ), this, m_Guardar->GetId());
+	m_menu1->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuCargar ), this, m_Cargar->GetId());
+	m_menu1->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuEditar ), this, m_EditarNom->GetId());
+	m_menu1->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuNueva ), this, m_Nueva->GetId());
 	m_menu1->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Ventana_partida::OnMenuAyuda ), this, m_Ayuda->GetId());
 	this->Connect( m_Combate->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickCombate ) );
 	this->Connect( m_Dado->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickDado ) );

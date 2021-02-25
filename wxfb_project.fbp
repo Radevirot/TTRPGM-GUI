@@ -48,7 +48,7 @@
             <property name="size">234,245</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
-            <property name="title">TTRPGM</property>
+            <property name="title">Administrador de RPG de mesa</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
@@ -99,7 +99,7 @@
                                 <property name="gripper">0</property>
                                 <property name="hidden">0</property>
                                 <property name="id">wxID_ANY</property>
-                                <property name="label">¡Bienvenido al administrador&#x0A;de RPG de mesa!</property>
+                                <property name="label">¡Bienvenido a la aplicación de&#x0A; gestión de juegos de rol!</property>
                                 <property name="markup">0</property>
                                 <property name="max_size"></property>
                                 <property name="maximize_button">0</property>
@@ -384,7 +384,7 @@
                 </object>
             </object>
         </object>
-        <object class="Dialog" expanded="0">
+        <object class="Dialog" expanded="1">
             <property name="aui_managed">0</property>
             <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
             <property name="bg"></property>
@@ -744,7 +744,7 @@
                 </object>
             </object>
         </object>
-        <object class="Frame" expanded="0">
+        <object class="Frame" expanded="1">
             <property name="aui_managed">0</property>
             <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
             <property name="bg">wxSYS_COLOUR_BTNFACE</property>
@@ -772,7 +772,7 @@
             <property name="window_style">wxTAB_TRAVERSAL</property>
             <property name="xrc_skip_sizer">1</property>
             <event name="OnActivate">OnActivarPartida</event>
-            <object class="wxMenuBar" expanded="0">
+            <object class="wxMenuBar" expanded="1">
                 <property name="bg"></property>
                 <property name="context_help"></property>
                 <property name="context_menu">1</property>
@@ -794,74 +794,72 @@
                 <property name="window_extra_style"></property>
                 <property name="window_name"></property>
                 <property name="window_style"></property>
-                <object class="wxMenu" expanded="0">
+                <object class="wxMenu" expanded="1">
                     <property name="label">Opciones</property>
                     <property name="name">m_menu1</property>
                     <property name="permission">protected</property>
-                    <object class="submenu" expanded="0">
-                        <property name="bitmap"></property>
-                        <property name="label">Partida</property>
-                        <property name="name">m_menu2</property>
-                        <property name="permission">protected</property>
-                        <object class="wxMenuItem" expanded="0">
-                            <property name="bitmap"></property>
-                            <property name="checked">0</property>
-                            <property name="enabled">1</property>
-                            <property name="help"></property>
-                            <property name="id">wxID_ANY</property>
-                            <property name="kind">wxITEM_NORMAL</property>
-                            <property name="label">Editar nombre</property>
-                            <property name="name">m_EditarNom</property>
-                            <property name="permission">none</property>
-                            <property name="shortcut"></property>
-                            <property name="unchecked_bitmap"></property>
-                            <event name="OnMenuSelection">OnMenuEditar</event>
-                        </object>
-                        <object class="wxMenuItem" expanded="0">
-                            <property name="bitmap"></property>
-                            <property name="checked">0</property>
-                            <property name="enabled">1</property>
-                            <property name="help"></property>
-                            <property name="id">wxID_ANY</property>
-                            <property name="kind">wxITEM_NORMAL</property>
-                            <property name="label">Guardar</property>
-                            <property name="name">m_Guardar</property>
-                            <property name="permission">none</property>
-                            <property name="shortcut"></property>
-                            <property name="unchecked_bitmap"></property>
-                            <event name="OnMenuSelection">OnMenuGuardar</event>
-                        </object>
-                        <object class="wxMenuItem" expanded="0">
-                            <property name="bitmap"></property>
-                            <property name="checked">0</property>
-                            <property name="enabled">1</property>
-                            <property name="help"></property>
-                            <property name="id">wxID_ANY</property>
-                            <property name="kind">wxITEM_NORMAL</property>
-                            <property name="label">Nueva</property>
-                            <property name="name">m_Nueva</property>
-                            <property name="permission">none</property>
-                            <property name="shortcut"></property>
-                            <property name="unchecked_bitmap"></property>
-                            <event name="OnMenuSelection">OnMenuNueva</event>
-                        </object>
-                        <object class="wxMenuItem" expanded="0">
-                            <property name="bitmap"></property>
-                            <property name="checked">0</property>
-                            <property name="enabled">1</property>
-                            <property name="help"></property>
-                            <property name="id">wxID_ANY</property>
-                            <property name="kind">wxITEM_NORMAL</property>
-                            <property name="label">Cargar</property>
-                            <property name="name">m_Cargar</property>
-                            <property name="permission">none</property>
-                            <property name="shortcut"></property>
-                            <property name="unchecked_bitmap"></property>
-                            <event name="OnMenuSelection">OnMenuCargar</event>
-                        </object>
+                    <object class="wxMenuItem" expanded="0">
+                        <property name="bitmap">Load From File; imagenes/guardar.bmp</property>
+                        <property name="checked">0</property>
+                        <property name="enabled">1</property>
+                        <property name="help"></property>
+                        <property name="id">wxID_ANY</property>
+                        <property name="kind">wxITEM_NORMAL</property>
+                        <property name="label">Guardar</property>
+                        <property name="name">m_Guardar</property>
+                        <property name="permission">none</property>
+                        <property name="shortcut"></property>
+                        <property name="unchecked_bitmap"></property>
+                        <event name="OnMenuSelection">OnMenuGuardar</event>
                     </object>
                     <object class="wxMenuItem" expanded="0">
-                        <property name="bitmap"></property>
+                        <property name="bitmap">Load From File; imagenes/cargar.bmp</property>
+                        <property name="checked">0</property>
+                        <property name="enabled">1</property>
+                        <property name="help"></property>
+                        <property name="id">wxID_ANY</property>
+                        <property name="kind">wxITEM_NORMAL</property>
+                        <property name="label">Cargar</property>
+                        <property name="name">m_Cargar</property>
+                        <property name="permission">none</property>
+                        <property name="shortcut"></property>
+                        <property name="unchecked_bitmap"></property>
+                        <event name="OnMenuSelection">OnMenuCargar</event>
+                    </object>
+                    <object class="wxMenuItem" expanded="0">
+                        <property name="bitmap">Load From File; imagenes/renombrar.bmp</property>
+                        <property name="checked">0</property>
+                        <property name="enabled">1</property>
+                        <property name="help"></property>
+                        <property name="id">wxID_ANY</property>
+                        <property name="kind">wxITEM_NORMAL</property>
+                        <property name="label">Renombrar</property>
+                        <property name="name">m_EditarNom</property>
+                        <property name="permission">none</property>
+                        <property name="shortcut"></property>
+                        <property name="unchecked_bitmap"></property>
+                        <event name="OnMenuSelection">OnMenuEditar</event>
+                    </object>
+                    <object class="wxMenuItem" expanded="0">
+                        <property name="bitmap">Load From File; imagenes/Nueva.bmp</property>
+                        <property name="checked">0</property>
+                        <property name="enabled">1</property>
+                        <property name="help"></property>
+                        <property name="id">wxID_ANY</property>
+                        <property name="kind">wxITEM_NORMAL</property>
+                        <property name="label">Nueva</property>
+                        <property name="name">m_Nueva</property>
+                        <property name="permission">none</property>
+                        <property name="shortcut"></property>
+                        <property name="unchecked_bitmap"></property>
+                        <event name="OnMenuSelection">OnMenuNueva</event>
+                    </object>
+                    <object class="separator" expanded="1">
+                        <property name="name">m_separator1</property>
+                        <property name="permission">none</property>
+                    </object>
+                    <object class="wxMenuItem" expanded="0">
+                        <property name="bitmap">Load From File; imagenes/ayuda.bmp</property>
                         <property name="checked">0</property>
                         <property name="enabled">1</property>
                         <property name="help"></property>
@@ -876,7 +874,7 @@
                     </object>
                 </object>
             </object>
-            <object class="wxToolBar" expanded="0">
+            <object class="wxToolBar" expanded="1">
                 <property name="BottomDockable">1</property>
                 <property name="LeftDockable">1</property>
                 <property name="RightDockable">1</property>
@@ -932,11 +930,6 @@
                 <property name="window_extra_style"></property>
                 <property name="window_name"></property>
                 <property name="window_style"></property>
-                <object class="spacer" expanded="1">
-                    <property name="height">0</property>
-                    <property name="permission">protected</property>
-                    <property name="width">264</property>
-                </object>
                 <object class="tool" expanded="0">
                     <property name="bitmap">Load From File; imagenes/combate.bmp</property>
                     <property name="context_menu">0</property>
@@ -1990,7 +1983,7 @@
             <property name="size">589,705</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
-            <property name="title">TTRPGM: Creación de personaje</property>
+            <property name="title">Creación de personaje - Administrador de RPG de mesa</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
@@ -5676,7 +5669,7 @@
             <property name="size">575,575</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
-            <property name="title">TTRPGM: Creación de Item</property>
+            <property name="title">Creación de Item - Administrador de RPG de mesa</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
@@ -8299,7 +8292,7 @@
             <property name="size">503,384</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
-            <property name="title">TTRPGM: Dados virtuales</property>
+            <property name="title">Dados virtuales - Administrador de RPG de mesa</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
@@ -9471,7 +9464,7 @@
             <property name="size">557,286</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
-            <property name="title">TTRPGM: Simulación de combate</property>
+            <property name="title">Simulación de combate - Administrador de RPG de mesa</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
@@ -10540,7 +10533,7 @@
             <property name="size">415,420</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
-            <property name="title">TTRPGM: Lista de items</property>
+            <property name="title">Lista de items</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
@@ -10794,7 +10787,7 @@
             <property name="size">574,644</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
-            <property name="title">TTRPGM: Modificación de Item</property>
+            <property name="title">Modificación de Item - Administrador de RPG de mesa</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
@@ -13416,7 +13409,7 @@
             <property name="size">583,727</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
-            <property name="title">TTRPGM: Modificación de Personaje</property>
+            <property name="title">Modificación de Personaje - Administrador de RPG de mesa</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>

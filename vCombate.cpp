@@ -98,16 +98,14 @@ void vCombate::OnChoiceRecp( wxCommandEvent& event )  {
 }
 
 void vCombate::Seleccion(Personaje Ps, bool AtRc){
-	std::string Vida=std::to_string(Ps.ObtenerStat(0));
-	Vida.erase(Vida.end()-4,Vida.end());
-	std::string Danio=std::to_string(Ps.ObtenerStat(7));
-	Danio.erase(Danio.end()-4,Danio.end());
-	std::string Defen=std::to_string(Ps.ObtenerStat(1));
-	Defen.erase(Defen.end()-4,Defen.end());
+	std::string Fuerza=std::to_string(Ps.ObtenerStat(2)),Vida=std::to_string(Ps.ObtenerStat(0)),Danio=std::to_string(Ps.ObtenerStat(7)),Defen=std::to_string(Ps.ObtenerStat(1)),Inte=std::to_string(Ps.ObtenerStat(5)),ResM=std::to_string(Ps.ObtenerStat(4));
+	Fuerza.erase(Fuerza.end()-4,Fuerza.end()); Vida.erase(Vida.end()-4,Vida.end()); Danio.erase(Danio.end()-4,Danio.end()); Defen.erase(Defen.end()-4,Defen.end()); Inte.erase(Inte.end()-4,Inte.end()); ResM.erase(ResM.end()-4,ResM.end());
+	
+	
 	if(AtRc){
-		m_Atacante->SetToolTip(std_to_wx((Ps.ObtenerNombre())+" - PV: "+Vida+" - DÑ: "+Danio+" - DFN: "+Defen));
+		m_Atacante->SetToolTip(std_to_wx((Ps.ObtenerNombre()+"\nPV: "+Vida+" - FRZ: "+Fuerza+"\nDÑ: "+Danio+" - DFN: "+Defen+"\nINT: "+Inte+" - RM: "+ResM)));
 	}else{
-		m_Receptor->SetToolTip(std_to_wx((Ps.ObtenerNombre())+" - PV: "+Vida+" - DÑ: "+Danio+" - DFN: "+Defen));
+		m_Receptor->SetToolTip(std_to_wx((Ps.ObtenerNombre()+"\nPV: "+Vida+" - FRZ: "+Fuerza+"\nDÑ: "+Danio+" - DFN: "+Defen+"\nINT: "+Inte+" - RM: "+ResM)));
 	}
 }
 

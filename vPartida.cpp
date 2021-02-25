@@ -28,7 +28,7 @@ void vPartida::ActualizarNombre() {
 	Actualiza el nombre de la ventana pidiendo el actual de partida y
 	agregándole "TTRPGM: " al comienzo.
 	*/
-	std::string name = "TTRPGM: " + m_partida->ObtenerNombre();
+	std::string name = m_partida->ObtenerNombre()+" - Administrador de RPG de mesa";
 	this->SetTitle(std_to_wx(name));
 }
 
@@ -75,14 +75,22 @@ void vPartida::ActualizarListas(){
 
 void vPartida::OnMenuEditar( wxCommandEvent& event )  {
 	dNombrePartida NomPart(this,m_partida);
-	NomPart.SetIcon(_icon);
+	wxBitmap renombrar(wxT("imagenes/renombrar.bmp"), wxBITMAP_TYPE_ANY);
+	wxIcon icon;
+	icon.CopyFromBitmap(renombrar);
+	NomPart.SetIcon(icon);
+	NomPart.SetTitle(wxT("Renombrar partida"));
 	int valor = NomPart.ShowModal();
 	if (valor==1) this->ActualizarNombre();
 }
 
 void vPartida::OnMenuNueva( wxCommandEvent& event )  {
 	dNombrePartida NomPart(this,m_partida);
-	NomPart.SetIcon(_icon);
+	wxBitmap nueva(wxT("imagenes/Nueva.bmp"), wxBITMAP_TYPE_ANY);
+	wxIcon icon;
+	icon.CopyFromBitmap(nueva);
+	NomPart.SetIcon(icon);
+	NomPart.SetTitle(wxT("Nueva partida"));
 	int valor = NomPart.ShowModal();
 	if(valor==1){
 		Partida b(m_partida->ObtenerNombre());
@@ -94,7 +102,6 @@ void vPartida::OnMenuNueva( wxCommandEvent& event )  {
 
 void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
 	wxFileDialog guardarPartida(this,wxT("Guardar partida"),".\\datos",m_partida->ObtenerNombre()+".part","Archivos PART (*.part)|*.part",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
-	guardarPartida.SetIcon(_icon);
 	if(guardarPartida.ShowModal()==wxID_OK){
 		m_partida->Guardar(wx_to_std(guardarPartida.GetPath()));
 	}
@@ -102,7 +109,6 @@ void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
 
 void vPartida::OnMenuCargar( wxCommandEvent& event )  {
 	wxFileDialog cargarPartida(this,wxT("Elija un archivo de partida para cargar"),".\\datos","","Archivos PART (*.part)|*.part",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
-	cargarPartida.SetIcon(_icon);
 	if(cargarPartida.ShowModal()==wxID_OK){
 		Partida b("");
 		*m_partida=b;
@@ -123,14 +129,20 @@ void vPartida::OnClickCombate( wxCommandEvent& event )  {
 		wxMessageBox(wxT("Debe tener al menos un personaje creado."),wxT("Error"),wxICON_ERROR);
 	} else {
 		vCombate *Combate = new vCombate(this, m_partida);
-		Combate->SetIcon(_icon);
+		wxBitmap combat(wxT("imagenes/combate.bmp"), wxBITMAP_TYPE_ANY);
+		wxIcon icon;
+		icon.CopyFromBitmap(combat);
+		Combate->SetIcon(icon);
 	}
 	
 }
 
 void vPartida::OnClickDado( wxCommandEvent& event )  {
 	vDados *Dados = new vDados(this,m_partida);
-	Dados->SetIcon(_icon);
+	wxBitmap dado(wxT("imagenes/dado.bmp"), wxBITMAP_TYPE_ANY);
+	wxIcon icon;
+	icon.CopyFromBitmap(dado);
+	Dados->SetIcon(icon);
 }
 
 // BOTONES DE PERSONAJE 
@@ -142,7 +154,6 @@ void vPartida::OnClickCrearP( wxCommandEvent& event )  {
 
 void vPartida::OnClickImportarP( wxCommandEvent& event )  {
 	wxFileDialog importarPersonaje(this,wxT("Elija un archivo de personaje para importar"),".\\datos","","Archivos PER (*.per)|*.per",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
-	importarPersonaje.SetIcon(_icon);
 	if (importarPersonaje.ShowModal()==wxID_OK){
 		Personaje P;
 		P.Importar(wx_to_std(importarPersonaje.GetPath()));
@@ -202,7 +213,6 @@ void vPartida::OnClickCrearI( wxCommandEvent& event )  {
 
 void vPartida::OnClickImportarI( wxCommandEvent& event )  {
 	wxFileDialog importarItem(this,wxT("Elija un archivo de item para importar"),".\\datos","","Archivos ITE (*.ite)|*.ite",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
-	importarItem.SetIcon(_icon);
 	if (importarItem.ShowModal()==wxID_OK){
 		Item I;
 		I.Importar(wx_to_std(importarItem.GetPath()));

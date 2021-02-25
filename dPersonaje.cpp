@@ -177,3 +177,7 @@ dPersonaje::~dPersonaje() {
 }
 
 
+void dPersonaje::OnCheckListPersonaje( wxCommandEvent& event )  {
+	event.Skip();
+}
+

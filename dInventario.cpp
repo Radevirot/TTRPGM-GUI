@@ -8,6 +8,10 @@ dInventario::dInventario(wxWindow *parent, Personaje &p, Partida *pa) : Dialogo_
 		Item I=m_partida->ObtenerItem(i);
 		m_ListaItems->Append(std_to_wx(I.ObtenerNombre()));
 	}
+	wxBitmap prueba(wxT("imagenes/logo.bmp"), wxBITMAP_TYPE_ANY);
+	wxIcon icon;
+	icon.CopyFromBitmap(prueba);
+	this->SetIcon(icon);
 }
 
 void dInventario::OnClickAgregar( wxCommandEvent& event )  {

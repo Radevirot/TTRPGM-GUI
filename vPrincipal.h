@@ -8,6 +8,7 @@ class vPrincipal : public Ventana_principal {
 	
 private:
 	Partida *m_partida;
+	wxIcon _icon;
 protected:
 	void OnClickEmpezar( wxCommandEvent& event )  override;
 	void OnClickCargar( wxCommandEvent& event )  override;

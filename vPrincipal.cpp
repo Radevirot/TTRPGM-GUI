@@ -2,10 +2,16 @@
 
 vPrincipal::vPrincipal(Partida *p) : Ventana_principal(NULL) {
 	m_partida=p;
+	wxBitmap prueba(wxT("imagenes/logo.bmp"), wxBITMAP_TYPE_ANY);
+	wxIcon icon;
+	icon.CopyFromBitmap(prueba);
+	_icon=icon;
+	this->SetIcon(icon);
 }
 
 void vPrincipal::OnClickEmpezar( wxCommandEvent& event )  {
 	dNombrePartida NomPart(this,m_partida);
+	NomPart.SetIcon(_icon);
 	int valor = NomPart.ShowModal();
 	if(valor==1){
 		EndModal(1);
