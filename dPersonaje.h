@@ -10,6 +10,8 @@
 #include "dInventario.h"
 #include <wx/msgdlg.h>
 #include <wx/filedlg.h>
+#include "Item.h"
+#include "dItem.h"
 
 class dPersonaje : public Dialogo_Personaje {
 	

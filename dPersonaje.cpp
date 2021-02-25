@@ -186,7 +186,18 @@ dPersonaje::~dPersonaje() {
 
 
 void dPersonaje::OnCheckListPersonaje( wxCommandEvent& event )  {
-	event.Skip();
+	int pos = m_Inventario->GetSelection();
+	Item I=m_Personaje.MostrarItem(pos);
+	dItem ItemMod(this,m_partida,I,pos,false);
+	wxBitmap logo(wxT("imagenes/logo.bmp"), wxBITMAP_TYPE_ANY);
+	wxIcon icon;
+	icon.CopyFromBitmap(logo);
+	ItemMod.SetIcon(icon);
+	ItemMod.ShowModal();
+	m_Personaje.BorrarItem(pos);
+	m_Personaje.AgregarInv(I);
+	m_Personaje.OrdenarAlph();
+	Actualizacion();
 }
 
 void dPersonaje::OnSpinCtrlPersonaje( wxSpinDoubleEvent& event )  {
