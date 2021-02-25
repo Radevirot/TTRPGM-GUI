@@ -135,6 +135,23 @@ void vPartida::AbrirDados(){
 	Dados->SetIcon(icon);
 }
 
+void vPartida::AbrirModifdeInv(){
+	int pos = m_ListaPersonajes->GetSelection();
+	if(pos==wxNOT_FOUND){
+		wxMessageBox(wxT("No es posible agregar un item a un personaje\nsin haber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
+	} else {
+		Personaje P=m_partida->ObtenerPersonaje(pos);
+		dInventario InvPer(this,P,m_partida);
+		if (InvPer.ShowModal()==1){
+			m_partida->EliminarPersonaje(pos);
+			P.OrdenarAlph();
+			m_partida->AgregarPersonaje(P);
+			m_partida->OrdenarPAlph();
+		}
+	}
+
+}
+
 // BARRA DE MENU 
 
 void vPartida::OnMenuEditar( wxCommandEvent& event )  {
@@ -196,21 +213,14 @@ void vPartida::OnClickBorrarPersonaje( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
-	event.Skip();
+	this->AbrirModifdeInv();
 }
 
 // LISTA DE PERSONAJES
 
 void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
 	if(manteniendoControl){
-		int pos = m_ListaPersonajes->GetSelection();
-		Personaje P=m_partida->ObtenerPersonaje(pos);
-		dInventario InvPer(this,P,m_partida);
-		if (InvPer.ShowModal()==1){
-			m_partida->EliminarPersonaje(pos);
-			m_partida->AgregarPersonaje(P);
-			m_partida->OrdenarPAlph();
-		}
+		this->AbrirModifdeInv();
 	} else {
 		int pos = m_ListaPersonajes->GetSelection();
 		Personaje P=m_partida->ObtenerPersonaje(pos);

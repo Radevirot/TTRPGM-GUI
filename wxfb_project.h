@@ -107,7 +107,7 @@ class Ventana_partida : public wxFrame
 		wxButton* m_CrearP;
 		wxButton* m_ImportarP;
 		wxButton* m_BorrarP;
-		wxButton* m_button19;
+		wxButton* m_AgregarIPers;
 		wxStaticLine* m_staticline4;
 		wxStaticText* m_staticText6;
 		wxListBox* m_ListaItems;

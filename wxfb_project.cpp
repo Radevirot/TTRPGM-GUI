@@ -276,8 +276,8 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	m_BorrarP = new wxButton( this, wxID_ANY, wxT("Borrar personaje"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer58->Add( m_BorrarP, 0, wxALL|wxEXPAND, 5 );
 
-	m_button19 = new wxButton( this, wxID_ANY, wxT("Ver inventario"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer58->Add( m_button19, 0, wxALL|wxEXPAND, 5 );
+	m_AgregarIPers = new wxButton( this, wxID_ANY, wxT("Agregar item"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer58->Add( m_AgregarIPers, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer14->Add( bSizer58, 1, 0, 5 );
@@ -377,9 +377,9 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	m_BorrarP->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrarPersonaje ), NULL, this );
 	m_BorrarP->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
 	m_BorrarP->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
-	m_button19->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickVerInventario ), NULL, this );
-	m_button19->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
-	m_button19->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
+	m_AgregarIPers->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickVerInventario ), NULL, this );
+	m_AgregarIPers->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_AgregarIPers->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_staticline4->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
 	m_staticline4->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_staticText6->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
@@ -422,9 +422,9 @@ Ventana_partida::~Ventana_partida()
 	m_BorrarP->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickBorrarPersonaje ), NULL, this );
 	m_BorrarP->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
 	m_BorrarP->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
-	m_button19->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickVerInventario ), NULL, this );
-	m_button19->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
-	m_button19->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
+	m_AgregarIPers->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Ventana_partida::OnClickVerInventario ), NULL, this );
+	m_AgregarIPers->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
+	m_AgregarIPers->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_staticline4->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );
 	m_staticline4->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_partida::OnLevantarTecla ), NULL, this );
 	m_staticText6->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_partida::OnApretarTecla ), NULL, this );

@@ -28,6 +28,7 @@ private:
 	void RenombrarPartida();
 	void AbrirCombate();
 	void AbrirDados();
+	void AbrirModifdeInv();
 protected:
 	// Por encima de esta línea sólo hay métodos duplicados
 	
