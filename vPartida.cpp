@@ -202,11 +202,19 @@ void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
 // LISTA DE PERSONAJES
 
 void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
-	int pos = m_ListaPersonajes->GetSelection();
-	Personaje P=m_partida->ObtenerPersonaje(pos);
-	dPersonaje PersonajeMod(this,m_partida,P,pos);
-	PersonajeMod.SetIcon(_icon);
-	PersonajeMod.ShowModal();
+	if(manteniendoControl){
+		int pos = m_ListaPersonajes->GetSelection();
+		Personaje P=m_partida->ObtenerPersonaje(pos);
+		dInventario InvPer(this,P,m_partida);
+		InvPer.ShowModal();
+	} else {
+		int pos = m_ListaPersonajes->GetSelection();
+		Personaje P=m_partida->ObtenerPersonaje(pos);
+		dPersonaje PersonajeMod(this,m_partida,P,pos);
+		PersonajeMod.SetIcon(_icon);
+		PersonajeMod.ShowModal();
+	}
+	
 }
 
 
@@ -246,7 +254,7 @@ void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
 	
 	int pos = m_ListaItems->GetSelection();
 	Item I=m_partida->ObtenerItem(pos);
-	dItem ItemMod(this,m_partida,I,pos);
+	dItem ItemMod(this,m_partida,I,pos/*,true*/);
 	ItemMod.SetIcon(_icon);
 	ItemMod.ShowModal();
 }
