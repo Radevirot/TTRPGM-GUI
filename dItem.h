@@ -11,10 +11,10 @@ class dItem : public Dialogo_item {
 	
 private:
 	Partida *m_partida;
-	Item I;
+	Item I, *Ims;
 	int pos;
-	void ActualizarInformacion();
-	bool booleano;
+	void ActualizarInformacion(Item &Ite);
+	bool booleano=true;
 protected:
 	void OnClickAplicar( wxCommandEvent& event )  override;
 	void OnClickExportar( wxCommandEvent& event )  override;
