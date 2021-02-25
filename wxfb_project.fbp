@@ -6137,7 +6137,7 @@
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
                                         <property name="maximum_size"></property>
-                                        <property name="min">1</property>
+                                        <property name="min">0</property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
                                         <property name="minimum_size"></property>
@@ -10643,7 +10643,7 @@
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
-            <property name="window_style"></property>
+            <property name="window_style">wxTAB_TRAVERSAL</property>
             <object class="wxBoxSizer" expanded="0">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer139</property>
@@ -10891,13 +10891,13 @@
             <property name="name">Dialogo_item</property>
             <property name="pos"></property>
             <property name="size">574,644</property>
-            <property name="style">wxDEFAULT_DIALOG_STYLE</property>
+            <property name="style">wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER</property>
             <property name="subclass">; ; forward_declare</property>
             <property name="title">Modificación de Item - Administrador de RPG de mesa</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
-            <property name="window_style"></property>
+            <property name="window_style">wxTAB_TRAVERSAL</property>
             <object class="wxBoxSizer" expanded="0">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer7</property>
@@ -11052,7 +11052,7 @@
                                                 <property name="value"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style"></property>
+                                                <property name="window_style">wxTAB_TRAVERSAL</property>
                                             </object>
                                         </object>
                                     </object>
@@ -11334,7 +11334,7 @@
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
                                         <property name="maximum_size"></property>
-                                        <property name="min">1</property>
+                                        <property name="min">0</property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
                                         <property name="minimum_size"></property>
@@ -11356,7 +11356,7 @@
                                         <property name="value"></property>
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
-                                        <property name="window_style"></property>
+                                        <property name="window_style">wxTAB_TRAVERSAL</property>
                                     </object>
                                 </object>
                             </object>
@@ -11753,7 +11753,7 @@
                                                 <property name="value"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style"></property>
+                                                <property name="window_style">wxTAB_TRAVERSAL</property>
                                             </object>
                                         </object>
                                     </object>
@@ -13513,13 +13513,13 @@
             <property name="name">Dialogo_Personaje</property>
             <property name="pos"></property>
             <property name="size">583,727</property>
-            <property name="style">wxDEFAULT_DIALOG_STYLE</property>
+            <property name="style">wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER</property>
             <property name="subclass">; ; forward_declare</property>
             <property name="title">Modificación de Personaje - Administrador de RPG de mesa</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
-            <property name="window_style"></property>
+            <property name="window_style">wxTAB_TRAVERSAL</property>
             <object class="wxBoxSizer" expanded="0">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer7</property>

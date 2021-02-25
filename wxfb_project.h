@@ -388,7 +388,7 @@ class Dialogo_Inventario : public wxDialog
 
 	public:
 
-		Dialogo_Inventario( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Lista de items"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 415,420 ), long style = wxDEFAULT_DIALOG_STYLE );
+		Dialogo_Inventario( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Lista de items"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 415,420 ), long style = wxDEFAULT_DIALOG_STYLE|wxTAB_TRAVERSAL );
 		~Dialogo_Inventario();
 
 };
@@ -443,7 +443,7 @@ class Dialogo_item : public wxDialog
 
 	public:
 
-		Dialogo_item( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Modificación de Item - Administrador de RPG de mesa"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 574,644 ), long style = wxDEFAULT_DIALOG_STYLE );
+		Dialogo_item( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Modificación de Item - Administrador de RPG de mesa"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 574,644 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER|wxTAB_TRAVERSAL );
 		~Dialogo_item();
 
 };
@@ -519,7 +519,7 @@ class Dialogo_Personaje : public wxDialog
 
 	public:
 
-		Dialogo_Personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Modificación de Personaje - Administrador de RPG de mesa"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 583,727 ), long style = wxDEFAULT_DIALOG_STYLE );
+		Dialogo_Personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Modificación de Personaje - Administrador de RPG de mesa"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 583,727 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER|wxTAB_TRAVERSAL );
 		~Dialogo_Personaje();
 
 };

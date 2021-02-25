@@ -1064,7 +1064,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_Nivel->Wrap( -1 );
 	bSizer12->Add( m_Nivel, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_Cantidad = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 1, 1000, 1 );
+	m_Cantidad = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 0, 1000, 1 );
 	bSizer12->Add( m_Cantidad, 0, wxALL, 5 );
 
 
@@ -1970,7 +1970,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_Personajename->Wrap( -1 );
 	bSizer10->Add( m_Personajename, 0, wxALL, 5 );
 
-	m_NombreItem = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_NombreItem = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxTAB_TRAVERSAL );
 	#ifdef __WXGTK__
 	if ( !m_NombreItem->HasFlag( wxTE_MULTILINE ) )
 	{
@@ -2012,7 +2012,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_Nivel->Wrap( -1 );
 	bSizer12->Add( m_Nivel, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_Cantidad = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, 1, 1000, 1 );
+	m_Cantidad = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS|wxTAB_TRAVERSAL, 0, 1000, 1 );
 	bSizer12->Add( m_Cantidad, 0, wxALL, 5 );
 
 
@@ -2078,7 +2078,7 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer1471->Add( bSizer32, 0, wxEXPAND, 5 );
 
-	m_Rango = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS, -1e+06, 1e+06, 0.000000, 1 );
+	m_Rango = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), wxSP_ARROW_KEYS|wxTAB_TRAVERSAL, -1e+06, 1e+06, 0.000000, 1 );
 	m_Rango->SetDigits( 0 );
 	bSizer1471->Add( m_Rango, 0, wxALL, 5 );
 
