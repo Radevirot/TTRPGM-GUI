@@ -2705,6 +2705,13 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 	this->Centre( wxBOTH );
 
 	// Connect Events
+	m_PVb->Connect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Dialogo_Personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_DFNb->Connect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Dialogo_Personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_FRZb->Connect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Dialogo_Personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_AGLb->Connect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Dialogo_Personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_RMb->Connect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Dialogo_Personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_INTb->Connect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Dialogo_Personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_MNb->Connect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Dialogo_Personaje::OnSpinCtrlPersonaje ), NULL, this );
 	m_aplicarcambios->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Personaje::OnClickAplicar ), NULL, this );
 	m_button4->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Personaje::OnClickExportar ), NULL, this );
 	m_Inventario->Connect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Dialogo_Personaje::OnCheckListPersonaje ), NULL, this );
@@ -2716,6 +2723,13 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 Dialogo_Personaje::~Dialogo_Personaje()
 {
 	// Disconnect Events
+	m_PVb->Disconnect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Dialogo_Personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_DFNb->Disconnect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Dialogo_Personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_FRZb->Disconnect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Dialogo_Personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_AGLb->Disconnect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Dialogo_Personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_RMb->Disconnect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Dialogo_Personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_INTb->Disconnect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Dialogo_Personaje::OnSpinCtrlPersonaje ), NULL, this );
+	m_MNb->Disconnect( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, wxSpinDoubleEventHandler( Dialogo_Personaje::OnSpinCtrlPersonaje ), NULL, this );
 	m_aplicarcambios->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Personaje::OnClickAplicar ), NULL, this );
 	m_button4->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_Personaje::OnClickExportar ), NULL, this );
 	m_Inventario->Disconnect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( Dialogo_Personaje::OnCheckListPersonaje ), NULL, this );
