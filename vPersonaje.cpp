@@ -139,6 +139,14 @@ void vPersonaje::OnSpinCtrlPersonaje( wxSpinDoubleEvent& event )  {
 }
 
 void vPersonaje::OnCheckListPersonaje( wxCommandEvent& event )  {
-	event.Skip();
+	int pos = m_Inventario->GetSelection();
+	Item I=m_Personaje.MostrarItem(pos);
+	dItem ItemMod(this,m_partida,I,pos,false);
+	ItemMod.SetIcon(_icon);
+	ItemMod.ShowModal();
+	m_Personaje.BorrarItem(pos);
+	m_Personaje.AgregarInv(I);
+	m_Personaje.OrdenarAlph();
+	Actualizacion();
 }
 

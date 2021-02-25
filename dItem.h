@@ -14,12 +14,14 @@ private:
 	Item I;
 	int pos;
 	void ActualizarInformacion();
+	bool booleano;
 protected:
 	void OnClickAplicar( wxCommandEvent& event )  override;
 	void OnClickExportar( wxCommandEvent& event )  override;
 	
 public:
 	dItem(wxWindow *parent, Partida *p, Item Im, int posc);
+	dItem(wxWindow *parent, Partida *p, Item &Im, int posc, bool Uso);
 	~dItem();
 };
 
