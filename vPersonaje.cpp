@@ -138,10 +138,6 @@ void vPersonaje::OnSpinCtrlPersonaje( wxSpinDoubleEvent& event )  {
 	Actualizacion();
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6a2291d75aa411de725769b3213fdb45d9163a9d
 void vPersonaje::OnCheckListPersonaje( wxCommandEvent& event )  {
 	event.Skip();
 }

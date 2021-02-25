@@ -180,15 +180,7 @@ void dPersonaje::OnCheckListPersonaje( wxCommandEvent& event )  {
 	event.Skip();
 }
 
-<<<<<<< HEAD
-=======
 void dPersonaje::OnSpinCtrlPersonaje( wxSpinDoubleEvent& event )  {
 	Actualizacion();
-}
-
->>>>>>> 6a2291d75aa411de725769b3213fdb45d9163a9d
-
-void dPersonaje::OnSpinCtrlPersonaje( wxSpinDoubleEvent& event )  {
-	event.Skip();
 }
 
