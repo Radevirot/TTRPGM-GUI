@@ -9,6 +9,8 @@
 #include "dInventario.h"
 #include <wx/msgdlg.h>
 #include <wx/filedlg.h>
+#include "Item.h"
+#include "dItem.h"
 
 class vPersonaje : public Ventana_personaje {
 	

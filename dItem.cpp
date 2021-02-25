@@ -22,6 +22,28 @@ dItem::dItem(wxWindow *parent, Partida *p, Item Im, int posc) : Dialogo_item(par
 	Show();
 }
 
+dItem::dItem(wxWindow *parent, Partida *p, Item &Im, int posc, bool Uso) : Dialogo_item(parent) {
+	m_partida=p;
+	pos=posc;
+	booleano=Uso;
+	m_NombreItem->SetLabel(std_to_wx(Im.ObtenerNombre()));
+	m_Cantidad->SetValue(std_to_wx(std::to_string(Im.ObtenerCant())));
+	m_PuntosVida->SetValue(std_to_wx(std::to_string(Im.ObtenerStat(0)))); 
+	m_Defenza->SetValue(std_to_wx(std::to_string(Im.ObtenerStat(1)))); 
+	m_Fuerza->SetValue(std_to_wx(std::to_string(Im.ObtenerStat(2)))); 
+	m_Agilidad->SetValue(std_to_wx(std::to_string(Im.ObtenerStat(3)))); 
+	m_ResistenciaMagica->SetValue(std_to_wx(std::to_string(Im.ObtenerStat(4))));
+	m_Inteligencia->SetValue(std_to_wx(std::to_string(Im.ObtenerStat(5))));
+	m_Mana->SetValue(std_to_wx(std::to_string(Im.ObtenerStat(6))));
+	m_Danio->SetValue(std_to_wx(std::to_string(Im.ObtenerStat(7)))); 
+	m_Rango->SetValue(std_to_wx(std::to_string(Im.ObtenerStat(8)))); 
+	m_Punteria->SetValue(std_to_wx(std::to_string(Im.ObtenerStat(9)))); 
+	m_Bloqueo->SetValue(std_to_wx(std::to_string(Im.ObtenerStat(10)))); 
+	m_Detalle->SetLabel(std_to_wx(Im.ObtenerDetalle())); 
+	m_Descripcion->SetLabel(std_to_wx(Im.ObtenerDesc()));
+	Show();
+}
+
 void dItem::ActualizarInformacion(){
 	I.NombrarItem(wx_to_std(m_NombreItem->GetValue()));
 	I.ModificarCant(m_Cantidad->GetValue());
