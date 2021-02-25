@@ -1,9 +1,8 @@
 #include "dPersonaje.h"
 
 
-dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje &Per, int posc) : Dialogo_Personaje(parent) {
+dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje &P, int posc) : Dialogo_Personaje(parent) {
 	m_partida=p;
-	P=Per;
 	pos=posc;
 	
 	
@@ -20,6 +19,7 @@ dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje &Per, int posc) :
 			equipados.push_back(i);
 			m_Personaje.AgregarInv(I);
 			m_Personaje.RestarStatsDeItem(I);
+			P.RestarStatsDeItem(I);
 		}
 	}
 	for(int i=0;i<equipados.size();i++) { 
@@ -28,6 +28,14 @@ dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje &Per, int posc) :
 		m_Personaje.OrdenarAlph();
 	}
 
+	int Tam=m_Inventario->GetCheckedItems(W);
+	for(int i=0;i<Tam;i++) {
+		int pos = W.Item(i);
+		Item I=m_Personaje.MostrarItem(pos);
+		m_Personaje.RestarStatsDeItem(I);
+	}
+	W.empty();
+	
 	m_Nombre->SetLabel(std_to_wx(P.ObtenerNombre()));
 	m_Nivel->SetValue(std_to_wx(std::to_string(P.ObtenerNivel())));
 	m_EXP->SetValue(std_to_wx(std::to_string(P.ObtenerXP())));
@@ -41,12 +49,12 @@ dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje &Per, int posc) :
 	m_Detalle->SetLabel(std_to_wx(P.ObtenerDetalle()));
 	
 	Actualizacion();
-	
 
 	Show();
 }
 
 void dPersonaje::GuardarCambios(){
+	
 	m_Personaje.NombrarPersonaje(wx_to_std(m_Nombre->GetValue()));
 	m_Personaje.ModificarNivel(m_Nivel->GetValue());
 	m_Personaje.ModificarXP(m_EXP->GetValue());
@@ -168,6 +176,7 @@ void dPersonaje::Actualizacion(){
 		
 	}
 	W.empty();
+	
 }
 
 
