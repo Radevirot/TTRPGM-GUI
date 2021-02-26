@@ -14,9 +14,13 @@ private:
 	Partida *m_partida;
 	int Cant;
 protected:
-	void OnListDobleClick( wxCommandEvent& event )  override;
+	
+	//BOTONES DE LA LISTA
 	void OnClickAgregar( wxCommandEvent& event )  override;
 	void OnClickCancelar( wxCommandEvent& event )  override;
+	
+	//ATAJO DE MOUSE
+	void OnListDobleClick( wxCommandEvent& event )  override;
 	
 public:
 	dInventario(wxWindow *parent, Personaje &p, Partida *pa);

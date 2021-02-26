@@ -56,6 +56,10 @@ int Partida::ObtenerTamPersonajes(){
 }
 	
 void Partida::ModificarStatDePersonaje(int poslistaP, int posStats, float stat){
+	/*
+	Modifica la stat actuale, pide las posiciones del personaje en el vector, 
+	de la stat y su valor nuevo.
+	*/
 	Personaje X;
 	X=Partida::ObtenerPersonaje(poslistaP);
 	X.ModificarStat(posStats,stat);
@@ -98,6 +102,9 @@ void Partida::EliminarItem(int pos){
 }
 
 int Partida::ObtenerCantidadDeItems(){
+	/*
+	Retorna la cantidad de items.
+	*/
 	return Ilist.size();
 }
 
@@ -137,6 +144,9 @@ void Partida::EliminarDado(int pos){
 }
 
 int Partida::ObtenerCantidadDeDados(){
+	/*
+	Retorna la cantidad de dados.
+	*/
 	return Dlist.size();
 }
 
@@ -218,6 +228,11 @@ void Partida::Cargar(std::string nombrearchi){
 }
 
 float Partida::Combate(int posp1, int posp2,  int formula, float multiplicador, bool modificar){
+	/*
+	Pide las posiciones de dos personajes, la posicion de la formula, el multiplicador
+	y un booleano que detecta si modifica la vida actual.
+	Retorna el daño provocado al segundo personaje.
+	*/
 	Personaje p1 = Plist[posp1], p2 = Plist[posp2];
 	
 	float DanioProb;

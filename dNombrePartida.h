@@ -11,9 +11,13 @@ class dNombrePartida : public Dialogo_NombrePartida {
 private:
 	Partida *m_partida;
 protected:
-	void OnTextEnter( wxCommandEvent& event )  override;
+	
+	//BOTONES DE LA VENTANA
 	void OnClickAceptar( wxCommandEvent& event )  override;
 	void OnClickCancelar( wxCommandEvent& event )  override;
+	
+	//ATAJO DE TECLADO
+	void OnTextEnter( wxCommandEvent& event )  override;
 	
 public:
 	dNombrePartida(wxWindow *parent,Partida *p);

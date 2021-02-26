@@ -10,6 +10,8 @@ private:
 	Partida *m_partida;
 	wxIcon _icon;
 protected:
+	
+	//BOTONES DE PRINCIPAL
 	void OnClickEmpezar( wxCommandEvent& event )  override;
 	void OnClickCargar( wxCommandEvent& event )  override;
 	void OnClickSalir( wxCommandEvent& event )  override;

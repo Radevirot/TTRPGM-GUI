@@ -22,7 +22,9 @@ vCombate::~vCombate() {
 	
 }
 
+
 // BOTONES
+
 void vCombate::OnClickCerrar( wxCommandEvent& event )  {
 	Close(true);
 }
@@ -60,7 +62,9 @@ void vCombate::OnClickAtacar( wxCommandEvent& event )  {
 	}
 }
 
-// ACTUALIZAR
+
+// ACTUALIZAR VENTANA
+
 void vCombate::OnActivetaCombate( wxActivateEvent& event )  {
 	m_Atacante->Clear();
 	m_Receptor->Clear();
@@ -119,6 +123,9 @@ void vCombate::Seleccion(Personaje Prs){
 	m_Atacante->Append(std_to_wx((Prs.ObtenerNombre())+" - PV: "+Vida));
 	m_Receptor->Append(std_to_wx((Prs.ObtenerNombre())+" - PV: "+Vida));
 }
+
+
+//ATAJOS DE TECLADO Y MOUSE
 
 void vCombate::OnApretarTecla( wxKeyEvent& event )  {
 	

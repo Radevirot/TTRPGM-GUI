@@ -17,14 +17,21 @@ private:
 	void AgregarDado();
 	void ArrojarDado();
 protected:
-	void OnActivarDado( wxActivateEvent& event )  override;
-	void OnApretarTecla( wxKeyEvent& event )  override;
-	void OnLevantarTecla( wxKeyEvent& event )  override;
-	void OnApretarEnter( wxCommandEvent& event )  override;
+	
+	//BOTONES DE DADOS
 	void OnClickAgregar( wxCommandEvent& event )  override;
 	void OnClickArrojar( wxCommandEvent& event )  override;
 	void OnClickBorrar( wxCommandEvent& event )  override;
 	void OnClickCerrar( wxCommandEvent& event )  override;
+	
+	//ACTUALIZAR VENTANA
+	void OnActivarDado( wxActivateEvent& event )  override;
+	
+	//ATAJOS DE TECLADO
+	void OnApretarTecla( wxKeyEvent& event )  override;
+	void OnLevantarTecla( wxKeyEvent& event )  override;
+	void OnApretarEnter( wxCommandEvent& event )  override;
+
 	
 public:
 	vDados(wxWindow *parent, Partida *p);
