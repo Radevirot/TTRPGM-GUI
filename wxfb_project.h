@@ -271,6 +271,7 @@ class Ventana_item : public wxFrame
 		virtual void OnLevantarTecla( wxKeyEvent& event ) { event.Skip(); }
 		virtual void OnClickAplicar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickExportar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnRueditaDanio( wxMouseEvent& event ) { event.Skip(); }
 
 
 	public:

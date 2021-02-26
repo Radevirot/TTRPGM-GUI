@@ -1444,6 +1444,7 @@ Ventana_item::Ventana_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText875->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_item::OnLevantarTecla ), NULL, this );
 	m_Danio->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_item::OnApretarTecla ), NULL, this );
 	m_Danio->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_item::OnLevantarTecla ), NULL, this );
+	m_Danio->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Ventana_item::OnRueditaDanio ), NULL, this );
 	m_staticText871->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_item::OnApretarTecla ), NULL, this );
 	m_staticText871->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_item::OnLevantarTecla ), NULL, this );
 	m_Rango->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_item::OnApretarTecla ), NULL, this );
@@ -1520,6 +1521,7 @@ Ventana_item::~Ventana_item()
 	m_staticText875->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_item::OnLevantarTecla ), NULL, this );
 	m_Danio->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_item::OnApretarTecla ), NULL, this );
 	m_Danio->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_item::OnLevantarTecla ), NULL, this );
+	m_Danio->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Ventana_item::OnRueditaDanio ), NULL, this );
 	m_staticText871->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_item::OnApretarTecla ), NULL, this );
 	m_staticText871->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Ventana_item::OnLevantarTecla ), NULL, this );
 	m_Rango->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Ventana_item::OnApretarTecla ), NULL, this );
