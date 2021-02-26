@@ -2013,7 +2013,7 @@
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
-            <property name="window_style">wxTAB_TRAVERSAL</property>
+            <property name="window_style"></property>
             <property name="xrc_skip_sizer">1</property>
             <object class="wxBoxSizer" expanded="0">
                 <property name="minimum_size"></property>
@@ -2229,7 +2229,7 @@
                                         <property name="value"></property>
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
-                                        <property name="window_style">wxTAB_TRAVERSAL</property>
+                                        <property name="window_style"></property>
                                     </object>
                                 </object>
                             </object>
@@ -5699,8 +5699,11 @@
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
-            <property name="window_style">wxTAB_TRAVERSAL</property>
+            <property name="window_style"></property>
             <property name="xrc_skip_sizer">1</property>
+            <event name="OnActivate">OnActivarItem</event>
+            <event name="OnKeyDown">OnApretarTecla</event>
+            <event name="OnKeyUp">OnLevantarTecla</event>
             <object class="wxBoxSizer" expanded="1">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer7</property>
@@ -5792,6 +5795,8 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <property name="wrap">-1</property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                         <object class="sizeritem" expanded="0">
@@ -5855,7 +5860,9 @@
                                                 <property name="value"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -5938,8 +5945,10 @@
                                                 <property name="validator_variable"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <property name="window_style"></property>
                                                 <event name="OnButtonClick">OnClickAplicar</event>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                         <object class="sizeritem" expanded="0">
@@ -6011,8 +6020,10 @@
                                                 <property name="validator_variable"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <property name="window_style"></property>
                                                 <event name="OnButtonClick">OnClickExportar</event>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -6098,6 +6109,8 @@
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
                                         <property name="wrap">-1</property>
+                                        <event name="OnKeyDown">OnApretarTecla</event>
+                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                     </object>
                                 </object>
                                 <object class="sizeritem" expanded="0">
@@ -6159,7 +6172,9 @@
                                         <property name="value"></property>
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
-                                        <property name="window_style">wxTAB_TRAVERSAL</property>
+                                        <property name="window_style"></property>
+                                        <event name="OnKeyDown">OnApretarTecla</event>
+                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                     </object>
                                 </object>
                             </object>
@@ -6241,6 +6256,8 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <property name="wrap">-1</property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -6344,6 +6361,8 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
+                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -6382,7 +6401,7 @@
                                                 <property name="hidden">0</property>
                                                 <property name="id">wxID_ANY</property>
                                                 <property name="inc">1</property>
-                                                <property name="initial">1.000000</property>
+                                                <property name="initial">0.000000</property>
                                                 <property name="max">1e+06</property>
                                                 <property name="max_size"></property>
                                                 <property name="maximize_button">0</property>
@@ -6410,6 +6429,8 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -6491,6 +6512,8 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
+                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -6556,7 +6579,9 @@
                                                 <property name="value"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -6638,6 +6663,8 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
+                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -6703,7 +6730,9 @@
                                                 <property name="value"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -6785,6 +6814,8 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
+                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -6850,7 +6881,9 @@
                                                 <property name="value"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -6932,6 +6965,8 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
+                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -6997,7 +7032,9 @@
                                                 <property name="value"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -7011,11 +7048,11 @@
                                         <property name="name">bSizer144</property>
                                         <property name="orient">wxHORIZONTAL</property>
                                         <property name="permission">none</property>
-                                        <object class="sizeritem" expanded="0">
+                                        <object class="sizeritem" expanded="1">
                                             <property name="border">5</property>
                                             <property name="flag">wxEXPAND</property>
                                             <property name="proportion">0</property>
-                                            <object class="wxBoxSizer" expanded="0">
+                                            <object class="wxBoxSizer" expanded="1">
                                                 <property name="minimum_size"></property>
                                                 <property name="name">bSizer28</property>
                                                 <property name="orient">wxHORIZONTAL</property>
@@ -7079,6 +7116,8 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
+                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -7144,7 +7183,9 @@
                                                 <property name="value"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -7306,6 +7347,8 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
+                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -7371,7 +7414,9 @@
                                                 <property name="value"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -7453,6 +7498,8 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
+                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -7518,7 +7565,9 @@
                                                 <property name="value"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -7600,6 +7649,8 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
+                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -7665,7 +7716,9 @@
                                                 <property name="value"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -7747,6 +7800,8 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
+                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -7812,7 +7867,9 @@
                                                 <property name="value"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -7894,6 +7951,8 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style">wxTAB_TRAVERSAL</property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
+                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -7960,6 +8019,8 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -8054,6 +8115,8 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <property name="wrap">-1</property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -8128,7 +8191,9 @@
                                                 <property name="value"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -8212,6 +8277,8 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <property name="wrap">-1</property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -8286,7 +8353,9 @@
                                                 <property name="value"></property>
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
-                                                <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -8322,7 +8391,7 @@
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
-            <property name="window_style">wxTAB_TRAVERSAL</property>
+            <property name="window_style"></property>
             <property name="xrc_skip_sizer">1</property>
             <event name="OnActivate">OnActivarDado</event>
             <event name="OnKeyDown">OnApretarTecla</event>
@@ -9539,7 +9608,7 @@
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
-            <property name="window_style">wxTAB_TRAVERSAL</property>
+            <property name="window_style"></property>
             <property name="xrc_skip_sizer">1</property>
             <event name="OnActivate">OnActivetaCombate</event>
             <event name="OnKeyDown">OnApretarTecla</event>

@@ -216,7 +216,7 @@ class Ventana_personaje : public wxFrame
 
 	public:
 
-		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Creación de personaje - Administrador de RPG de mesa"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 589,705 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_personaje( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Creación de personaje - Administrador de RPG de mesa"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 589,705 ), long style = wxDEFAULT_FRAME_STYLE );
 
 		~Ventana_personaje();
 
@@ -266,13 +266,16 @@ class Ventana_item : public wxFrame
 		wxTextCtrl* m_Descripcion;
 
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnActivarItem( wxActivateEvent& event ) { event.Skip(); }
+		virtual void OnApretarTecla( wxKeyEvent& event ) { event.Skip(); }
+		virtual void OnLevantarTecla( wxKeyEvent& event ) { event.Skip(); }
 		virtual void OnClickAplicar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickExportar( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
 
-		Ventana_item( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Creación de Item - Administrador de RPG de mesa"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 575,575 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_item( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Creación de Item - Administrador de RPG de mesa"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 575,575 ), long style = wxDEFAULT_FRAME_STYLE );
 
 		~Ventana_item();
 
@@ -316,7 +319,7 @@ class Ventana_dados : public wxFrame
 
 	public:
 
-		Ventana_dados( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Dados virtuales - Administrador de RPG de mesa"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 503,384 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_dados( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Dados virtuales - Administrador de RPG de mesa"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 503,384 ), long style = wxDEFAULT_FRAME_STYLE );
 
 		~Ventana_dados();
 
@@ -362,7 +365,7 @@ class Ventana_combate : public wxFrame
 
 	public:
 
-		Ventana_combate( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Simulación de combate - Administrador de RPG de mesa"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 557,286 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		Ventana_combate( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Simulación de combate - Administrador de RPG de mesa"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 557,286 ), long style = wxDEFAULT_FRAME_STYLE );
 
 		~Ventana_combate();
 

@@ -46,3 +46,17 @@ void vItem::OnClickExportar( wxCommandEvent& event )  {
 	}
 }
 
+void vItem::OnActivarItem( wxActivateEvent& event )  {
+	manteniendoControl=false;
+}
+
+void vItem::OnApretarTecla( wxKeyEvent& event )  {
+	switch (event.GetKeyCode()){
+	case WXK_CONTROL: manteniendoControl=true; break;
+	}
+}
+
+void vItem::OnLevantarTecla( wxKeyEvent& event )  {
+	if(event.GetKeyCode()==WXK_CONTROL) manteniendoControl=false; else event.Skip();
+}
+

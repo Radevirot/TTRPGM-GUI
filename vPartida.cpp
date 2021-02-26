@@ -171,7 +171,7 @@ void vPartida::OnMenuCargar( wxCommandEvent& event )  {
 }
 
 void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
-	wxLaunchDefaultApplication(wxT(".\\puto.pdf"));
+	wxLaunchDefaultApplication(wxT(".\\ayuda.pdf"));
 }
 
 // TOOLBAR 

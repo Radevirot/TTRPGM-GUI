@@ -181,9 +181,11 @@ void vCombate::OnScrollRecp( wxMouseEvent& event )  {
 
 void vCombate::OnClickVentana( wxMouseEvent& event )  {
 	if(manteniendoAlt){
+		Personaje PAt=m_partida->ObtenerPersonaje(m_Atacante->GetSelection()),PRe=m_partida->ObtenerPersonaje(m_Receptor->GetSelection());
 		int aux=m_Atacante->GetSelection();
 		m_Atacante->SetSelection(m_Receptor->GetSelection());
 		m_Receptor->SetSelection(aux);
+		Seleccion(PAt,false); Seleccion(PRe,true);
 	}
 }
 

@@ -90,9 +90,9 @@ void vDados::OnApretarTecla( wxKeyEvent& event )  {
 				m_Seleccionado->Delete(pos);
 				if(m_Seleccionado->GetSelection()!=wxNOT_FOUND) m_Seleccionado->SetSelection(pos); else m_Seleccionado->SetSelection(pos-1);
 			}
-		} break;
+		} else event.Skip(); break;
 	case WXK_ESCAPE: Close(true); break;
-	case 84: if(manteniendoControl) this->ArrojarDado(); break;
+	case 84: if(manteniendoControl) this->ArrojarDado(); else event.Skip(); break;
 	default: event.Skip(); break;
 	}
 
