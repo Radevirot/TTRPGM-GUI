@@ -38,7 +38,8 @@ void vDados::ArrojarDado(){
 	}
 }
 
-// BOTONES
+
+// BOTONES DE DADOS
 
 void vDados::OnClickAgregar( wxCommandEvent& event )  {
 	this->AgregarDado();
@@ -64,7 +65,8 @@ void vDados::OnClickCerrar( wxCommandEvent& event )  {
 	Close(true);
 }
 
-// TECLAS
+
+// ATAJOS DE TECLADO
 
 void vDados::OnApretarEnter( wxCommandEvent& event )  {
 	this->AgregarDado();
@@ -103,6 +105,9 @@ void vDados::OnLevantarTecla( wxKeyEvent& event )  {
 	case WXK_CONTROL: manteniendoControl=false; break;
 	}
 }
+
+
+// ACTUALIZAR VENTANA
 
 void vDados::OnActivarDado( wxActivateEvent& event )  {
 	manteniendoControl=false;

@@ -46,6 +46,9 @@ void Personaje::ModificarStat(int pos,float stat){
 }
 
 void Personaje::ResetStat(){
+	/*
+	Modifica las stats actuales, las deja a 0.
+	*/
 	PStats[0] = 0;
 	PStats[1] = 0;
 	PStats[2] = 0;

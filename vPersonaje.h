@@ -22,13 +22,21 @@ private:
 	void Actualizacion();
 	void GuardarCambios();
 protected:
-	void OnCheckListPersonaje( wxCommandEvent& event )  override;
-	void OnSpinCtrlPersonaje( wxSpinDoubleEvent& event )  override;
+	
+	//BOTONES DE CREACION DE PERSONAJE 
 	void OnClickBorrar( wxCommandEvent& event )  override;
-	void OnCheckListInventario( wxCommandEvent& event )  override;
 	void OnClickAplicar( wxCommandEvent& event )  override;
 	void OnClickExportar( wxCommandEvent& event )  override;
 	void OnClickAgregar( wxCommandEvent& event )  override;
+	
+	//TILDADO DE ITEM EN INVENTARIO
+	void OnCheckListInventario( wxCommandEvent& event )  override;
+	
+	//ATAJO DE MOUSE
+	void OnCheckListPersonaje( wxCommandEvent& event )  override;
+	
+	//ACTUALIZAR VENTANA
+	void OnSpinCtrlPersonaje( wxSpinDoubleEvent& event )  override;
 	
 public:
 	vPersonaje(wxWindow *parent, Partida *p);

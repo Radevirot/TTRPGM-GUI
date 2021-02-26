@@ -12,6 +12,19 @@ private:
 	int PosUAt=0, PosURc=1;
 	bool manteniendoControl=false, manteniendoAlt=false;
 protected:
+	
+	//BOTONES DE COMBATE
+	void OnClickAtacar( wxCommandEvent& event )  override;
+	void OnClickCerrar( wxCommandEvent& event )  override;
+	
+	//ACTUALIZAR VENTANA
+	void OnActivetaCombate( wxActivateEvent& event )  override;
+	void OnChoiceAtq( wxCommandEvent& event )  override;
+	void OnChoiceRecp( wxCommandEvent& event )  override;
+	void Seleccion(Personaje Prs);
+	void Seleccion(Personaje Ps, bool AtRc);
+	
+	//ATAJOS DE TECLADO Y MOUSE
 	void OnClickVentana( wxMouseEvent& event )  override;
 	void OnScrollMult( wxMouseEvent& event )  override;
 	void OnScrollAtq( wxMouseEvent& event )  override;
@@ -19,13 +32,7 @@ protected:
 	void OnScrollFormula( wxMouseEvent& event )  override;
 	void OnApretarTecla( wxKeyEvent& event )  override;
 	void OnLevantarTecla( wxKeyEvent& event )  override;
-	void Seleccion(Personaje Prs);
-	void Seleccion(Personaje Ps, bool AtRc);
-	void OnChoiceAtq( wxCommandEvent& event )  override;
-	void OnChoiceRecp( wxCommandEvent& event )  override;
-	void OnActivetaCombate( wxActivateEvent& event )  override;
-	void OnClickAtacar( wxCommandEvent& event )  override;
-	void OnClickCerrar( wxCommandEvent& event )  override;
+
 	
 public:
 	vCombate(wxWindow *parent, Partida *p);
