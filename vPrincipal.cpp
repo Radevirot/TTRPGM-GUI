@@ -9,6 +9,9 @@ vPrincipal::vPrincipal(Partida *p) : Ventana_principal(NULL) {
 	this->SetIcon(icon);
 }
 
+
+//BOTONES DE PRINCIPAL
+
 void vPrincipal::OnClickEmpezar( wxCommandEvent& event )  {
 	dNombrePartida NomPart(this,m_partida);
 	NomPart.SetIcon(_icon);

@@ -8,6 +8,9 @@ dNombrePartida::~dNombrePartida() {
 	
 }
 
+
+//BOTONES DE LA VENTANA
+
 void dNombrePartida::OnClickAceptar( wxCommandEvent& event )  {
 	m_partida->ModificarNombre(wx_to_std(m_textCtrlNombrePart->GetValue()));
 	EndModal(1);
@@ -16,6 +19,9 @@ void dNombrePartida::OnClickAceptar( wxCommandEvent& event )  {
 void dNombrePartida::OnClickCancelar( wxCommandEvent& event )  {
 	EndModal(0);
 }
+
+
+//ATAJO DE TECLADO
 
 void dNombrePartida::OnTextEnter( wxCommandEvent& event )  {
 	m_partida->ModificarNombre(wx_to_std(m_textCtrlNombrePart->GetValue()));

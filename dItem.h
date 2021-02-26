@@ -16,6 +16,8 @@ private:
 	void ActualizarInformacion(Item &Ite);
 	bool booleano=true;
 protected:
+	
+	//BOTONES DE EDICION DE ITEM
 	void OnClickAplicar( wxCommandEvent& event )  override;
 	void OnClickExportar( wxCommandEvent& event )  override;
 	

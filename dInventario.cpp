@@ -14,6 +14,9 @@ dInventario::dInventario(wxWindow *parent, Personaje &p, Partida *pa) : Dialogo_
 	this->SetIcon(icon);
 }
 
+
+//BOTONES DE LA LISTA
+
 void dInventario::OnClickAgregar( wxCommandEvent& event )  {
 	int pos=m_ListaItems->GetSelection();
 	if(pos==wxNOT_FOUND){
@@ -40,6 +43,9 @@ void dInventario::OnClickAgregar( wxCommandEvent& event )  {
 void dInventario::OnClickCancelar( wxCommandEvent& event )  {
 	EndModal(0);
 }
+
+
+//ATAJO DE MOUSE
 
 void dInventario::OnListDobleClick( wxCommandEvent& event )  {
 	int pos=m_ListaItems->GetSelection();

@@ -64,6 +64,9 @@ void dItem::ActualizarInformacion(Item &Ite){
 	Ite.ModificarDesc(wx_to_std(m_Descripcion->GetValue()));
 }
 
+
+//BOTONES DE EDICION DE ITEM
+
 void dItem::OnClickAplicar( wxCommandEvent& event )  {
 
 	if(booleano){

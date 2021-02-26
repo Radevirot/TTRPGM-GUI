@@ -4,6 +4,9 @@
 IMPLEMENT_APP(Application)
 
 bool Application::OnInit() {
+	/*
+	Crea un puntero de partida y muestra la ventana principal. 
+	*/
 	m_partida = new Partida("");
 	wxInitAllImageHandlers();
 	

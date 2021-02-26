@@ -21,6 +21,7 @@ vPartida::~vPartida() {
 	
 }
 
+
 // MÉTODOS PRIVADOS AUXILIARES PARA EVITAR REPETIR CÓDIGO
 
 void vPartida::ActualizarNombre() {
@@ -152,6 +153,7 @@ void vPartida::AbrirModifdeInv(){
 
 }
 
+
 // BARRA DE MENU 
 
 void vPartida::OnMenuEditar( wxCommandEvent& event )  {
@@ -174,6 +176,7 @@ void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
 	wxLaunchDefaultApplication(wxT(".\\ayuda.pdf"));
 }
 
+
 // TOOLBAR 
 
 void vPartida::OnClickCombate( wxCommandEvent& event )  {
@@ -183,6 +186,7 @@ void vPartida::OnClickCombate( wxCommandEvent& event )  {
 void vPartida::OnClickDado( wxCommandEvent& event )  {
 	this->AbrirDados();
 }
+
 
 // BOTONES DE PERSONAJE 
 
@@ -215,6 +219,7 @@ void vPartida::OnClickBorrarPersonaje( wxCommandEvent& event )  {
 void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
 	this->AbrirModifdeInv();
 }
+
 
 // LISTA DE PERSONAJES
 
@@ -261,6 +266,7 @@ void vPartida::OnClickBorrar( wxCommandEvent& event )  {
 	}
 	
 }
+
 
 // LISTA DE ITEMS 
 
