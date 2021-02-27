@@ -19,6 +19,8 @@ private:
 	Personaje m_Personaje;
 	int it=0;
 	wxArrayInt W;
+	std::vector <wxStaticText*> textos{m_PVt,m_DFNt,m_FRZt,m_AGLt,m_RMt,m_INTt,m_MNt,m_DN,m_RNG,m_PNT,m_BLQ};
+	std::vector <wxSpinCtrlDouble*> spins{m_PVb,m_DFNb,m_FRZb,m_AGLb,m_RMb,m_INTb,m_MNb};
 	void Actualizacion();
 	void GuardarCambios();
 protected:
