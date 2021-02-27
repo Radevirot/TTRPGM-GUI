@@ -68,6 +68,12 @@ dPersonaje::~dPersonaje() {
 //FUNCIONES PRIVADAS
 
 void dPersonaje::Actualizacion(){
+	/*
+	Actualiza los valores totales del personaje por cada item que se encuentre
+	tildado en su inventario. 
+	Primero los deja en 0 tanto visual como en sus stats, luego vuelve 
+	a sumarlas mientras comprueba los tildados.
+	*/
 	m_Personaje.ResetStat();
 	m_PVt->SetLabel(std_to_wx(std::to_string(0)));
 	m_DFNt->SetLabel(std_to_wx(std::to_string(0)));
@@ -125,7 +131,10 @@ void dPersonaje::Actualizacion(){
 }
 
 void dPersonaje::GuardarCambios(){
-	
+	/*
+	Guarda las stats sumadas de los items en la stat base, toggea los items
+	tildados.
+	*/
 	m_Personaje.NombrarPersonaje(wx_to_std(m_Nombre->GetValue()));
 	m_Personaje.ModificarNivel(m_Nivel->GetValue());
 	m_Personaje.ModificarXP(m_EXP->GetValue());
@@ -153,7 +162,9 @@ void dPersonaje::GuardarCambios(){
 //BOTONES DE EDICION DE PERSONAJE 
 
 void dPersonaje::OnClickAplicar( wxCommandEvent& event )  {
-
+	/*
+	Guarda al personaje dentro del vector de partida.
+	*/
 	this->GuardarCambios();
 	m_partida->EliminarPersonaje(pos);
 	m_partida->AgregarPersonaje(m_Personaje);
@@ -161,6 +172,10 @@ void dPersonaje::OnClickAplicar( wxCommandEvent& event )  {
 }
 
 void dPersonaje::OnClickAgregar( wxCommandEvent& event )  {
+	/*
+	Abre la ventana dInventario para sacar un item, si se retorna uno, se guarda
+	el mismo dentro del vector inventario del personaje.
+	*/
 	dInventario Inv(this, m_Personaje, m_partida);
 	int val=Inv.ShowModal();
 	if(val==1){
@@ -172,6 +187,9 @@ void dPersonaje::OnClickAgregar( wxCommandEvent& event )  {
 }
 
 void dPersonaje::OnClickBorrar( wxCommandEvent& event )  {
+	/*
+	Borra un item del inventario y ordena la misma.
+	*/
 	if(m_Inventario->GetSelection()==wxNOT_FOUND){
 		wxMessageBox(wxT("No es posible borrar un item sin\nhaber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
 	} else {
@@ -185,6 +203,9 @@ void dPersonaje::OnClickBorrar( wxCommandEvent& event )  {
 }
 
 void dPersonaje::OnClickExportar( wxCommandEvent& event )  {
+	/*
+	Exporta al personaje con las stats e items actuales.
+	*/
 	wxFileDialog exportarPersonaje(this,wxT("Exportar personaje"),".\\datos",m_Nombre->GetValue()+".per","Archivos PER (*.per)|*.per",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
 	if(exportarPersonaje.ShowModal()==wxID_OK){
 		this->GuardarCambios();
@@ -196,6 +217,9 @@ void dPersonaje::OnClickExportar( wxCommandEvent& event )  {
 //TILDADO DE ITEM EN INVENTARIO
 
 void dPersonaje::OnCheckListInventario( wxCommandEvent& event )  {
+	/*
+	Actualiza los datos si un item es equipado.
+	*/
 	Actualizacion();
 }
 
@@ -203,6 +227,11 @@ void dPersonaje::OnCheckListInventario( wxCommandEvent& event )  {
 //ATAJO DE MOUSE
 
 void dPersonaje::OnCheckListPersonaje( wxCommandEvent& event )  {
+	/*
+	Abre la ventana dItem al hacer doble-click en un item para poder editarlo.
+	Si retorna un item, este se agrega a la lista, se borra la version vieja y 
+	se ordena el inventario.
+	*/
 	int pos = m_Inventario->GetSelection();
 	Item I=m_Personaje.MostrarItem(pos);
 	dItem ItemMod(this,m_partida,I,pos,false);
@@ -210,7 +239,10 @@ void dPersonaje::OnCheckListPersonaje( wxCommandEvent& event )  {
 	wxIcon icon;
 	icon.CopyFromBitmap(logo);
 	ItemMod.SetIcon(icon);
-	ItemMod.ShowModal();
+	if(ItemMod.ShowModal()==1){
+		m_Inventario->Delete(pos);
+		m_Inventario->Append(std_to_wx(I.ObtenerNombre()));
+	}
 	m_Personaje.BorrarItem(pos);
 	m_Personaje.AgregarInv(I);
 	m_Personaje.OrdenarAlph();
@@ -221,6 +253,9 @@ void dPersonaje::OnCheckListPersonaje( wxCommandEvent& event )  {
 //ACTUALIZAR VENTANA
 
 void dPersonaje::OnSpinCtrlPersonaje( wxSpinDoubleEvent& event )  {
+	/*
+	Actualiza los valores totales luego de modificar una stat base.
+	*/
 	Actualizacion();
 }
 
