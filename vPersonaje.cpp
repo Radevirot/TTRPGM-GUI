@@ -1,6 +1,11 @@
 #include "vPersonaje.h"
 
 vPersonaje::vPersonaje(wxWindow *parent, Partida *p) : Ventana_personaje(parent) {
+	/*
+	Constructor de la ventana Personaje, se le ingresan como parámetros un puntero
+	a la ventana padre y otro a la partida actual.
+	Guarda el puntero de la partida actual en el privado y muestra la ventana.
+	*/
 	m_partida=p;
 	Show();
 

@@ -1,6 +1,11 @@
 #include "vPrincipal.h"
 
 vPrincipal::vPrincipal(Partida *p) : Ventana_principal(NULL) {
+	/*
+	Constructor de la ventana Principal, se le ingresa como parámetro un puntero
+	de una partida nueva.
+	Guarda el puntero de la partida en el privado y monta el icono del programa.
+	*/
 	m_partida=p;
 	wxBitmap prueba(wxT("imagenes/logo.bmp"), wxBITMAP_TYPE_ANY);
 	wxIcon icon;

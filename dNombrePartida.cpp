@@ -1,6 +1,11 @@
 #include "dNombrePartida.h"
 
 dNombrePartida::dNombrePartida(wxWindow *parent, Partida *p) : Dialogo_NombrePartida(parent) {
+	/*
+	Constructor de la ventana dNombrePartida, se le ingresan como parámetros un puntero
+	a la ventana padre y otro a la partida actual.
+	Guarda el puntero de la partida en el privado.
+	*/
 	m_partida=p;
 }
 

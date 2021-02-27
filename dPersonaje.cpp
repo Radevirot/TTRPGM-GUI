@@ -2,6 +2,13 @@
 
 
 dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje &P, int posc) : Dialogo_Personaje(parent) {
+	/*
+	Constructor de la ventana dPersonaje, se le ingresan como parámetros un puntero
+	a la ventana padre, otro a la partida actual, un personaje por referencia y 
+	un entero que indica la posicion en la lista de partida.
+	Carga y muestra los datos del personaje. Modifica los toggle de los items
+	y tilda los casilleros corespondientes.
+	*/
 	m_partida=p;
 	pos=posc;
 	

@@ -39,6 +39,9 @@ vDados::~vDados() {
 // BOTONES DE DADOS
 
 void vDados::OnClickAgregar( wxCommandEvent& event )  {
+	/*
+	Agrega un dado a la lista de los mismos.
+	*/
 	D.Modificar(wx_to_std(m_Nombre->GetValue()),m_ValMin->GetValue(),m_ValMax->GetValue());
 	m_partida->AgregarDado(D);
 	m_Seleccionado->Append(std_to_wx(D.ObtenerNombre()+" - Min: "+ std::to_string(D.ObtenerMin())+" - Max: "+ std::to_string(D.ObtenerMax())));
@@ -46,6 +49,10 @@ void vDados::OnClickAgregar( wxCommandEvent& event )  {
 } 
 
 void vDados::OnClickArrojar( wxCommandEvent& event )  {
+	/*
+	"Arroja el dado", dando un numero alzar dependiendo el dado seleccionado
+	en la lista.
+	*/
 	if(m_Seleccionado->GetSelection()==wxNOT_FOUND){
 		wxMessageBox(wxT("No es posible arrojar un dado sin\nhaber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
 	} else {
@@ -56,6 +63,9 @@ void vDados::OnClickArrojar( wxCommandEvent& event )  {
 }
 
 void vDados::OnClickBorrar( wxCommandEvent& event )  {
+	/*
+	Borra el dado seleccionado y deja la seleccion en ese lugar.
+	*/
 	if(m_Seleccionado->GetSelection()==wxNOT_FOUND){
 		wxMessageBox(wxT("No es posible borrar un dado sin\nhaber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
 	} else {
@@ -68,6 +78,9 @@ void vDados::OnClickBorrar( wxCommandEvent& event )  {
 }
 
 void vDados::OnClickCerrar( wxCommandEvent& event )  {
+	/*
+	Cierra la ventana dados.
+	*/
 	Close(true);
 }
 
@@ -75,6 +88,9 @@ void vDados::OnClickCerrar( wxCommandEvent& event )  {
 // ATAJOS DE TECLADO
 
 void vDados::OnApretarTab( wxCommandEvent& event ){
+	/*
+	Con la tecla "TAB" cambia la seleccion entre nombre, valor maximo y minimo.
+	*/
 	if(m_Nombre->HasFocus()){
 		m_ValMin->SetFocus(); m_ValMin->SetSelection(-1,-1);
 	} else if(m_ValMin->HasFocus()){
@@ -85,6 +101,9 @@ void vDados::OnApretarTab( wxCommandEvent& event ){
 }
 
 void vDados::OnApretarSupr( wxCommandEvent& event ){
+	/*
+	Con la tecla "Supr" borra el dado seleccionado.
+	*/
 	if(m_Seleccionado->HasFocus()){
 		int pos = m_Seleccionado->GetSelection();
 		if(pos!=wxNOT_FOUND){
@@ -97,6 +116,9 @@ void vDados::OnApretarSupr( wxCommandEvent& event ){
 
 
 void vDados::OnApretarTecla( wxKeyEvent& event )  {
+	/*
+	Detecta si toca control para focusear la lista.
+	*/
 	if(event.GetKeyCode()==WXK_CONTROL) m_Seleccionado->SetFocus(); else event.Skip();
 }
 
