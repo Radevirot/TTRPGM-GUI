@@ -1,6 +1,11 @@
 #include "dInventario.h"
 
 dInventario::dInventario(wxWindow *parent, Personaje &p, Partida *pa) : Dialogo_Inventario(parent) {
+	/*
+	Constructor de la ventana dInventario, se le ingresan como parámetros un puntero
+	a la ventana padre, otro a la partida actual y un personaje por referencia.
+	Carga y muestra los items de la partida.
+	*/
 	m_Personaje=&p;
 	m_partida=pa;
 	Cant=m_partida->ObtenerCantidadDeItems();

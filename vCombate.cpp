@@ -25,12 +25,19 @@ vCombate::~vCombate() {
 // MÉTODOS PRIVADOS
 
 void vCombate::Seleccion(Personaje Prs){
+	/*
+	Se pide un personaje y se lo agrega a la lista de atacantes y receptores.
+	*/
 	wxString Vida; Vida.Printf("%.2f",Prs.ObtenerStat(0));
 	m_Atacante->Append(std_to_wx(Prs.ObtenerNombre())+" - PV: "+Vida);
 	m_Receptor->Append(std_to_wx(Prs.ObtenerNombre())+" - PV: "+Vida);
 }
 
 void vCombate::Seleccion(Personaje Ps, bool AtRc){
+	/*
+	Se pide un personaje y un booleano. Agrega una tooltip a los 
+	atacantes y receptores.
+	*/
 	wxString Fuerza, Vida, Danio, Defen, Inte, ResM; 
 	Fuerza.Printf("%.2f",Ps.ObtenerStat(2)); Vida.Printf("%.2f",Ps.ObtenerStat(0));
 	Danio.Printf("%.2f",Ps.ObtenerStat(7)); Defen.Printf("%.2f",Ps.ObtenerStat(1));
@@ -48,10 +55,20 @@ void vCombate::Seleccion(Personaje Ps, bool AtRc){
 // BOTONES DE LA VENTANA
 
 void vCombate::OnClickCerrar( wxCommandEvent& event )  {
+	/*
+	Cierra la ventana combate.
+	*/
 	Close(true);
 }
 
 void vCombate::OnClickAtacar( wxCommandEvent& event )  {
+	/*
+	Toma las posciones de atacante y receptor, creando dos personajes el cual el
+	receptor se le modificara solo la vida si el casillero "Modificar PV del receptor"
+	esta tildado. 
+	Luego de provocar el daño se limpian las listas y se agregan de nuevo todos 
+	los personajes, actualizando o no la vida del receptor y su tooltip.
+	*/
 	int posatc=m_Atacante->GetSelection();
 	int posrecp=m_Receptor->GetSelection();
 	wxString DanioSt;
@@ -87,6 +104,9 @@ void vCombate::OnClickAtacar( wxCommandEvent& event )  {
 // ACTUALIZAR VENTANA
 
 void vCombate::OnActivetaCombate( wxActivateEvent& event )  {
+	/*
+	Actualiza las listas luego de que se hace focus a la ventana.
+	*/
 	m_Atacante->Clear();
 	m_Receptor->Clear();
 	int Tam=m_partida->ObtenerTamPersonajes();
@@ -110,6 +130,9 @@ void vCombate::OnActivetaCombate( wxActivateEvent& event )  {
 }
 
 void vCombate::OnChoiceAtq( wxCommandEvent& event )  {
+	/*
+	Actualiza los tooltips de atacante.
+	*/
 	int posatc=m_Atacante->GetSelection();
 	PosUAt=posatc;
 	int Atq=m_Atacante->GetSelection();
@@ -119,6 +142,9 @@ void vCombate::OnChoiceAtq( wxCommandEvent& event )  {
 }
 
 void vCombate::OnChoiceRecp( wxCommandEvent& event )  {
+	/*
+	Actualiza los tooltips de receptor.
+	*/
 	int posrecp=m_Receptor->GetSelection();
 	PosURc=posrecp;
 	int Rcp=m_Receptor->GetSelection();

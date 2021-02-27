@@ -96,6 +96,9 @@ void vPartida::ActualizarListas(){
 // BARRA DE MENU 
 
 void vPartida::OnMenuEditar( wxCommandEvent& event )  {
+	/*
+	
+	*/
 	dNombrePartida NomPart(this,m_partida);
 	wxBitmap renombrar(wxT("imagenes/renombrar.bmp"), wxBITMAP_TYPE_ANY);
 	wxIcon icon;
