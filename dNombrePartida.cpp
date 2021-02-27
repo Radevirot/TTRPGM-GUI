@@ -18,7 +18,8 @@ dNombrePartida::~dNombrePartida() {
 
 void dNombrePartida::OnClickAceptar( wxCommandEvent& event )  {
 	/*
-	Modifica el nombre de la partida y cierra la ventana dNombrePartida.
+	Se modifica el nombre de la partida y se cierra la ventana actual
+	retornando 1, que indica que el usuario presionó "Aceptar".
 	*/
 	m_partida->ModificarNombre(wx_to_std(m_textCtrlNombrePart->GetValue()));
 	EndModal(1);
@@ -26,7 +27,8 @@ void dNombrePartida::OnClickAceptar( wxCommandEvent& event )  {
 
 void dNombrePartida::OnClickCancelar( wxCommandEvent& event )  {
 	/*
-	Cierra la ventana dNombrePartida.
+	Se cierra la ventana retornando 0, indicando que el usuario
+	presionó "Cancelar".
 	*/
 	EndModal(0);
 }
@@ -36,7 +38,7 @@ void dNombrePartida::OnClickCancelar( wxCommandEvent& event )  {
 
 void dNombrePartida::OnTextEnter( wxCommandEvent& event )  {
 	/*
-	Con la tecla "ENTER" modifica el nombre y cierra la ventana dNombrePartida.
+	Hace lo mismo que OnClickAceptar.
 	*/
 	m_partida->ModificarNombre(wx_to_std(m_textCtrlNombrePart->GetValue()));
 	EndModal(1);
