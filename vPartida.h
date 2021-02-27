@@ -19,16 +19,8 @@ class vPartida : public Ventana_partida {
 private:
 	Partida *m_partida;
 	wxIcon _icon;
-	bool manteniendoControl=false;
 	void ActualizarNombre();
 	void ActualizarListas();
-	void GuardarPartida();
-	void CargarPartida();
-	void NuevaPartida();
-	void RenombrarPartida();
-	void AbrirCombate();
-	void AbrirDados();
-	void AbrirModifdeInv();
 protected:
 	// Por encima de esta línea sólo hay métodos duplicados
 	
@@ -61,8 +53,8 @@ protected:
 	void OnDobleClickListaItem( wxCommandEvent& event )  override;
 	
 	// TECLAS
-	void OnApretarTecla( wxKeyEvent& event )  override;
-	void OnLevantarTecla( wxKeyEvent& event )  override;
+	void OnApretarSupr( wxCommandEvent& event );
+	void OnApretarEnter( wxCommandEvent& event );
 	
 	// EVENTO DE ACTUALIZACIÓN
 	void OnActivarPartida( wxActivateEvent& event )  override;

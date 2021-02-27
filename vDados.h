@@ -13,9 +13,6 @@ class vDados : public Ventana_dados {
 private:
 	Partida *m_partida;
 	Dado D;
-	bool manteniendoControl=false;
-	void AgregarDado();
-	void ArrojarDado();
 protected:
 	
 	//BOTONES DE DADOS
@@ -24,13 +21,10 @@ protected:
 	void OnClickBorrar( wxCommandEvent& event )  override;
 	void OnClickCerrar( wxCommandEvent& event )  override;
 	
-	//ACTUALIZAR VENTANA
-	void OnActivarDado( wxActivateEvent& event )  override;
-	
 	//ATAJOS DE TECLADO
 	void OnApretarTecla( wxKeyEvent& event )  override;
-	void OnLevantarTecla( wxKeyEvent& event )  override;
-	void OnApretarEnter( wxCommandEvent& event )  override;
+	void OnApretarTab( wxCommandEvent& event );
+	void OnApretarSupr( wxCommandEvent& event );
 
 	
 public:

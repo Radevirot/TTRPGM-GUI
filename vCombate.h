@@ -10,10 +10,11 @@ class vCombate : public Ventana_combate {
 private:
 	Partida *m_partida;
 	int PosUAt=0, PosURc=1;
-	bool manteniendoControl=false, manteniendoAlt=false;
+	void Seleccion(Personaje Prs);
+	void Seleccion(Personaje Ps, bool AtRc);
 protected:
 	
-	//BOTONES DE COMBATE
+	//BOTONES DE LA VENTANA
 	void OnClickAtacar( wxCommandEvent& event )  override;
 	void OnClickCerrar( wxCommandEvent& event )  override;
 	
@@ -21,17 +22,17 @@ protected:
 	void OnActivetaCombate( wxActivateEvent& event )  override;
 	void OnChoiceAtq( wxCommandEvent& event )  override;
 	void OnChoiceRecp( wxCommandEvent& event )  override;
-	void Seleccion(Personaje Prs);
-	void Seleccion(Personaje Ps, bool AtRc);
 	
 	//ATAJOS DE TECLADO Y MOUSE
+	void OnApretarTecla( wxKeyEvent& event )  override;
+	void OnLevantarTecla( wxKeyEvent& event )  override;
 	void OnClickVentana( wxMouseEvent& event )  override;
+	
+	// RUEDITA
 	void OnScrollMult( wxMouseEvent& event )  override;
 	void OnScrollAtq( wxMouseEvent& event )  override;
 	void OnScrollRecp( wxMouseEvent& event )  override;
 	void OnScrollFormula( wxMouseEvent& event )  override;
-	void OnApretarTecla( wxKeyEvent& event )  override;
-	void OnLevantarTecla( wxKeyEvent& event )  override;
 
 	
 public:

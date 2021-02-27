@@ -5,8 +5,30 @@ vPartida::vPartida(wxWindow *parent, Partida *p) : Ventana_partida(parent) {
 	/*
 	Constructor de la ventana Partida, se le ingresan como parámetros un puntero
 	a la ventana padre y otro a la partida actual.
+	Crea una tabla de atajos de teclado.
 	Guarda el valor del puntero, actualiza el nombre de la ventana, y la muestra.
 	*/
+	
+	wxAcceleratorEntry entries[8];
+	entries[0].Set(wxACCEL_CTRL,(int) 'O', wxID_HIGHEST+4);
+	entries[1].Set(wxACCEL_CTRL,(int) 'S', wxID_HIGHEST+5);
+	entries[2].Set(wxACCEL_CTRL,(int) '1', wxID_HIGHEST+6);
+	entries[3].Set(wxACCEL_CTRL,(int) '2', wxID_HIGHEST+7);
+	entries[4].Set(wxACCEL_CTRL,(int) 'P', wxID_HIGHEST+8);
+	entries[5].Set(wxACCEL_CTRL,(int) 'I', wxID_HIGHEST+9);
+	entries[6].Set(0,WXK_DELETE, wxID_HIGHEST+10);
+	entries[7].Set(0,WXK_RETURN, wxID_HIGHEST+11);
+	wxAcceleratorTable accel(8, entries);
+	SetAcceleratorTable(accel);
+	Connect( wxID_HIGHEST+4 , wxEVT_MENU, wxCommandEventHandler( vPartida::OnMenuCargar ));
+	Connect( wxID_HIGHEST+5 , wxEVT_MENU, wxCommandEventHandler( vPartida::OnMenuGuardar ));
+	Connect( wxID_HIGHEST+6 , wxEVT_MENU, wxCommandEventHandler( vPartida::OnClickCombate ));
+	Connect( wxID_HIGHEST+7 , wxEVT_MENU, wxCommandEventHandler( vPartida::OnClickDado ));
+	Connect( wxID_HIGHEST+8 , wxEVT_MENU, wxCommandEventHandler( vPartida::OnClickCrearP ));
+	Connect( wxID_HIGHEST+9 , wxEVT_MENU, wxCommandEventHandler( vPartida::OnClickCrearI ));
+	Connect( wxID_HIGHEST+10 , wxEVT_MENU, wxCommandEventHandler( vPartida::OnApretarSupr ));
+	Connect( wxID_HIGHEST+11 , wxEVT_MENU, wxCommandEventHandler( vPartida::OnApretarEnter ));
+	
 	m_partida=p;
 	wxBitmap prueba(wxT("imagenes/logo.bmp"), wxBITMAP_TYPE_ANY);
 	wxIcon icon;
@@ -27,7 +49,7 @@ vPartida::~vPartida() {
 void vPartida::ActualizarNombre() {
 	/*
 	Actualiza el nombre de la ventana pidiendo el actual de partida y
-	agregándole "TTRPGM: " al comienzo.
+	agregándole " - Administrador de RPG de mesa" al final.
 	*/
 	std::string name = m_partida->ObtenerNombre()+" - Administrador de RPG de mesa";
 	this->SetTitle(std_to_wx(name));
@@ -52,8 +74,7 @@ void vPartida::ActualizarListas(){
 		} else{
 			nombrefinal += " - DÑ: ";
 		}
-		std::string numerito=std::to_string(I.ObtenerStat(7));
-		numerito.erase(numerito.end()-4,numerito.end());
+		wxString numerito; numerito.Printf("%.2f",I.ObtenerStat(7));
 		nombrefinal += numerito;
 		m_ListaItems->Append(std_to_wx(nombrefinal));
 	}
@@ -65,31 +86,27 @@ void vPartida::ActualizarListas(){
 		} else{
 			nombrefinal += " - PV: ";
 		}
-		std::string numerito=std::to_string(P.ObtenerStat(0));
-		numerito.erase(numerito.end()-4,numerito.end());
+		wxString numerito; numerito.Printf("%.2f",P.ObtenerStat(0));
 		nombrefinal += numerito;
 		m_ListaPersonajes->Append(std_to_wx(nombrefinal));
 	}
 }
 
-void vPartida::GuardarPartida(){
-	wxFileDialog guardarPartida(this,wxT("Guardar partida"),".\\datos",m_partida->ObtenerNombre()+".part","Archivos PART (*.part)|*.part",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
-	if(guardarPartida.ShowModal()==wxID_OK){
-		m_partida->Guardar(wx_to_std(guardarPartida.GetPath()));
-	}
-}
-void vPartida::CargarPartida(){
-	wxFileDialog cargarPartida(this,wxT("Elija un archivo de partida para cargar"),".\\datos","","Archivos PART (*.part)|*.part",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
-	if(cargarPartida.ShowModal()==wxID_OK){
-		Partida b("");
-		*m_partida=b;
-		m_partida->Cargar(wx_to_std(cargarPartida.GetPath()));
-		this->ActualizarNombre();
-		this->ActualizarListas();
-	}
+
+// BARRA DE MENU 
+
+void vPartida::OnMenuEditar( wxCommandEvent& event )  {
+	dNombrePartida NomPart(this,m_partida);
+	wxBitmap renombrar(wxT("imagenes/renombrar.bmp"), wxBITMAP_TYPE_ANY);
+	wxIcon icon;
+	icon.CopyFromBitmap(renombrar);
+	NomPart.SetIcon(icon);
+	NomPart.SetTitle(wxT("Renombrar partida"));
+	int valor = NomPart.ShowModal();
+	if (valor==1) this->ActualizarNombre();
 }
 
-void vPartida::NuevaPartida(){
+void vPartida::OnMenuNueva( wxCommandEvent& event )  {
 	dNombrePartida NomPart(this,m_partida);
 	wxBitmap nueva(wxT("imagenes/Nueva.bmp"), wxBITMAP_TYPE_ANY);
 	wxIcon icon;
@@ -105,18 +122,32 @@ void vPartida::NuevaPartida(){
 	}
 }
 
-void vPartida::RenombrarPartida(){
-	dNombrePartida NomPart(this,m_partida);
-	wxBitmap renombrar(wxT("imagenes/renombrar.bmp"), wxBITMAP_TYPE_ANY);
-	wxIcon icon;
-	icon.CopyFromBitmap(renombrar);
-	NomPart.SetIcon(icon);
-	NomPart.SetTitle(wxT("Renombrar partida"));
-	int valor = NomPart.ShowModal();
-	if (valor==1) this->ActualizarNombre();
+void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
+	wxFileDialog guardarPartida(this,wxT("Guardar partida"),".\\datos",m_partida->ObtenerNombre()+".part","Archivos PART (*.part)|*.part",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
+	if(guardarPartida.ShowModal()==wxID_OK){
+		m_partida->Guardar(wx_to_std(guardarPartida.GetPath()));
+	}
 }
 
-void vPartida::AbrirCombate(){
+void vPartida::OnMenuCargar( wxCommandEvent& event )  {
+	wxFileDialog cargarPartida(this,wxT("Elija un archivo de partida para cargar"),".\\datos","","Archivos PART (*.part)|*.part",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
+	if(cargarPartida.ShowModal()==wxID_OK){
+		Partida b("");
+		*m_partida=b;
+		m_partida->Cargar(wx_to_std(cargarPartida.GetPath()));
+		this->ActualizarNombre();
+		this->ActualizarListas();
+	}
+}
+
+void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
+	wxLaunchDefaultApplication(wxT(".\\ayuda.pdf"));
+}
+
+
+// TOOLBAR 
+
+void vPartida::OnClickCombate( wxCommandEvent& event )  {
 	if (m_partida->ObtenerTamPersonajes()==0){
 		wxMessageBox(wxT("Debe tener al menos un personaje creado."),wxT("Error"),wxICON_ERROR);
 	} else {
@@ -128,63 +159,12 @@ void vPartida::AbrirCombate(){
 	}
 }
 
-void vPartida::AbrirDados(){
+void vPartida::OnClickDado( wxCommandEvent& event )  {
 	vDados *Dados = new vDados(this,m_partida);
 	wxBitmap dado(wxT("imagenes/dado.bmp"), wxBITMAP_TYPE_ANY);
 	wxIcon icon;
 	icon.CopyFromBitmap(dado);
 	Dados->SetIcon(icon);
-}
-
-void vPartida::AbrirModifdeInv(){
-	int pos = m_ListaPersonajes->GetSelection();
-	if(pos==wxNOT_FOUND){
-		wxMessageBox(wxT("No es posible agregar un item a un personaje\nsin haber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
-	} else {
-		Personaje P=m_partida->ObtenerPersonaje(pos);
-		dInventario InvPer(this,P,m_partida);
-		if (InvPer.ShowModal()==1){
-			m_partida->EliminarPersonaje(pos);
-			P.OrdenarAlph();
-			m_partida->AgregarPersonaje(P);
-			m_partida->OrdenarPAlph();
-		}
-	}
-
-}
-
-
-// BARRA DE MENU 
-
-void vPartida::OnMenuEditar( wxCommandEvent& event )  {
-	this->RenombrarPartida();
-}
-
-void vPartida::OnMenuNueva( wxCommandEvent& event )  {
-	this->NuevaPartida();
-}
-
-void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
-	this->GuardarPartida();
-}
-
-void vPartida::OnMenuCargar( wxCommandEvent& event )  {
-	this->CargarPartida();
-}
-
-void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
-	wxLaunchDefaultApplication(wxT(".\\ayuda.pdf"));
-}
-
-
-// TOOLBAR 
-
-void vPartida::OnClickCombate( wxCommandEvent& event )  {
-	this->AbrirCombate();
-}
-
-void vPartida::OnClickDado( wxCommandEvent& event )  {
-	this->AbrirDados();
 }
 
 
@@ -217,23 +197,30 @@ void vPartida::OnClickBorrarPersonaje( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
-	this->AbrirModifdeInv();
+	int pos = m_ListaPersonajes->GetSelection();
+	if(pos==wxNOT_FOUND){
+		wxMessageBox(wxT("No es posible agregar un item a un personaje\nsin haber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
+	} else {
+		Personaje P=m_partida->ObtenerPersonaje(pos);
+		dInventario InvPer(this,P,m_partida);
+		if (InvPer.ShowModal()==1){
+			m_partida->EliminarPersonaje(pos);
+			P.OrdenarAlph();
+			m_partida->AgregarPersonaje(P);
+			m_partida->OrdenarPAlph();
+		}
+	}
 }
 
 
 // LISTA DE PERSONAJES
 
 void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
-	if(manteniendoControl){
-		this->AbrirModifdeInv();
-	} else {
-		int pos = m_ListaPersonajes->GetSelection();
-		Personaje P=m_partida->ObtenerPersonaje(pos);
-		dPersonaje PersonajeMod(this,m_partida,P,pos);
-		PersonajeMod.SetIcon(_icon);
-		PersonajeMod.ShowModal();
-	}
-	
+	int pos = m_ListaPersonajes->GetSelection();
+	Personaje P=m_partida->ObtenerPersonaje(pos);
+	dPersonaje PersonajeMod(this,m_partida,P,pos);
+	PersonajeMod.SetIcon(_icon);
+	PersonajeMod.ShowModal();
 }
 
 
@@ -274,7 +261,7 @@ void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
 	
 	int pos = m_ListaItems->GetSelection();
 	Item I=m_partida->ObtenerItem(pos);
-	dItem ItemMod(this,m_partida,I,pos/*,true*/);
+	dItem ItemMod(this,m_partida,I,pos);
 	ItemMod.SetIcon(_icon);
 	ItemMod.ShowModal();
 }
@@ -282,45 +269,47 @@ void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
 
 // TECLAS
 
-void vPartida::OnApretarTecla( wxKeyEvent& event )  {
-	switch (event.GetKeyCode()){
-	case WXK_DELETE:
-		if(m_ListaItems->HasFocus()){
-			int pos = m_ListaItems->GetSelection();
-			if(pos!=wxNOT_FOUND){
-				m_partida->EliminarItem(pos);
-				m_ListaItems->Delete(pos);
-				if(m_ListaItems->GetSelection()!=wxNOT_FOUND) m_ListaItems->SetSelection(pos); else m_ListaItems->SetSelection(pos-1);
-			}
-		} else if(m_ListaPersonajes->HasFocus()) {
-			int pos = m_ListaPersonajes->GetSelection();
-			if(pos!=wxNOT_FOUND){
-				m_partida->EliminarPersonaje(pos);
-				m_ListaPersonajes->Delete(pos);
-				if(m_ListaPersonajes->GetSelection()!=wxNOT_FOUND) m_ListaPersonajes->SetSelection(pos); else m_ListaPersonajes->SetSelection(pos-1);
-			}
+void vPartida::OnApretarSupr( wxCommandEvent& event ){
+	if(m_ListaItems->HasFocus()){
+		int pos = m_ListaItems->GetSelection();
+		if(pos!=wxNOT_FOUND){
+			m_partida->EliminarItem(pos);
+			m_ListaItems->Delete(pos);
+			if(m_ListaItems->GetSelection()!=wxNOT_FOUND) m_ListaItems->SetSelection(pos); else m_ListaItems->SetSelection(pos-1);
 		}
-	case WXK_CONTROL: manteniendoControl=true; break;
-	case 83: case 71: if(manteniendoControl) this->GuardarPartida(); break; //		83=S,71=G | CTRL+S / CTRL+G para guardar
-	case 79: case 65: if(manteniendoControl) this->CargarPartida(); break; //		79=O,65=A | CTRL+O / CTRL+A para cargar
-	case 78: if(manteniendoControl) this->NuevaPartida(); break; //					78=N 	  | CTRL+N para crear nueva
-	case 82: if(manteniendoControl) this->RenombrarPartida(); break; //				82=R 	  | CTRL+R para renombrar
-	case 49: if(manteniendoControl) this->AbrirCombate(); break; //					49=1	  | CTRL+1 para abrir ventana de combate
-	case 50: if(manteniendoControl) this->AbrirDados(); break; //					50=2	  | CTRL+2 para abrir ventana de dados
+	} else if(m_ListaPersonajes->HasFocus()) {
+		int pos = m_ListaPersonajes->GetSelection();
+		if(pos!=wxNOT_FOUND){
+			m_partida->EliminarPersonaje(pos);
+			m_ListaPersonajes->Delete(pos);
+			if(m_ListaPersonajes->GetSelection()!=wxNOT_FOUND) m_ListaPersonajes->SetSelection(pos); else m_ListaPersonajes->SetSelection(pos-1);
+		}
 	}
 }
 
-void vPartida::OnLevantarTecla( wxKeyEvent& event )  {
-	switch (event.GetKeyCode()){
-		case WXK_CONTROL: manteniendoControl=false; break;
+void vPartida::OnApretarEnter( wxCommandEvent& event ){
+	if(m_ListaItems->HasFocus()){
+		int pos = m_ListaItems->GetSelection();
+		if(pos!=wxNOT_FOUND){
+			Item I=m_partida->ObtenerItem(pos);
+			dItem ItemMod(this,m_partida,I,pos);
+			ItemMod.SetIcon(_icon);
+			ItemMod.ShowModal();
+		}
+	} else if(m_ListaPersonajes->HasFocus()) {
+		int pos = m_ListaPersonajes->GetSelection();
+		if(pos!=wxNOT_FOUND){
+			Personaje P=m_partida->ObtenerPersonaje(pos);
+			dPersonaje PersonajeMod(this,m_partida,P,pos);
+			PersonajeMod.SetIcon(_icon);
+			PersonajeMod.ShowModal();
+		}
 	}
 }
-
 
 // EVENTO DE ACTUALIZACIÓN
 
 void vPartida::OnActivarPartida( wxActivateEvent& event )  {
-	manteniendoControl=false;
 	this->ActualizarListas();
 }
 

@@ -22,8 +22,30 @@ vCombate::~vCombate() {
 	
 }
 
+// MÉTODOS PRIVADOS
 
-// BOTONES
+void vCombate::Seleccion(Personaje Prs){
+	wxString Vida; Vida.Printf("%.2f",Prs.ObtenerStat(0));
+	m_Atacante->Append(std_to_wx(Prs.ObtenerNombre())+" - PV: "+Vida);
+	m_Receptor->Append(std_to_wx(Prs.ObtenerNombre())+" - PV: "+Vida);
+}
+
+void vCombate::Seleccion(Personaje Ps, bool AtRc){
+	wxString Fuerza, Vida, Danio, Defen, Inte, ResM; 
+	Fuerza.Printf("%.2f",Ps.ObtenerStat(2)); Vida.Printf("%.2f",Ps.ObtenerStat(0));
+	Danio.Printf("%.2f",Ps.ObtenerStat(7)); Defen.Printf("%.2f",Ps.ObtenerStat(1));
+	Inte.Printf("%.2f",Ps.ObtenerStat(5)); ResM.Printf("%.2f",Ps.ObtenerStat(4));
+	
+	if(AtRc){
+		m_Atacante->SetToolTip(std_to_wx(Ps.ObtenerNombre())+"\nPV: "+Vida+" - FRZ: "+Fuerza+"\nDÑ: "+Danio+" - DFN: "+Defen+"\nINT: "+Inte+" - RM: "+ResM);
+	}else{
+		m_Receptor->SetToolTip(std_to_wx(Ps.ObtenerNombre())+"\nPV: "+Vida+" - FRZ: "+Fuerza+"\nDÑ: "+Danio+" - DFN: "+Defen+"\nINT: "+Inte+" - RM: "+ResM);
+	}
+}
+
+
+
+// BOTONES DE LA VENTANA
 
 void vCombate::OnClickCerrar( wxCommandEvent& event )  {
 	Close(true);
@@ -32,10 +54,9 @@ void vCombate::OnClickCerrar( wxCommandEvent& event )  {
 void vCombate::OnClickAtacar( wxCommandEvent& event )  {
 	int posatc=m_Atacante->GetSelection();
 	int posrecp=m_Receptor->GetSelection();
-	float DanioR=m_partida->Combate(posatc,posrecp,m_Formula->GetSelection(),m_Multiplicador->GetValue(),m_ModificarPV->IsChecked());
-	std::string DanioSt=std::to_string(DanioR);
-	DanioSt.erase(DanioSt.end()-4,DanioSt.end());
-	m_DanioProvo->SetLabel(std_to_wx(DanioSt));
+	wxString DanioSt;
+	DanioSt.Printf("%.2f",(m_partida->Combate(posatc,posrecp,m_Formula->GetSelection(),m_Multiplicador->GetValue(),m_ModificarPV->IsChecked())));
+	m_DanioProvo->SetLabel(DanioSt);
 	
 	m_Atacante->Clear();
 	m_Receptor->Clear();
@@ -105,46 +126,49 @@ void vCombate::OnChoiceRecp( wxCommandEvent& event )  {
 	Seleccion(PRC, false);
 }
 
-void vCombate::Seleccion(Personaje Ps, bool AtRc){
-	std::string Fuerza=std::to_string(Ps.ObtenerStat(2)),Vida=std::to_string(Ps.ObtenerStat(0)),Danio=std::to_string(Ps.ObtenerStat(7)),Defen=std::to_string(Ps.ObtenerStat(1)),Inte=std::to_string(Ps.ObtenerStat(5)),ResM=std::to_string(Ps.ObtenerStat(4));
-	Fuerza.erase(Fuerza.end()-4,Fuerza.end()); Vida.erase(Vida.end()-4,Vida.end()); Danio.erase(Danio.end()-4,Danio.end()); Defen.erase(Defen.end()-4,Defen.end()); Inte.erase(Inte.end()-4,Inte.end()); ResM.erase(ResM.end()-4,ResM.end());
-	
-	
-	if(AtRc){
-		m_Atacante->SetToolTip(std_to_wx((Ps.ObtenerNombre()+"\nPV: "+Vida+" - FRZ: "+Fuerza+"\nDÑ: "+Danio+" - DFN: "+Defen+"\nINT: "+Inte+" - RM: "+ResM)));
-	}else{
-		m_Receptor->SetToolTip(std_to_wx((Ps.ObtenerNombre()+"\nPV: "+Vida+" - FRZ: "+Fuerza+"\nDÑ: "+Danio+" - DFN: "+Defen+"\nINT: "+Inte+" - RM: "+ResM)));
-	}
-}
 
-void vCombate::Seleccion(Personaje Prs){
-	std::string Vida=std::to_string(Prs.ObtenerStat(0));
-	Vida.erase(Vida.end()-4,Vida.end());
-	m_Atacante->Append(std_to_wx((Prs.ObtenerNombre())+" - PV: "+Vida));
-	m_Receptor->Append(std_to_wx((Prs.ObtenerNombre())+" - PV: "+Vida));
-}
-
-
-//ATAJOS DE TECLADO Y MOUSE
+// ATAJOS DE TECLADO Y MOUSE
 
 void vCombate::OnApretarTecla( wxKeyEvent& event )  {
-	
+	/*
+	Marca la checkbox de modificar vida del receptor de daño
+	al apretar SHIFT, cierra la ventana al presionar ESCAPE.
+	*/
 	switch (event.GetKeyCode()){
 	case WXK_SHIFT: m_ModificarPV->SetValue(true); break;
-	case WXK_CONTROL: manteniendoControl=true; break;
-	case WXK_ALT: manteniendoAlt=true; break;
 	case WXK_ESCAPE: Close(true); break;
 	}
-	
 }
 
 void vCombate::OnLevantarTecla( wxKeyEvent& event )  {
-	switch (event.GetKeyCode()){
-	case WXK_SHIFT: m_ModificarPV->SetValue(false); break;
-	case WXK_CONTROL: manteniendoControl=false; break;
-	case WXK_ALT: manteniendoAlt=false; break;
-	}
+	/*
+	Desmarca la checkbox de modificar vida del receptor de daño
+	al dejar de apretar SHIFT.
+	*/
+	if(event.GetKeyCode()==WXK_SHIFT) m_ModificarPV->SetValue(false); else event.Skip();
 }
+
+void vCombate::OnClickVentana( wxMouseEvent& event )  {
+	/*
+	Intercambia las posiciones de los personajes seleccionados
+	al hacer click en la ventana manteniendo ALT.
+	*/
+	if(event.AltDown()){
+		Personaje PAt=m_partida->ObtenerPersonaje(m_Atacante->GetSelection()),PRe=m_partida->ObtenerPersonaje(m_Receptor->GetSelection());
+		int aux=m_Atacante->GetSelection();
+		m_Atacante->SetSelection(m_Receptor->GetSelection());
+		m_Receptor->SetSelection(aux);
+		Seleccion(PAt,false); Seleccion(PRe,true);
+	} else event.Skip();
+}
+
+// RUEDITA
+
+/*
+Cada evento de ruedita modifica el valor del objeto en el que el
+cursor se encuentre posicionado de acuerdo al movimiento de dicha rueda
+(hacia arriba suma, hacia abajo resta).
+*/
 
 void vCombate::OnScrollFormula( wxMouseEvent& event )  {
 
@@ -185,13 +209,4 @@ void vCombate::OnScrollRecp( wxMouseEvent& event )  {
 	Personaje PRe=m_partida->ObtenerPersonaje(m_Receptor->GetSelection()); Seleccion(PRe,false);
 }
 
-void vCombate::OnClickVentana( wxMouseEvent& event )  {
-	if(event.AltDown()){
-		Personaje PAt=m_partida->ObtenerPersonaje(m_Atacante->GetSelection()),PRe=m_partida->ObtenerPersonaje(m_Receptor->GetSelection());
-		int aux=m_Atacante->GetSelection();
-		m_Atacante->SetSelection(m_Receptor->GetSelection());
-		m_Receptor->SetSelection(aux);
-		Seleccion(PAt,false); Seleccion(PRe,true);
-	}
-}
 
