@@ -250,7 +250,7 @@ void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
 
 void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
 	/*
-	
+	Con el Doble-Click abre la ventana dPersonaje para editar el seleccionado.
 	*/
 	int pos = m_ListaPersonajes->GetSelection();
 	Personaje P=m_partida->ObtenerPersonaje(pos);
@@ -263,12 +263,18 @@ void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
 // BOTONES DE ITEM 
 
 void vPartida::OnClickCrearI( wxCommandEvent& event )  {
+	/*
+	Abre la ventana de creacion del item.
+	*/
 	vItem *Item = new vItem(this, m_partida);
 	Item->SetIcon(_icon);
 	
 }
 
 void vPartida::OnClickImportarI( wxCommandEvent& event )  {
+	/*
+	Abre la ventana de archivos para cargar un item, actualiza la lista.
+	*/
 	wxFileDialog importarItem(this,wxT("Elija un archivo de item para importar"),".\\datos","","Archivos ITE (*.ite)|*.ite",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
 	if (importarItem.ShowModal()==wxID_OK){
 		Item I;
@@ -280,6 +286,9 @@ void vPartida::OnClickImportarI( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickBorrar( wxCommandEvent& event )  {
+	/*
+	Borra un item seleccionado.
+	*/
 	if(m_ListaItems->GetSelection()==wxNOT_FOUND){
 		wxMessageBox(wxT("No es posible borrar un item sin\nhaber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
 	} else {
@@ -294,7 +303,9 @@ void vPartida::OnClickBorrar( wxCommandEvent& event )  {
 // LISTA DE ITEMS 
 
 void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
-	
+	/*
+	Con Doble-Click abre la ventana dItem para editar el seleccionado.
+	*/
 	int pos = m_ListaItems->GetSelection();
 	Item I=m_partida->ObtenerItem(pos);
 	dItem ItemMod(this,m_partida,I,pos);
@@ -306,6 +317,9 @@ void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
 // TECLAS
 
 void vPartida::OnApretarSupr( wxCommandEvent& event ){
+	/*
+	
+	*/
 	if(m_ListaItems->HasFocus()){
 		int pos = m_ListaItems->GetSelection();
 		if(pos!=wxNOT_FOUND){
@@ -324,6 +338,9 @@ void vPartida::OnApretarSupr( wxCommandEvent& event ){
 }
 
 void vPartida::OnApretarEnter( wxCommandEvent& event ){
+	/*
+	
+	*/
 	if(m_ListaItems->HasFocus()){
 		int pos = m_ListaItems->GetSelection();
 		if(pos!=wxNOT_FOUND){
@@ -346,6 +363,9 @@ void vPartida::OnApretarEnter( wxCommandEvent& event ){
 // EVENTO DE ACTUALIZACIÓN
 
 void vPartida::OnActivarPartida( wxActivateEvent& event )  {
+	/*
+	Actualiza las listas al focusear la ventana Partida.
+	*/
 	this->ActualizarListas();
 }
 

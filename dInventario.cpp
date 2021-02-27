@@ -23,6 +23,11 @@ dInventario::dInventario(wxWindow *parent, Personaje &p, Partida *pa) : Dialogo_
 //BOTONES DE LA LISTA
 
 void dInventario::OnClickAgregar( wxCommandEvent& event )  {
+	/*
+	Pasa al inventario del personaje el item seleccionado.
+	Si es igual a un item existente en el inventario salta un error.
+	Si no hay ningun item marcado salta un error.
+	*/
 	int pos=m_ListaItems->GetSelection();
 	if(pos==wxNOT_FOUND){
 		wxMessageBox(wxT("No es posible agregar un item sin\nhaber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
@@ -46,6 +51,9 @@ void dInventario::OnClickAgregar( wxCommandEvent& event )  {
 }
 
 void dInventario::OnClickCancelar( wxCommandEvent& event )  {
+	/*
+	Cierra la ventana dInventario.
+	*/
 	EndModal(0);
 }
 
@@ -53,6 +61,11 @@ void dInventario::OnClickCancelar( wxCommandEvent& event )  {
 //ATAJO DE MOUSE
 
 void dInventario::OnListDobleClick( wxCommandEvent& event )  {
+	/*
+	Con Doble-Click pasa al inventario del personaje el item seleccionado.
+	Si es igual a un item existente en el inventario salta un error.
+	Si no hay ningun item marcado salta un error.
+	*/
 	int pos=m_ListaItems->GetSelection();
 	Item I=m_partida->ObtenerItem(pos);
 	Cant=m_Personaje->TamInv();
