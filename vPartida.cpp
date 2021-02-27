@@ -97,10 +97,7 @@ void vPartida::ActualizarListas(){
 
 void vPartida::OnMenuEditar( wxCommandEvent& event )  {
 	/*
-	Abre una ventana de cambio de nombre de partida, le
-	coloca el icono del botón "renombrar", le cambia el nombre
-	a la ventana por "Renombrar partida", y si el usuario
-	aceptó en vez de cancelar se le cambia el nombre a la partida.
+	Opcion que permite modificar el nombre de la partida en curso.
 	*/
 	dNombrePartida NomPart(this,m_partida);
 	wxBitmap renombrar(wxT("imagenes/renombrar.bmp"), wxBITMAP_TYPE_ANY);
@@ -108,17 +105,13 @@ void vPartida::OnMenuEditar( wxCommandEvent& event )  {
 	icon.CopyFromBitmap(renombrar);
 	NomPart.SetIcon(icon);
 	NomPart.SetTitle(wxT("Renombrar partida"));
-	if (NomPart.ShowModal()==1) this->ActualizarNombre();
+	int valor = NomPart.ShowModal();
+	if (valor==1) this->ActualizarNombre();
 }
 
 void vPartida::OnMenuNueva( wxCommandEvent& event )  {
 	/*
-	Abre una ventana de creación de partida, le
-	coloca el icono del botón "Nueva", le cambia el nombre
-	a la ventana por "Nueva partida", y si el usuario
-	aceptó en vez de cancelar, se crea una partida nueva y
-	se hace que el puntero apunte a esa nueva partida.
-	Posteriormente se actualiza el nombre y las listas visualmente.
+	Opcion que permite crear una nueva partida.
 	*/
 	dNombrePartida NomPart(this,m_partida);
 	wxBitmap nueva(wxT("imagenes/Nueva.bmp"), wxBITMAP_TYPE_ANY);
@@ -126,7 +119,8 @@ void vPartida::OnMenuNueva( wxCommandEvent& event )  {
 	icon.CopyFromBitmap(nueva);
 	NomPart.SetIcon(icon);
 	NomPart.SetTitle(wxT("Nueva partida"));
-	if(NomPart.ShowModal()==1){
+	int valor = NomPart.ShowModal();
+	if(valor==1){
 		Partida b(m_partida->ObtenerNombre());
 		*m_partida= b;
 		this->ActualizarNombre();
@@ -136,10 +130,7 @@ void vPartida::OnMenuNueva( wxCommandEvent& event )  {
 
 void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
 	/*
-	Se muestra una ventana 
-	de archivos que sólo muestra los de extensión .part,
-	si el usuario elije un nombre, se guarda la partida con 
-	la ruta especificada.
+	Opcion que permite guardar la partida actual.
 	*/
 	wxFileDialog guardarPartida(this,wxT("Guardar partida"),".\\datos",m_partida->ObtenerNombre()+".part","Archivos PART (*.part)|*.part",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
 	if(guardarPartida.ShowModal()==wxID_OK){
@@ -149,11 +140,7 @@ void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
 
 void vPartida::OnMenuCargar( wxCommandEvent& event )  {
 	/*
-	Se muestra una ventana 
-	de archivos que sólo muestra los de extensión .part,
-	si el usuario selecciona uno, se carga la partida con 
-	la ruta especificada y se actualiza el nombre y las
-	listas visualmente.
+	Opcion que permite cargar una partida guardada con anterioridad.
 	*/
 	wxFileDialog cargarPartida(this,wxT("Elija un archivo de partida para cargar"),".\\datos","","Archivos PART (*.part)|*.part",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
 	if(cargarPartida.ShowModal()==wxID_OK){
@@ -166,7 +153,9 @@ void vPartida::OnMenuCargar( wxCommandEvent& event )  {
 }
 
 void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
-	/* Abre el PDF de ayuda */
+	/*
+	Opcion que envia al pdf donde se muestra una guia y los atajos.
+	*/
 	wxLaunchDefaultApplication(wxT(".\\ayuda.pdf"));
 }
 
@@ -175,8 +164,7 @@ void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
 
 void vPartida::OnClickCombate( wxCommandEvent& event )  {
 	/*
-	Si el jugador no tiene personajes creados muestra un error, si tiene
-	se crea una ventana de combate y se le coloca su respectivo icono.
+	Abre la ventana de combate.
 	*/
 	if (m_partida->ObtenerTamPersonajes()==0){
 		wxMessageBox(wxT("Debe tener al menos un personaje creado."),wxT("Error"),wxICON_ERROR);
@@ -190,7 +178,9 @@ void vPartida::OnClickCombate( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickDado( wxCommandEvent& event )  {
-	/* Se crea una ventana de dados y se le coloca su respectivo icono. */
+	/*
+	Abre la ventana de dados.
+	*/
 	vDados *Dados = new vDados(this,m_partida);
 	wxBitmap dado(wxT("imagenes/dado.bmp"), wxBITMAP_TYPE_ANY);
 	wxIcon icon;
@@ -203,8 +193,7 @@ void vPartida::OnClickDado( wxCommandEvent& event )  {
 
 void vPartida::OnClickCrearP( wxCommandEvent& event )  {
 	/*
-	Se crea una ventana de creación de personaje
-	y se le coloca su respectivo icono.
+	Abre la ventana de creacion de personaje.
 	*/
 	vPersonaje *Pers = new vPersonaje(this, m_partida);
 	Pers->SetIcon(_icon);
@@ -212,9 +201,7 @@ void vPartida::OnClickCrearP( wxCommandEvent& event )  {
 
 void vPartida::OnClickImportarP( wxCommandEvent& event )  {
 	/*
-	Ventana de archivos, extensión .per, si aceptó se crea un Personaje,
-	se importa, se agrega a la partida, se ordena alfabeticamente y se
-	actualiza la lista.
+	Abre una ventana de archivos para poder cargar un personaje, actualizando la lista.
 	*/
 	wxFileDialog importarPersonaje(this,wxT("Elija un archivo de personaje para importar"),".\\datos","","Archivos PER (*.per)|*.per",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
 	if (importarPersonaje.ShowModal()==wxID_OK){
@@ -228,8 +215,7 @@ void vPartida::OnClickImportarP( wxCommandEvent& event )  {
 
 void vPartida::OnClickBorrarPersonaje( wxCommandEvent& event )  {
 	/*
-	Si no hay nada seleccionado muestra un error, si lo hay borra un personaje de
-	la lista y de la partida.
+	Borra un personaje seleccionado y actualiza la lista.
 	*/
 	if(m_ListaPersonajes->GetSelection()==wxNOT_FOUND){
 		wxMessageBox(wxT("No es posible borrar un personaje sin\nhaber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
@@ -241,6 +227,9 @@ void vPartida::OnClickBorrarPersonaje( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
+	/*
+	Abre la ventana dInventario para poder agregar un item al personaje seleccionado.
+	*/
 	int pos = m_ListaPersonajes->GetSelection();
 	if(pos==wxNOT_FOUND){
 		wxMessageBox(wxT("No es posible agregar un item a un personaje\nsin haber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
@@ -260,6 +249,9 @@ void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
 // LISTA DE PERSONAJES
 
 void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
+	/*
+	
+	*/
 	int pos = m_ListaPersonajes->GetSelection();
 	Personaje P=m_partida->ObtenerPersonaje(pos);
 	dPersonaje PersonajeMod(this,m_partida,P,pos);
