@@ -18,6 +18,10 @@ vPrincipal::vPrincipal(Partida *p) : Ventana_principal(NULL) {
 //BOTONES DE PRINCIPAL
 
 void vPrincipal::OnClickEmpezar( wxCommandEvent& event )  {
+	/*
+	Abre la ventana dNombrePartida, si le da un nombre esta ventana Principal se
+	cierra.
+	*/
 	dNombrePartida NomPart(this,m_partida);
 	NomPart.SetIcon(_icon);
 	int valor = NomPart.ShowModal();
@@ -27,6 +31,9 @@ void vPrincipal::OnClickEmpezar( wxCommandEvent& event )  {
 }
 
 void vPrincipal::OnClickCargar( wxCommandEvent& event )  {
+	/*
+	Abre la ventana de archivos y carga una partida guardada con anterioridad.
+	*/
 	wxFileDialog cargarPartida(this,wxT("Elija un archivo de partida para cargar"),".\\datos","","Archivos PART (*.part)|*.part",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
 	if(cargarPartida.ShowModal()==wxID_OK){
 		m_partida->Cargar(wx_to_std(cargarPartida.GetPath()));
@@ -35,6 +42,9 @@ void vPrincipal::OnClickCargar( wxCommandEvent& event )  {
 }
 
 void vPrincipal::OnClickSalir( wxCommandEvent& event )  {
+	/*
+	Cierra la ventana Principal.
+	*/
 	EndModal(0);
 }
 

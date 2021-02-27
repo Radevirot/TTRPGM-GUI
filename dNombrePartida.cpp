@@ -17,11 +17,17 @@ dNombrePartida::~dNombrePartida() {
 //BOTONES DE LA VENTANA
 
 void dNombrePartida::OnClickAceptar( wxCommandEvent& event )  {
+	/*
+	Modifica el nombre de la partida y cierra la ventana dNombrePartida.
+	*/
 	m_partida->ModificarNombre(wx_to_std(m_textCtrlNombrePart->GetValue()));
 	EndModal(1);
 }
 
 void dNombrePartida::OnClickCancelar( wxCommandEvent& event )  {
+	/*
+	Cierra la ventana dNombrePartida.
+	*/
 	EndModal(0);
 }
 
@@ -29,6 +35,9 @@ void dNombrePartida::OnClickCancelar( wxCommandEvent& event )  {
 //ATAJO DE TECLADO
 
 void dNombrePartida::OnTextEnter( wxCommandEvent& event )  {
+	/*
+	Con la tecla "ENTER" modifica el nombre y cierra la ventana dNombrePartida.
+	*/
 	m_partida->ModificarNombre(wx_to_std(m_textCtrlNombrePart->GetValue()));
 	EndModal(1);
 }
