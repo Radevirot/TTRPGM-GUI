@@ -266,12 +266,21 @@ class Ventana_item : public wxFrame
 		wxTextCtrl* m_Descripcion;
 
 		// Virtual event handlers, overide them in your derived class
-		virtual void OnActivarItem( wxActivateEvent& event ) { event.Skip(); }
 		virtual void OnApretarTecla( wxKeyEvent& event ) { event.Skip(); }
 		virtual void OnLevantarTecla( wxKeyEvent& event ) { event.Skip(); }
 		virtual void OnClickAplicar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickExportar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnRueditaDanio( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaRango( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaPunt( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaBloq( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaDef( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaResM( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaVida( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaFuerza( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaAgi( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaInte( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaMana( wxMouseEvent& event ) { event.Skip(); }
 
 
 	public:
@@ -292,7 +301,7 @@ class Ventana_dados : public wxFrame
 	protected:
 		wxStaticText* m_staticText96;
 		wxListBox* m_Seleccionado;
-		wxStaticText* m_staticText105;
+		wxStaticText* m_staticText10;
 		wxStaticText* m_staticText98;
 		wxTextCtrl* m_Nombre;
 		wxStaticText* m_staticText981;

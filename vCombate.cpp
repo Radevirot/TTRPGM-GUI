@@ -147,47 +147,46 @@ void vCombate::OnLevantarTecla( wxKeyEvent& event )  {
 }
 
 void vCombate::OnScrollFormula( wxMouseEvent& event )  {
-	if(manteniendoControl){
-		if(event.GetWheelRotation()<0){
-			m_Formula->SetSelection(m_Formula->GetSelection()+1);
-		} else if (event.GetWheelRotation()>0){
-			if((m_Formula->GetSelection()-1)!=wxNOT_FOUND) m_Formula->SetSelection(m_Formula->GetSelection()-1);
-		}
+
+	if(event.GetWheelRotation()<0){
+		m_Formula->SetSelection(m_Formula->GetSelection()+1);
+	} else if (event.GetWheelRotation()>0){
+		if((m_Formula->GetSelection()-1)!=wxNOT_FOUND) m_Formula->SetSelection(m_Formula->GetSelection()-1);
 	}
 }
 
 void vCombate::OnScrollMult( wxMouseEvent& event )  {
-	if(manteniendoControl){
-		if(event.GetWheelRotation()>0){
-			m_Multiplicador->SetValue(m_Multiplicador->GetValue()+1);
-		} else if (event.GetWheelRotation()<0){
-			m_Multiplicador->SetValue(m_Multiplicador->GetValue()-1);
-		}
+
+	if(event.GetWheelRotation()>0){
+		m_Multiplicador->SetValue(m_Multiplicador->GetValue()+1);
+	} else if (event.GetWheelRotation()<0){
+		m_Multiplicador->SetValue(m_Multiplicador->GetValue()-1);
 	}
+
 }
 
 void vCombate::OnScrollAtq( wxMouseEvent& event )  {
-	if(manteniendoControl){
-		if(event.GetWheelRotation()<0){
-			m_Atacante->SetSelection(m_Atacante->GetSelection()+1);
-		} else if (event.GetWheelRotation()>0){
-			if((m_Atacante->GetSelection()-1)!=wxNOT_FOUND) m_Atacante->SetSelection(m_Atacante->GetSelection()-1);
-		}
+
+	if(event.GetWheelRotation()<0){
+		m_Atacante->SetSelection(m_Atacante->GetSelection()+1);
+	} else if (event.GetWheelRotation()>0){
+		if((m_Atacante->GetSelection()-1)!=wxNOT_FOUND) m_Atacante->SetSelection(m_Atacante->GetSelection()-1);
 	}
+	Personaje PAt=m_partida->ObtenerPersonaje(m_Atacante->GetSelection()); Seleccion(PAt,true);
 }
 
 void vCombate::OnScrollRecp( wxMouseEvent& event )  {
-	if(manteniendoControl){
-		if(event.GetWheelRotation()<0){
-			m_Receptor->SetSelection(m_Receptor->GetSelection()+1);
-		} else if (event.GetWheelRotation()>0){
-			if((m_Receptor->GetSelection()-1)!=wxNOT_FOUND) m_Receptor->SetSelection(m_Receptor->GetSelection()-1);
-		}
+
+	if(event.GetWheelRotation()<0){
+		m_Receptor->SetSelection(m_Receptor->GetSelection()+1);
+	} else if (event.GetWheelRotation()>0){
+		if((m_Receptor->GetSelection()-1)!=wxNOT_FOUND) m_Receptor->SetSelection(m_Receptor->GetSelection()-1);
 	}
+	Personaje PRe=m_partida->ObtenerPersonaje(m_Receptor->GetSelection()); Seleccion(PRe,false);
 }
 
 void vCombate::OnClickVentana( wxMouseEvent& event )  {
-	if(manteniendoAlt){
+	if(event.AltDown()){
 		Personaje PAt=m_partida->ObtenerPersonaje(m_Atacante->GetSelection()),PRe=m_partida->ObtenerPersonaje(m_Receptor->GetSelection());
 		int aux=m_Atacante->GetSelection();
 		m_Atacante->SetSelection(m_Receptor->GetSelection());

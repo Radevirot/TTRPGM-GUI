@@ -5701,9 +5701,7 @@
             <property name="window_name"></property>
             <property name="window_style"></property>
             <property name="xrc_skip_sizer">1</property>
-            <event name="OnActivate">OnActivarItem</event>
             <event name="OnKeyDown">OnApretarTecla</event>
-            <event name="OnKeyUp">OnLevantarTecla</event>
             <object class="wxBoxSizer" expanded="1">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer7</property>
@@ -5796,7 +5794,6 @@
                                                 <property name="window_style"></property>
                                                 <property name="wrap">-1</property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                         <object class="sizeritem" expanded="0">
@@ -5948,7 +5945,6 @@
                                                 <property name="window_style"></property>
                                                 <event name="OnButtonClick">OnClickAplicar</event>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                         <object class="sizeritem" expanded="0">
@@ -6023,7 +6019,6 @@
                                                 <property name="window_style"></property>
                                                 <event name="OnButtonClick">OnClickExportar</event>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -6110,7 +6105,6 @@
                                         <property name="window_style"></property>
                                         <property name="wrap">-1</property>
                                         <event name="OnKeyDown">OnApretarTecla</event>
-                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                     </object>
                                 </object>
                                 <object class="sizeritem" expanded="0">
@@ -6174,7 +6168,6 @@
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
                                         <event name="OnKeyDown">OnApretarTecla</event>
-                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                     </object>
                                 </object>
                             </object>
@@ -6257,7 +6250,6 @@
                                                 <property name="window_style"></property>
                                                 <property name="wrap">-1</property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -6362,7 +6354,6 @@
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
                                                         <event name="OnKeyDown">OnApretarTecla</event>
-                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -6430,7 +6421,6 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                                 <event name="OnMouseWheel">OnRueditaDanio</event>
                                             </object>
                                         </object>
@@ -6514,7 +6504,6 @@
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
                                                         <event name="OnKeyDown">OnApretarTecla</event>
-                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -6582,7 +6571,7 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaRango</event>
                                             </object>
                                         </object>
                                     </object>
@@ -6665,7 +6654,6 @@
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
                                                         <event name="OnKeyDown">OnApretarTecla</event>
-                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -6733,7 +6721,7 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaPunt</event>
                                             </object>
                                         </object>
                                     </object>
@@ -6816,7 +6804,6 @@
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
                                                         <event name="OnKeyDown">OnApretarTecla</event>
-                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -6884,7 +6871,7 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaBloq</event>
                                             </object>
                                         </object>
                                     </object>
@@ -6967,7 +6954,6 @@
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
                                                         <event name="OnKeyDown">OnApretarTecla</event>
-                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -7035,7 +7021,7 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaDef</event>
                                             </object>
                                         </object>
                                     </object>
@@ -7118,7 +7104,6 @@
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
                                                         <event name="OnKeyDown">OnApretarTecla</event>
-                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -7186,7 +7171,7 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaResM</event>
                                             </object>
                                         </object>
                                     </object>
@@ -7262,11 +7247,11 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag"></property>
                             <property name="proportion">1</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer8</property>
                                 <property name="orient">wxVERTICAL</property>
@@ -7349,7 +7334,6 @@
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
                                                         <event name="OnKeyDown">OnApretarTecla</event>
-                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -7417,7 +7401,7 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaVida</event>
                                             </object>
                                         </object>
                                     </object>
@@ -7500,7 +7484,6 @@
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
                                                         <event name="OnKeyDown">OnApretarTecla</event>
-                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -7568,16 +7551,16 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaFuerza</event>
                                             </object>
                                         </object>
                                     </object>
                                 </object>
-                                <object class="sizeritem" expanded="0">
+                                <object class="sizeritem" expanded="1">
                                     <property name="border">5</property>
                                     <property name="flag"></property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer143</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -7651,7 +7634,6 @@
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
                                                         <event name="OnKeyDown">OnApretarTecla</event>
-                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -7719,16 +7701,16 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaAgi</event>
                                             </object>
                                         </object>
                                     </object>
                                 </object>
-                                <object class="sizeritem" expanded="0">
+                                <object class="sizeritem" expanded="1">
                                     <property name="border">5</property>
                                     <property name="flag"></property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer145</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -7802,7 +7784,6 @@
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
                                                         <event name="OnKeyDown">OnApretarTecla</event>
-                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -7870,7 +7851,7 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaInte</event>
                                             </object>
                                         </object>
                                     </object>
@@ -7953,7 +7934,6 @@
                                                         <property name="window_style">wxTAB_TRAVERSAL</property>
                                                         <property name="wrap">-1</property>
                                                         <event name="OnKeyDown">OnApretarTecla</event>
-                                                        <event name="OnKeyUp">OnLevantarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -8021,7 +8001,7 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaMana</event>
                                             </object>
                                         </object>
                                     </object>
@@ -8117,7 +8097,6 @@
                                                 <property name="window_style"></property>
                                                 <property name="wrap">-1</property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -8194,7 +8173,6 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -8279,7 +8257,6 @@
                                                 <property name="window_style"></property>
                                                 <property name="wrap">-1</property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -8356,7 +8333,6 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnKeyDown">OnApretarTecla</event>
-                                                <event name="OnKeyUp">OnLevantarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -8609,7 +8585,7 @@
                                                 <property name="minimize_button">0</property>
                                                 <property name="minimum_size"></property>
                                                 <property name="moveable">1</property>
-                                                <property name="name">m_staticText105</property>
+                                                <property name="name">m_staticText10</property>
                                                 <property name="pane_border">1</property>
                                                 <property name="pane_position"></property>
                                                 <property name="pane_size"></property>
