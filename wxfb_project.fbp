@@ -10871,7 +10871,7 @@
                 </object>
             </object>
         </object>
-        <object class="Dialog" expanded="0">
+        <object class="Dialog" expanded="1">
             <property name="aui_managed">0</property>
             <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
             <property name="bg"></property>
@@ -10897,7 +10897,8 @@
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
             <property name="window_style">wxTAB_TRAVERSAL</property>
-            <object class="wxBoxSizer" expanded="0">
+            <event name="OnKeyDown">OnApretarTecla</event>
+            <object class="wxBoxSizer" expanded="1">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer7</property>
                 <property name="orient">wxVERTICAL</property>
@@ -10988,6 +10989,7 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <property name="wrap">-1</property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
                                             </object>
                                         </object>
                                         <object class="sizeritem" expanded="0">
@@ -11052,6 +11054,7 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -11136,6 +11139,7 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnButtonClick">OnClickAplicar</event>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
                                             </object>
                                         </object>
                                         <object class="sizeritem" expanded="0">
@@ -11209,6 +11213,7 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <event name="OnButtonClick">OnClickExportar</event>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -11294,6 +11299,7 @@
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
                                         <property name="wrap">-1</property>
+                                        <event name="OnKeyDown">OnApretarTecla</event>
                                     </object>
                                 </object>
                                 <object class="sizeritem" expanded="0">
@@ -11356,6 +11362,7 @@
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style">wxTAB_TRAVERSAL</property>
+                                        <event name="OnKeyDown">OnApretarTecla</event>
                                     </object>
                                 </object>
                             </object>
@@ -11437,6 +11444,7 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <property name="wrap">-1</property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -11445,20 +11453,20 @@
                         </object>
                     </object>
                 </object>
-                <object class="sizeritem" expanded="0">
+                <object class="sizeritem" expanded="1">
                     <property name="border">5</property>
                     <property name="flag">wxEXPAND</property>
                     <property name="proportion">0</property>
-                    <object class="wxBoxSizer" expanded="0">
+                    <object class="wxBoxSizer" expanded="1">
                         <property name="minimum_size"></property>
                         <property name="name">bSizer157</property>
                         <property name="orient">wxHORIZONTAL</property>
                         <property name="permission">none</property>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag"></property>
                             <property name="proportion">1</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer156</property>
                                 <property name="orient">wxVERTICAL</property>
@@ -11540,6 +11548,7 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -11606,15 +11615,17 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaDanio</event>
                                             </object>
                                         </object>
                                     </object>
                                 </object>
-                                <object class="sizeritem" expanded="0">
+                                <object class="sizeritem" expanded="1">
                                     <property name="border">5</property>
                                     <property name="flag">wxALIGN_RIGHT</property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer1471</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -11687,6 +11698,7 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -11753,15 +11765,17 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style">wxTAB_TRAVERSAL</property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaRango</event>
                                             </object>
                                         </object>
                                     </object>
                                 </object>
-                                <object class="sizeritem" expanded="0">
+                                <object class="sizeritem" expanded="1">
                                     <property name="border">5</property>
                                     <property name="flag">wxALIGN_RIGHT</property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer14721</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -11834,6 +11848,7 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -11900,15 +11915,17 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaPunt</event>
                                             </object>
                                         </object>
                                     </object>
                                 </object>
-                                <object class="sizeritem" expanded="0">
+                                <object class="sizeritem" expanded="1">
                                     <property name="border">5</property>
                                     <property name="flag">wxALIGN_RIGHT</property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer1472</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -11981,6 +11998,7 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -12047,15 +12065,17 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaBloq</event>
                                             </object>
                                         </object>
                                     </object>
                                 </object>
-                                <object class="sizeritem" expanded="0">
+                                <object class="sizeritem" expanded="1">
                                     <property name="border">5</property>
                                     <property name="flag">wxALIGN_RIGHT</property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer141</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -12128,6 +12148,7 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -12194,15 +12215,17 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaDef</event>
                                             </object>
                                         </object>
                                     </object>
                                 </object>
-                                <object class="sizeritem" expanded="0">
+                                <object class="sizeritem" expanded="1">
                                     <property name="border">5</property>
                                     <property name="flag">wxALIGN_RIGHT</property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer144</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -12275,6 +12298,7 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -12341,6 +12365,8 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaResM</event>
                                             </object>
                                         </object>
                                     </object>
@@ -12416,11 +12442,11 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag"></property>
                             <property name="proportion">1</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer8</property>
                                 <property name="orient">wxVERTICAL</property>
@@ -12502,6 +12528,7 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -12568,15 +12595,17 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaVida</event>
                                             </object>
                                         </object>
                                     </object>
                                 </object>
-                                <object class="sizeritem" expanded="0">
+                                <object class="sizeritem" expanded="1">
                                     <property name="border">5</property>
                                     <property name="flag"></property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer142</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -12649,6 +12678,7 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -12715,15 +12745,17 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaFuerza</event>
                                             </object>
                                         </object>
                                     </object>
                                 </object>
-                                <object class="sizeritem" expanded="0">
+                                <object class="sizeritem" expanded="1">
                                     <property name="border">5</property>
                                     <property name="flag"></property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer143</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -12796,6 +12828,7 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -12862,15 +12895,17 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaAgi</event>
                                             </object>
                                         </object>
                                     </object>
                                 </object>
-                                <object class="sizeritem" expanded="0">
+                                <object class="sizeritem" expanded="1">
                                     <property name="border">5</property>
                                     <property name="flag"></property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer145</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -12943,6 +12978,7 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -13009,15 +13045,17 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaInte</event>
                                             </object>
                                         </object>
                                     </object>
                                 </object>
-                                <object class="sizeritem" expanded="0">
+                                <object class="sizeritem" expanded="1">
                                     <property name="border">5</property>
                                     <property name="flag"></property>
                                     <property name="proportion">1</property>
-                                    <object class="wxBoxSizer" expanded="0">
+                                    <object class="wxBoxSizer" expanded="1">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizer146</property>
                                         <property name="orient">wxHORIZONTAL</property>
@@ -13090,6 +13128,7 @@
                                                         <property name="window_name"></property>
                                                         <property name="window_style"></property>
                                                         <property name="wrap">-1</property>
+                                                        <event name="OnKeyDown">OnApretarTecla</event>
                                                     </object>
                                                 </object>
                                             </object>
@@ -13156,6 +13195,8 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
+                                                <event name="OnMouseWheel">OnRueditaMana</event>
                                             </object>
                                         </object>
                                     </object>
@@ -13250,6 +13291,7 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <property name="wrap">-1</property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -13325,6 +13367,7 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -13408,6 +13451,7 @@
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
                                                 <property name="wrap">-1</property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
                                             </object>
                                         </object>
                                     </object>
@@ -13483,6 +13527,7 @@
                                                 <property name="window_extra_style"></property>
                                                 <property name="window_name"></property>
                                                 <property name="window_style"></property>
+                                                <event name="OnKeyDown">OnApretarTecla</event>
                                             </object>
                                         </object>
                                     </object>

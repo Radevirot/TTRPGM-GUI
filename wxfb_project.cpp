@@ -2367,15 +2367,105 @@ Dialogo_item::Dialogo_item( wxWindow* parent, wxWindowID id, const wxString& tit
 	this->Centre( wxBOTH );
 
 	// Connect Events
+	this->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ) );
+	m_Personajename->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_NombreItem->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
 	m_button7->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_item::OnClickAplicar ), NULL, this );
+	m_button7->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
 	m_button4->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_item::OnClickExportar ), NULL, this );
+	m_button4->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Nivel->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Cantidad->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_staticText94->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_staticText87->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Danio->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Danio->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaDanio ), NULL, this );
+	m_staticText871->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Rango->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Rango->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaRango ), NULL, this );
+	m_staticText8721->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Punteria->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Punteria->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaPunt ), NULL, this );
+	m_staticText872->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Bloqueo->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Bloqueo->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaBloq ), NULL, this );
+	m_staticText81->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Defenza->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Defenza->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaDef ), NULL, this );
+	m_staticText84->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_ResistenciaMagica->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_ResistenciaMagica->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaResM ), NULL, this );
+	m_staticText8->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_PuntosVida->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_PuntosVida->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaVida ), NULL, this );
+	m_staticText82->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Fuerza->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Fuerza->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaFuerza ), NULL, this );
+	m_staticText83->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Agilidad->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Agilidad->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaAgi ), NULL, this );
+	m_staticText85->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Inteligencia->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Inteligencia->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaInte ), NULL, this );
+	m_staticText86->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Mana->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Mana->Connect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaMana ), NULL, this );
+	m_staticText43->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Detalle->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_staticText431->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Descripcion->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
 }
 
 Dialogo_item::~Dialogo_item()
 {
 	// Disconnect Events
+	this->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ) );
+	m_Personajename->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_NombreItem->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
 	m_button7->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_item::OnClickAplicar ), NULL, this );
+	m_button7->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
 	m_button4->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Dialogo_item::OnClickExportar ), NULL, this );
+	m_button4->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Nivel->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Cantidad->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_staticText94->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_staticText87->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Danio->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Danio->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaDanio ), NULL, this );
+	m_staticText871->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Rango->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Rango->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaRango ), NULL, this );
+	m_staticText8721->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Punteria->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Punteria->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaPunt ), NULL, this );
+	m_staticText872->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Bloqueo->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Bloqueo->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaBloq ), NULL, this );
+	m_staticText81->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Defenza->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Defenza->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaDef ), NULL, this );
+	m_staticText84->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_ResistenciaMagica->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_ResistenciaMagica->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaResM ), NULL, this );
+	m_staticText8->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_PuntosVida->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_PuntosVida->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaVida ), NULL, this );
+	m_staticText82->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Fuerza->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Fuerza->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaFuerza ), NULL, this );
+	m_staticText83->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Agilidad->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Agilidad->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaAgi ), NULL, this );
+	m_staticText85->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Inteligencia->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Inteligencia->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaInte ), NULL, this );
+	m_staticText86->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Mana->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Mana->Disconnect( wxEVT_MOUSEWHEEL, wxMouseEventHandler( Dialogo_item::OnRueditaMana ), NULL, this );
+	m_staticText43->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Detalle->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_staticText431->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
+	m_Descripcion->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( Dialogo_item::OnApretarTecla ), NULL, this );
 
 }
 
