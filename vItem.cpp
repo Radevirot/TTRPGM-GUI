@@ -24,7 +24,11 @@ vItem::vItem(wxWindow *parent, Partida *p) : Ventana_item(parent) {
 	Show();
 }
 
-vItem::~vItem(){}
+vItem::~vItem(){
+	
+}
+
+
 
 Item vItem::CargarInformacion(){
 	/*

@@ -53,6 +53,8 @@ dItem::~dItem() {
 	
 }
 
+
+
 // MÉTODOS PRIVADOS
 
 void dItem::CrearTablaDeAtajos(){

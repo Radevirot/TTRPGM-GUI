@@ -19,6 +19,11 @@ dInventario::dInventario(wxWindow *parent, Personaje &p, Partida *pa) : Dialogo_
 	this->SetIcon(icon);
 }
 
+dInventario::~dInventario() {
+	
+}
+
+
 
 //BOTONES DE LA LISTA
 
@@ -83,7 +88,5 @@ void dInventario::OnListDobleClick( wxCommandEvent& event )  {
 	}
 }
 
-dInventario::~dInventario() {
-}
 
 

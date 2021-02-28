@@ -16,6 +16,7 @@ vPersonaje::~vPersonaje() {
 }
 
 
+
 //FUNCIONES PRIVADAS
 
 void vPersonaje::Actualizacion(){

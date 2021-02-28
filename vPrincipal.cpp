@@ -14,6 +14,11 @@ vPrincipal::vPrincipal(Partida *p) : Ventana_principal(NULL) {
 	this->SetIcon(icon);
 }
 
+vPrincipal::~vPrincipal() {
+	
+}
+
+
 
 //BOTONES DE PRINCIPAL
 
@@ -48,9 +53,5 @@ void vPrincipal::OnClickCargar( wxCommandEvent& event )  {
 void vPrincipal::OnClickSalir( wxCommandEvent& event )  {
 	/* Se cierra la ventana */
 	EndModal(0);
-}
-
-vPrincipal::~vPrincipal() {
-	
 }
 

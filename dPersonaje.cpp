@@ -61,6 +61,7 @@ dPersonaje::~dPersonaje() {
 }
 
 
+
 //FUNCIONES PRIVADAS
 
 void dPersonaje::Actualizacion(){

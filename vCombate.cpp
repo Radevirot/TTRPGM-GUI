@@ -22,6 +22,8 @@ vCombate::~vCombate() {
 	
 }
 
+
+
 // MÉTODOS PRIVADOS
 
 void vCombate::Seleccion(Personaje Prs){

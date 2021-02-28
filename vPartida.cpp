@@ -44,6 +44,7 @@ vPartida::~vPartida() {
 }
 
 
+
 // MÉTODOS PRIVADOS AUXILIARES PARA EVITAR REPETIR CÓDIGO
 
 void vPartida::ActualizarNombre() {

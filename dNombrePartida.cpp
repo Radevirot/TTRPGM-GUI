@@ -14,6 +14,7 @@ dNombrePartida::~dNombrePartida() {
 }
 
 
+
 //BOTONES DE LA VENTANA
 
 void dNombrePartida::OnClickAceptar( wxCommandEvent& event )  {

@@ -36,6 +36,8 @@ vDados::~vDados() {
 	
 }
 
+
+
 // BOTONES DE DADOS
 
 void vDados::OnClickAgregar( wxCommandEvent& event )  {
