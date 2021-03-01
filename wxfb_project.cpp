@@ -214,9 +214,9 @@ Ventana_partida::Ventana_partida( wxWindow* parent, wxWindowID id, const wxStrin
 	m_toolBar4 = this->CreateToolBar( wxTB_HORIZONTAL, wxID_ANY );
 	m_toolBar4->SetBackgroundColour( wxColour( 224, 224, 224 ) );
 
-	m_Combate = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxBitmap( wxT("imagenes/combate.bmp"), wxBITMAP_TYPE_ANY ), wxNullBitmap, wxITEM_NORMAL, wxT("Simulación de ataque   Ctrl+1"), wxEmptyString, NULL );
+	m_Combate = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxBitmap( wxT("imagenes/combate.bmp"), wxBITMAP_TYPE_ANY ), wxNullBitmap, wxITEM_NORMAL, wxT("Simulación de ataque (Ctrl+1)"), wxEmptyString, NULL );
 
-	m_Dado = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxBitmap( wxT("imagenes/dado.bmp"), wxBITMAP_TYPE_ANY ), wxNullBitmap, wxITEM_NORMAL, wxT("Dado virtual   Ctrl+2"), wxEmptyString, NULL );
+	m_Dado = m_toolBar4->AddTool( wxID_ANY, wxT("tool"), wxBitmap( wxT("imagenes/dado.bmp"), wxBITMAP_TYPE_ANY ), wxNullBitmap, wxITEM_NORMAL, wxT("Dado virtual (Ctrl+2)"), wxEmptyString, NULL );
 
 	m_toolBar4->Realize();
 
@@ -488,7 +488,7 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer487;
 	bSizer487 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText93 = new wxStaticText( this, wxID_ANY, wxT("Total "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText93 = new wxStaticText( this, wxID_ANY, wxT(" Total"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText93->Wrap( -1 );
 	m_staticText93->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
@@ -520,9 +520,9 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer48;
 	bSizer48 = new wxBoxSizer( wxVERTICAL );
 
-	m_PVt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_PVt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL|wxST_NO_AUTORESIZE );
 	m_PVt->Wrap( -1 );
-	bSizer48->Add( m_PVt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer48->Add( m_PVt, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer14->Add( bSizer48, 1, 0, 5 );
@@ -550,9 +550,9 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer481;
 	bSizer481 = new wxBoxSizer( wxVERTICAL );
 
-	m_DFNt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_DFNt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL|wxST_NO_AUTORESIZE );
 	m_DFNt->Wrap( -1 );
-	bSizer481->Add( m_DFNt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer481->Add( m_DFNt, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer141->Add( bSizer481, 1, wxEXPAND, 5 );
@@ -580,9 +580,9 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer482;
 	bSizer482 = new wxBoxSizer( wxVERTICAL );
 
-	m_FRZt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_FRZt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL|wxST_NO_AUTORESIZE );
 	m_FRZt->Wrap( -1 );
-	bSizer482->Add( m_FRZt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer482->Add( m_FRZt, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer142->Add( bSizer482, 1, wxEXPAND, 5 );
@@ -610,9 +610,9 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer483;
 	bSizer483 = new wxBoxSizer( wxVERTICAL );
 
-	m_AGLt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_AGLt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL|wxST_NO_AUTORESIZE );
 	m_AGLt->Wrap( -1 );
-	bSizer483->Add( m_AGLt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer483->Add( m_AGLt, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer143->Add( bSizer483, 1, wxEXPAND, 5 );
@@ -640,9 +640,9 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer484;
 	bSizer484 = new wxBoxSizer( wxVERTICAL );
 
-	m_RMt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_RMt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL|wxST_NO_AUTORESIZE );
 	m_RMt->Wrap( -1 );
-	bSizer484->Add( m_RMt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer484->Add( m_RMt, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer144->Add( bSizer484, 1, wxEXPAND, 5 );
@@ -670,9 +670,9 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer485;
 	bSizer485 = new wxBoxSizer( wxVERTICAL );
 
-	m_INTt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_INTt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL|wxST_NO_AUTORESIZE );
 	m_INTt->Wrap( -1 );
-	bSizer485->Add( m_INTt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer485->Add( m_INTt, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer145->Add( bSizer485, 1, wxEXPAND, 5 );
@@ -700,9 +700,9 @@ Ventana_personaje::Ventana_personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer486;
 	bSizer486 = new wxBoxSizer( wxVERTICAL );
 
-	m_MNt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_MNt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL|wxST_NO_AUTORESIZE );
 	m_MNt->Wrap( -1 );
-	bSizer486->Add( m_MNt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer486->Add( m_MNt, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer146->Add( bSizer486, 1, wxEXPAND, 5 );
@@ -2678,7 +2678,7 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer487;
 	bSizer487 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText93 = new wxStaticText( this, wxID_ANY, wxT("Total "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText93 = new wxStaticText( this, wxID_ANY, wxT(" Total"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText93->Wrap( -1 );
 	m_staticText93->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
@@ -2710,9 +2710,9 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer48;
 	bSizer48 = new wxBoxSizer( wxVERTICAL );
 
-	m_PVt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_PVt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL|wxST_NO_AUTORESIZE );
 	m_PVt->Wrap( -1 );
-	bSizer48->Add( m_PVt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer48->Add( m_PVt, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer14->Add( bSizer48, 1, 0, 5 );
@@ -2740,9 +2740,9 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer481;
 	bSizer481 = new wxBoxSizer( wxVERTICAL );
 
-	m_DFNt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_DFNt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL|wxST_NO_AUTORESIZE );
 	m_DFNt->Wrap( -1 );
-	bSizer481->Add( m_DFNt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer481->Add( m_DFNt, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer141->Add( bSizer481, 1, wxEXPAND, 5 );
@@ -2770,9 +2770,9 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer482;
 	bSizer482 = new wxBoxSizer( wxVERTICAL );
 
-	m_FRZt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_FRZt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL|wxST_NO_AUTORESIZE );
 	m_FRZt->Wrap( -1 );
-	bSizer482->Add( m_FRZt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer482->Add( m_FRZt, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer142->Add( bSizer482, 1, wxEXPAND, 5 );
@@ -2800,9 +2800,9 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer483;
 	bSizer483 = new wxBoxSizer( wxVERTICAL );
 
-	m_AGLt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_AGLt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL|wxST_NO_AUTORESIZE );
 	m_AGLt->Wrap( -1 );
-	bSizer483->Add( m_AGLt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer483->Add( m_AGLt, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer143->Add( bSizer483, 1, wxEXPAND, 5 );
@@ -2830,9 +2830,9 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer484;
 	bSizer484 = new wxBoxSizer( wxVERTICAL );
 
-	m_RMt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_RMt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL|wxST_NO_AUTORESIZE );
 	m_RMt->Wrap( -1 );
-	bSizer484->Add( m_RMt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer484->Add( m_RMt, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer144->Add( bSizer484, 1, wxEXPAND, 5 );
@@ -2860,9 +2860,9 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer485;
 	bSizer485 = new wxBoxSizer( wxVERTICAL );
 
-	m_INTt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_INTt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL|wxST_NO_AUTORESIZE );
 	m_INTt->Wrap( -1 );
-	bSizer485->Add( m_INTt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer485->Add( m_INTt, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer145->Add( bSizer485, 1, wxEXPAND, 5 );
@@ -2890,9 +2890,9 @@ Dialogo_Personaje::Dialogo_Personaje( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer486;
 	bSizer486 = new wxBoxSizer( wxVERTICAL );
 
-	m_MNt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_MNt = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL|wxST_NO_AUTORESIZE );
 	m_MNt->Wrap( -1 );
-	bSizer486->Add( m_MNt, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer486->Add( m_MNt, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer146->Add( bSizer486, 1, wxEXPAND, 5 );
