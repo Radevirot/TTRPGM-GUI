@@ -18,7 +18,6 @@ class vPartida : public Ventana_partida {
 	
 private:
 	Partida *m_partida;
-	wxIcon _icon;
 	void ActualizarNombre();
 	void ActualizarListas();
 protected:

@@ -6,12 +6,9 @@ vPrincipal::vPrincipal(Partida *p) : Ventana_principal(NULL) {
 	de una partida nueva.
 	Guarda el puntero de la partida en el privado y monta el icono del programa.
 	*/
+	SetIcon(wxIcon("imagenes\\logo.ico",wxBITMAP_TYPE_ICO));
 	m_partida=p;
-	wxBitmap prueba(wxT("imagenes/logo.bmp"), wxBITMAP_TYPE_ANY);
-	wxIcon icon;
-	icon.CopyFromBitmap(prueba);
-	_icon=icon;
-	this->SetIcon(icon);
+	
 }
 
 vPrincipal::~vPrincipal() {
@@ -30,7 +27,7 @@ void vPrincipal::OnClickEmpezar( wxCommandEvent& event )  {
 	ventana actual también lo hace.
 	*/
 	dNombrePartida NomPart(this,m_partida);
-	NomPart.SetIcon(_icon);
+	NomPart.SetIcon(GetIcon());
 	if(NomPart.ShowModal()==1){
 		EndModal(1);
 	}

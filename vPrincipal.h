@@ -3,12 +3,12 @@
 #include "wxfb_project.h"
 #include "Partida.h"
 #include "dNombrePartida.h"
+#include "wx/icon.h"
 	
 class vPrincipal : public Ventana_principal {
 	
 private:
 	Partida *m_partida;
-	wxIcon _icon;
 protected:
 	
 	//BOTONES DE PRINCIPAL

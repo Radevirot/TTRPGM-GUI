@@ -136,6 +136,7 @@ void dPersonaje::OnClickAgregar( wxCommandEvent& event )  {
 	el mismo dentro del vector inventario del personaje.
 	*/
 	dInventario Inv(this, m_Personaje, m_partida);
+	Inv.SetIcon(wxIcon("imagenes\\agregar.ico",wxBITMAP_TYPE_ICO));
 	int val=Inv.ShowModal();
 	if(val==1){
 		Item I=m_Personaje.MostrarItem(it);
@@ -194,10 +195,7 @@ void dPersonaje::OnCheckListPersonaje( wxCommandEvent& event )  {
 	int pos = m_Inventario->GetSelection();
 	Item I=m_Personaje.MostrarItem(pos);
 	dItem ItemMod(this,m_partida,I,pos,false);
-	wxBitmap logo(wxT("imagenes/logo.bmp"), wxBITMAP_TYPE_ANY);
-	wxIcon icon;
-	icon.CopyFromBitmap(logo);
-	ItemMod.SetIcon(icon);
+	ItemMod.SetIcon(GetIcon());
 	if(ItemMod.ShowModal()==1){
 		m_Inventario->Delete(pos);
 		m_Inventario->Append(std_to_wx(I.ObtenerNombre()));

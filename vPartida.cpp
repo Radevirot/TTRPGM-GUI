@@ -30,12 +30,10 @@ vPartida::vPartida(wxWindow *parent, Partida *p) : Ventana_partida(parent) {
 	Connect( wxID_HIGHEST+11 , wxEVT_MENU, wxCommandEventHandler( vPartida::OnApretarEnter ));
 	
 	m_partida=p;
-	wxBitmap prueba(wxT("imagenes/logo.bmp"), wxBITMAP_TYPE_ANY);
-	wxIcon icon;
-	icon.CopyFromBitmap(prueba);
-	_icon=icon;
-	this->SetIcon(icon);
-	this->ActualizarNombre();
+	
+	SetIcon(wxIcon("imagenes\\logo.ico",wxBITMAP_TYPE_ICO));
+	
+	ActualizarNombre();
 	Show();
 }
 
@@ -101,10 +99,7 @@ void vPartida::OnMenuEditar( wxCommandEvent& event )  {
 	Opcion que permite modificar el nombre de la partida en curso.
 	*/
 	dNombrePartida NomPart(this,m_partida);
-	wxBitmap renombrar(wxT("imagenes/renombrar.bmp"), wxBITMAP_TYPE_ANY);
-	wxIcon icon;
-	icon.CopyFromBitmap(renombrar);
-	NomPart.SetIcon(icon);
+	NomPart.SetIcon(wxIcon("imagenes\\renombrar.ico",wxBITMAP_TYPE_ICO));
 	NomPart.SetTitle(wxT("Renombrar partida"));
 	int valor = NomPart.ShowModal();
 	if (valor==1) this->ActualizarNombre();
@@ -115,10 +110,7 @@ void vPartida::OnMenuNueva( wxCommandEvent& event )  {
 	Opcion que permite crear una nueva partida.
 	*/
 	dNombrePartida NomPart(this,m_partida);
-	wxBitmap nueva(wxT("imagenes/Nueva.bmp"), wxBITMAP_TYPE_ANY);
-	wxIcon icon;
-	icon.CopyFromBitmap(nueva);
-	NomPart.SetIcon(icon);
+	NomPart.SetIcon(wxIcon("imagenes\\Nueva.ico",wxBITMAP_TYPE_ICO));
 	NomPart.SetTitle(wxT("Nueva partida"));
 	int valor = NomPart.ShowModal();
 	if(valor==1){
@@ -171,10 +163,7 @@ void vPartida::OnClickCombate( wxCommandEvent& event )  {
 		wxMessageBox(wxT("Debe tener al menos un personaje creado."),wxT("Error"),wxICON_ERROR);
 	} else {
 		vCombate *Combate = new vCombate(this, m_partida);
-		wxBitmap combat(wxT("imagenes/combate.bmp"), wxBITMAP_TYPE_ANY);
-		wxIcon icon;
-		icon.CopyFromBitmap(combat);
-		Combate->SetIcon(icon);
+		Combate->SetIcon(wxIcon("imagenes\\combate.ico",wxBITMAP_TYPE_ICO));
 	}
 }
 
@@ -183,10 +172,7 @@ void vPartida::OnClickDado( wxCommandEvent& event )  {
 	Abre la ventana de dados.
 	*/
 	vDados *Dados = new vDados(this,m_partida);
-	wxBitmap dado(wxT("imagenes/dado.bmp"), wxBITMAP_TYPE_ANY);
-	wxIcon icon;
-	icon.CopyFromBitmap(dado);
-	Dados->SetIcon(icon);
+	Dados->SetIcon(wxIcon("imagenes\\dado.ico",wxBITMAP_TYPE_ICO));
 }
 
 
@@ -197,7 +183,7 @@ void vPartida::OnClickCrearP( wxCommandEvent& event )  {
 	Abre la ventana de creacion de personaje.
 	*/
 	vPersonaje *Pers = new vPersonaje(this, m_partida);
-	Pers->SetIcon(_icon);
+	Pers->SetIcon(wxIcon("imagenes\\agregar.ico",wxBITMAP_TYPE_ICO));
 }
 
 void vPartida::OnClickImportarP( wxCommandEvent& event )  {
@@ -237,6 +223,7 @@ void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
 	} else {
 		Personaje P=m_partida->ObtenerPersonaje(pos);
 		dInventario InvPer(this,P,m_partida);
+		InvPer.SetIcon(wxIcon("imagenes\\agregar.ico",wxBITMAP_TYPE_ICO));
 		if (InvPer.ShowModal()==1){
 			m_partida->EliminarPersonaje(pos);
 			P.OrdenarAlph();
@@ -256,7 +243,7 @@ void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
 	int pos = m_ListaPersonajes->GetSelection();
 	Personaje P=m_partida->ObtenerPersonaje(pos);
 	dPersonaje PersonajeMod(this,m_partida,P,pos);
-	PersonajeMod.SetIcon(_icon);
+	PersonajeMod.SetIcon(wxIcon("imagenes\\modificar.ico",wxBITMAP_TYPE_ICO));
 	PersonajeMod.ShowModal();
 }
 
@@ -268,7 +255,7 @@ void vPartida::OnClickCrearI( wxCommandEvent& event )  {
 	Abre la ventana de creacion del item.
 	*/
 	vItem *Item = new vItem(this, m_partida);
-	Item->SetIcon(_icon);
+	Item->SetIcon(wxIcon("imagenes\\agregar.ico",wxBITMAP_TYPE_ICO));
 	
 }
 
@@ -310,7 +297,7 @@ void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
 	int pos = m_ListaItems->GetSelection();
 	Item I=m_partida->ObtenerItem(pos);
 	dItem ItemMod(this,m_partida,I,pos);
-	ItemMod.SetIcon(_icon);
+	ItemMod.SetIcon(wxIcon("imagenes\\modificar.ico",wxBITMAP_TYPE_ICO));
 	ItemMod.ShowModal();
 }
 
@@ -347,7 +334,7 @@ void vPartida::OnApretarEnter( wxCommandEvent& event ){
 		if(pos!=wxNOT_FOUND){
 			Item I=m_partida->ObtenerItem(pos);
 			dItem ItemMod(this,m_partida,I,pos);
-			ItemMod.SetIcon(_icon);
+			ItemMod.SetIcon(wxIcon("imagenes\\modificar.ico",wxBITMAP_TYPE_ICO));
 			ItemMod.ShowModal();
 		}
 	} else if(m_ListaPersonajes->HasFocus()) {
@@ -355,7 +342,7 @@ void vPartida::OnApretarEnter( wxCommandEvent& event ){
 		if(pos!=wxNOT_FOUND){
 			Personaje P=m_partida->ObtenerPersonaje(pos);
 			dPersonaje PersonajeMod(this,m_partida,P,pos);
-			PersonajeMod.SetIcon(_icon);
+			PersonajeMod.SetIcon(wxIcon("imagenes\\modificar.ico",wxBITMAP_TYPE_ICO));
 			PersonajeMod.ShowModal();
 		}
 	}
