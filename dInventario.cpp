@@ -8,7 +8,7 @@ dInventario::dInventario(wxWindow *parent, Personaje &p, Partida *pa) : Dialogo_
 	*/
 	
 	wxAcceleratorEntry entries[2];
-	entries[1].Set(wxACCEL_NORMAL,WXK_RETURN, wxID_HIGHEST+30);
+	entries[1].Set(0,WXK_RETURN, wxID_HIGHEST+30);
 	entries[2].Set(0,WXK_ESCAPE, wxID_HIGHEST+31);
 	wxAcceleratorTable accel(2, entries);
 	SetAcceleratorTable(accel);
