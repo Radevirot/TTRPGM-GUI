@@ -329,3 +329,4 @@ void dPersonaje::OnRueditaMana( wxMouseEvent& event )  {
 	}
 }
 
+

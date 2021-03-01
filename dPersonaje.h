@@ -26,6 +26,7 @@ private:
 	void Actualizacion();
 	void GuardarCambios();
 protected:
+
 	//BOTONES DE EDICION DE PERSONAJE 
 	void OnClickBorrar( wxCommandEvent& event )  override;
 	void OnClickAplicar( wxCommandEvent& event )  override;
