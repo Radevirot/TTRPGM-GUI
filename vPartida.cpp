@@ -306,7 +306,8 @@ void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
 
 void vPartida::OnApretarSupr( wxCommandEvent& event ){
 	/*
-	
+	Tecla "SUPR" borra dependiendo donde este el focus(lista de items o de personajes)
+	el item o personaje seleccionado.
 	*/
 	if(m_ListaItems->HasFocus()){
 		int pos = m_ListaItems->GetSelection();
@@ -327,7 +328,8 @@ void vPartida::OnApretarSupr( wxCommandEvent& event ){
 
 void vPartida::OnApretarEnter( wxCommandEvent& event ){
 	/*
-	
+	Tecla "ENTER" abre dependiendo donde este el focus(lista de items o de personajes)
+	la ventana correspondiente (dItem o dPersonaje) para editar el seleccionado.
 	*/
 	if(m_ListaItems->HasFocus()){
 		int pos = m_ListaItems->GetSelection();
