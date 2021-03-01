@@ -53,6 +53,22 @@ Ventana_principal::Ventana_principal( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer2->Add( bSizer7, 1, wxEXPAND, 5 );
 
+	wxBoxSizer* bSizer231;
+	bSizer231 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText109 = new wxStaticText( this, wxID_ANY, wxT("Creadores"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL );
+	m_staticText109->Wrap( -1 );
+	m_staticText109->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, true, wxEmptyString ) );
+
+	bSizer231->Add( m_staticText109, 0, wxALIGN_CENTER_HORIZONTAL|wxRIGHT|wxLEFT, 5 );
+
+	m_staticText108 = new wxStaticText( this, wxID_ANY, wxT("Schvabauer Matías\nRamírez Adriel"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL );
+	m_staticText108->Wrap( -1 );
+	bSizer231->Add( m_staticText108, 0, wxALL|wxALIGN_CENTER_VERTICAL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer2->Add( bSizer231, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
+
 
 	this->SetSizer( bSizer2 );
 	this->Layout();
