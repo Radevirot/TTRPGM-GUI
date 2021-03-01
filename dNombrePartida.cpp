@@ -38,9 +38,7 @@ void dNombrePartida::OnClickCancelar( wxCommandEvent& event )  {
 //ATAJO DE TECLADO
 
 void dNombrePartida::OnTextEnter( wxCommandEvent& event )  {
-	/*
-	Hace lo mismo que OnClickAceptar.
-	*/
+	/* Hace lo mismo que OnClickAceptar. */
 	m_partida->ModificarNombre(wx_to_std(m_textCtrlNombrePart->GetValue()));
 	EndModal(1);
 }

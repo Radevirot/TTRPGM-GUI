@@ -16,9 +16,7 @@ void Dado::Modificar(std::string nombre, int DadoMin, int DadoMax){
 }
 
 int Dado::TirarDado(){
-	/*
-	Tira un numero random.
-	*/
+	/* Devuelve un número aleatorio entre el valor mínimo y el máximo. */
 	return rand()%(ValMax-ValMin+1)+ValMin;
 }
 
@@ -36,7 +34,7 @@ int Dado::ObtenerMin(){
 
 void Dado::Exportar(std::string nombrearchi){
 	/*
-	Pide el nombre del archivo que no debe incluir la extensión.
+	Pide el nombre del archivo.
 	Exporta el dado de una partida.
 	*/
 	std::ofstream archivo(nombrearchi,std::ios::binary|std::ios::app);
@@ -52,9 +50,8 @@ void Dado::Exportar(std::string nombrearchi){
 
 void Dado::Importar(std::string nombrearchi, int posbinaria){
 	/*
-	Pide el nombre del archivo que no debe incluir la extensión. Tambien la 
-	posición desde la que tiene que empezar a leer.
-	Importa el dado de una partida.
+	Pide el nombre del archivo. Tambien la posición desde la
+	que tiene que empezar a leer. Importa el dado de una partida.
 	*/
 	std::ifstream archivo(nombrearchi,std::ios::binary);
 	archivo.seekg(posbinaria);

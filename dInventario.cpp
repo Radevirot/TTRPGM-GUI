@@ -6,6 +6,15 @@ dInventario::dInventario(wxWindow *parent, Personaje &p, Partida *pa) : Dialogo_
 	a la ventana padre, otro a la partida actual y un personaje por referencia.
 	Carga y muestra los items de la partida.
 	*/
+	
+	wxAcceleratorEntry entries[2];
+	entries[1].Set(wxACCEL_NORMAL,WXK_RETURN, wxID_HIGHEST+30);
+	entries[2].Set(0,WXK_ESCAPE, wxID_HIGHEST+31);
+	wxAcceleratorTable accel(2, entries);
+	SetAcceleratorTable(accel);
+	Connect( wxID_HIGHEST+30 , wxEVT_MENU, wxCommandEventHandler( dInventario::OnListDobleClick ));
+	Connect( wxID_HIGHEST+31 , wxEVT_MENU, wxCommandEventHandler( dInventario::OnClickCancelar ));
+	
 	m_Personaje=&p;
 	m_partida=pa;
 	Cant=m_partida->ObtenerCantidadDeItems();
@@ -13,6 +22,7 @@ dInventario::dInventario(wxWindow *parent, Personaje &p, Partida *pa) : Dialogo_
 		Item I=m_partida->ObtenerItem(i);
 		m_ListaItems->Append(std_to_wx(I.ObtenerNombre()));
 	}
+	m_ListaItems->SetSelection(0);
 }
 
 dInventario::~dInventario() {
@@ -52,9 +62,7 @@ void dInventario::OnClickAgregar( wxCommandEvent& event )  {
 }
 
 void dInventario::OnClickCancelar( wxCommandEvent& event )  {
-	/*
-	Cierra la ventana dInventario.
-	*/
+	/* Cierra la ventana. */
 	EndModal(0);
 }
 

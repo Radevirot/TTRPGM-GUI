@@ -63,7 +63,7 @@ path=dNombrePartida.cpp
 cursor=26:0
 [source]
 path=dPersonaje.cpp
-cursor=204:27
+cursor=182:17
 open=true
 [source]
 path=dInventario.cpp

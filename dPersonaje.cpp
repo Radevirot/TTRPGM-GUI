@@ -9,6 +9,22 @@ dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje &P, int posc) : D
 	Carga y muestra los datos del personaje. Modifica los toggle de los items
 	y tilda los casilleros corespondientes.
 	*/
+	
+	wxAcceleratorEntry entries[5];
+	entries[0].Set(wxACCEL_CTRL,(int) 'S', wxID_HIGHEST+25);
+	entries[1].Set(wxACCEL_CTRL,(int) 'G', wxID_HIGHEST+26);
+	entries[2].Set(wxACCEL_NORMAL,WXK_RETURN, wxID_HIGHEST+27);
+	entries[3].Set(wxACCEL_CTRL,(int) 'I', wxID_HIGHEST+28);
+	entries[4].Set(wxACCEL_NORMAL,WXK_DELETE, wxID_HIGHEST+29);
+	wxAcceleratorTable accel(5, entries);
+	SetAcceleratorTable(accel);
+	Connect( wxID_HIGHEST+25 , wxEVT_MENU, wxCommandEventHandler( dPersonaje::OnClickExportar ));
+	Connect( wxID_HIGHEST+26 , wxEVT_MENU, wxCommandEventHandler( dPersonaje::OnClickExportar ));
+	Connect( wxID_HIGHEST+27 , wxEVT_MENU, wxCommandEventHandler( dPersonaje::OnClickAplicar ));
+	Connect( wxID_HIGHEST+28 , wxEVT_MENU, wxCommandEventHandler( dPersonaje::OnClickAgregar ));
+	Connect( wxID_HIGHEST+29 , wxEVT_MENU, wxCommandEventHandler( dPersonaje::OnApretarSupr ));
+	
+	
 	m_partida=p;
 	pos=posc;
 	
@@ -118,12 +134,10 @@ void dPersonaje::GuardarCambios(){
 }
 
 
-//BOTONES DE EDICION DE PERSONAJE 
+// BOTONES DE LA VENTANA
 
 void dPersonaje::OnClickAplicar( wxCommandEvent& event )  {
-	/*
-	Guarda al personaje dentro del vector de partida.
-	*/
+	/* Guarda al personaje dentro del vector de partida. */
 	this->GuardarCambios();
 	m_partida->EliminarPersonaje(pos);
 	m_partida->AgregarPersonaje(m_Personaje);
@@ -147,9 +161,7 @@ void dPersonaje::OnClickAgregar( wxCommandEvent& event )  {
 }
 
 void dPersonaje::OnClickBorrar( wxCommandEvent& event )  {
-	/*
-	Borra un item del inventario y ordena la misma.
-	*/
+	/* Borra un item del inventario y ordena el mismo. */
 	if(m_Inventario->GetSelection()==wxNOT_FOUND){
 		wxMessageBox(wxT("No es posible borrar un item sin\nhaber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
 	} else {
@@ -163,9 +175,7 @@ void dPersonaje::OnClickBorrar( wxCommandEvent& event )  {
 }
 
 void dPersonaje::OnClickExportar( wxCommandEvent& event )  {
-	/*
-	Exporta al personaje con las stats e items actuales.
-	*/
+	/* Exporta al personaje con las stats e items actuales. */
 	wxFileDialog exportarPersonaje(this,wxT("Exportar personaje"),".\\datos",m_Nombre->GetValue()+".per","Archivos PER (*.per)|*.per",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
 	if(exportarPersonaje.ShowModal()==wxID_OK){
 		this->GuardarCambios();
@@ -174,17 +184,15 @@ void dPersonaje::OnClickExportar( wxCommandEvent& event )  {
 }
 
 
-//TILDADO DE ITEM EN INVENTARIO
+// TILDADO DE ITEM EN INVENTARIO
 
 void dPersonaje::OnCheckListInventario( wxCommandEvent& event )  {
-	/*
-	Actualiza los datos si un item es equipado.
-	*/
+	/* Actualiza los datos si un item es equipado. */
 	Actualizacion();
 }
 
 
-//ATAJO DE MOUSE
+// ATAJO DE MOUSE
 
 void dPersonaje::OnCheckListPersonaje( wxCommandEvent& event )  {
 	/*
@@ -206,13 +214,118 @@ void dPersonaje::OnCheckListPersonaje( wxCommandEvent& event )  {
 	Actualizacion();
 }
 
+// ATAJOS DE TECLADO
 
-//ACTUALIZAR VENTANA
+void dPersonaje::OnApretarSupr( wxCommandEvent& event ){
+	/*
+	Si hay un item del inventario seleccionado, lo borra.
+	*/
+	if (m_Inventario->HasFocus()){
+		int pos = m_Inventario->GetSelection();
+		if(pos!=wxNOT_FOUND){
+			m_Inventario->Delete(pos);
+			m_partida->EliminarItem(pos);
+			m_Personaje.BorrarItem(pos);
+			m_Personaje.OrdenarAlph();
+			it--;
+			Actualizacion();
+			if(m_Inventario->GetSelection()!=wxNOT_FOUND) m_Inventario->SetSelection(pos); else m_Inventario->SetSelection(pos-1);
+		}
+	} else event.Skip();
+}
+
+void dPersonaje::OnApretarTecla( wxKeyEvent& event )  {
+	/*
+	Este evento se encarga de procesar atajos de teclado que son muy sencillos
+	como para crearles eventos propios, ya que lo único que hacen es seleccionar
+	un objeto de wx diferente.
+	*/
+	switch (event.GetKeyCode()){
+	case (int) 'D': if(event.ControlDown()){ m_Detalle->SetFocus(); m_Detalle->SetSelection(-1,-1);} else event.Skip(); break;	// CTRL+D
+	case (int) 'W': if(event.ControlDown()){ m_EXP->SetFocus(); m_EXP->SetSelection(-1,-1);} else event.Skip(); break;			// CTRL+W
+	case (int) 'N': if(event.ControlDown()){ m_Nombre->SetFocus(); m_Nombre->SetSelection(-1,-1);} else event.Skip(); break;	// CTRL+N
+	case (int) 'Q': if(event.ControlDown()){ m_Nivel->SetFocus(); m_Nivel-> SetSelection(-1,-1);} else event.Skip(); break;		// CTRL+Q
+	default: event.Skip(); break;
+	}
+}
+
+
+// ACTUALIZAR VENTANA
 
 void dPersonaje::OnSpinCtrlPersonaje( wxSpinDoubleEvent& event )  {
-	/*
-	Actualiza los valores totales luego de modificar una stat base.
-	*/
+	/* Actualiza los valores totales luego de modificar una stat base. */
 	Actualizacion();
+}
+
+// RUEDITAS
+
+/*
+Cada evento de ruedita modifica el valor del wxSpinCtrlDouble en el que el
+cursor se encuentre posicionado de acuerdo al movimiento de dicha rueda
+(hacia arriba suma, hacia abajo resta).
+*/
+
+void dPersonaje::OnRueditaEXP( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		m_EXP->SetValue(m_EXP->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		m_EXP->SetValue(m_EXP->GetValue()+1);
+	}
+}
+
+void dPersonaje::OnRueditaVida( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		spins[0]->SetValue(spins[0]->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		spins[0]->SetValue(spins[0]->GetValue()+1);
+	}
+}
+
+void dPersonaje::OnRueditaDef( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		spins[1]->SetValue(spins[1]->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		spins[1]->SetValue(spins[1]->GetValue()+1);
+	}
+}
+
+void dPersonaje::OnRueditaFuerza( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		spins[2]->SetValue(spins[2]->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		spins[2]->SetValue(spins[2]->GetValue()+1);
+	}
+}
+
+void dPersonaje::OnRueditaAgi( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		spins[3]->SetValue(spins[3]->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		spins[3]->SetValue(spins[3]->GetValue()+1);
+	}
+}
+
+void dPersonaje::OnRueditaResM( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		spins[4]->SetValue(spins[4]->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		spins[4]->SetValue(spins[4]->GetValue()+1);
+	}
+}
+
+void dPersonaje::OnRueditaInte( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		spins[5]->SetValue(spins[5]->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		spins[5]->SetValue(spins[5]->GetValue()+1);
+	}
+}
+
+void dPersonaje::OnRueditaMana( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		spins[6]->SetValue(spins[6]->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		spins[6]->SetValue(spins[6]->GetValue()+1);
+	}
 }
 

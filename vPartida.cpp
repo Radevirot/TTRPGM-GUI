@@ -95,9 +95,7 @@ void vPartida::ActualizarListas(){
 // BARRA DE MENU 
 
 void vPartida::OnMenuEditar( wxCommandEvent& event )  {
-	/*
-	Opcion que permite modificar el nombre de la partida en curso.
-	*/
+	/* Opcion que permite modificar el nombre de la partida en curso. */
 	dNombrePartida NomPart(this,m_partida);
 	NomPart.SetIcon(wxIcon("imagenes\\renombrar.ico",wxBITMAP_TYPE_ICO));
 	NomPart.SetTitle(wxT("Renombrar partida"));
@@ -106,9 +104,7 @@ void vPartida::OnMenuEditar( wxCommandEvent& event )  {
 }
 
 void vPartida::OnMenuNueva( wxCommandEvent& event )  {
-	/*
-	Opcion que permite crear una nueva partida.
-	*/
+	/* Opcion que permite crear una nueva partida. */
 	dNombrePartida NomPart(this,m_partida);
 	NomPart.SetIcon(wxIcon("imagenes\\Nueva.ico",wxBITMAP_TYPE_ICO));
 	NomPart.SetTitle(wxT("Nueva partida"));
@@ -122,9 +118,7 @@ void vPartida::OnMenuNueva( wxCommandEvent& event )  {
 }
 
 void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
-	/*
-	Opcion que permite guardar la partida actual.
-	*/
+	/* Opcion que permite guardar la partida actual. */
 	wxFileDialog guardarPartida(this,wxT("Guardar partida"),".\\datos",m_partida->ObtenerNombre()+".part","Archivos PART (*.part)|*.part",wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
 	if(guardarPartida.ShowModal()==wxID_OK){
 		m_partida->Guardar(wx_to_std(guardarPartida.GetPath()));
@@ -132,9 +126,7 @@ void vPartida::OnMenuGuardar( wxCommandEvent& event )  {
 }
 
 void vPartida::OnMenuCargar( wxCommandEvent& event )  {
-	/*
-	Opcion que permite cargar una partida guardada con anterioridad.
-	*/
+	/* Opcion que permite cargar una partida guardada con anterioridad. */
 	wxFileDialog cargarPartida(this,wxT("Elija un archivo de partida para cargar"),".\\datos","","Archivos PART (*.part)|*.part",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
 	if(cargarPartida.ShowModal()==wxID_OK){
 		Partida b("");
@@ -146,9 +138,7 @@ void vPartida::OnMenuCargar( wxCommandEvent& event )  {
 }
 
 void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
-	/*
-	Opcion que envia al pdf donde se muestra una guia y los atajos.
-	*/
+	/* Opcion que envia al pdf donde se muestra una guia y los atajos. */
 	wxLaunchDefaultApplication(wxT(".\\ayuda.pdf"));
 }
 
@@ -156,9 +146,7 @@ void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
 // TOOLBAR 
 
 void vPartida::OnClickCombate( wxCommandEvent& event )  {
-	/*
-	Abre la ventana de combate.
-	*/
+	/* Abre la ventana de combate. */
 	if (m_partida->ObtenerTamPersonajes()==0){
 		wxMessageBox(wxT("Debe tener al menos un personaje creado."),wxT("Error"),wxICON_ERROR);
 	} else {
@@ -168,9 +156,7 @@ void vPartida::OnClickCombate( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickDado( wxCommandEvent& event )  {
-	/*
-	Abre la ventana de dados.
-	*/
+	/* Abre la ventana de dados. */
 	vDados *Dados = new vDados(this,m_partida);
 	Dados->SetIcon(wxIcon("imagenes\\dado.ico",wxBITMAP_TYPE_ICO));
 }
@@ -179,9 +165,7 @@ void vPartida::OnClickDado( wxCommandEvent& event )  {
 // BOTONES DE PERSONAJE 
 
 void vPartida::OnClickCrearP( wxCommandEvent& event )  {
-	/*
-	Abre la ventana de creacion de personaje.
-	*/
+	/* Abre la ventana de creacion de personaje. */
 	vPersonaje *Pers = new vPersonaje(this, m_partida);
 	Pers->SetIcon(wxIcon("imagenes\\agregar.ico",wxBITMAP_TYPE_ICO));
 }
@@ -201,9 +185,7 @@ void vPartida::OnClickImportarP( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickBorrarPersonaje( wxCommandEvent& event )  {
-	/*
-	Borra un personaje seleccionado y actualiza la lista.
-	*/
+	/* Borra un personaje seleccionado y actualiza la lista. */
 	if(m_ListaPersonajes->GetSelection()==wxNOT_FOUND){
 		wxMessageBox(wxT("No es posible borrar un personaje sin\nhaber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
 	} else {
@@ -215,7 +197,8 @@ void vPartida::OnClickBorrarPersonaje( wxCommandEvent& event )  {
 
 void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
 	/*
-	Abre la ventana dInventario para poder agregar un item al personaje seleccionado.
+	Abre la ventana dInventario para poder
+	agregar un item al personaje seleccionado.
 	*/
 	int pos = m_ListaPersonajes->GetSelection();
 	if(pos==wxNOT_FOUND){
@@ -238,7 +221,8 @@ void vPartida::OnClickVerInventario( wxCommandEvent& event )  {
 
 void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
 	/*
-	Con el Doble-Click abre la ventana dPersonaje para editar el seleccionado.
+	Con el Doble-Click abre la ventana
+	dPersonaje para editar el seleccionado.
 	*/
 	int pos = m_ListaPersonajes->GetSelection();
 	Personaje P=m_partida->ObtenerPersonaje(pos);
@@ -251,9 +235,7 @@ void vPartida::OnDobleClickListaPersonaje( wxCommandEvent& event )  {
 // BOTONES DE ITEM 
 
 void vPartida::OnClickCrearI( wxCommandEvent& event )  {
-	/*
-	Abre la ventana de creacion del item.
-	*/
+	/* Abre la ventana de creacion del item. */
 	vItem *Item = new vItem(this, m_partida);
 	Item->SetIcon(wxIcon("imagenes\\agregar.ico",wxBITMAP_TYPE_ICO));
 	
@@ -274,9 +256,7 @@ void vPartida::OnClickImportarI( wxCommandEvent& event )  {
 }
 
 void vPartida::OnClickBorrar( wxCommandEvent& event )  {
-	/*
-	Borra un item seleccionado.
-	*/
+	/* Borra un item seleccionado. */
 	if(m_ListaItems->GetSelection()==wxNOT_FOUND){
 		wxMessageBox(wxT("No es posible borrar un item sin\nhaber seleccionado uno previamente."),wxT("Error"),wxICON_ERROR);
 	} else {
@@ -306,7 +286,8 @@ void vPartida::OnDobleClickListaItem( wxCommandEvent& event )  {
 
 void vPartida::OnApretarSupr( wxCommandEvent& event ){
 	/*
-	
+	Revisa cuál de las listas está enfocada y, en ambos casos,
+	borra lo que esté seleccionado en dicha lista.
 	*/
 	if(m_ListaItems->HasFocus()){
 		int pos = m_ListaItems->GetSelection();
@@ -327,7 +308,8 @@ void vPartida::OnApretarSupr( wxCommandEvent& event ){
 
 void vPartida::OnApretarEnter( wxCommandEvent& event ){
 	/*
-	
+	Revisa cuál de las listas está enfocada y, en ambos casos,
+	abre la ventana de modificación correspondiente.
 	*/
 	if(m_ListaItems->HasFocus()){
 		int pos = m_ListaItems->GetSelection();
@@ -352,7 +334,7 @@ void vPartida::OnApretarEnter( wxCommandEvent& event ){
 
 void vPartida::OnActivarPartida( wxActivateEvent& event )  {
 	/*
-	Actualiza las listas al focusear la ventana Partida.
+	Actualiza las listas al tocar la ventana Partida.
 	*/
 	this->ActualizarListas();
 }

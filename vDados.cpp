@@ -119,7 +119,7 @@ void vDados::OnApretarSupr( wxCommandEvent& event ){
 
 void vDados::OnApretarTecla( wxKeyEvent& event )  {
 	/*
-	Detecta si toca control para focusear la lista.
+	Detecta si toca CTRL para enfocar la lista.
 	*/
 	if(event.GetKeyCode()==WXK_CONTROL) m_Seleccionado->SetFocus(); else event.Skip();
 }

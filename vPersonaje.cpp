@@ -6,6 +6,21 @@ vPersonaje::vPersonaje(wxWindow *parent, Partida *p) : Ventana_personaje(parent)
 	a la ventana padre y otro a la partida actual.
 	Guarda el puntero de la partida actual en el privado y muestra la ventana.
 	*/
+	
+	wxAcceleratorEntry entries[5];
+	entries[0].Set(wxACCEL_CTRL,(int) 'S', wxID_HIGHEST+20);
+	entries[1].Set(wxACCEL_CTRL,(int) 'G', wxID_HIGHEST+21);
+	entries[2].Set(wxACCEL_NORMAL,WXK_RETURN, wxID_HIGHEST+22);
+	entries[3].Set(wxACCEL_CTRL,(int) 'I', wxID_HIGHEST+23);
+	entries[4].Set(wxACCEL_NORMAL,WXK_DELETE, wxID_HIGHEST+24);
+	wxAcceleratorTable accel(5, entries);
+	SetAcceleratorTable(accel);
+	Connect( wxID_HIGHEST+20 , wxEVT_MENU, wxCommandEventHandler( vPersonaje::OnClickExportar ));
+	Connect( wxID_HIGHEST+21 , wxEVT_MENU, wxCommandEventHandler( vPersonaje::OnClickExportar ));
+	Connect( wxID_HIGHEST+22 , wxEVT_MENU, wxCommandEventHandler( vPersonaje::OnClickAplicar ));
+	Connect( wxID_HIGHEST+23 , wxEVT_MENU, wxCommandEventHandler( vPersonaje::OnClickAgregar ));
+	Connect( wxID_HIGHEST+24 , wxEVT_MENU, wxCommandEventHandler( vPersonaje::OnApretarSupr ));
+	
 	m_partida=p;
 	Show();
 
@@ -163,6 +178,40 @@ void vPersonaje::OnCheckListPersonaje( wxCommandEvent& event )  {
 	Actualizacion();
 }
 
+// ATAJOS DE TECLADO
+
+void vPersonaje::OnApretarSupr( wxCommandEvent& event ){
+	/*
+	Si hay un item del inventario seleccionado, lo borra.
+	*/
+	if (m_Inventario->HasFocus()){
+		int pos = m_Inventario->GetSelection();
+		if(pos!=wxNOT_FOUND){
+			m_Inventario->Delete(pos);
+			m_partida->EliminarItem(pos);
+			m_Personaje.BorrarItem(pos);
+			m_Personaje.OrdenarAlph();
+			it--;
+			Actualizacion();
+			if(m_Inventario->GetSelection()!=wxNOT_FOUND) m_Inventario->SetSelection(pos); else m_Inventario->SetSelection(pos-1);
+		}
+	} else event.Skip();
+}
+
+void vPersonaje::OnApretarTecla( wxKeyEvent& event )  {
+	/*
+	Este evento se encarga de procesar atajos de teclado que son muy sencillos
+	como para crearles eventos propios, ya que lo único que hacen es seleccionar
+	un objeto de wx diferente.
+	*/
+	switch (event.GetKeyCode()){
+	case (int) 'D': if(event.ControlDown()){ m_Detalle->SetFocus(); m_Detalle->SetSelection(-1,-1);} else event.Skip(); break;	// CTRL+D
+	case (int) 'W': if(event.ControlDown()){ m_EXP->SetFocus(); m_EXP->SetSelection(-1,-1);} else event.Skip(); break;			// CTRL+W
+	case (int) 'N': if(event.ControlDown()){ m_Nombre->SetFocus(); m_Nombre->SetSelection(-1,-1);} else event.Skip(); break;	// CTRL+N
+	case (int) 'Q': if(event.ControlDown()){ m_Nivel->SetFocus(); m_Nivel-> SetSelection(-1,-1);} else event.Skip(); break;		// CTRL+Q
+	default: event.Skip(); break;
+	}
+}
 
 //ACTUALIZAR VENTANA
 
@@ -171,5 +220,77 @@ void vPersonaje::OnSpinCtrlPersonaje( wxSpinDoubleEvent& event )  {
 	Actualiza los valores totales luego de modificar una stat base.
 	*/
 	Actualizacion();
+}
+
+// RUEDITAS
+
+/*
+Cada evento de ruedita modifica el valor del wxSpinCtrlDouble en el que el
+cursor se encuentre posicionado de acuerdo al movimiento de dicha rueda
+(hacia arriba suma, hacia abajo resta).
+*/
+
+void vPersonaje::OnRueditaEXP( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		m_EXP->SetValue(m_EXP->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		m_EXP->SetValue(m_EXP->GetValue()+1);
+	}
+}
+
+void vPersonaje::OnRueditaVida( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		spins[0]->SetValue(spins[0]->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		spins[0]->SetValue(spins[0]->GetValue()+1);
+	}
+}
+
+void vPersonaje::OnRueditaDef( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		spins[1]->SetValue(spins[1]->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		spins[1]->SetValue(spins[1]->GetValue()+1);
+	}
+}
+
+void vPersonaje::OnRueditaFuerza( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		spins[2]->SetValue(spins[2]->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		spins[2]->SetValue(spins[2]->GetValue()+1);
+	}
+}
+
+void vPersonaje::OnRueditaAgi( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		spins[3]->SetValue(spins[3]->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		spins[3]->SetValue(spins[3]->GetValue()+1);
+	}
+}
+
+void vPersonaje::OnRueditaResM( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		spins[4]->SetValue(spins[4]->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		spins[4]->SetValue(spins[4]->GetValue()+1);
+	}
+}
+
+void vPersonaje::OnRueditaInte( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		spins[5]->SetValue(spins[5]->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		spins[5]->SetValue(spins[5]->GetValue()+1);
+	}
+}
+
+void vPersonaje::OnRueditaMana( wxMouseEvent& event )  {
+	if(event.GetWheelRotation()<0){
+		spins[6]->SetValue(spins[6]->GetValue()-1);
+	} else if (event.GetWheelRotation()>0){
+		spins[6]->SetValue(spins[6]->GetValue()+1);
+	}
 }
 

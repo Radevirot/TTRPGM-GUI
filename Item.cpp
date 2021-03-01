@@ -27,61 +27,37 @@ float Item::ObtenerStat(int pos){
 
 
 void Item::NombrarItem(std::string nombre){
-	/*
-	Asigna el nombre del item, pide un string, que será el que se le coloque.
-	*/
 	_nombre=nombre;
 }
 	
 std::string Item::ObtenerNombre(){
-	/*
-	Retorna el nombre actual del item.
-	*/
 	return _nombre;
 }
 
 
 void Item::ModificarDetalle(std::string detalle){
-	/*
-	Modifica lo que diga el detalle, pide un string, que será el que se le coloque.
-	*/
 	_detalle=detalle;
 }
 
 std::string Item::ObtenerDetalle(){
-	/*
-	Retorna el detalle actual del item.
-	*/
 	return _detalle;
 }
 
 
 void Item::ModificarDesc(std::string desc){
-	/*
-	Modifica lo que diga la descripción, pide un string, que será el que se le coloque.
-	*/
 	_desc=desc;
 }
 
 std::string Item::ObtenerDesc(){
-	/*
-	Retorna la descripción actual del item.
-	*/
 	return _desc;
 }
 
 
 void Item::ModificarCant(int cant){
-	/*
-	Modifica la cantidad de items, pide un entero, que será el que se le coloque.
-	*/
 	_cant=cant;
 }
 
 int Item::ObtenerCant(){
-	/*
-	Retorna la cantidad de items.
-	*/
 	return _cant;
 }
 
@@ -116,7 +92,7 @@ bool Item::operator< (Item i2) const{
 
 bool Item::operator== (Item i2) const{
 	/*
-	Sobrecarga del operador igual igual, pide un item que comparar.
+	Sobrecarga del operador de comparación ==, pide un item que comparar.
 	Retorna un booleano que indica si los items son iguales.
 	*/
 	bool statsiguales;
@@ -137,7 +113,7 @@ bool Item::operator== (Item i2) const{
 
 void Item::Exportar(std::string nombrearchi, bool esunico){
 	/*
-	Pide el nombre del archivo que no debe incluir la extensión y un booleano
+	Pide el nombre del archivo y un booleano
 	que indica si el item se exportará como un archivo independiente (true) o
 	si se incluirá dentro de otro archivo, que sería el de personaje (false).
 	
@@ -194,7 +170,7 @@ void Item::Exportar(std::string nombrearchi, bool esunico){
 
 void Item::Importar(std::string nombrearchi, bool esunico, int posbinaria){
 	/*
-	Pide el nombre del archivo que no debe incluir la extensión, un booleano
+	Pide el nombre del archivo, un booleano
 	que indica si se importa un item individual (true) o si la importación
 	se encuentra dentro de otro archivo, que sería el de personaje (false).
 	

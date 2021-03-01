@@ -203,7 +203,16 @@ class Ventana_personaje : public wxFrame
 		wxStaticLine* m_staticline4111;
 
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnApretarTecla( wxKeyEvent& event ) { event.Skip(); }
+		virtual void OnRueditaEXP( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaVida( wxMouseEvent& event ) { event.Skip(); }
 		virtual void OnSpinCtrlPersonaje( wxSpinDoubleEvent& event ) { event.Skip(); }
+		virtual void OnRueditaDef( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaFuerza( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaAgi( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaResM( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaInte( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaMana( wxMouseEvent& event ) { event.Skip(); }
 		virtual void OnClickAplicar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickExportar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnCheckListPersonaje( wxCommandEvent& event ) { event.Skip(); }
@@ -527,7 +536,16 @@ class Dialogo_Personaje : public wxDialog
 		wxStaticLine* m_staticline4111;
 
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnApretarTecla( wxKeyEvent& event ) { event.Skip(); }
+		virtual void OnRueditaEXP( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaVida( wxMouseEvent& event ) { event.Skip(); }
 		virtual void OnSpinCtrlPersonaje( wxSpinDoubleEvent& event ) { event.Skip(); }
+		virtual void OnRueditaDef( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaFuerza( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaAgi( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaResM( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaInte( wxMouseEvent& event ) { event.Skip(); }
+		virtual void OnRueditaMana( wxMouseEvent& event ) { event.Skip(); }
 		virtual void OnClickAplicar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClickExportar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnCheckListPersonaje( wxCommandEvent& event ) { event.Skip(); }

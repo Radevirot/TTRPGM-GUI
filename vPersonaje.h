@@ -24,7 +24,6 @@ private:
 	void Actualizacion();
 	void GuardarCambios();
 protected:
-	
 	//BOTONES DE CREACION DE PERSONAJE 
 	void OnClickBorrar( wxCommandEvent& event )  override;
 	void OnClickAplicar( wxCommandEvent& event )  override;
@@ -37,8 +36,22 @@ protected:
 	//ATAJO DE MOUSE
 	void OnCheckListPersonaje( wxCommandEvent& event )  override;
 	
+	// ATAJOS DE TECLADO
+	void OnApretarSupr( wxCommandEvent& event );
+	void OnApretarTecla( wxKeyEvent& event )  override;
+	
 	//ACTUALIZAR VENTANA
 	void OnSpinCtrlPersonaje( wxSpinDoubleEvent& event )  override;
+	
+	//RUEDITAS
+	void OnRueditaEXP( wxMouseEvent& event )  override;
+	void OnRueditaVida( wxMouseEvent& event )  override;
+	void OnRueditaDef( wxMouseEvent& event )  override;
+	void OnRueditaFuerza( wxMouseEvent& event )  override;
+	void OnRueditaAgi( wxMouseEvent& event )  override;
+	void OnRueditaResM( wxMouseEvent& event )  override;
+	void OnRueditaInte( wxMouseEvent& event )  override;
+	void OnRueditaMana( wxMouseEvent& event )  override;
 	
 public:
 	vPersonaje(wxWindow *parent, Partida *p);

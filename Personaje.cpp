@@ -47,7 +47,7 @@ void Personaje::ModificarStat(int pos,float stat){
 
 void Personaje::ResetStat(){
 	/*
-	Modifica las stats actuales, las deja a 0.
+	Modifica las stats actuales, las deja en 0.
 	*/
 	PStats[0] = 0;
 	PStats[1] = 0;
@@ -166,8 +166,8 @@ void Personaje::OrdenarAlph(){
 
 void Personaje::Exportar(std::string nombrearchi, bool esunico){
 	/*
-	Pide el nombre del archivo que no debe incluir la extensión, y un
-	booleano que indica si el personaje se exportará como un archivo independiente
+	Pide el nombre del archivo, y un booleano que indica
+	si el personaje se exportará como un archivo independiente
 	(true) o si se encuentra dentro del archivo de partida (false).
 	
 	Exporta los datos del personaje y sus items.
@@ -226,7 +226,7 @@ void Personaje::Exportar(std::string nombrearchi, bool esunico){
 
 void Personaje::Importar(std::string nombrearchi){
 	/*
-	Pide el nombre del archivo que no debe incluir la extensión.
+	Pide el nombre del archivo.
 	
 	Este método se encuentra sobrecargado, en este caso funciona para
 	archivos de tipo personaje únicos.
@@ -277,8 +277,8 @@ void Personaje::Importar(std::string nombrearchi){
 
 void Personaje::Importar(std::string nombrearchi, int &posbinaria){
 	/*
-	Pide el nombre del archivo que no debe incluir la extensión, y una posición
-	binaria para saber desde dónde comenzar a leer el personaje.
+	Pide el nombre del archivo, y una posición binaria
+	para saber desde dónde comenzar a leer el personaje.
 	
 	Este método se encuentra sobrecargado, en este caso funciona para
 	personajes que se encuentren dentro de un archivo de partida.
