@@ -10,10 +10,11 @@ vCombate::vCombate(wxWindow *parent, Partida *p) : Ventana_combate(parent) {
 	m_Formula->Append(std_to_wx("1. (50+DÑ*4*MULT)-(DFN*2)"));
 	m_Formula->Append(std_to_wx("2. (DÑ*0.5*MULT)-(DFN*0.25)"));
 	m_Formula->Append(std_to_wx("3. (FRZ*MULT)-(DFN*0.5)"));
-	m_Formula->Append(std_to_wx("4. (FRZ+DÑ*0.5*MULT)-(DFN*0.25)"));
-	m_Formula->Append(std_to_wx("5. (FRZ+DÑ*0.5*MULT)-(DFN*0.5)"));
-	m_Formula->Append(std_to_wx("6. (50+INT*4*MULT)-(RM*2)"));
-	m_Formula->Append(std_to_wx("7. (INT*0.5*MULT)-(RM*0.25)"));
+	m_Formula->Append(std_to_wx("4. (((DÑ+1)*(FRZ+5))/(DFN+3))*(MULT+1)*0.5"));
+	m_Formula->Append(std_to_wx("5. (FRZ+DÑ*0.5*MULT)-(DFN*0.25)"));
+	m_Formula->Append(std_to_wx("6. (FRZ+DÑ*0.5*MULT)-(DFN*0.5)"));
+	m_Formula->Append(std_to_wx("7. (50+INT*4*MULT)-(RM*2)"));
+	m_Formula->Append(std_to_wx("8. (INT*0.5*MULT)-(RM*0.25)"));
 	m_Formula->SetSelection(0);
 	Show();
 }

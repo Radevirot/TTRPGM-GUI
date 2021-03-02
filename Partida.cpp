@@ -247,10 +247,11 @@ float Partida::Combate(int posp1, int posp2,  int formula, float multiplicador, 
 	case 0:  DanioProb = (50+(daniop1*4)*multiplicador)-(armorp2*2); break;
 	case 1:  DanioProb = (((daniop1*0.5)*multiplicador)-(armorp2*0.25)); break;
 	case 2:  DanioProb = (((fuerzap1)*multiplicador)-(armorp2*0.5)); break;
-	case 3:  DanioProb = ((fuerzap1+(daniop1*0.5)*multiplicador)-(armorp2*0.25)); break;
-	case 4:  DanioProb = ((fuerzap1+(daniop1*0.5)*multiplicador)-(armorp2*0.5)); break;
-	case 5:  DanioProb = (50+(intep1*4)*multiplicador)-(resmp2*2); break;
-	case 6:  DanioProb = (((intep1*0.5)*multiplicador)-(resmp2*0.25)); break;
+	case 3:  DanioProb = (((daniop1+1)*(fuerzap1+5))/(armorp2+3))*(multiplicador+1)*0.5; break;
+	case 4:  DanioProb = ((fuerzap1+(daniop1*0.5)*multiplicador)-(armorp2*0.25)); break;
+	case 5:  DanioProb = ((fuerzap1+(daniop1*0.5)*multiplicador)-(armorp2*0.5)); break;
+	case 6:  DanioProb = (50+(intep1*4)*multiplicador)-(resmp2*2); break;
+	case 7:  DanioProb = (((intep1*0.5)*multiplicador)-(resmp2*0.25)); break;
 	}
 	
 	if(DanioProb<0){ 

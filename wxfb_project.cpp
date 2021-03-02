@@ -1810,7 +1810,7 @@ Ventana_combate::Ventana_combate( wxWindow* parent, wxWindowID id, const wxStrin
 	bSizer201->Add( m_staticText106, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	wxArrayString m_FormulaChoices;
-	m_Formula = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 225,-1 ), m_FormulaChoices, 0 );
+	m_Formula = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 250,-1 ), m_FormulaChoices, 0 );
 	m_Formula->SetSelection( 0 );
 	bSizer201->Add( m_Formula, 0, wxALL, 5 );
 
