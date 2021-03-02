@@ -168,7 +168,7 @@ void Item::Exportar(std::string nombrearchi, bool esunico){
 	
 }
 
-void Item::Importar(std::string nombrearchi, bool esunico, int posbinaria){
+bool Item::Importar(std::string nombrearchi){
 	/*
 	Pide el nombre del archivo, un booleano
 	que indica si se importa un item individual (true) o si la importación
@@ -181,39 +181,15 @@ void Item::Importar(std::string nombrearchi, bool esunico, int posbinaria){
 	Importa un item desde un archivo binario.
 	*/
 	
-	if(esunico){
-		std::ifstream archivo(nombrearchi,std::ios::binary);
-		
-		if (!archivo.is_open()){
-			// Checkea si se abrió el archivo
-		} else {
-			char straux[256],descaux[1000],detalleaux[1000];
-			archivo.read(straux,256);													
-			_nombre=straux;																
-			
-			archivo.read(detalleaux,1000);
-			_detalle=detalleaux;
-			
-			archivo.read(descaux,1000);
-			_desc=descaux;
-			
-			archivo.read(reinterpret_cast<char*>(&_cant),sizeof(int));	
-			
-			for(size_t i=0;i<11;i++) { 
-				float auxiliar;
-				archivo.read(reinterpret_cast<char*>(&auxiliar),sizeof(float));
-				IStats[i]=auxiliar;
-			}
-			archivo.read(reinterpret_cast<char*>(&equipado),sizeof(bool));	
-			archivo.close();
-		}
-	} else{
-		std::ifstream archivo(nombrearchi,std::ios::binary);
-		archivo.seekg(posbinaria);
-		
+	if(nombrearchi.find(".ite")==std::string::npos) return false;
+	std::ifstream archivo(nombrearchi,std::ios::binary);
+	
+	if (!archivo.is_open()){
+		return false;
+	} else {
 		char straux[256],descaux[1000],detalleaux[1000];
-		archivo.read(straux,256);
-		_nombre=straux;
+		archivo.read(straux,256);													
+		_nombre=straux;																
 		
 		archivo.read(detalleaux,1000);
 		_detalle=detalleaux;
@@ -230,7 +206,40 @@ void Item::Importar(std::string nombrearchi, bool esunico, int posbinaria){
 		}
 		archivo.read(reinterpret_cast<char*>(&equipado),sizeof(bool));	
 		archivo.close();
+		return true;
 	}
+}
 
 
+void Item::Importar(std::string nombrearchi, int posbinaria){
+	/*
+	Sobrecarga de Importar que se utiliza cuando el item esté dentro
+	de otro archivo.
+	Pide el nombre del archivo, y un entero que indica la posición
+	binaria en la que se debe comenzar a leer el item.
+	
+	Importa un item desde un archivo binario.
+	*/
+	std::ifstream archivo(nombrearchi,std::ios::binary);
+	archivo.seekg(posbinaria);
+	
+	char straux[256],descaux[1000],detalleaux[1000];
+	archivo.read(straux,256);
+	_nombre=straux;
+	
+	archivo.read(detalleaux,1000);
+	_detalle=detalleaux;
+	
+	archivo.read(descaux,1000);
+	_desc=descaux;
+	
+	archivo.read(reinterpret_cast<char*>(&_cant),sizeof(int));	
+	
+	for(size_t i=0;i<11;i++) { 
+		float auxiliar;
+		archivo.read(reinterpret_cast<char*>(&auxiliar),sizeof(float));
+		IStats[i]=auxiliar;
+	}
+	archivo.read(reinterpret_cast<char*>(&equipado),sizeof(bool));	
+	archivo.close();
 }

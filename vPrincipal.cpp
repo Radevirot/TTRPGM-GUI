@@ -42,8 +42,12 @@ void vPrincipal::OnClickCargar( wxCommandEvent& event )  {
 	*/
 	wxFileDialog cargarPartida(this,wxT("Elija un archivo de partida para cargar"),".\\datos","","Archivos PART (*.part)|*.part",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
 	if(cargarPartida.ShowModal()==wxID_OK){
-		m_partida->Cargar(wx_to_std(cargarPartida.GetPath()));
-		EndModal(1);
+		if(m_partida->Cargar(wx_to_std(cargarPartida.GetPath()))){
+			EndModal(1);
+		} else{
+			wxMessageBox(wxT("No se pudo abrir el archivo."),wxT("Error"),wxICON_ERROR);
+		}
+		
 	}
 }
 

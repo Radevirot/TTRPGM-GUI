@@ -182,15 +182,17 @@ void Partida::Guardar(std::string nombrearchi){
 	
 }
 
-void Partida::Cargar(std::string nombrearchi){
+bool Partida::Cargar(std::string nombrearchi){
 	/*
 	Pide un string para el archivo. Importa todos los datos de la partida, 
 	incluyendo los dados, personajes y sus items.
 	*/
+	
+	if(nombrearchi.find(".part")==std::string::npos) return false;
 	std::ifstream archivo(nombrearchi,std::ios::binary);
 	
 	if (!archivo.is_open()){
-		
+		return false;
 	} else {
 		size_t TamDado=(sizeof(int)*2)+16, TamItem=256+1000*2+sizeof(int)+sizeof(float)*11+sizeof(bool);
 		int CantPersonaje, CantDados, CantItems, posbinaria=sizeof(int)*3+256;
@@ -219,11 +221,12 @@ void Partida::Cargar(std::string nombrearchi){
 		
 		for(int i=0;i<CantItems;i++) { 
 			Item i1;
-			i1.Importar(nombrearchi, false, posbinaria);
+			i1.Importar(nombrearchi, posbinaria);
 			Ilist.push_back(i1);
 			posbinaria+=TamItem;
 		}
 		
+		return true;
 	}
 }
 

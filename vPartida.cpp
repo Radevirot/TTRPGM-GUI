@@ -130,10 +130,13 @@ void vPartida::OnMenuCargar( wxCommandEvent& event )  {
 	wxFileDialog cargarPartida(this,wxT("Elija un archivo de partida para cargar"),".\\datos","","Archivos PART (*.part)|*.part",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
 	if(cargarPartida.ShowModal()==wxID_OK){
 		Partida b("");
-		*m_partida=b;
-		m_partida->Cargar(wx_to_std(cargarPartida.GetPath()));
-		this->ActualizarNombre();
-		this->ActualizarListas();
+		if(b.Cargar(wx_to_std(cargarPartida.GetPath()))){
+			*m_partida=b;
+			this->ActualizarNombre();
+			this->ActualizarListas();
+		} else{
+			wxMessageBox(wxT("No se pudo abrir el archivo."),wxT("Error"),wxICON_ERROR);
+		}
 	}
 }
 
@@ -177,10 +180,14 @@ void vPartida::OnClickImportarP( wxCommandEvent& event )  {
 	wxFileDialog importarPersonaje(this,wxT("Elija un archivo de personaje para importar"),".\\datos","","Archivos PER (*.per)|*.per",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
 	if (importarPersonaje.ShowModal()==wxID_OK){
 		Personaje P;
-		P.Importar(wx_to_std(importarPersonaje.GetPath()));
-		m_partida->AgregarPersonaje(P);
-		m_partida->OrdenarPAlph();
-		this->ActualizarListas();
+		if (P.Importar(wx_to_std(importarPersonaje.GetPath()))){
+			m_partida->AgregarPersonaje(P);
+			m_partida->OrdenarPAlph();
+			this->ActualizarListas();
+		} else {
+			wxMessageBox(wxT("No se pudo abrir el archivo."),wxT("Error"),wxICON_ERROR);
+		}
+
 	}
 }
 
@@ -248,10 +255,13 @@ void vPartida::OnClickImportarI( wxCommandEvent& event )  {
 	wxFileDialog importarItem(this,wxT("Elija un archivo de item para importar"),".\\datos","","Archivos ITE (*.ite)|*.ite",wxFD_OPEN|wxFD_FILE_MUST_EXIST);
 	if (importarItem.ShowModal()==wxID_OK){
 		Item I;
-		I.Importar(wx_to_std(importarItem.GetPath()));
-		m_partida->AgregarItem(I);
-		m_partida->OrdenarIAlph();
-		this->ActualizarListas();
+		if (I.Importar(wx_to_std(importarItem.GetPath()))){
+			m_partida->AgregarItem(I);
+			m_partida->OrdenarIAlph();
+			this->ActualizarListas();
+		} else {
+			wxMessageBox(wxT("No se pudo abrir el archivo."),wxT("Error"),wxICON_ERROR);
+		}
 	}
 }
 

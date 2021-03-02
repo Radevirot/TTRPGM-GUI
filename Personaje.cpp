@@ -224,7 +224,7 @@ void Personaje::Exportar(std::string nombrearchi, bool esunico){
 	
 }
 
-void Personaje::Importar(std::string nombrearchi){
+bool Personaje::Importar(std::string nombrearchi){
 	/*
 	Pide el nombre del archivo.
 	
@@ -233,10 +233,11 @@ void Personaje::Importar(std::string nombrearchi){
 	
 	Importa los datos del personaje y sus items.
 	*/	
+	if(nombrearchi.find(".per")==std::string::npos) return false;
 	std::ifstream archivo(nombrearchi,std::ios::binary);
 	
 	if (!archivo.is_open()){
-		
+		return false;
 	} else {
 		char pstraux[256], pdetalleaux[1000];
 		archivo.read(pstraux,256);
@@ -267,10 +268,10 @@ void Personaje::Importar(std::string nombrearchi){
 		for(int i=0;i<cantitems;i++) { 
 			int itemcounter=tampers+(tamitem*i);
 			Item aux;
-			aux.Importar(nombrearchi,false,itemcounter);
+			aux.Importar(nombrearchi,itemcounter);
 			Inv.push_back(aux);
 		}
-		
+		return true;
 	}
 	
 }
@@ -317,7 +318,7 @@ void Personaje::Importar(std::string nombrearchi, int &posbinaria){
 	for(int i=0;i<CantItems;i++) { 
 		int itemcounter=posbinaria+tampers+(tamitem*i);
 		Item aux;
-		aux.Importar(nombrearchi,false,itemcounter);
+		aux.Importar(nombrearchi,itemcounter);
 		Inv.push_back(aux);
 	}
 	

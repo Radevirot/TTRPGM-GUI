@@ -38,7 +38,7 @@ public:
 	
 
 	void Guardar(std::string nombrearchi);
-	void Cargar(std::string nombrearchi);
+	bool Cargar(std::string nombrearchi);
 	
 	float Combate(int posp1, int posp2, int formula,float multiplicador,bool modificar);
 	

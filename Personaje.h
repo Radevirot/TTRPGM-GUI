@@ -40,7 +40,7 @@ public:
 	void OrdenarAlph();
 	
 	void Exportar(std::string nombrearchi,bool esunico=true);											//EXPORTAR IMPORTAR
-	void Importar(std::string nombrearchi);
+	bool Importar(std::string nombrearchi);
 	void Importar(std::string nombrearchi, int &posbinaria);
 	
 	bool operator< (Personaje p2) const;
