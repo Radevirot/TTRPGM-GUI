@@ -41,7 +41,6 @@ dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje &P, int posc) : D
 			I.EquiparToggle();
 			equipados.push_back(i);
 			m_Personaje.AgregarInv(I);
-			m_Personaje.RestarStatsDeItem(I);
 			P.RestarStatsDeItem(I);
 		}
 	}
@@ -50,14 +49,6 @@ dPersonaje::dPersonaje(wxWindow *parent, Partida *p, Personaje &P, int posc) : D
 		m_Personaje.BorrarItem(equipados[i]);
 		m_Personaje.OrdenarAlph();
 	}
-
-	int Tam=m_Inventario->GetCheckedItems(W);
-	for(int i=0;i<Tam;i++) {
-		int pos = W.Item(i);
-		Item I=m_Personaje.MostrarItem(pos);
-		m_Personaje.RestarStatsDeItem(I);
-	}
-	W.empty();
 	
 	m_Nombre->SetLabel(std_to_wx(P.ObtenerNombre()));
 	m_Nivel->SetValue(std_to_wx(std::to_string(P.ObtenerNivel())));
