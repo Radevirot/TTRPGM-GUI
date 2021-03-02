@@ -48,6 +48,8 @@ class Ventana_principal : public wxDialog
 		wxButton* m_Empezarpartida;
 		wxButton* m_Cargarpartida;
 		wxButton* m_Salir;
+		wxStaticText* m_staticText109;
+		wxStaticText* m_staticText108;
 
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnClickEmpezar( wxCommandEvent& event ) { event.Skip(); }
@@ -57,7 +59,7 @@ class Ventana_principal : public wxDialog
 
 	public:
 
-		Ventana_principal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Administrador de RPG de mesa"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 234,245 ), long style = wxDEFAULT_DIALOG_STYLE );
+		Ventana_principal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Administrador de RPG de mesa"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 229,312 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~Ventana_principal();
 
 };
