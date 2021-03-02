@@ -22,7 +22,7 @@ dInventario::dInventario(wxWindow *parent, Personaje &p, Partida *pa) : Dialogo_
 		Item I=m_partida->ObtenerItem(i);
 		m_ListaItems->Append(std_to_wx(I.ObtenerNombre()));
 	}
-	m_ListaItems->SetSelection(0);
+	if(m_partida->ObtenerCantidadDeItems()!=0) m_ListaItems->SetSelection(0);
 }
 
 dInventario::~dInventario() {
