@@ -12,7 +12,7 @@ dInventario::dInventario(wxWindow *parent, Personaje &p, Partida *pa) : Dialogo_
 	entries[2].Set(0,WXK_ESCAPE, wxID_HIGHEST+31);
 	wxAcceleratorTable accel(2, entries);
 	SetAcceleratorTable(accel);
-	Connect( wxID_HIGHEST+30 , wxEVT_MENU, wxCommandEventHandler( dInventario::OnListDobleClick ));
+	Connect( wxID_HIGHEST+30 , wxEVT_MENU, wxCommandEventHandler( dInventario::OnClickAgregar ));
 	Connect( wxID_HIGHEST+31 , wxEVT_MENU, wxCommandEventHandler( dInventario::OnClickCancelar ));
 	
 	m_Personaje=&p;
