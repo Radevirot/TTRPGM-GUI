@@ -215,7 +215,6 @@ void dPersonaje::OnApretarSupr( wxCommandEvent& event ){
 		int pos = m_Inventario->GetSelection();
 		if(pos!=wxNOT_FOUND){
 			m_Inventario->Delete(pos);
-			m_partida->EliminarItem(pos);
 			m_Personaje.BorrarItem(pos);
 			m_Personaje.OrdenarAlph();
 			it--;
