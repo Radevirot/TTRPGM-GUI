@@ -142,7 +142,9 @@ void vPartida::OnMenuCargar( wxCommandEvent& event )  {
 
 void vPartida::OnMenuAyuda( wxCommandEvent& event )  {
 	/* Opcion que envia al pdf donde se muestra una guia y los atajos. */
-	wxLaunchDefaultApplication(wxT(".\\ayuda.pdf"));
+	if (!wxLaunchDefaultApplication(wxT(".\\ayuda.pdf"))){
+		wxMessageBox(wxT("No se pudo abrir el archivo. Puede abrirlo manualmente\ndirigi\u00e9ndose al directorio de instalaci\u00F3n y abriendo \"ayuda.pdf\"."),wxT("Error"),wxICON_ERROR);
+	}
 }
 
 
